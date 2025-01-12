@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     private Vector2 input;
 
-    [SerializeField] Vector2 moveSpeed;
+    [SerializeField] Vector2 move_speed;
  
     void Start()
     {
@@ -86,15 +86,16 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        rb.linearVelocity = new Vector2(input.x, input.y).normalized * moveSpeed;
+        rb.linearVelocity = new Vector2(input.x, input.y).normalized * move_speed;
+
         return;
         if (input.x > 0)
         {
-            rb.linearVelocityX = moveSpeed.x;
+            rb.linearVelocityX = move_speed.x;
         }
         else if (input.x < 0)
         {
-            rb.linearVelocityX = -moveSpeed.x;
+            rb.linearVelocityX = -move_speed.x;
         }
         else
         {
@@ -103,11 +104,11 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxis("Vertical") > 0)
         {
-            rb.linearVelocityY = moveSpeed.y;
+            rb.linearVelocityY = move_speed.y;
         }
         else if (Input.GetAxis("Vertical") < 0)
         {
-            rb.linearVelocityY = -moveSpeed.y;
+            rb.linearVelocityY = -move_speed.y;
         }
         else
         {
