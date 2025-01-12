@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum Enemy {Idle, Move, Attack}
@@ -29,7 +30,20 @@ public class EnemyState : MonoBehaviour
 
     public void DefineState()
     {
-        if (data.attacking)
+        if (onPoint || attacking)
+        {
+            state = Enemy.Attack;
+        }
+        else if (targetSeen)
+        {
+            state = Enemy.Move;
+        }
+        else
+        {
+            state = Enemy.Idle;
+        }
+
+/*        if (data.attacking)
         {
             state = Enemy.Attack;
         }
@@ -49,7 +63,7 @@ public class EnemyState : MonoBehaviour
             anim.Play("Idle");
 
             state = Enemy.Idle;
-        }
+        }*/
 
     }
     

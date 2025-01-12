@@ -31,11 +31,34 @@ public class EnemyManager : MonoBehaviour
         combat.EstimateAttack(ref data.targetInAttackRange);
         chase.Observe(ref data.targetSeen);
 
+        switch(state)
+        {
+            case move:
+                {
+                    break;
+                }
+            case idle:
+                {
+                    break;
+                }
+            case attack:
+                {
+                    break;
+                }
+        }
+
         if (data.targetInAttackRange)
         {
             move.Stay(ref rb);
             StartCoroutine(combat.Attack());
 
+        }
+        else if (data.targetSeen)
+        {
+            combat.EstimateAttack(ref data.targetInAttackRange);
+            move.Chase(ref rb, chase.targetPosition);
+
+            anim.Play("Walk");
         }
     }
 
