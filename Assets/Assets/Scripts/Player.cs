@@ -3,63 +3,61 @@ using UnityEngine.U2D;
 
 public class Player : MonoBehaviour
 {
+    private PlayerHealth health;
+
     private Rigidbody2D rb;
-    private Animator anim;
     private SpriteRenderer sprite;
 
     private Vector2 input;
 
     [SerializeField] Vector2 move_speed;
- 
+
+    [SerializeField] private int startingHealths;
+    [HideInInspector] public int healths;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+
+        health = GetComponent<PlayerHealth>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+        {
+            if (!health.isInvincible)
+            {
+                Vector2 dir = collision.GetComponent<Rigidbody2D>().linearVelocity;
+                float force = collision.GetComponent<BulletManager>().force;
+
+                health.TakeDamage();
+                PushFromBullet(dir * force);
+            }
+
+            Destroy(collision.transform.gameObject);
+        }
     }
 
     void Update()
     {
         GetInput();
+        Flip();
     }
 
     private void FixedUpdate()
     {
-        Move();
-        Flip();
-        UpdateAnimationsVariables();
+        if (!health.isLostControl)
+        {
+            Move();
+        }
     }
 
-    void UpdateAnimationsVariables()
+    private void PushFromBullet(in Vector2 dir)
     {
-        if (rb.linearVelocityX != 0 || rb.linearVelocityY != 0)
-        {
-            anim.SetBool("moved", true);
-        }
-        else
-        {
-            anim.SetBool("moved", false);
-        }
-
-        anim.SetBool("front", false);
-        anim.SetBool("back", false);
-        anim.SetBool("side", false);
-
-        if (rb.linearVelocityY > 0)
-        {
-            anim.SetBool("back", true);
-        }
-        else if (rb.linearVelocityY < 0)
-        {
-            anim.SetBool("front", true);
-        }
-        else
-        {
-            anim.SetBool("side", true);
-        }
-
-        anim.SetInteger("x", Mathf.Abs(Sign(rb.linearVelocityX)));
-        anim.SetInteger("y", Sign(rb.linearVelocityY));
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(dir, ForceMode2D.Impulse);
     }
 
     private int Sign(float val)
@@ -116,6 +114,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void StopMoving()
+    {
+        rb.linearVelocity = Vector2.zero;
+    }
+    
     void Flip()
     {
         if (rb.linearVelocityX > 0 || rb.linearVelocityY != 0)
