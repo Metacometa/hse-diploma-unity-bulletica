@@ -7,17 +7,13 @@ public class TrooperCombat : MonoBehaviour
 
     [SerializeField] public float shootingRange;
     [SerializeField] public float minDistance;
-    [SerializeField] public float reloadSpeed;
-
-    [SerializeField] public float attackPreparing;
-    [SerializeField] public float attackExiting;
 
     [SerializeField] public float sight;
 
+
+    [SerializeField] private BaseWeapon weapon;
     [Header("Gun")]
     [SerializeField] public GameObject bullet;
-    [SerializeField] public float bulletSpeed;
-    [SerializeField] public float bulletForce;
 
     public float[] angles;
 
@@ -26,7 +22,7 @@ public class TrooperCombat : MonoBehaviour
         data = GetComponent<TrooperData>();
     }
 
-    public void Shoot()
+/*    public void Shoot()
     {
         Vector2 targetDirection = (data.target.position - transform.position).normalized;
 
@@ -38,28 +34,27 @@ public class TrooperCombat : MonoBehaviour
                 BulletManager bulletSettings = newBullet.GetComponent<BulletManager>() as BulletManager;
                 if (bulletSettings != null)
                 {
-                    bulletSettings.ShapeBullet(targetDirection, angle, bulletSpeed, bulletForce);
+                    bulletSettings.ShapeBullet(targetDirection, angle, weapon.bulletSpeed, weapon.bulletForce);
                 }
             }
         }
-    }
-
+    }*/
     public IEnumerator ShootManager()
     {
         data.attacking = true;
-        yield return new WaitForSeconds(attackPreparing);
+        yield return new WaitForSeconds(weapon.aimingSpeed);
 
-        Shoot();
+        weapon.Shoot(bullet, transform, data.target);
         StartCoroutine(Reloading());
 
-        yield return new WaitForSeconds(attackExiting);
+        yield return new WaitForSeconds(weapon.attackExiting);
 
         data.attacking = false;
     }
     public IEnumerator Reloading()
     {
         data.onReload = true;
-        yield return new WaitForSeconds(reloadSpeed);
+        yield return new WaitForSeconds(weapon.reloadSpeed);
         data.onReload = false;
     }
 }
