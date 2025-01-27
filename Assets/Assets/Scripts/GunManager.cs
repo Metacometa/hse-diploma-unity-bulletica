@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class GunManager : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class GunManager : MonoBehaviour
     [SerializeField] private float bulletsInMagazine;
 
     [SerializeField] private GameObject bullet;
+
+    [HideInInspector] public bool onReload;
+    [HideInInspector] public bool onCooldown;
 
     private void Start()
     {
@@ -47,5 +51,23 @@ public class GunManager : MonoBehaviour
     public void LoadGun()
     {
         source.LoadGun(ref bulletsInMagazine);
+    }
+
+    public IEnumerator Cooldown()
+    {
+        onCooldown = true;
+        yield return new WaitForSeconds(source.cooldown);
+
+        onCooldown = false;
+    }
+
+    public IEnumerator Reload()
+    {
+        onReload = true;
+        yield return new WaitForSeconds(source.reloadSpeed);
+
+        LoadGun();
+
+        onReload = false;
     }
 }

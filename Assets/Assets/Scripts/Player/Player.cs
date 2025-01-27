@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Bullet")
         {
             if (!health.isInvincible)
             {
@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
                 PushFromBullet(dir * force);
             }
 
-            Destroy(collision.transform.gameObject);
+            //Destroy(collision.transform.gameObject);
         }
     }
 
@@ -53,6 +53,25 @@ public class Player : MonoBehaviour
             Move();
             gun.rotateToTarget(input.aiming);
 
+
+            if (!input.attacking)
+            {
+                if (gun.isMagazineEmpty())
+                {
+                    if (!gun.onReload)
+                    {
+                        StartCoroutine(gun.Reload());
+                    }
+
+                }
+                else
+                {
+                    if (!gun.onCooldown && !gun.onReload)
+                    {
+                        StartCoroutine(gun.ShootManager());
+                    }
+                }
+            }
             if (input.attacking)
             {
                 gun.Shoot(input.aiming);

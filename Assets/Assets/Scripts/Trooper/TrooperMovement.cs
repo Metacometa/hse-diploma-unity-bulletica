@@ -5,6 +5,8 @@ public class TrooperMovement : MonoBehaviour
 {
     private TrooperManager manager;
 
+    [SerializeField] public float pushAwayTime;
+
     private void Start()
     {
         manager = GetComponent<TrooperManager>();        

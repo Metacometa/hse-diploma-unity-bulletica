@@ -7,8 +7,8 @@ public class TrooperData : MonoBehaviour
     /*[HideInInspector]*/ public bool targetSeen;
 
     [HideInInspector] public bool attacking;
-    [HideInInspector] public bool onReload;
-    [HideInInspector] public bool onCooldown;
+
+    [HideInInspector] public bool canMove = true;
 
     public Transform target;
 }

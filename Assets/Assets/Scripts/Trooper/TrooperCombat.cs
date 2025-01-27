@@ -4,7 +4,7 @@ using UnityEngine;
 public class TrooperCombat : MonoBehaviour
 {
     private TrooperData data;
-    [HideInInspector] public GunManager gun;
+    private GunManager gun;
 
     void Start()
     {
@@ -22,25 +22,6 @@ public class TrooperCombat : MonoBehaviour
 
         data.attacking = false;
 
-        StartCoroutine(Cooldown());
+        StartCoroutine(gun.Cooldown());
     }
-
-    public IEnumerator Cooldown()
-    {
-        data.onCooldown = true;
-        yield return new WaitForSeconds(gun.source.cooldown);
-
-        data.onCooldown = false;
-    }
-
-    public IEnumerator Reload()
-    {
-        data.onReload = true;
-        yield return new WaitForSeconds(gun.source.reloadSpeed);
-
-        gun.LoadGun();
-
-        data.onReload = false;
-    }
-
 }
