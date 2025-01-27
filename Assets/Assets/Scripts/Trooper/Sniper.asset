@@ -9,18 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327d7538f6b221246b1243d659b667ca, type: 3}
-  m_Name: Shotgun
+  m_Script: {fileID: 11500000, guid: 4d6b1880e51663a4d894ab8d45984b6e, type: 3}
+  m_Name: Sniper
   m_EditorClassIdentifier: 
-  weapon_name: Shotgun
-  reloadSpeed: 5
-  attackPreparing: 0
-  attackExiting: 1
-  bulletSpeed: 4
-  bulletForce: 2
-  bullets:
-  - angle: 30
-  - angle: 15
-  - angle: 0
-  - angle: -15
-  - angle: -30
+  enemy_name: Sniper
+  shootingRange: 15
+  minDistance: 15
+  sight: 15
+  shootingOnTheMove: 0
+  moveSpeed: 1.25

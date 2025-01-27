@@ -8,6 +8,8 @@ public class TrooperManager : MonoBehaviour
     private TrooperCombat combat;
     private TrooperMovement move;
 
+    [SerializeField] public EnemyProfile profile;
+
     [SerializeField] private LayerMask masks;
 
     void Start()
@@ -22,20 +24,35 @@ public class TrooperManager : MonoBehaviour
     void Update()
     {
         Observe();
-
     }
 
     void FixedUpdate()
     {
-        if (data.attacking || (!data.onReload && data.targetInShootingRange))
+        if (!data.attacking)
         {
-            move.StopMovement(ref rb);
-            if (!data.attacking)
+            if (combat.isMagazineEmpty())
             {
-                StartCoroutine(combat.ShootManager());
+                if (!data.onReload)
+                {
+                    StartCoroutine(combat.Reload());
+                }
+
+            }
+            else if (data.targetInShootingRange)
+            {
+                if (!data.onCooldown && !data.onReload)
+                {
+                    StartCoroutine(combat.ShootManager());
+                }
             }
         }
-        else if (data.targetSeen && Vector2.Distance(transform.position, data.target.position) > combat.minDistance)
+
+        if (data.targetSeen)
+        {
+            move.rotateToTarget(ref rb, data.target);
+        }
+
+        if ((profile.shootingOnTheMove || !data.attacking) && data.targetSeen && Vector2.Distance(transform.position, data.target.position) > profile.minDistance)
         {
             move.moveToTarget(ref rb, data.target);
         }
@@ -54,17 +71,31 @@ public class TrooperManager : MonoBehaviour
     void UpdateTargetInShootingRange()
     {
         Vector2 shootingDirection = (data.target.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, shootingDirection, combat.shootingRange, masks);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, shootingDirection, profile.shootingRange, masks);
 
-        data.targetInShootingRange = !(bool)hit;
+        if (hit)
+        {
+            data.targetInShootingRange = hit.transform.CompareTag("Player");
+        }
+        else
+        {
+            data.targetInShootingRange = false;
+        }
     }
 
     void UpdateTargetSeen()
     {
         Vector2 aimingDirection = (data.target.position - transform.position).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, aimingDirection, combat.sight, masks);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, aimingDirection, profile.sight, masks);
 
-        data.targetSeen = hit ? false : true;
+        if (hit)
+        {
+            data.targetSeen = hit.transform.CompareTag("Player");
+        }
+        else
+        {
+            data.targetSeen = false;
+        }
     }
 
     public void OnDrawGizmosSelected()
@@ -80,13 +111,13 @@ public class TrooperManager : MonoBehaviour
         if (combat != null)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawRay(transform.position, aimingDirection * combat.sight);
+            Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
 
             Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, shootingDirection * combat.shootingRange);
+            Gizmos.DrawRay(transform.position, shootingDirection * profile.shootingRange);
 
             Gizmos.color = Color.red;
-            Gizmos.DrawRay(transform.position, shootingDirection * combat.minDistance);
+            Gizmos.DrawRay(transform.position, shootingDirection * profile.minDistance);
         }
     }
 }

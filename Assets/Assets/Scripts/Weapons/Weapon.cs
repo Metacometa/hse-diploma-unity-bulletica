@@ -8,18 +8,12 @@ public abstract class Weapon : ScriptableObject
 
     public float aimingSpeed;
     public float attackExiting;
+    public float cooldown;
 
     [Header("Bullet")]
     public float bulletSpeed;
     public float bulletForce;
 
-    [Space]
-    public List<BulletProperties> bullets;
-    [System.Serializable]
-    public class BulletProperties
-    {
-        public float angle;
-    }
-
-    public abstract void Shoot(in GameObject bullet, in Transform from, in Transform to);
+    public abstract void Shoot(in GameObject bullet, in Transform from, in Transform to, ref float bulletsInMagazine);
+    public abstract void LoadGun(ref float bulletsInMagazine);
 }
