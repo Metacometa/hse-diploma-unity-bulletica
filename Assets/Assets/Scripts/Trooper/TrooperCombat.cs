@@ -3,31 +3,22 @@ using UnityEngine;
 
 public class TrooperCombat : MonoBehaviour
 {
-    TrooperData data;
-
-    [SerializeField] private Weapon weapon;
-    [Header("Gun")]
-    [SerializeField] public GameObject bullet;
-
-    [SerializeField] public float bulletsInMagazine;
-
-    private GameObject gun;
+    private TrooperData data;
+    [HideInInspector] public GunManager gun;
 
     void Start()
     {
         data = GetComponent<TrooperData>();
-        weapon.LoadGun(ref bulletsInMagazine);
-
-        gun = transform.GetChild(0).gameObject;
+        gun = GetComponent<GunManager>();
     }
 
     public IEnumerator ShootManager()
     {
         data.attacking = true;
 
-        yield return new WaitForSeconds(weapon.aimingSpeed);
+        yield return new WaitForSeconds(gun.source.aimingSpeed);
 
-        weapon.Shoot(bullet, transform, data.target, ref bulletsInMagazine);
+        gun.Shoot(data.target.position);
 
         data.attacking = false;
 
@@ -37,7 +28,7 @@ public class TrooperCombat : MonoBehaviour
     public IEnumerator Cooldown()
     {
         data.onCooldown = true;
-        yield return new WaitForSeconds(weapon.cooldown);
+        yield return new WaitForSeconds(gun.source.cooldown);
 
         data.onCooldown = false;
     }
@@ -45,15 +36,11 @@ public class TrooperCombat : MonoBehaviour
     public IEnumerator Reload()
     {
         data.onReload = true;
-        yield return new WaitForSeconds(weapon.reloadSpeed);
+        yield return new WaitForSeconds(gun.source.reloadSpeed);
 
-        weapon.LoadGun(ref bulletsInMagazine);
+        gun.LoadGun();
 
         data.onReload = false;
     }
 
-    public bool isMagazineEmpty()
-    {
-        return bulletsInMagazine <= 0; 
-    }
 }

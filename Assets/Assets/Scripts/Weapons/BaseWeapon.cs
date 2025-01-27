@@ -12,13 +12,13 @@ public class BaseWeapon : Weapon
         public float angle;
     }
 
-    public override void Shoot(in GameObject bullet, in Transform from, in Transform to, ref float bulletsInMagazine)
+    public override void Shoot(in GameObject bullet, in Vector2 from, in Vector2 to, ref float bulletsInMagazine)
     {
-        Vector2 targetDirection = (to.position - from.position).normalized;
+        Vector2 targetDirection = (to - from).normalized;
 
         foreach (BulletProperties bulletProps in bullets)
         {
-            GameObject newBullet = Instantiate(bullet, from.position, from.rotation) as GameObject;
+            GameObject newBullet = Instantiate(bullet, from, Quaternion.identity) as GameObject;
             if (newBullet != null)
             {
                 BulletManager bulletSettings = newBullet.GetComponent<BulletManager>() as BulletManager;
@@ -29,8 +29,7 @@ public class BaseWeapon : Weapon
             }
         }
 
-
-        bulletsInMagazine = 0;
+        bulletsInMagazine -= bullets.Count;
     }
 
     public override void LoadGun(ref float bulletsInMagazine)

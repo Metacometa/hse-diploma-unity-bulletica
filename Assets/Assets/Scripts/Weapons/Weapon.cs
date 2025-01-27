@@ -14,6 +14,6 @@ public abstract class Weapon : ScriptableObject
     public float bulletSpeed;
     public float bulletForce;
 
-    public abstract void Shoot(in GameObject bullet, in Transform from, in Transform to, ref float bulletsInMagazine);
+    public abstract void Shoot(in GameObject bullet, in Vector2 from, in Vector2 to, ref float bulletsInMagazine);
     public abstract void LoadGun(ref float bulletsInMagazine);
 }

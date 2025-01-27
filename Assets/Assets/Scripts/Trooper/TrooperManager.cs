@@ -30,7 +30,7 @@ public class TrooperManager : MonoBehaviour
     {
         if (!data.attacking)
         {
-            if (combat.isMagazineEmpty())
+            if (combat.gun.isMagazineEmpty())
             {
                 if (!data.onReload)
                 {
@@ -52,7 +52,9 @@ public class TrooperManager : MonoBehaviour
             move.rotateToTarget(ref rb, data.target);
         }
 
-        if ((profile.shootingOnTheMove || !data.attacking) && data.targetSeen && Vector2.Distance(transform.position, data.target.position) > profile.minDistance)
+        if ((profile.shootingOnTheMove || !data.attacking) 
+            && data.targetSeen 
+            && Vector2.Distance(transform.position, data.target.position) > profile.minDistance)
         {
             move.moveToTarget(ref rb, data.target);
         }

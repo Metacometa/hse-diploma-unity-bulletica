@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.U2D;
 
 public class Player : MonoBehaviour
 {
     private PlayerHealth health;
+    private PlayerInput input;
+    private GunManager gun;
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-
-    private Vector2 input;
 
     [SerializeField] Vector2 move_speed;
 
@@ -21,6 +20,8 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         health = GetComponent<PlayerHealth>();
+        input = GetComponent<PlayerInput>();
+        gun = GetComponent<GunManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -42,7 +43,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        GetInput();
         Flip();
     }
 
@@ -51,6 +51,12 @@ public class Player : MonoBehaviour
         if (!health.isLostControl)
         {
             Move();
+            gun.rotateToTarget(input.aiming);
+
+            if (input.attacking)
+            {
+                gun.Shoot(input.aiming);
+            }
         }
     }
 
@@ -76,42 +82,11 @@ public class Player : MonoBehaviour
         }
     }
 
-    void GetInput()
-    {
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
-    }
+
 
     void Move()
     {
-        rb.linearVelocity = new Vector2(input.x, input.y).normalized * move_speed;
-
-        return;
-        if (input.x > 0)
-        {
-            rb.linearVelocityX = move_speed.x;
-        }
-        else if (input.x < 0)
-        {
-            rb.linearVelocityX = -move_speed.x;
-        }
-        else
-        {
-            rb.linearVelocityX = 0;
-        }
-
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            rb.linearVelocityY = move_speed.y;
-        }
-        else if (Input.GetAxis("Vertical") < 0)
-        {
-            rb.linearVelocityY = -move_speed.y;
-        }
-        else
-        {
-            rb.linearVelocityY = 0;
-        }
+        rb.linearVelocity = new Vector2(input.movement.x, input.movement.y).normalized * move_speed;
     }
 
     public void StopMoving()
