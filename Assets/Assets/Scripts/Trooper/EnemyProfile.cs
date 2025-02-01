@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyProfile", menuName = "Scriptable Objects/Enemy")]
 public class EnemyProfile : ScriptableObject
 {
-    [SerializeField] public string enemy_name;
+    [SerializeField] public string enemyName;
 
     [SerializeField] public float shootingRange;
     [SerializeField] public float minDistance;

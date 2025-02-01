@@ -88,7 +88,6 @@ public class TrooperManager : MonoBehaviour
             float force = collision.GetComponent<BulletManager>().force;
             PushFromBullet(dir * force);
 
-            Debug.Log("Kek");
             //Destroy(collision.transform.gameObject);
         }
     }

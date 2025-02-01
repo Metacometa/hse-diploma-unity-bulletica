@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
                 {
                     if (!gun.onCooldown && !gun.onReload)
                     {
-                        StartCoroutine(gun.ShootManager());
+                        //StartCoroutine(gun.ShootManager());
                     }
                 }
             }
