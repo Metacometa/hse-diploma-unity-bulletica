@@ -1,0 +1,43 @@
+name: Build WebGL
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-webgl:
+    name: Build WebGL
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Cache Library Folder
+        uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-WebGL-${{ github.sha }}
+          restore-keys: |
+            Library-WebGL-
+
+      - name: Get Unity License
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        run: |
+          if [ -z "$UNITY_LICENSE" ]; then
+            echo "Unity license is missing!"
+            exit 1
+          fi
+
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v2
+        with:
+          projectPath: .
+          targetPlatform: WebGL
+
+      - name: Upload WebGL Build
+        uses: actions/upload-artifact@v3
+        with:
+          name: WebGL-Build
+          path: build/WebGL
