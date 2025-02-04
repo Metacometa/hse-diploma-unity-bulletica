@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Cache Library Folder
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: Library
           key: Library-WebGL-${{ github.sha }}
@@ -31,13 +31,13 @@ jobs:
           fi
 
       - name: Build WebGL
-        uses: game-ci/unity-builder@v2
+        uses: game-ci/unity-builder@v4
         with:
           projectPath: .
           targetPlatform: WebGL
 
       - name: Upload WebGL Build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: WebGL-Build
           path: build/WebGL
