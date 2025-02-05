@@ -36,15 +36,15 @@ public class Enemy : Gunman, IObservable
             {
                 if (!shooting.onCooldown && !shooting.onReload)
                 {
-                    shooting.ShootingManager(target.target.position);
+                    //shooting.ShootingManager(target.target.position);
                 }
             }
         }
 
         if (target.targetSeen)
         {
-            Vector2 dir = (target.target.position - transform.position).normalized;
-            shooting.RotateGun(dir);
+/*            Vector2 dir = (target.target.position - transform.position).normalized;
+            shooting.RotateGun(dir);*/
         }
 
         if (move.canMove)
@@ -53,7 +53,7 @@ public class Enemy : Gunman, IObservable
                 && target.targetSeen
                 && Vector2.Distance(transform.position, target.target.position) > profile.minDistance)
             {
-                Vector2 dir = (target.target.position - transform.position).normalized;
+                Vector2 dir = target.target.position - transform.position;
                 move.Move(ref rb, dir);
             }
             else
@@ -70,7 +70,7 @@ public class Enemy : Gunman, IObservable
 
     public void Observe()
     {
-        Vector2 dir = (target.target.position - transform.position).normalized;
+        Vector2 dir = target.target.position - transform.position;
 
         LookToPoint(dir, profile.sight, masks, ref target.targetSeen);
         LookToPoint(dir, profile.shootingRange, masks, ref canShoot);
@@ -78,7 +78,7 @@ public class Enemy : Gunman, IObservable
 
     public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, length, masks);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, length, masks);
 
         if (hit)
         {

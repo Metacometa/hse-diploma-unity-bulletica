@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInputs : MonoBehaviour
 {
     [HideInInspector] public Vector2 aiming;
     [HideInInspector] public Vector2 movement;

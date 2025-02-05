@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerOld : MonoBehaviour
 {
     private PlayerHealth health;
-    private PlayerInput input;
+    private PlayerInputs input;
     private GunManager gun;
 
     private Rigidbody2D rb;
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         health = GetComponent<PlayerHealth>();
-        input = GetComponent<PlayerInput>();
+        input = GetComponent<PlayerInputs>();
         gun = GetComponent<GunManager>();
     }
 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!health.isLostControl)
+/*        if (!health.isLostControl)
         {
             Move();
             gun.rotateToTarget(input.aiming);
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
             {
                 gun.Shoot(input.aiming);
             }
-        }
+        }*/
     }
 
     private void PushFromBullet(in Vector2 dir)
@@ -101,11 +101,9 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
     void Move()
     {
-        rb.linearVelocity = new Vector2(input.movement.x, input.movement.y).normalized * move_speed;
+        //rb.linearVelocity = new Vector2(input.movement.x, input.movement.y).normalized * move_speed;    
     }
 
     public void StopMoving()

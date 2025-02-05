@@ -17,7 +17,7 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 
     public void Move(ref Rigidbody2D rb, in Vector2 dir)
     {
-        rb.linearVelocity = dir * moveSpeed;
+        rb.linearVelocity = dir.normalized * moveSpeed;
     }
 
     public void StopMovement(ref Rigidbody2D rb)

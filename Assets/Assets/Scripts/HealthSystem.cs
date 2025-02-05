@@ -13,7 +13,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (player != null)
         {
-            int playerHealth = player.GetComponent<PlayerHealth>().healths;
+            int playerHealth = player.GetComponent<BaseHealth>().healthPoints;
 
             while (playerHealth != drawnHearts)
             {
