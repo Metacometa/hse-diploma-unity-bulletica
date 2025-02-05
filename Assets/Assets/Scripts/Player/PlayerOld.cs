@@ -1,14 +1,13 @@
 using UnityEngine;
-using UnityEngine.U2D;
 
-public class Player : MonoBehaviour
+public class PlayerOld : MonoBehaviour
 {
     private PlayerHealth health;
+    private PlayerInputs input;
+    private GunManager gun;
 
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-
-    private Vector2 input;
 
     [SerializeField] Vector2 move_speed;
 
@@ -21,11 +20,13 @@ public class Player : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         health = GetComponent<PlayerHealth>();
+        input = GetComponent<PlayerInputs>();
+        gun = GetComponent<GunManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Bullet")
         {
             if (!health.isInvincible)
             {
@@ -36,22 +37,46 @@ public class Player : MonoBehaviour
                 PushFromBullet(dir * force);
             }
 
-            Destroy(collision.transform.gameObject);
+            //Destroy(collision.transform.gameObject);
         }
     }
 
     void Update()
     {
-        GetInput();
         Flip();
     }
 
     private void FixedUpdate()
     {
-        if (!health.isLostControl)
+/*        if (!health.isLostControl)
         {
             Move();
-        }
+            gun.rotateToTarget(input.aiming);
+
+
+            if (!input.attacking)
+            {
+                if (gun.isMagazineEmpty())
+                {
+                    if (!gun.onReload)
+                    {
+                        StartCoroutine(gun.Reload());
+                    }
+
+                }
+                else
+                {
+                    if (!gun.onCooldown && !gun.onReload)
+                    {
+                        //StartCoroutine(gun.ShootManager());
+                    }
+                }
+            }
+            if (input.attacking)
+            {
+                gun.Shoot(input.aiming);
+            }
+        }*/
     }
 
     private void PushFromBullet(in Vector2 dir)
@@ -76,42 +101,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    void GetInput()
-    {
-        input.x = Input.GetAxisRaw("Horizontal");
-        input.y = Input.GetAxisRaw("Vertical");
-    }
-
     void Move()
     {
-        rb.linearVelocity = new Vector2(input.x, input.y).normalized * move_speed;
-
-        return;
-        if (input.x > 0)
-        {
-            rb.linearVelocityX = move_speed.x;
-        }
-        else if (input.x < 0)
-        {
-            rb.linearVelocityX = -move_speed.x;
-        }
-        else
-        {
-            rb.linearVelocityX = 0;
-        }
-
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            rb.linearVelocityY = move_speed.y;
-        }
-        else if (Input.GetAxis("Vertical") < 0)
-        {
-            rb.linearVelocityY = -move_speed.y;
-        }
-        else
-        {
-            rb.linearVelocityY = 0;
-        }
+        //rb.linearVelocity = new Vector2(input.movement.x, input.movement.y).normalized * move_speed;    
     }
 
     public void StopMoving()

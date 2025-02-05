@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private Player player;
+    private PlayerOld player;
 
     private SpriteRenderer sprite;
     private Color startColor;
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        player = GetComponent<Player>();
+        player = GetComponent<PlayerOld>();
 
         sprite = GetComponent<SpriteRenderer>();
 

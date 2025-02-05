@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TrooperManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class TrooperManager : MonoBehaviour
     private TrooperData data;
     private TrooperCombat combat;
     private TrooperMovement move;
+    private GunManager gun;
 
     [SerializeField] public EnemyProfile profile;
 
@@ -19,6 +21,7 @@ public class TrooperManager : MonoBehaviour
         data = GetComponent<TrooperData>();    
         combat = GetComponent<TrooperCombat>();
         move = GetComponent<TrooperMovement>();
+        gun = GetComponent<GunManager>();
     }
 
     void Update()
@@ -30,17 +33,17 @@ public class TrooperManager : MonoBehaviour
     {
         if (!data.attacking)
         {
-            if (combat.isMagazineEmpty())
+            if (gun.isMagazineEmpty())
             {
-                if (!data.onReload)
+                if (!gun.onReload)
                 {
-                    StartCoroutine(combat.Reload());
+                    StartCoroutine(gun.Reload());
                 }
 
             }
             else if (data.targetInShootingRange)
             {
-                if (!data.onCooldown && !data.onReload)
+                if (!gun.onCooldown && !gun.onReload)
                 {
                     StartCoroutine(combat.ShootManager());
                 }
@@ -52,14 +55,58 @@ public class TrooperManager : MonoBehaviour
             move.rotateToTarget(ref rb, data.target);
         }
 
-        if ((profile.shootingOnTheMove || !data.attacking) && data.targetSeen && Vector2.Distance(transform.position, data.target.position) > profile.minDistance)
+        if (data.canMove)
         {
-            move.moveToTarget(ref rb, data.target);
+            if ((profile.shootingOnTheMove || !data.attacking)
+                && data.targetSeen
+                && Vector2.Distance(transform.position, data.target.position) > profile.minDistance)
+            {
+                move.moveToTarget(ref rb, data.target);
+            }
+            else
+            {
+                move.StopMovement(ref rb);
+            }
         }
-        else
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bullet")
         {
-            move.StopMovement(ref rb);
+    /*        if (!health.isInvincible)
+            {
+                Vector2 dir = collision.GetComponent<Rigidbody2D>().linearVelocity;
+                float force = collision.GetComponent<BulletManager>().force;
+
+                health.TakeDamage();
+                PushFromBullet(dir * force);
+            }*/
+
+            Vector2 dir = collision.GetComponent<Rigidbody2D>().linearVelocity;
+            float force = collision.GetComponent<BulletManager>().force;
+            PushFromBullet(dir * force);
+
+            //Destroy(collision.transform.gameObject);
         }
+    }
+
+    private void PushFromBullet(in Vector2 dir)
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(dir, ForceMode2D.Impulse);
+
+        StartCoroutine(PushAway());
+    }
+
+    IEnumerator PushAway()
+    {
+        data.canMove = false;
+
+        yield return new WaitForSeconds(move.pushAwayTime);
+
+        data.canMove = true;
     }
 
     void Observe()
