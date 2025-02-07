@@ -31,7 +31,7 @@ public class Gunman : BaseCharacter
             shimmer.ShimmerManager();
 
             Vector2 dir = collision.GetComponent<Rigidbody2D>().linearVelocity;
-            float force = collision.GetComponent<BulletManager>().force;
+            float force = collision.GetComponent<BaseBullet>().force;
 
             move.PushAway(ref rb, dir * force);
         }

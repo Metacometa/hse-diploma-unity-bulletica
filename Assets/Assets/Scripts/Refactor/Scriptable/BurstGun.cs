@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "OneShotWeapon", menuName = "Scriptable Objects/Weapons/OneShotWeapon")]
-public class OneShotWeapon : Weapon
+[CreateAssetMenu(fileName = "BurstGun", menuName = "Scriptable Objects/Guns/Burst")]
+public class BurstGun : BaseGun
 {
-    [SerializeField] public float magazineCapacity;
+    [SerializeField] protected int magazineCapacity;
 
     public override void Shoot(in GameObject bullet, in Vector2 from, in Vector2 to, ref float bulletsInMagazine)
     {
@@ -13,18 +13,23 @@ public class OneShotWeapon : Weapon
         GameObject newBullet = Instantiate(bullet, from, Quaternion.identity) as GameObject;
         if (newBullet != null)
         {
-            BulletManager bulletSettings = newBullet.GetComponent<BulletManager>() as BulletManager;
+            BaseBullet bulletSettings = newBullet.GetComponent<BaseBullet>() as BaseBullet;
             if (bulletSettings != null)
             {
-                bulletSettings.ShapeBullet(targetDirection, 0, bulletSpeed, bulletForce);
+                bulletSettings.ShapeBullet(targetDirection, 0);
             }
         }
 
         bulletsInMagazine--;
     }
 
-    public override void LoadGun(ref float bulletsInMagazine)
+    public override void LoadGun(ref float bulletsInMagazine, ref float magazineCapacity)
     {
         bulletsInMagazine = magazineCapacity;
+    }
+
+    public override int getMagazineCapacity()
+    {
+        return magazineCapacity;
     }
 }

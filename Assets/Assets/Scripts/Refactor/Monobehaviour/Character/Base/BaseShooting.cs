@@ -8,9 +8,10 @@ public class BaseShooting : MonoBehaviour, IShootable
     private Transform gun;
     private Transform muzzle;
 
-    public Weapon source;
+    public BaseGun source;
 
     [SerializeField] private float bulletsInMagazine;
+    private float magazineCapacity;
 
     [SerializeField] private GameObject bullet;
 
@@ -23,7 +24,8 @@ public class BaseShooting : MonoBehaviour, IShootable
         gun = transform.GetChild(0);
         muzzle = gun.transform.GetChild(0);
 
-        source.LoadGun(ref bulletsInMagazine);
+        magazineCapacity = source.getMagazineCapacity();
+        source.LoadGun(ref bulletsInMagazine, ref magazineCapacity);
     }
 
     public void ShootingManager(in Vector2 to)
@@ -58,7 +60,7 @@ public class BaseShooting : MonoBehaviour, IShootable
         yield return new WaitForSeconds(source.reloadSpeed);
         onReload = false;
 
-        source.LoadGun(ref bulletsInMagazine);
+        source.LoadGun(ref bulletsInMagazine, ref magazineCapacity);
     }
 
     public bool IsMagazineEmpty()

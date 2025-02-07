@@ -50,33 +50,35 @@ public class Player : Gunman
         move.Move(ref rb, input.moveDir);
         shooting.RotateGun(input.aimDir - (Vector2)transform.position);
 
-        if (!shooting.onAttack)
-        {
-            if (shooting.IsMagazineEmpty())
-            {
-                if (!shooting.onReload)
+        /*        if (!shooting.onAttack)
                 {
-                    shooting.ReloadManager();
-                }
+                    if (shooting.IsMagazineEmpty())
+                    {
+                        if (!shooting.onReload)
+                        {
+                            shooting.ReloadManager();
+                        }
 
-            }
-            else
-            {
-                if (!shooting.onCooldown && !shooting.onReload)
-                {
-                    //StartCoroutine(gun.ShootManager());
-                }
-            }
-        }
+                    }
+                    else
+                    {
+                        if (!shooting.onCooldown && !shooting.onReload)
+                        {
+                            //StartCoroutine(gun.ShootManager());
+                        }
+                    }
+                }*/
 
-        if (input.onAttackButton)
-        {
-            shooting.ShootingManager(input.aimDir);
-        }
     }
 
     protected override void Update() 
     {
         input.UpdateInput();
+
+        if (input.onAttackButton)
+        {
+            shooting.ShootingManager(input.aimDir);
+        }
+
     }
 }

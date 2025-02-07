@@ -4,5 +4,5 @@ public class BaseTargeting : MonoBehaviour
 {
     public Transform target;
 
-    [HideInInspector] public bool targetSeen;
+    /*[HideInInspector]*/ public bool targetSeen;
 }

@@ -5,7 +5,7 @@ public class GunManager : MonoBehaviour
 {
     private Transform gun;
     private Transform muzzle;
-    [SerializeField] public Weapon source;
+    [SerializeField] public BaseGun source;
 
     [SerializeField] private float bulletsInMagazine;
 
@@ -19,7 +19,8 @@ public class GunManager : MonoBehaviour
         gun = transform.GetChild(0);
         muzzle = gun.transform.GetChild(0);
 
-        source.LoadGun(ref bulletsInMagazine);
+
+        source.LoadGun(ref bulletsInMagazine, ref bulletsInMagazine);
     }
 
     public void rotateToTarget(in Transform target)
@@ -50,7 +51,7 @@ public class GunManager : MonoBehaviour
 
     public void LoadGun()
     {
-        source.LoadGun(ref bulletsInMagazine);
+        source.LoadGun(ref bulletsInMagazine, ref bulletsInMagazine);
     }
 
     public IEnumerator Cooldown()

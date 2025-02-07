@@ -18,35 +18,6 @@ public class Enemy : Gunman, IObservable
 
     protected override void FixedUpdate()
     {
-        if (health.healthPoints == 0)
-        {
-            death.Die(gameObject);
-        }
-
-        if (!shooting.onAttack)
-        {
-            if (shooting.IsMagazineEmpty())
-            {
-                if (!shooting.onReload)
-                {
-                    shooting.ReloadManager();
-                }
-            }
-            else if (canShoot)
-            {
-                if (!shooting.onCooldown && !shooting.onReload)
-                {
-                    //shooting.ShootingManager(target.target.position);
-                }
-            }
-        }
-
-        if (target.targetSeen)
-        {
-/*            Vector2 dir = (target.target.position - transform.position).normalized;
-            shooting.RotateGun(dir);*/
-        }
-
         if (move.canMove)
         {
             if ((profile.shootingOnTheMove || !shooting.onAttack)
@@ -66,6 +37,35 @@ public class Enemy : Gunman, IObservable
     protected override void Update()
     {
         Observe();
+
+        if (health.healthPoints == 0)
+        {
+            death.Die(gameObject);
+        }
+
+        if (!shooting.onAttack)
+        {
+            if (shooting.IsMagazineEmpty())
+            {
+                if (!shooting.onReload)
+                {
+                    shooting.ReloadManager();
+                }
+            }
+            else if (canShoot)
+            {
+                if (!shooting.onCooldown && !shooting.onReload)
+                {
+                    shooting.ShootingManager(target.target.position);
+                }
+            }
+        }
+
+        if (target.targetSeen)
+        {
+            Vector2 dir = (target.target.position - transform.position).normalized;
+            shooting.RotateGun(dir);
+        }
     }
 
     public void Observe()

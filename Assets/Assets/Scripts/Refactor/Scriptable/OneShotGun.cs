@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BaseWeapon", menuName = "Scriptable Objects/Weapons/BaseWeapon")]
-public class BaseWeapon : Weapon
+[CreateAssetMenu(fileName = "OneShotGun", menuName = "Scriptable Objects/Guns/OneShot")]
+public class OneShotGun : BaseGun
 {
     [Space]
+
     public List<BulletProperties> bullets;
-    [System.Serializable]
-    public class BulletProperties
+
+    [System.Serializable] public class BulletProperties
     {
-        public float angle;
+        public float angle; 
     }
 
     public override void Shoot(in GameObject bullet, in Vector2 from, in Vector2 to, ref float bulletsInMagazine)
@@ -21,19 +22,25 @@ public class BaseWeapon : Weapon
             GameObject newBullet = Instantiate(bullet, from, Quaternion.identity) as GameObject;
             if (newBullet != null)
             {
-                BulletManager bulletSettings = newBullet.GetComponent<BulletManager>() as BulletManager;
+                BaseBullet bulletSettings = newBullet.GetComponent<BaseBullet>() as BaseBullet;
                 if (bulletSettings != null)
                 {
-                    bulletSettings.ShapeBullet(targetDirection, bulletProps.angle, bulletSpeed, bulletForce);
+                    bulletSettings.ShapeBullet(targetDirection, bulletProps.angle);
                 }
             }
         }
 
-        bulletsInMagazine -= bullets.Count;
+        bulletsInMagazine = 0;
     }
 
-    public override void LoadGun(ref float bulletsInMagazine)
+    public override void LoadGun(ref float bulletsInMagazine, ref float magazineCapacity)
     {
         bulletsInMagazine = bullets.Count;
+        magazineCapacity = bullets.Count;
+    }
+
+    public override int getMagazineCapacity()
+    {
+        return bullets.Count;
     }
 }
