@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HomingBullet : BaseBullet, IHomingable
 {
-    private Transform target;
+    protected Transform target;
 
     public virtual void Start()
     {

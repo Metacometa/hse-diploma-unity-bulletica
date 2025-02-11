@@ -11,6 +11,11 @@ public class PerpendicularBullet : HomingBullet
         velocityChanged = false;
     }
 
+    public override void FixedUpdate()
+    {
+        Homing(target.position);
+    }
+
     public override void Homing(in Vector2 to)
     {
         Vector2 dirToPlayer = to - (Vector2)transform.position;
