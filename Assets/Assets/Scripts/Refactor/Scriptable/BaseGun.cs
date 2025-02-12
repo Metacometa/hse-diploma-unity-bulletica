@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public abstract class BaseGun : ScriptableObject
 {
     public string weapon_name;
+    public GameObject gun_object;
+
     public float reloadSpeed;
 
     public float aimingSpeed;

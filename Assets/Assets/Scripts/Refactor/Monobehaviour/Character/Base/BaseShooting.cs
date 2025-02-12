@@ -21,11 +21,36 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     void Start()
     {
-        gun = transform.GetChild(0);
-        muzzle = gun.transform.GetChild(0);
+        DeleteGun();
+        TakeGun();
 
         magazineCapacity = source.getMagazineCapacity();
         source.LoadGun(ref bulletsInMagazine, ref magazineCapacity);
+    }
+
+    void DeleteGun()
+    {
+        Transform[] transforms = GetComponentsInChildren<Transform>();
+
+        foreach (Transform t in transforms)
+        {
+            if (t.CompareTag("Gun"))
+            {
+                Destroy(t.gameObject);
+                break;
+            }
+        }
+    }
+
+    void TakeGun()
+    {
+        if (source.gun_object != null)
+        {
+            GameObject taken_gun = Instantiate(source.gun_object, transform);
+
+            gun = taken_gun.transform;
+            muzzle = taken_gun.transform.GetChild(0);
+        }
     }
 
     public void ShootingManager(in Vector2 to)

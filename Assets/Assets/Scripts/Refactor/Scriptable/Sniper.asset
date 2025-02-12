@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   weapon_name: Sniper
+  gun_object: {fileID: 8108018042923758592, guid: 83d42ed25ea50e446befc96c01ce0020, type: 3}
   reloadSpeed: 10
   aimingSpeed: 5
   attackExiting: 0
   cooldown: 0
-  bulletSpeed: 6
-  bulletForce: 4
   bullets:
   - angle: 0

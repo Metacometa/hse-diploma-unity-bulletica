@@ -32,6 +32,7 @@ public class Enemy : Gunman, IObservable
                 move.StopMovement(ref rb);
             }
         }
+
     }
 
     protected override void Update()
