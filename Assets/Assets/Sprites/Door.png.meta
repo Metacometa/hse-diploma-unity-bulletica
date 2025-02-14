@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f4b44a36c5ace1e4baba72b9087742a2
+guid: 5e621296b856164438e02f2b3f8175cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8153490592909578853
-    second: Tilemap_floor_0
+      213: 5213229242370633579
+    second: Door_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tilemap_floor_0
+      name: Door_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 919
-        width: 160
-        height: 160
+        x: 19
+        y: 33
+        width: 162
+        height: 133
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9da22a318bf8de80800000000000000
-      internalID: -8153490592909578853
+      spriteID: b6f2e24006c195840800000000000000
+      internalID: 5213229242370633579
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b36a8951562eebb4bac99f85de0c25a8
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tilemap_floor_0: -8153490592909578853
+      Door_0: 5213229242370633579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
