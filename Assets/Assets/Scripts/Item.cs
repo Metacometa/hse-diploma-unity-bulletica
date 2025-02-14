@@ -11,6 +11,6 @@ public class Item : MonoBehaviour
 
     void RotateSprite()
     {
-        transform.Rotate(new Vector3(0, rotationSpeed, 0));
+        transform.Rotate(new Vector3(0, rotationSpeed * Time.deltaTime, 0));
     }
 }
