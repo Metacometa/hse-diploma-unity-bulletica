@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Gun
   - Room
+  - WallFaker
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -46,11 +48,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Floor
     uniqueID: 727936085
-    locked: 0
-  - name: Foreground
-    uniqueID: 1503313917
     locked: 0
   - name: Bullet
     uniqueID: 1036492923
@@ -60,6 +59,15 @@ TagManager:
     locked: 0
   - name: Body
     uniqueID: 1712788617
+    locked: 0
+  - name: Doors
+    uniqueID: 2522461227
+    locked: 0
+  - name: Walls
+    uniqueID: 1503313917
+    locked: 0
+  - name: WallsFaker
+    uniqueID: 1693755449
     locked: 0
   m_RenderingLayers:
   - Default
