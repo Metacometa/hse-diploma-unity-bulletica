@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Bullet
   - Gun
+  - Room
   layers:
   - Default
   - TransparentFX
