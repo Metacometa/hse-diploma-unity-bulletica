@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
-public class ChamberManager : MonoBehaviour
+public class ChamberDoorsManager : MonoBehaviour
 {
     private List<Vector2> roomIntersectionPoints;
     [SerializeField] private float intersectionRadius;
@@ -36,7 +36,6 @@ public class ChamberManager : MonoBehaviour
                 }
             }
 
-            Debug.Log(i + " := " + wallsCounter + " " + doorCounter);
             if (i < walls.Count && i < doors.Count)
             {
                 if (wallsCounter == 2 || (doorCounter == 2 && wallsCounter == 1))
@@ -50,10 +49,15 @@ public class ChamberManager : MonoBehaviour
 
     public void GetDoors(ref List<Transform> doors)
     {
-        doors.Add(transform.Find("DoorControllerLeft"));
-        doors.Add(transform.Find("DoorControllerRight"));
-        doors.Add(transform.Find("DoorControllerUp"));
-        doors.Add(transform.Find("DoorControllerDown"));
+        Transform doorsTransform = transform.Find("Doors");
+
+        if (doorsTransform != null)
+        {
+            doors.Add(doorsTransform.Find("DoorControllerLeft"));
+            doors.Add(doorsTransform.Find("DoorControllerRight"));
+            doors.Add(doorsTransform.Find("DoorControllerUp"));
+            doors.Add(doorsTransform.Find("DoorControllerDown"));
+        }
     }
 
     public void GetWalls(ref List<Transform> walls)
@@ -76,6 +80,8 @@ public class ChamberManager : MonoBehaviour
         {
             Tilemap wallsTilemap = grid.Find("Walls").GetComponent<Tilemap>();
 
+            Debug.Log("Size:= " + wallsTilemap.size);
+
             if (wallsTilemap != null)
             {
                 roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(wallsTilemap.localBounds.min.x, 0));
@@ -89,9 +95,12 @@ public class ChamberManager : MonoBehaviour
 
     public void OnDrawGizmosSelected()
     {
-        foreach (Vector2 pos in roomIntersectionPoints)
+        if (roomIntersectionPoints != null)
         {
-            Gizmos.DrawWireSphere(pos, intersectionRadius);
+            foreach (Vector2 pos in roomIntersectionPoints)
+            {
+                Gizmos.DrawWireSphere(pos, intersectionRadius);
+            }
         }
     }
 }

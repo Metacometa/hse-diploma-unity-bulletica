@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] private Chamber[] chambers;
+    [SerializeField] private ChamberDoorsController[] chambers;
 
     public bool opening;
     
     void Start()
     {
-        chambers = GetComponentsInChildren<Chamber>();
+        chambers = GetComponentsInChildren<ChamberDoorsController>();
 
-        foreach (Chamber c in chambers)
+        foreach (ChamberDoorsController c in chambers)
         {
             c.WallToDoors();
         }
@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
 
     private void Update()
     {
-        foreach (Chamber c in chambers)
+        foreach (ChamberDoorsController c in chambers)
         {
             if (opening)
             {
