@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
 
         foreach (Chamber c in chambers)
         {
-            c.CheckIntersections();
+            c.WallToDoors();
         }
 
         opening = true;

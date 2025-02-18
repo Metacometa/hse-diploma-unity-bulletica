@@ -3073,6 +3073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3328302112497748037}
   - component: {fileID: 6943071367814820542}
+  - component: {fileID: 677904757339000506}
   m_Layer: 0
   m_Name: StartChamber
   m_TagString: Untagged
@@ -3112,14 +3113,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 061205e47c6802240856f6417dbca8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomIntersectionPoints: []
+  walls: []
+  doors: []
+--- !u!114 &677904757339000506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657337012660058969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ad363f208d3e249947c38afe74d15b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   intersectionRadius: 0.3
   mask:
     serializedVersion: 2
     m_Bits: 1024
-  walls: []
-  doors: []
-  doorOn: 
 --- !u!1 &7544419862893625422
 GameObject:
   m_ObjectHideFlags: 0
@@ -3874,7 +3885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_TagString
-      value: Door
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3712580586500212531, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3964,7 +3975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_TagString
-      value: Door
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3712580586500212531, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_LocalRotation.w
