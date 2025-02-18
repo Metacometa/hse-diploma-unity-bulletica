@@ -17,5 +17,5 @@ MonoBehaviour:
   reloadSpeed: 5
   aimingSpeed: 0
   attackExiting: 0
-  cooldown: 0.3
+  cooldown: 0.2
   magazineCapacity: 30

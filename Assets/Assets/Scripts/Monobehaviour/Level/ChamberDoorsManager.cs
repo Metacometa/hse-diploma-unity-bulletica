@@ -80,8 +80,6 @@ public class ChamberDoorsManager : MonoBehaviour
         {
             Tilemap wallsTilemap = grid.Find("Walls").GetComponent<Tilemap>();
 
-            Debug.Log("Size:= " + wallsTilemap.size);
-
             if (wallsTilemap != null)
             {
                 roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(wallsTilemap.localBounds.min.x, 0));

@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 1467533519333992501}
   - component: {fileID: 5528047629954386343}
   m_Layer: 8
-  m_Name: EnemyObject
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 4175426749805988311}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.82, y: 2.94, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1712788617
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 4810238299370959522, guid: 82ec6daa1aeef714d9b027e08037c267, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  targetTag: Player
   targetSeen: 0
 --- !u!114 &5528047629954386343
 MonoBehaviour:
@@ -280,11 +281,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7970323655853118513, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7970323655853118513, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.009
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7970323655853118513, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
       propertyPath: m_LocalPosition.z
