@@ -1,7 +1,7 @@
 using UnityEditor.Overlays;
 using UnityEngine;
 
-public class Doors : MonoBehaviour
+public class Door : MonoBehaviour
 {
     [SerializeField] private float openingSpeed;
     [SerializeField] private float closingSpeed;

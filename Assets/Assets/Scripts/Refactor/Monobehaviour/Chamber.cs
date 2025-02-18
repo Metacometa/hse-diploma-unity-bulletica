@@ -1,32 +1,67 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Chamber : MonoBehaviour
 {
-    [SerializeField] private List<Vector2> roomIntersectionPoints;
+    private List<Vector2> roomIntersectionPoints;
+
     [SerializeField] private float intersectionRadius;
     [SerializeField] private LayerMask mask;
 
     public List<Transform> walls;
     public List<Transform> doors;
 
-    public List<bool> on;
+    public List<bool> doorOn;
 
     void Start()
     {
         GetWalls();
         for (int i = 0; i < walls.Count; ++i)
         {
-            on.Add(true);
+            doorOn.Add(true);
         }
 
         GetDoors();
 
-        CheckIntersections();
+        Transform grid = transform.Find("Grid");
+        if (grid != null)
+        {
+            Tilemap wallsTilemap = grid.Find("Walls").GetComponent<Tilemap>();
+
+            if (wallsTilemap != null)
+            {
+                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(wallsTilemap.localBounds.min.x, 0));
+                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(wallsTilemap.localBounds.max.x, 0));
+
+                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(0, wallsTilemap.localBounds.max.y));
+                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(0, wallsTilemap.localBounds.min.y));
+            }
+
+/*            roomIntersectionPoints1.Add(new Vector2(wallsTilemap.size.x, 0));
+            wallsTilemap.localBounds*/
+        }
     }
 
-    void CheckIntersections()
+    public void OpenAllDoors()
+    {
+        foreach(Transform door in doors)
+        {
+            door.GetComponent<Door>().opening = true;
+        }
+    }
+
+    public void CloseAllDoors()
+    {
+        foreach (Transform door in doors)
+        {
+            door.GetComponent<Door>().opening = false;
+        }
+    }
+
+    public void CheckIntersections()
     {
         for (int i = 0; i < roomIntersectionPoints.Count; ++i)
         {
@@ -47,10 +82,18 @@ public class Chamber : MonoBehaviour
                 }
             }
 
-            if (wallsCounter == 2 || (doorCounter == 1 && wallsCounter == 1))
+            if (i < doorOn.Count)
             {
-                on[i] = false;
+                if (wallsCounter == 2 || (doorCounter == 1 && wallsCounter == 1))
+                {
+                    doorOn[i] = true;
+                }
+                else
+                {
+                    doorOn[i] = false;
+                }
             }
+
         }
     }
 
@@ -61,21 +104,21 @@ public class Chamber : MonoBehaviour
 
     void ToogleWalls()
     {
-        if (!(on.Count == walls.Count && on.Count == doors.Count))
+        if (!(doorOn.Count == walls.Count && doorOn.Count == doors.Count))
         {
             return;
         }
 
-        for (int i = 0; i < on.Count; ++i)
+        for (int i = 0; i < doorOn.Count; ++i)
         {
             if (walls[i] != null)
             {
-                walls[i].gameObject.SetActive(on[i]);
+                walls[i].gameObject.SetActive(!doorOn[i]);
             }
 
             if (doors[i] != null)
             {
-                doors[i].gameObject.SetActive(!on[i]);
+                doors[i].gameObject.SetActive(doorOn[i]);
             }
         }
     }
