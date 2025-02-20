@@ -3,12 +3,15 @@ using System.Collections.Generic;
 
 public abstract class BaseGun : ScriptableObject
 {
+    [Header("Basis")]
     public string weapon_name;
     public GameObject gun_object;
 
+    [Header("Reload")]
     public float reloadSpeed;
     public float rotationSpeed;
 
+    [Header("Attack")]
     public float aimingSpeed;
     public float attackExiting;
     public float cooldown;

@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BurstGun", menuName = "Scriptable Objects/Guns/Burst")]
 public class BurstGun : BaseGun
 {
+    [Header("Magazine")]
     [SerializeField] protected int magazineCapacity;
 
     public override void Shoot(in GameObject bullet, in Vector2 from, in Vector2 to, ref float bulletsInMagazine)

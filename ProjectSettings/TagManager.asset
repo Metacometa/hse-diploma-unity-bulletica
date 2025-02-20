@@ -24,7 +24,7 @@ TagManager:
   - EnemyHitbox
   - Obstacle
   - Bullet
-  - 
+  - Gun
   - 
   - 
   - 
@@ -51,11 +51,11 @@ TagManager:
   - name: Floor
     uniqueID: 727936085
     locked: 0
-  - name: Bullet
-    uniqueID: 1036492923
-    locked: 0
   - name: Gun
     uniqueID: 1316544445
+    locked: 0
+  - name: Bullet
+    uniqueID: 1036492923
     locked: 0
   - name: Body
     uniqueID: 1712788617

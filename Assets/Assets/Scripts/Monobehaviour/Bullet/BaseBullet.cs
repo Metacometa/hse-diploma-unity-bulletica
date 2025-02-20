@@ -13,7 +13,7 @@ public class BaseBullet : MonoBehaviour
         rb.linearVelocity = Quaternion.AngleAxis(angle, Vector3.forward) * dir * speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         Destroy(gameObject);
         /*        if (!collision.CompareTag("Player"))

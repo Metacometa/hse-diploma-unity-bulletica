@@ -22,41 +22,38 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     void Start()
     {
-        DeleteGun();
-        TakeGun();
+        gun = GetComponentInChildren<GunJointer>().transform;
+
+        ChangeGun();
+        PrepareGun(gun.gameObject);
 
         magazineCapacity = source.getMagazineCapacity();
         source.LoadGun(ref bulletsInMagazine, ref magazineCapacity);
     }
 
-    void DeleteGun()
-    {
-        Transform[] transforms = GetComponentsInChildren<Transform>();
 
-        foreach (Transform t in transforms)
-        {
-            if (t.CompareTag("Gun"))
-            {
-                Destroy(t.gameObject);
-                break;
-            }
-        }
-    }
-
-    void TakeGun()
+    void ChangeGun()
     {
+        gun.gameObject.SetActive(false);
+        Destroy(gun.gameObject);
+
         if (source.gun_object != null)
         {
             GameObject taken_gun = Instantiate(source.gun_object, transform);
 
-            Transform point = taken_gun.transform.Find("Point");
+            gun = taken_gun.transform;
+        }
+    }
 
-            if (point != null)
-            {
-                gun = taken_gun.transform;
-                bulletSpawn = point.transform.Find("BulletSpawn");
-                muzzle = point.transform.Find("Muzzle");
-            }
+    void PrepareGun(in GameObject gun_)
+    {
+        Transform point = gun_.transform.Find("Point");
+
+        if (point != null)
+        {
+            gun = gun_.transform;
+            bulletSpawn = point.transform.Find("BulletSpawn");
+            muzzle = point.transform.Find("Muzzle");
         }
     }
 
@@ -106,7 +103,13 @@ public class BaseShooting : MonoBehaviour, IShootable
 
         Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);// Quaternion.Euler(new Vector3(0, 0, angle));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, to, source.rotationSpeed * Time.deltaTime);
+    }
 
-        //transform.rotation = to;
+    public void RotateGunInstantly(in Vector2 dir)
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);// Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = to;
     }
 }

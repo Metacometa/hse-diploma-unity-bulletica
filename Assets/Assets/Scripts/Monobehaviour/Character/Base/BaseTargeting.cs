@@ -7,7 +7,7 @@ public class BaseTargeting : MonoBehaviour
 
     public bool targetSeen;
 
-    void Start()
+    public void SetTarget()
     {
         target = GameObject.FindGameObjectWithTag(targetTag).transform;
     }

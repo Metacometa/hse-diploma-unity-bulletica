@@ -13,7 +13,12 @@ public class Enemy : Gunman, IObservable
     protected override void Start()
     {
         base.Start();
+
         target = GetComponent<BaseTargeting>();
+        target.SetTarget();
+
+        Vector2 dir = (target.target.position - transform.position).normalized;
+        shooting.RotateGunInstantly(dir);
     }
 
     protected override void FixedUpdate()

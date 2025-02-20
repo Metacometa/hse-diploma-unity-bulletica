@@ -4,8 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "OneShotGun", menuName = "Scriptable Objects/Guns/OneShot")]
 public class OneShotGun : BaseGun
 {
-    [Space]
-
+    [Header("Magazine")]
     public List<BulletProperties> bullets;
 
     [System.Serializable] public class BulletProperties
