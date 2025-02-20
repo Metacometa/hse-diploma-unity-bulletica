@@ -57,7 +57,7 @@ public class Enemy : Gunman, IObservable
             {
                 if (!shooting.onCooldown && !shooting.onReload)
                 {
-                    shooting.ShootingManager(target.target.position);
+                    shooting.ShootingManager();
                 }
             }
         }

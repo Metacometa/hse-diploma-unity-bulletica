@@ -7,6 +7,7 @@ public abstract class BaseGun : ScriptableObject
     public GameObject gun_object;
 
     public float reloadSpeed;
+    public float rotationSpeed;
 
     public float aimingSpeed;
     public float attackExiting;

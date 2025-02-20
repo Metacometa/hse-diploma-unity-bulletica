@@ -77,7 +77,7 @@ public class Player : Gunman
 
         if (input.onAttackButton)
         {
-            shooting.ShootingManager(input.aimDir);
+            shooting.ShootingManager();
         }
 
     }

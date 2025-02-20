@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7970323655853118513}
   m_Layer: 8
-  m_Name: BaseGun
+  m_Name: MachineGun
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ SpriteRenderer:
   m_SortingLayerID: 1316544445
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2673809358596170579, guid: 2b592f3b00d33e845805515dd5e18e65, type: 3}
+  m_Sprite: {fileID: 7328056045838175250, guid: 1593faf0a16f0e64d8873298e340af47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

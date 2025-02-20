@@ -6,7 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 public class BaseShooting : MonoBehaviour, IShootable
 {
     private Transform gun;
-    private Transform muzzle;
+    public Transform muzzle;
+    public Transform bulletSpawn;
 
     public BaseGun source;
 
@@ -48,14 +49,20 @@ public class BaseShooting : MonoBehaviour, IShootable
         {
             GameObject taken_gun = Instantiate(source.gun_object, transform);
 
-            gun = taken_gun.transform;
-            muzzle = taken_gun.transform.GetChild(0);
+            Transform point = taken_gun.transform.Find("Point");
+
+            if (point != null)
+            {
+                gun = taken_gun.transform;
+                bulletSpawn = point.transform.Find("BulletSpawn");
+                muzzle = point.transform.Find("Muzzle");
+            }
         }
     }
 
-    public void ShootingManager(in Vector2 to)
+    public void ShootingManager()
     {
-        source.Shoot(bullet, muzzle.transform.position, to, ref bulletsInMagazine);
+        source.Shoot(bullet, bulletSpawn.transform.position, muzzle.transform.position, ref bulletsInMagazine);
 
         StartCoroutine(CooldownTimer());
     }
@@ -97,6 +104,9 @@ public class BaseShooting : MonoBehaviour, IShootable
     {
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);// Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, to, source.rotationSpeed * Time.deltaTime);
+
+        //transform.rotation = to;
     }
 }

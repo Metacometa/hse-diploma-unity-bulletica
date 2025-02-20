@@ -8,7 +8,7 @@ public interface IShootable
 
     public void RotateGun(in Vector2 to);
 
-    public void ShootingManager(in Vector2 to);
+    public void ShootingManager();
 
     public void ReloadManager();
 }

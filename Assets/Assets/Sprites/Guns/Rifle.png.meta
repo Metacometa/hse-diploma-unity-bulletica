@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 988290a4cc952f84cac0826faadeba9b
+guid: 03b6948890e96a64d92ccc6183e28e6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -125545900965436540
-    second: Bulletica tilemap_0
+      213: -9057444008558310320
+    second: Rifle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,133 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bulletica tilemap_0
+      name: Rifle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 980
-        width: 100
-        height: 100
+        x: 5
+        y: 97
+        width: 220
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: a3baff78897e04e48ab066da6533d3f0
-      internalID: 599696916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bulletica tilemap_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 980
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e42a4591ab4a0514db24eb98cb699c63
-      internalID: -1203100207
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bulletica tilemap_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 980
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 274dd7258b12f9d458d804ad7e14f131
-      internalID: -86812828
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bulletica tilemap_3
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 980
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e1fc0d7fbad59e468ec52e5863d118f
-      internalID: -135124557
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bulletica tilemap_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 880
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 924299a01cfd1fb48bfcc41aa7f5da25
-      internalID: 817020086
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bulletica tilemap_5
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 880
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 298e17578ad178e4587ac7a7d0d68b85
-      internalID: -1700344226
+      spriteID: 05c44e0a9ae7d4280800000000000000
+      internalID: -9057444008558310320
       vertices: []
       indices: 
       edges: []
@@ -261,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c59d31b3665834448b215ae75bea474f
+    spriteID: 411044d596de5b14a8294f2573ff80fb
     internalID: 0
     vertices: []
     indices: 
@@ -271,12 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bulletica tilemap_0: 599696916
-      Bulletica tilemap_1: -1203100207
-      Bulletica tilemap_2: -86812828
-      Bulletica tilemap_3: -135124557
-      Bulletica tilemap_4: 817020086
-      Bulletica tilemap_5: -1700344226
+      Rifle_0: -9057444008558310320
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
