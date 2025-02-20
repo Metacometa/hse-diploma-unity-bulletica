@@ -1,8 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class ChamberBuilder : MonoBehaviour
 {
@@ -17,20 +14,27 @@ public class ChamberBuilder : MonoBehaviour
 
         helper.GetWalls(ref walls);
         helper.GetDoors(ref doors);
-        helper.GetPoints();
-    }
+        //helper.GetPoints(ref doors);
 
-    private void Update()
+        OpenDoors();
+    }
+    public void OpenNeighboursDoors()
     {
-        helper.GetPoints();
+        foreach(Transform d in helper.GetDoorControllers())
+        {
+            d.GetComponent<Door>().opening = true;
+        }
     }
 
-    public void WallToDoors()
+    public void CloseNeighboursDoors()
     {
-        helper.WallsToDoors(ref walls, ref doors);
+        foreach (Transform d in helper.GetDoorControllers())
+        {
+            d.GetComponent<Door>().opening = false;
+        }
     }
 
-    public void OpenAllDoors()
+    public void OpenDoors()
     {
         foreach(Transform door in doors)
         {
@@ -38,11 +42,21 @@ public class ChamberBuilder : MonoBehaviour
         }
     }
 
-    public void CloseAllDoors()
+    public void CloseDoors()
     {
         foreach (Transform door in doors)
         {
             door.GetComponent<Door>().opening = false;
         }
     }
+    public void GetNearbyChambers()
+    {
+        helper.GetNearbyChambers();
+    }
+
+    public void WallToDoors()
+    {
+        helper.WallsToDoors(ref walls, ref doors);
+    }
+
 }

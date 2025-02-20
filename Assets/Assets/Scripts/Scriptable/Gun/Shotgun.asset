@@ -19,9 +19,10 @@ MonoBehaviour:
   aimingSpeed: 2
   attackExiting: 1
   cooldown: 3
+  maxSpreadAngle: 0
   bullets:
-  - angle: 30
   - angle: 15
+  - angle: 7
   - angle: 0
+  - angle: -7
   - angle: -15
-  - angle: -30

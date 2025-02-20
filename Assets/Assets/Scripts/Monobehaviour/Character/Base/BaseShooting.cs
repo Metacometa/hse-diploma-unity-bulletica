@@ -24,7 +24,7 @@ public class BaseShooting : MonoBehaviour, IShootable
     {
         gun = GetComponentInChildren<GunJointer>().transform;
 
-        ChangeGun();
+        //ChangeGun();
         PrepareGun(gun.gameObject);
 
         magazineCapacity = source.getMagazineCapacity();

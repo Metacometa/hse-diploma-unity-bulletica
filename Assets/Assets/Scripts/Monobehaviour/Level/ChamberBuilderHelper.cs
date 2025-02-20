@@ -1,18 +1,71 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using UnityEngine.UI;
 
 public class ChamberBuilderHelper : MonoBehaviour
 {
     public List<Vector2> roomIntersectionPoints;
-    [SerializeField] private float intersectionRadius;
+    [SerializeField] public float intersectionRadius;
 
-    [SerializeField] private LayerMask mask;
+    [SerializeField] public LayerMask mask;
 
-    private void Start()
+    public List<Transform> nearbyChambers;
+
+    void Start()
     {
-        roomIntersectionPoints = new List<Vector2>();
+        for (int i = 0; i < roomIntersectionPoints.Count; i++) 
+        {
+            roomIntersectionPoints[i] += (Vector2)transform.position;
+        }
+
+        //roomIntersectionPoints = new List<Vector2>();
+    }
+
+    public HashSet<Transform> GetDoorControllers()
+    {
+        HashSet<Transform> doorControllers = new HashSet<Transform>();
+
+        foreach (Vector2 v in roomIntersectionPoints)
+        {
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(v, intersectionRadius, Vector2.zero, 0, mask);
+
+            foreach(RaycastHit2D hit in hits)
+            {
+                if (hit.transform.tag == "Door")
+                {
+                    doorControllers.Add(hit.transform.parent);
+                }
+            }
+        }
+
+        return doorControllers;
+    }
+
+    public void GetNearbyChambers()
+    {
+        HashSet<Transform> neighbors = new HashSet<Transform>();
+
+        foreach (Vector2 v in roomIntersectionPoints)
+        {
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(v, intersectionRadius, Vector2.zero, 0, mask);
+
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.transform.tag == "Door")
+                {
+                    neighbors.Add(hit.transform.parent.parent.parent);
+                }
+            }
+        }
+
+        foreach(Transform t in neighbors)
+        { 
+            if (t != null && t != transform)
+            {
+                nearbyChambers.Add(t);
+            }
+
+        }
     }
 
     public void WallsToDoors(ref List<Transform> walls, ref List<Transform> doors)
@@ -73,23 +126,6 @@ public class ChamberBuilderHelper : MonoBehaviour
         }
     }
 
-    public void GetPoints()
-    {
-        Transform grid = transform.Find("Grid");
-        if (grid != null)
-        {
-            Tilemap wallsTilemap = grid.Find("Walls").GetComponent<Tilemap>();
-
-            if (wallsTilemap != null)
-            {
-                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(wallsTilemap.localBounds.min.x, 0));
-                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(wallsTilemap.localBounds.max.x, 0));
-
-                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(0, wallsTilemap.localBounds.max.y));
-                roomIntersectionPoints.Add((Vector2)wallsTilemap.transform.position + new Vector2(0, wallsTilemap.localBounds.min.y));
-            }
-        }
-    }
 
     public void OnDrawGizmosSelected()
     {

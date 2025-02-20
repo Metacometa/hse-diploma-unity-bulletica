@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
 
     private void Update()
     {
-        foreach (ChamberBuilder c in chambers)
+/*        foreach (ChamberBuilder c in chambers)
         {
             if (opening)
             {
@@ -31,6 +31,6 @@ public class Level : MonoBehaviour
             {
                 c.CloseAllDoors();
             }
-        }
+        }*/
     }
 }
