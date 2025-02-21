@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e49a7172a83e746bbb7bb715f97a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  builder: {fileID: 0}
+  doors: {fileID: 0}
   triggerTag: Player
 --- !u!1 &1942072720541037693
 GameObject:
@@ -1551,6 +1551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7751098408420409282}
+  - component: {fileID: 6556286275610262496}
   m_Layer: 0
   m_Name: level1_machinegun_trap_a
   m_TagString: Untagged
@@ -1576,6 +1577,19 @@ Transform:
   - {fileID: 8322046287700763900}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6556286275610262496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4151200435838736961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0ea6a6e705c8564aaddcda6dca48b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: {fileID: 0}
 --- !u!1 &4522024652325385738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,6 +3599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walls: []
   doors: []
+  enemies: {fileID: 0}
 --- !u!114 &5189377243769577892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3602,10 +3617,11 @@ MonoBehaviour:
   - {x: 6, y: 0}
   - {x: 0, y: 6}
   - {x: 0, y: -6}
-  intersectionRadius: 0.3
+  intersectionRadius: 1
   mask:
     serializedVersion: 2
     m_Bits: 1024
+  nearbyChambers: []
 --- !u!1 &8031485493387875803
 GameObject:
   m_ObjectHideFlags: 0

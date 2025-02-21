@@ -3,15 +3,13 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] private ChamberBuilder[] chambers;
-
     public bool opening;
     
     void Start()
     {
-        chambers = GetComponentsInChildren<ChamberBuilder>();
+        ChamberDoors[] doors = GetComponentsInChildren<ChamberDoors>();
 
-        foreach (ChamberBuilder c in chambers)
+        foreach (ChamberDoors c in doors)
         {
             c.WallToDoors();
         }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ChamberBuilderHelper : MonoBehaviour
+public class ChamberDoorsHelper : MonoBehaviour
 {
     public List<Vector2> roomIntersectionPoints;
     [SerializeField] public float intersectionRadius;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6b1880e51663a4d894ab8d45984b6e, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
-  enemy_name: Sniper
+  enemyName: 
   shootingRange: 15
-  minDistance: 15
+  approachedDistance: 4
   sight: 15
-  shootingOnTheMove: 0
+  shootingOnMove: 0
   moveSpeed: 1.25

@@ -1,82 +1,168 @@
 using UnityEngine;
+using EnemyState;
 
-public class Enemy : Gunman, IObservable
+public class Enemy : Gunman, IObservable, IEnemyStatable
 {
     public EnemyProfile profile;
 
-    private BaseTargeting target;
+    //EnemyState
+    public ActionState actionState;
+    public MotionState motionState;
 
-    public bool canShoot;
+    private BaseTargeting target;
+    public bool targetApproached;
+
+    public bool inShootingRange;
 
     [SerializeField] private LayerMask masks;
+
+    private bool onSleep;
 
     protected override void Start()
     {
         base.Start();
+        onSleep = true;
 
         target = GetComponent<BaseTargeting>();
         target.SetTarget();
+    }
 
-        Vector2 dir = (target.target.position - transform.position).normalized;
-        shooting.RotateGunInstantly(dir);
+    public void Wake()
+    {
+        onSleep = false;
     }
 
     protected override void FixedUpdate()
     {
-        if (!move.onPush)
+        if (onSleep)
         {
-            if ((profile.shootingOnTheMove || !onShooting)
-                && target.targetSeen
-                && Vector2.Distance(transform.position, target.target.position) > profile.minDistance)
-            {
+            return;
+        }
+
+        switch (motionState)
+        {
+            case MotionState.MoveToTarget:
                 Vector2 dir = target.target.position - transform.position;
                 move.Move(ref rb, dir);
-            }
-            else
-            {
+                break;
+            case MotionState.Stay:
                 move.StopMovement(ref rb);
-            }
-
-            if (shooting.IsMagazineEmpty())
-            {
-                if (!shooting.onReload)
-                {
-                    shooting.ReloadManager();
-                }
-            }
+                break;
+            case MotionState.Regroup:
+                move.StopMovement(ref rb);
+                break;
+            default:
+                move.StopMovement(ref rb);
+                break;
         }
     }
 
     protected override void Update()
     {
-        Observe();
+        if (onSleep)
+        {
+            Vector2 startDir = (target.target.position - transform.position).normalized;
+            shooting.RotateGunInstantly(startDir);
+            return;
+        }
 
         if (health.healthPoints == 0)
         {
             death.Die(gameObject);
         }
 
-        if (Vector2.Distance(transform.position, target.target.position) <= profile.shootingRange)
+        Observe();
+        UpdateState();
+
+        Vector2 dir = (target.target.position - transform.position).normalized;
+        shooting.RotateGun(dir);
+
+        switch (actionState)
         {
-            ShootingHandler();
+            case ActionState.Shoot:
+                ShootingHandler();
+
+                break;
+            case ActionState.Reload:
+                ReloadHandler();
+
+                break;
+            case ActionState.Idle:
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void UpdateState()
+    {
+        if (move.onPush)
+        {
+            actionState = ActionState.Stun;
+            motionState = MotionState.Stay;
+            return;
         }
 
-        if (target.targetSeen)
+        if (!shooting.IsMagazineEmpty())
         {
-            Vector2 dir = (target.target.position - transform.position).normalized;
-            shooting.RotateGun(dir);
+            actionState = GetShootingBehaviourState();
+            motionState = GetShootingMoveState();
+        }
+        else
+        {
+            actionState = ActionState.Reload;
+            motionState = MotionState.Regroup;
+        }
+
+    }
+    MotionState GetShootingMoveState()
+    {
+        if (!target.targetSeen || targetApproached)
+        {
+            return MotionState.Stay;
+        }
+        else if (inShootingRange)
+        {
+            if (profile.shootingOnMove)
+            {
+                return MotionState.MoveToTarget;
+            }
+            else
+            {
+                return MotionState.Stay;
+            }
+        }
+        else
+        {
+            return MotionState.MoveToTarget;
+        }
+    }
+
+    ActionState GetShootingBehaviourState()
+    {
+        if (inShootingRange)
+        {
+            return ActionState.Shoot;
+        }
+        else
+        {
+            return ActionState.Idle;
         }
     }
 
     void ShootingHandler()
     {
-
-        else if (canShoot)
+        if (!shooting.onCooldown && !shooting.onReload)
         {
-            if (!shooting.onCooldown && !shooting.onReload)
-            {
-                shooting.ShootingManager();
-            }
+            shooting.ShootingManager();
+        }
+    }
+
+    void ReloadHandler()
+    {
+        if (!shooting.onReload)
+        {
+            shooting.ReloadManager();
         }
     }
 
@@ -85,7 +171,8 @@ public class Enemy : Gunman, IObservable
         Vector2 dir = target.target.position - transform.position;
 
         LookToPoint(dir, profile.sight, masks, ref target.targetSeen);
-        LookToPoint(dir, profile.shootingRange, masks, ref canShoot);
+        LookToPoint(dir, profile.shootingRange, masks, ref inShootingRange);
+        LookToPoint(dir, profile.approachedDistance, masks, ref targetApproached);
     }
 
     public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
@@ -119,6 +206,6 @@ public class Enemy : Gunman, IObservable
         Gizmos.DrawRay(transform.position, shootingDirection * profile.shootingRange);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, shootingDirection * profile.minDistance);
+        Gizmos.DrawRay(transform.position, shootingDirection * profile.approachedDistance);
     }
 }

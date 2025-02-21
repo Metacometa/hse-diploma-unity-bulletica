@@ -4238,6 +4238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walls: []
   doors: []
+  enemies: {fileID: 0}
 --- !u!114 &5189377243769577892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4255,10 +4256,11 @@ MonoBehaviour:
   - {x: 9, y: 0}
   - {x: 0, y: 6}
   - {x: 0, y: -6}
-  intersectionRadius: 0.3
+  intersectionRadius: 1
   mask:
     serializedVersion: 2
     m_Bits: 1024
+  nearbyChambers: []
 --- !u!1001 &3055741806843946565
 PrefabInstance:
   m_ObjectHideFlags: 0

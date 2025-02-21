@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChamberBuilder : MonoBehaviour
+public class ChamberDoors : MonoBehaviour
 {
-    private ChamberBuilderHelper helper;
+    private ChamberDoorsHelper helper;
 
     public List<Transform> walls;
     public List<Transform> doors;
 
+    public Transform enemies;
+
     void Start()
     {
-        helper = GetComponent<ChamberBuilderHelper>();
+        helper = GetComponent<ChamberDoorsHelper>();
 
         helper.GetWalls(ref walls);
         helper.GetDoors(ref doors);
@@ -18,6 +20,7 @@ public class ChamberBuilder : MonoBehaviour
 
         OpenDoors();
     }
+
     public void OpenNeighboursDoors()
     {
         foreach(Transform d in helper.GetDoorControllers())

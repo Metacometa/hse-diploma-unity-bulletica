@@ -4,8 +4,6 @@ public class Gunman : BaseCharacter
 {
     protected BaseShooting shooting;
 
-    [HideInInspector] public bool onShooting;
-
     protected override void Start()
     {
         base.Start();

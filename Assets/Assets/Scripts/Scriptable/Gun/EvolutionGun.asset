@@ -15,7 +15,9 @@ MonoBehaviour:
   weapon_name: Evolution Gun
   gun_object: {fileID: 8108018042923758592, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
   reloadSpeed: 2
+  rotationSpeed: 1000
   aimingSpeed: 0
   attackExiting: 0
   cooldown: 0.15
+  maxSpreadAngle: 0
   magazineCapacity: 0

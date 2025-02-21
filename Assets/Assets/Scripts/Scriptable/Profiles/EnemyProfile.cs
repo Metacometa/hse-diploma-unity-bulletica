@@ -6,10 +6,10 @@ public class EnemyProfile : ScriptableObject
     [SerializeField] public string enemyName;
 
     [SerializeField] public float shootingRange;
-    [SerializeField] public float minDistance;
+    [SerializeField] public float approachedDistance;
     [SerializeField] public float sight;
 
-    [SerializeField] public bool shootingOnTheMove;
+    [SerializeField] public bool shootingOnMove;
 
     [SerializeField] public float moveSpeed;
 }

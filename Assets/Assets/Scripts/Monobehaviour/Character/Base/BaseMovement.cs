@@ -8,11 +8,11 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     [SerializeField] private float pushingAwayTime;
     [SerializeField] private float pushingAwayForce;
 
-    /*[HideInInspector]*/ public bool onPush;
+    [HideInInspector] public bool onPush;
 
     protected virtual void Start()
     {
-        onPush = true;
+        onPush = false;
     }
 
     public void Move(ref Rigidbody2D rb, in Vector2 dir)
@@ -35,10 +35,10 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 
     IEnumerator PushAwayManager()
     {
-        onPush = false;
+        onPush = true;
 
         yield return new WaitForSeconds(pushingAwayTime);
 
-        onPush = true;
+        onPush = false;
     }
 }

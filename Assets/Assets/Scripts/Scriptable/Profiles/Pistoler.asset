@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d6b1880e51663a4d894ab8d45984b6e, type: 3}
   m_Name: Pistoler
   m_EditorClassIdentifier: 
-  enemy_name: Pistoler
-  shootingRange: 6
-  minDistance: 4
+  enemyName: 
+  shootingRange: 10
+  approachedDistance: 6
   sight: 15
-  shootingOnTheMove: 1
+  shootingOnMove: 0
   moveSpeed: 1.25

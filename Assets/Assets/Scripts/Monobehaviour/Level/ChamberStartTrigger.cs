@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ChamberStartTrigger : MonoBehaviour
 {
-    public ChamberBuilder builder;
+    public ChamberDoors doors;
 
     [SerializeField] private string triggerTag;
 
@@ -11,15 +11,18 @@ public class ChamberStartTrigger : MonoBehaviour
     {
         Transform parent = transform.parent;
 
-        builder = parent.GetComponentInChildren<ChamberBuilder>();
+        doors = parent.GetComponentInChildren<ChamberDoors>();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(triggerTag))
         {
-            builder.CloseDoors();
-            builder.CloseNeighboursDoors();
+            doors.CloseDoors();
+            doors.CloseNeighboursDoors();
+
+            Transform parent = transform.parent;
+            parent.GetComponent<Chamber>().WakeEnemies();
 
             Destroy(GetComponent<Collider2D>());
         }
