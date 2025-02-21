@@ -18,7 +18,6 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     [HideInInspector] public bool onReload;
     [HideInInspector] public bool onCooldown;
-    [HideInInspector] public bool onAttack;
 
     void Start()
     {
@@ -30,7 +29,6 @@ public class BaseShooting : MonoBehaviour, IShootable
         magazineCapacity = source.getMagazineCapacity();
         source.LoadGun(ref bulletsInMagazine, ref magazineCapacity);
     }
-
 
     void ChangeGun()
     {

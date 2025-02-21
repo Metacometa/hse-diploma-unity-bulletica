@@ -4,6 +4,8 @@ public class Gunman : BaseCharacter
 {
     protected BaseShooting shooting;
 
+    [HideInInspector] public bool onShooting;
+
     protected override void Start()
     {
         base.Start();
@@ -16,7 +18,7 @@ public class Gunman : BaseCharacter
             death.Die(gameObject);
         }
 
-        if (move.canMove)
+        if (move.onPush)
         {
             move.StopMovement(ref rb);
         }
