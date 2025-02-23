@@ -1,0 +1,24 @@
+name: Run Unity Tests
+
+on:
+  [push, pull_request]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Unity Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Library Folder
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-WebGL-${{ github.sha }}
+          restore-keys: |
+            Library-WebGL-
+
+      - name: Run Unity Tests
+        uses: game-ci/unity-test-runner@v4
