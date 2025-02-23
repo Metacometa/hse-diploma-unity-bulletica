@@ -22,3 +22,5 @@ jobs:
 
       - name: Run Unity Tests
         uses: game-ci/unity-test-runner@v4
+        with:
+          coverageOptions: enable
