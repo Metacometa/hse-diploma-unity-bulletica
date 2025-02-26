@@ -91,10 +91,10 @@ public class ChamberDoorsHelper : MonoBehaviour
 
             if (i < walls.Count && i < doors.Count)
             {
-                if (wallsCounter == 2 || (doorCounter == 2 && wallsCounter == 1))
+                if (doorCounter != 4)
                 {
-                    walls[i].gameObject.SetActive(false);
-                    doors[i].gameObject.SetActive(true);
+                    walls[i].gameObject.SetActive(true);
+                    doors[i].gameObject.SetActive(false);
                 }
             }
         }
@@ -102,7 +102,7 @@ public class ChamberDoorsHelper : MonoBehaviour
 
     public void GetDoors(ref List<Transform> doors)
     {
-        Transform doorsTransform = transform.Find("Doors");
+/*        Transform doorsTransform = transform.Find("Doors");
 
         if (doorsTransform != null)
         {
@@ -110,7 +110,7 @@ public class ChamberDoorsHelper : MonoBehaviour
             doors.Add(doorsTransform.Find("DoorControllerRight"));
             doors.Add(doorsTransform.Find("DoorControllerUp"));
             doors.Add(doorsTransform.Find("DoorControllerDown"));
-        }
+        }*/
     }
 
     public void GetWalls(ref List<Transform> walls)
@@ -125,7 +125,6 @@ public class ChamberDoorsHelper : MonoBehaviour
             walls.Add(grid.Find("WallDown"));
         }
     }
-
 
     public void OnDrawGizmosSelected()
     {

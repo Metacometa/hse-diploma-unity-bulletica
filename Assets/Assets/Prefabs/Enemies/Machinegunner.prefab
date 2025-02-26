@@ -185,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 5
+  startingHealth: 5
 --- !u!114 &1974397545071643076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,11 +260,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0028914f115bcc64b9a86ba525206170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onSleep: 0
   profile: {fileID: 11400000, guid: 692350c76707764479bd202d104960e1, type: 2}
   actionState: 0
   motionState: 0
-  targetApproached: 0
-  inShootingRange: 0
   masks:
     serializedVersion: 2
     m_Bits: 1088

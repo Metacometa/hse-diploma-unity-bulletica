@@ -9,7 +9,9 @@ public class BaseCharacter : MonoBehaviour
 
     protected Rigidbody2D rb;
 
-    protected virtual void Start()
+    public bool onSleep;
+
+    protected virtual void Awake()
     {
         health = GetComponent<BaseHealth>();
         move = GetComponent<BaseMovement>();
@@ -17,5 +19,7 @@ public class BaseCharacter : MonoBehaviour
         shimmer = GetComponent<BaseShimmer>();
 
         rb = GetComponent<Rigidbody2D>();
+
+        health.healthPoints = health.startingHealth;
     }
 }

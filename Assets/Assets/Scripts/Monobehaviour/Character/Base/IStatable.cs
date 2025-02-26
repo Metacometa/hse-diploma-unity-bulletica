@@ -1,4 +1,4 @@
-public interface IEnemyStatable
+public interface IStatable
 {
     public void UpdateState();
 }

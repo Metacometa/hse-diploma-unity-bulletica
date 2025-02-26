@@ -8,17 +8,16 @@ public class BaseShimmer : MonoBehaviour, IShimmerable
 
     private bool onShimmer;
 
-    void Start()
+    void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+        startColor = new Color(0,0,0);
     }
 
     public void ShimmerManager()
     {
         if (!onShimmer)
         {
-            ChangeColor();
-
             StartCoroutine(Shimmer());
         }
     }
@@ -26,20 +25,23 @@ public class BaseShimmer : MonoBehaviour, IShimmerable
     public IEnumerator Shimmer()
     {
         onShimmer = true;
+
+        startColor = sprite.color;
+        ChangeColor();
+
         yield return new WaitForSeconds(0.2f);
 
         RestoreColor();
 
-        onShimmer= false;
+        onShimmer = false;
     }
 
     void ChangeColor()
     {
-        startColor = sprite.color;
         sprite.color = new Color(1, 0, 0, 1);
     }
 
-    void RestoreColor()
+    public void RestoreColor()
     {
         sprite.color = startColor;
     }

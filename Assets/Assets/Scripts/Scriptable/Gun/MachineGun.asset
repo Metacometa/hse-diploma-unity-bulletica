@@ -15,7 +15,7 @@ MonoBehaviour:
   weapon_name: MachineGun
   gun_object: {fileID: 8108018042923758592, guid: 19de645a30396c348814fbfe946c08d0, type: 3}
   reloadSpeed: 5
-  rotationSpeed: 60
+  rotationSpeed: 35
   aimingSpeed: 0
   attackExiting: 0
   cooldown: 0.2

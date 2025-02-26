@@ -4,9 +4,14 @@ public class Gunman : BaseCharacter
 {
     protected BaseShooting shooting;
 
-    protected override void Start()
+    protected BaseTargeting target;
+
+    protected bool targetApproached;
+    protected bool inShootingRange;
+
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         shooting = GetComponent<BaseShooting>();
     }
     protected virtual void Update()

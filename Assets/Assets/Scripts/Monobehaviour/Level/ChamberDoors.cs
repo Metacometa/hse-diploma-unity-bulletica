@@ -14,8 +14,8 @@ public class ChamberDoors : MonoBehaviour
     {
         helper = GetComponent<ChamberDoorsHelper>();
 
-        helper.GetWalls(ref walls);
-        helper.GetDoors(ref doors);
+        //helper.GetWalls(ref walls);
+        //helper.GetDoors(ref doors);
         //helper.GetPoints(ref doors);
 
         OpenDoors();
@@ -61,5 +61,4 @@ public class ChamberDoors : MonoBehaviour
     {
         helper.WallsToDoors(ref walls, ref doors);
     }
-
 }

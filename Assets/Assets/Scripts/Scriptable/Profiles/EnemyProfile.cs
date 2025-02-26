@@ -1,15 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyProfile", menuName = "Scriptable Objects/Enemy")]
-public class EnemyProfile : ScriptableObject
+[CreateAssetMenu(fileName = "EnemyProfile", menuName = "Scriptable Objects/Profiles/Enemy")]
+public class EnemyProfile : BaseProfile
 {
-    [SerializeField] public string enemyName;
-
+    [Header("Shooting")]
     [SerializeField] public float shootingRange;
     [SerializeField] public float approachedDistance;
-    [SerializeField] public float sight;
 
+    [Space]
     [SerializeField] public bool shootingOnMove;
-
-    [SerializeField] public float moveSpeed;
 }

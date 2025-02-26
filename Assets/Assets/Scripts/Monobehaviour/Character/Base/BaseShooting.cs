@@ -19,7 +19,7 @@ public class BaseShooting : MonoBehaviour, IShootable
     [HideInInspector] public bool onReload;
     [HideInInspector] public bool onCooldown;
 
-    void Start()
+    void Awake()
     {
         gun = GetComponentInChildren<GunJointer>().transform;
 
@@ -97,17 +97,17 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     public void RotateGun(in Vector2 dir)
     {
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.normalized.y, dir.normalized.x) * Mathf.Rad2Deg;
 
-        Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);// Quaternion.Euler(new Vector3(0, 0, angle));
+        Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, to, source.rotationSpeed * Time.deltaTime);
     }
 
     public void RotateGunInstantly(in Vector2 dir)
     {
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.normalized.y, dir.normalized.x) * Mathf.Rad2Deg;
 
-        Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);// Quaternion.Euler(new Vector3(0, 0, angle));
+        Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);;
         transform.rotation = to;
     }
 }

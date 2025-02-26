@@ -1,7 +1,7 @@
 using UnityEngine;
 using EnemyState;
 
-public class Enemy : Gunman, IObservable, IEnemyStatable
+public class SimpleEnemy : Gunman, IObservable, IStatable
 {
     public EnemyProfile profile;
 
@@ -9,22 +9,23 @@ public class Enemy : Gunman, IObservable, IEnemyStatable
     public ActionState actionState;
     public MotionState motionState;
 
-    private BaseTargeting target;
-    public bool targetApproached;
-
-    public bool inShootingRange;
-
     [SerializeField] private LayerMask masks;
 
-    private bool onSleep;
-
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
+
         onSleep = true;
 
         target = GetComponent<BaseTargeting>();
         target.SetTarget();
+    }
+
+    void OnEnable()
+    {
+        onSleep = false;
+        Vector2 startDir = (target.target.position - transform.position).normalized;
+        shooting.RotateGunInstantly(startDir);
     }
 
     public void Wake()
@@ -74,8 +75,11 @@ public class Enemy : Gunman, IObservable, IEnemyStatable
         Observe();
         UpdateState();
 
-        Vector2 dir = (target.target.position - transform.position).normalized;
-        shooting.RotateGun(dir);
+        if (target.targetSeen)
+        {
+            Vector2 dir = (target.target.position - transform.position).normalized;
+            shooting.RotateGun(dir);
+        }
 
         switch (actionState)
         {
@@ -113,7 +117,6 @@ public class Enemy : Gunman, IObservable, IEnemyStatable
             actionState = ActionState.Reload;
             motionState = MotionState.Regroup;
         }
-
     }
     MotionState GetShootingMoveState()
     {

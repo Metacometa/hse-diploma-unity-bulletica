@@ -8,8 +8,12 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     [SerializeField] private float pushingAwayTime;
     [SerializeField] private float pushingAwayForce;
 
-    [HideInInspector] public bool onPush;
+    /*[HideInInspector]*/ public bool onPush;
 
+    protected virtual void Awake()
+    {
+        onPush = false;
+    }
     protected virtual void Start()
     {
         onPush = false;

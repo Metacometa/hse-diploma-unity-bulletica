@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
 
     public bool opening;
 
-    void Start()
+    void Awake()
     {
         leftDoor = transform.Find("LeftDoor").GetComponent<Rigidbody2D>();
         rightDoor = transform.Find("RightDoor").GetComponent<Rigidbody2D>();

@@ -4,6 +4,7 @@ using UnityEngine;
 public class BaseHealth : MonoBehaviour, IDamageable
 {
     public int healthPoints;
+    public int startingHealth;
 
     public void TakeDamage(in int damage = 1)
     {

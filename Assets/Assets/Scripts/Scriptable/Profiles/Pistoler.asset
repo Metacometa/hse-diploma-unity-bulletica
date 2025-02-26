@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Pistoler
   m_EditorClassIdentifier: 
   enemyName: 
+  moveSpeed: 1.25
+  sight: 15
   shootingRange: 10
   approachedDistance: 6
-  sight: 15
-  shootingOnMove: 0
-  moveSpeed: 1.25
+  shootingOnMove: 1

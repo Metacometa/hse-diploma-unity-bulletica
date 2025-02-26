@@ -7,9 +7,9 @@ public class Player : Gunman
 {
     private InputManager input;
 
-    protected override void Start()
+    protected override void Awake()
     {
-        base.Start();
+        base.Awake();
         input = GetComponent<InputManager>();
     }
 
