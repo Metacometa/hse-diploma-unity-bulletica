@@ -11,7 +11,7 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     public BaseGun source;
 
-    private GunJointer gunJointer;
+    private GunAnimator gunAnimator;
 
     [SerializeField] private float bulletsInMagazine;
     private float magazineCapacity;
@@ -24,8 +24,8 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     void Awake()
     {
-        gun = GetComponentInChildren<GunJointer>().transform;
-        gunJointer = gun.GetComponentInChildren<GunJointer>();
+        gun = GetComponentInChildren<GunAnimator>().transform;
+        gunAnimator = gun.GetComponentInChildren<GunAnimator>();
 
         //ChangeGun();
         PrepareGun(gun.gameObject);
@@ -65,38 +65,20 @@ public class BaseShooting : MonoBehaviour, IShootable
     }
     public IEnumerator CooldownTimer()
     {
-        float elapsedTime = 0;
-
         onCooldown = true;
-        while (elapsedTime <= source.cooldown)
-        {
-            elapsedTime += Time.deltaTime;
-            
-            if (gunJointer != null)
-            {
-                gunJointer.RestorePosition(elapsedTime, source.cooldown);
-            }
 
-            yield return null;
-        }
+        gunAnimator.RestorePosition(source.cooldown);
+        yield return new WaitForSeconds(source.cooldown);
+
         onCooldown = false;
     }
     public IEnumerator AttackingTimer()
     {
-        float elapsedTime = 0;
-
         onAttack = true;
-        while (elapsedTime <= source.aimingSpeed)
-        {
-            elapsedTime += Time.deltaTime;
 
-            if (gunJointer != null)
-            {
-                gunJointer.PullPosition(elapsedTime, source.aimingSpeed);
-            }
+        gunAnimator.PullPosition(source.aimingSpeed);
+        yield return new WaitForSeconds(source.aimingSpeed);
 
-            yield return null;
-        }
         onAttack = false;
 
         source.Shoot(bullet, bulletSpawn.transform.position, muzzle.transform.position, ref bulletsInMagazine);
