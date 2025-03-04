@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint: {fileID: 0}
+  pullingPoint: {x: 0.4, y: 0}
 --- !u!1 &8647358111870574643
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +465,7 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -0.64, y: 0}
-  m_ConnectedAnchor: {x: -0.05, y: 0}
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.6, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0

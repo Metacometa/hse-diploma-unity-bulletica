@@ -75,7 +75,7 @@ public class Player : Gunman
     {
         input.UpdateInput();
 
-        if (input.onAttackButton)
+        if (input.onAttackButton && !shooting.onCooldown && !shooting.onAttack)
         {
             shooting.ShootingManager();
         }

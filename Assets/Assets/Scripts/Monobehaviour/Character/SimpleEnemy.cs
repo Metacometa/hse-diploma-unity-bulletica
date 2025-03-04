@@ -11,6 +11,8 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     [SerializeField] private LayerMask masks;
 
+    public BasePursue pursue;
+
     protected override void Awake()
     {
         base.Awake();
@@ -19,6 +21,8 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
         target = GetComponent<BaseTargeting>();
         target.SetTarget();
+
+        pursue = GetComponent<BasePursue>();
     }
 
     void OnEnable()
@@ -52,6 +56,10 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             case MotionState.Regroup:
                 move.StopMovement(ref rb);
                 break;
+            case MotionState.Pursue:
+                Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
+                move.Move(ref rb, pursueDir);
+                break;
             default:
                 move.StopMovement(ref rb);
                 break;
@@ -60,10 +68,10 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     protected override void Update()
     {
+        Vector2 dir = (target.target.position - transform.position).normalized;
         if (onSleep)
         {
-            Vector2 startDir = (target.target.position - transform.position).normalized;
-            shooting.RotateGunInstantly(startDir);
+            shooting.RotateGunInstantly(dir);
             return;
         }
 
@@ -75,23 +83,19 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         Observe();
         UpdateState();
 
-        if (target.targetSeen)
-        {
-            Vector2 dir = (target.target.position - transform.position).normalized;
-            shooting.RotateGun(dir);
-        }
-
         switch (actionState)
         {
             case ActionState.Shoot:
                 ShootingHandler();
-
+                shooting.RotateGun(dir);
                 break;
             case ActionState.Reload:
                 ReloadHandler();
-
+                shooting.RotateGun(dir);
                 break;
             case ActionState.Idle:
+                break;
+            case ActionState.Pursue:
                 break;
             default:
                 break;
@@ -107,6 +111,13 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             return;
         }
 
+/*        if (!target.targetSeen && pursue.canPursue)
+        {
+            actionState = ActionState.Pursue;
+            motionState = MotionState.Pursue;
+            return;
+        }*/
+
         if (!shooting.IsMagazineEmpty())
         {
             actionState = GetShootingBehaviourState();
@@ -118,6 +129,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             motionState = MotionState.Regroup;
         }
     }
+
     MotionState GetShootingMoveState()
     {
         if (!target.targetSeen || targetApproached)
@@ -155,7 +167,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     void ShootingHandler()
     {
-        if (!shooting.onCooldown && !shooting.onReload)
+        if (!shooting.onCooldown && !shooting.onReload && !shooting.onAttack)
         {
             shooting.ShootingManager();
         }

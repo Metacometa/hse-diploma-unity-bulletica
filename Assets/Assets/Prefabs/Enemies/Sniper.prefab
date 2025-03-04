@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2432461742558073540}
   - component: {fileID: 1467533519333992501}
   - component: {fileID: 5528047629954386343}
+  - component: {fileID: 2787647325669046644}
   m_Layer: 8
   m_Name: Sniper
   m_TagString: Enemy
@@ -267,6 +268,22 @@ MonoBehaviour:
   masks:
     serializedVersion: 2
     m_Bits: 1088
+  pursue: {fileID: 0}
+--- !u!114 &2787647325669046644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbdd1124a04c82249afb94e53b09abe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastSeenPos: {x: 0, y: 0}
+  distanceToReach: 1
+  canPursue: 1
 --- !u!1001 &2112497810598913225
 PrefabInstance:
   m_ObjectHideFlags: 0

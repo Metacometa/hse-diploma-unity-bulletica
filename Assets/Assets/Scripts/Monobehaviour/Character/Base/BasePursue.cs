@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class BasePursue : MonoBehaviour
 {
-    private Vector2 lastSeenPos;
+    public Vector2 lastSeenPos;
 
     [SerializeField] float distanceToReach;
 
-    private bool canPursue;
+    public bool canPursue;
 
     private void Awake()
     {
@@ -30,6 +30,8 @@ public class BasePursue : MonoBehaviour
     public void UpdateLastSeenPos(in Vector2 pos)
     {
         lastSeenPos = pos;
+
+
         canPursue = true;
     }
 }

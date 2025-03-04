@@ -11,6 +11,8 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     public BaseGun source;
 
+    private GunJointer gunJointer;
+
     [SerializeField] private float bulletsInMagazine;
     private float magazineCapacity;
 
@@ -18,10 +20,12 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     [HideInInspector] public bool onReload;
     [HideInInspector] public bool onCooldown;
+    [HideInInspector] public bool onAttack;
 
     void Awake()
     {
         gun = GetComponentInChildren<GunJointer>().transform;
+        gunJointer = gun.GetComponentInChildren<GunJointer>();
 
         //ChangeGun();
         PrepareGun(gun.gameObject);
@@ -57,24 +61,50 @@ public class BaseShooting : MonoBehaviour, IShootable
 
     public void ShootingManager()
     {
-        source.Shoot(bullet, bulletSpawn.transform.position, muzzle.transform.position, ref bulletsInMagazine);
-
-        StartCoroutine(CooldownTimer());
+        StartCoroutine(AttackingTimer());
     }
     public IEnumerator CooldownTimer()
     {
+        float elapsedTime = 0;
+
         onCooldown = true;
-        yield return new WaitForSeconds(source.cooldown);
+        while (elapsedTime <= source.cooldown)
+        {
+            elapsedTime += Time.deltaTime;
+            
+            if (gunJointer != null)
+            {
+                gunJointer.RestorePosition(elapsedTime, source.cooldown);
+            }
+
+            yield return null;
+        }
         onCooldown = false;
     }
     public IEnumerator AttackingTimer()
     {
-        onReload = true;
-        yield return new WaitForSeconds(source.aimingSpeed);
-        onReload = false;
+        float elapsedTime = 0;
+
+        onAttack = true;
+        while (elapsedTime <= source.aimingSpeed)
+        {
+            elapsedTime += Time.deltaTime;
+
+            if (gunJointer != null)
+            {
+                gunJointer.PullPosition(elapsedTime, source.aimingSpeed);
+            }
+
+            yield return null;
+        }
+        onAttack = false;
+
+        source.Shoot(bullet, bulletSpawn.transform.position, muzzle.transform.position, ref bulletsInMagazine);
 
         yield return StartCoroutine(CooldownTimer());
     }
+
+
 
     public void ReloadManager()
     {

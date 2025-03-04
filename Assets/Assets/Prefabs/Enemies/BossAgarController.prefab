@@ -47,4 +47,4 @@ MonoBehaviour:
   agar: {fileID: 4175426749805988311, guid: f7513816d9b5f14498e6aa672a0c85b3, type: 3}
   maxAgar: 3
   bouncesToChase: 5
-  scaleProportion: 0.75
+  scaleProportion: 0.6

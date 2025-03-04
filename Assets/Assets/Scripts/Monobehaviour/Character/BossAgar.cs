@@ -16,18 +16,17 @@ public class BossAgar : Boss
 
         bouncesCount = 0;
         agarCounter = 0;
+    }
 
-        ChooseStartDir();
+    private void Start()
+    {
+
     }
 
     void OnEnable()
     {
         onSleep = false;
-        rb.linearVelocity = Random.insideUnitCircle * profile.moveSpeed;
-    }
 
-    private void Start()
-    {
         ChooseStartDir();
     }
 
@@ -46,8 +45,6 @@ public class BossAgar : Boss
 
     void DeathHandler()
     {
-        shimmer.RestoreColor();
-
         if (agarCounter < controller.maxAgar)
         {
             controller.SpawnMiniAgars(transform, agarCounter, rb);
@@ -58,16 +55,7 @@ public class BossAgar : Boss
 
     void ChooseStartDir()
     {
-
         rb.linearVelocity = Random.insideUnitCircle * profile.moveSpeed;
-        /*        if (startDir == null)
-                {
-                    rb.linearVelocity = Random.insideUnitCircle * profile.moveSpeed;
-                }
-                else
-                {
-                    rb.linearVelocity = startDir * profile.moveSpeed;
-                }*/
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -296,8 +296,8 @@ FixedJoint2D:
   m_BreakTorque: Infinity
   m_BreakAction: 0
   m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: -1.09, y: 0}
-  m_ConnectedAnchor: {x: -0.01, y: 0}
+  m_Anchor: {x: -0.6, y: 0}
+  m_ConnectedAnchor: {x: 0.5, y: 0}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!1 &7719146203880574764
@@ -468,3 +468,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joint: {fileID: 0}
+  pullingPoint: {x: -0.5, y: 0}
