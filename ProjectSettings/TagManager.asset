@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Gun
   - Room
+  - WallFaker
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - EnemyHitbox
   - Obstacle
   - Bullet
-  - 
+  - Gun
   - 
   - 
   - 
@@ -46,17 +48,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Floor
     uniqueID: 727936085
     locked: 0
-  - name: Foreground
+  - name: Doors
+    uniqueID: 2522461227
+    locked: 0
+  - name: Walls
     uniqueID: 1503313917
     locked: 0
-  - name: Bullet
-    uniqueID: 1036492923
+  - name: WallsFaker
+    uniqueID: 1693755449
     locked: 0
   - name: Gun
     uniqueID: 1316544445
+    locked: 0
+  - name: Bullet
+    uniqueID: 1036492923
     locked: 0
   - name: Body
     uniqueID: 1712788617
