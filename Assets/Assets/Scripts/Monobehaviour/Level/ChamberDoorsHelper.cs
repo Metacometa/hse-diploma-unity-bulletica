@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Directions{ Top, Right, Bottom, Left};
+public enum Directions{ Top, Right, Bottom, Left};
 
 public class ChamberDoorsHelper : MonoBehaviour
 {

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class ChamberDoors : MonoBehaviour
 {
     private ChamberDoorsHelper helper;
@@ -10,15 +12,49 @@ public class ChamberDoors : MonoBehaviour
 
     public Transform enemies;
 
+    private Dictionary<Directions, Transform> doorsTransforms;
+
+    public List<Transform> test;
+
+    private void Awake()
+    {
+        doorsTransforms = new Dictionary<Directions, Transform>();
+        test = new List<Transform>();
+
+        test.Add(null);
+        test.Add(null);
+        test.Add(null);
+        test.Add(null);
+
+        doorsTransforms[Directions.Top] = doors[0];
+        doorsTransforms[Directions.Right] = doors[0];
+        doorsTransforms[Directions.Bottom] = doors[0];
+        doorsTransforms[Directions.Left] = doors[0];
+
+
+
+        helper = GetComponent<ChamberDoorsHelper>();
+    }
+
     void Start()
     {
-        helper = GetComponent<ChamberDoorsHelper>();
+
+
+
 
         //helper.GetWalls(ref walls);
         //helper.GetDoors(ref doors);
         //helper.GetPoints(ref doors);
 
         OpenDoors();
+    }
+
+    private void Update()
+    {
+        test[0] = doorsTransforms[Directions.Top];
+        test[1] = doorsTransforms[Directions.Right];
+        test[2] = doorsTransforms[Directions.Bottom];
+        test[3] = doorsTransforms[Directions.Left];
     }
 
     public void OpenNeighboursDoors()

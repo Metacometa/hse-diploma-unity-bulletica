@@ -11,9 +11,12 @@ public class Chamber : MonoBehaviour
 
     public List<Transform> enemiesTransforms;
 
+
     void Awake()
     {
         enemiesTransforms = new List<Transform>();
+
+
 
         doors = GetComponentInChildren<ChamberDoors>();
         enemies = transform.Find("Enemies");
