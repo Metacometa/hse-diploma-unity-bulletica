@@ -27,6 +27,7 @@ public class BurstGun : BaseGun
 
     public override void LoadGun(ref float bulletsInMagazine, ref float magazineCapacity)
     {
+        magazineCapacity = this.magazineCapacity;
         bulletsInMagazine = magazineCapacity;
     }
 

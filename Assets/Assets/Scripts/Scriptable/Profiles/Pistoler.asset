@@ -15,6 +15,6 @@ MonoBehaviour:
   enemyName: 
   moveSpeed: 1.25
   sight: 15
-  shootingRange: 10
-  approachedDistance: 6
+  shootingRange: 15
+  approachedDistance: 15
   shootingOnMove: 1

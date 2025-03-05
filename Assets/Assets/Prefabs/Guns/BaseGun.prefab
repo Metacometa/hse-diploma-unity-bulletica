@@ -285,7 +285,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0334ec53bd8fab94797f2b3fb0aef383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullingPoint: {x: 0, y: 0}
+  pullingPoint: {x: 0.15, y: 0}
+  reversedDirections: 0
+  onPulling: 0
+  elapsedTime: 0
+  duration: 0
 --- !u!1 &8647358111870574643
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +364,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1316544445
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 2673809358596170579, guid: 2b592f3b00d33e845805515dd5e18e65, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

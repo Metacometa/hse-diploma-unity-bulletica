@@ -44,17 +44,17 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             return;
         }
 
+        Vector2 dir = target.target.position - transform.position;
         switch (motionState)
         {
             case MotionState.MoveToTarget:
-                Vector2 dir = target.target.position - transform.position;
                 move.Move(ref rb, dir);
                 break;
             case MotionState.Stay:
                 move.StopMovement(ref rb);
                 break;
             case MotionState.Regroup:
-                move.StopMovement(ref rb);
+                move.Move(ref rb, dir);
                 break;
             case MotionState.Pursue:
                 Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
@@ -136,7 +136,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         {
             return MotionState.Stay;
         }
-        else if (inShootingRange)
+        else if (inShootingRange || !shooting.onAttack)
         {
             if (profile.shootingOnMove)
             {

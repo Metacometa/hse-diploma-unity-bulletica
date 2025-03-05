@@ -1,5 +1,9 @@
 using UnityEngine;
 
+[RequireComponent (typeof(BaseHealth))]
+[RequireComponent(typeof(BaseMovement))]
+[RequireComponent(typeof(BaseDeath))]
+[RequireComponent(typeof(BaseShimmer))]
 public class BaseCharacter : MonoBehaviour
 {
     protected BaseHealth health;

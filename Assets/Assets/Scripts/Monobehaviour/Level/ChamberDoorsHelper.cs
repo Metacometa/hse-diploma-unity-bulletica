@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+
+enum Directions{ Top, Right, Bottom, Left};
 
 public class ChamberDoorsHelper : MonoBehaviour
 {
@@ -11,14 +12,20 @@ public class ChamberDoorsHelper : MonoBehaviour
 
     public List<Transform> nearbyChambers;
 
-    void Start()
+    public int rotation;
+
+    void Awake()
     {
+        for (int i = 0; i < roomIntersectionPoints.Count; i++)
+        {
+            roomIntersectionPoints[i] =
+                Quaternion.Euler(0, 0, rotation) * roomIntersectionPoints[i];
+        }
+
         for (int i = 0; i < roomIntersectionPoints.Count; i++) 
         {
             roomIntersectionPoints[i] += (Vector2)transform.position;
         }
-
-        //roomIntersectionPoints = new List<Vector2>();
     }
 
     public HashSet<Transform> GetDoorControllers()
@@ -97,32 +104,6 @@ public class ChamberDoorsHelper : MonoBehaviour
                     doors[i].gameObject.SetActive(false);
                 }
             }
-        }
-    }
-
-    public void GetDoors(ref List<Transform> doors)
-    {
-/*        Transform doorsTransform = transform.Find("Doors");
-
-        if (doorsTransform != null)
-        {
-            doors.Add(doorsTransform.Find("DoorControllerLeft"));
-            doors.Add(doorsTransform.Find("DoorControllerRight"));
-            doors.Add(doorsTransform.Find("DoorControllerUp"));
-            doors.Add(doorsTransform.Find("DoorControllerDown"));
-        }*/
-    }
-
-    public void GetWalls(ref List<Transform> walls)
-    {
-        Transform grid = transform.Find("Grid");
-
-        if (grid != null)
-        {
-            walls.Add(grid.Find("WallLeft"));
-            walls.Add(grid.Find("WallRight"));
-            walls.Add(grid.Find("WallUp"));
-            walls.Add(grid.Find("WallDown"));
         }
     }
 
