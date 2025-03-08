@@ -7889,6 +7889,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   nearbyChambers: []
+  rotation: 0
 --- !u!1 &8031485493387875803
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,7 +8027,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size

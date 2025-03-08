@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0334ec53bd8fab94797f2b3fb0aef383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pullingPoint: {x: 0.15, y: 0}
+  pullingPoint: {x: 0.025, y: 0}
   reversedDirections: 0
   onPulling: 0
   elapsedTime: 0

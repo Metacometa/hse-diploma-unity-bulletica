@@ -1,9 +1,14 @@
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
 
-public class SpawnArea : MonoBehaviour
+public class BaseSpawnArea : MonoBehaviour
 {
     [SerializeField] public float areaRadius;
+
+    public void SpawnInArea()
+    {
+        transform.position = transform.position + (Vector3)Random.insideUnitCircle * areaRadius;
+    }
 
     public void OnDrawGizmosSelected()
     {

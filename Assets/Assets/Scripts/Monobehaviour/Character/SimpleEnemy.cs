@@ -1,6 +1,7 @@
 using UnityEngine;
 using EnemyState;
 
+[RequireComponent(typeof(BaseSleep))]
 public class SimpleEnemy : Gunman, IObservable, IStatable
 {
     public EnemyProfile profile;
@@ -12,12 +13,13 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     [SerializeField] private LayerMask masks;
 
     public BasePursue pursue;
+    public BaseSleep sleep;
 
     protected override void Awake()
     {
         base.Awake();
 
-        onSleep = true;
+        sleep = GetComponent<BaseSleep>();
 
         target = GetComponent<BaseTargeting>();
         target.SetTarget();
@@ -27,23 +29,14 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     void OnEnable()
     {
-        onSleep = false;
         Vector2 startDir = (target.target.position - transform.position).normalized;
         shooting.RotateGunInstantly(startDir);
-    }
 
-    public void Wake()
-    {
-        onSleep = false;
+        sleep.Wake();
     }
 
     protected override void FixedUpdate()
     {
-        if (onSleep)
-        {
-            return;
-        }
-
         Vector2 dir = target.target.position - transform.position;
         switch (motionState)
         {
@@ -60,6 +53,9 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
                 Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
                 move.Move(ref rb, pursueDir);
                 break;
+            case MotionState.Sleep:
+                move.StopMovement(ref rb);
+                break;
             default:
                 move.StopMovement(ref rb);
                 break;
@@ -69,11 +65,6 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     protected override void Update()
     {
         Vector2 dir = (target.target.position - transform.position).normalized;
-        if (onSleep)
-        {
-            shooting.RotateGunInstantly(dir);
-            return;
-        }
 
         if (health.healthPoints == 0)
         {
@@ -97,6 +88,8 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
                 break;
             case ActionState.Pursue:
                 break;
+            case ActionState.Sleep:
+                break;
             default:
                 break;
         }
@@ -104,6 +97,13 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     public void UpdateState()
     {
+        if (sleep.onSleep)
+        {
+            actionState = ActionState.Sleep;
+            motionState = MotionState.Sleep;
+            return;
+        }
+
         if (move.onPush)
         {
             actionState = ActionState.Stun;

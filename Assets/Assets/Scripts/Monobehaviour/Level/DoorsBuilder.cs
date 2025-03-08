@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum Directions{ Top, Right, Bottom, Left};
 
-public class ChamberDoorsHelper : MonoBehaviour
+public class DoorsBuilder : MonoBehaviour
 {
     public List<Vector2> roomIntersectionPoints;
     [SerializeField] public float intersectionRadius;
@@ -12,19 +12,33 @@ public class ChamberDoorsHelper : MonoBehaviour
 
     public List<Transform> nearbyChambers;
 
-    public int rotation;
-
     void Awake()
     {
         for (int i = 0; i < roomIntersectionPoints.Count; i++)
         {
             roomIntersectionPoints[i] =
-                Quaternion.Euler(0, 0, rotation) * roomIntersectionPoints[i];
+                Quaternion.Euler(0, 0, transform.parent.localRotation.eulerAngles.z) * roomIntersectionPoints[i];
         }
+
+        int rotationIndex = (int)transform.parent.localRotation.eulerAngles.z / 90;
+        ShiftList(ref roomIntersectionPoints, rotationIndex);
 
         for (int i = 0; i < roomIntersectionPoints.Count; i++) 
         {
             roomIntersectionPoints[i] += (Vector2)transform.position;
+        }
+    }
+
+    public void ShiftList<T>(ref List<T> transforms, in int repeats)
+    {
+        if (transforms.Count == 0) return;
+
+        for (int repeat = 0; repeat < repeats; ++repeat)
+        {
+            for (int i = 1; i < transforms.Count; ++i)
+            {
+                (transforms[i - 1], transforms[i]) = (transforms[i], transforms[i - 1]);
+            }
         }
     }
 
@@ -40,39 +54,12 @@ public class ChamberDoorsHelper : MonoBehaviour
             {
                 if (hit.transform.tag == "Door")
                 {
-                    doorControllers.Add(hit.transform.parent);
+                    doorControllers.Add(hit.transform.GetComponentInParent<Door>().transform);
                 }
             }
         }
 
         return doorControllers;
-    }
-
-    public void GetNearbyChambers()
-    {
-        HashSet<Transform> neighbors = new HashSet<Transform>();
-
-        foreach (Vector2 v in roomIntersectionPoints)
-        {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(v, intersectionRadius, Vector2.zero, 0, mask);
-
-            foreach (RaycastHit2D hit in hits)
-            {
-                if (hit.transform.tag == "Door")
-                {
-                    neighbors.Add(hit.transform.parent.parent.parent);
-                }
-            }
-        }
-
-        foreach(Transform t in neighbors)
-        { 
-            if (t != null && t != transform)
-            {
-                nearbyChambers.Add(t);
-            }
-
-        }
     }
 
     public void WallsToDoors(ref List<Transform> walls, ref List<Transform> doors)

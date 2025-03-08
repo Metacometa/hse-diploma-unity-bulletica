@@ -1,85 +1,54 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class Chamber : MonoBehaviour
 {
-    private ChamberDoors doors;
+    private Level level;
+    private DoorsController doorsController;
     public Transform enemies;
 
     [SerializeField] public float chamberStartTimer;
 
-    public List<Transform> enemiesTransforms;
+    private EnemyController enemyController;
 
 
     void Awake()
     {
-        enemiesTransforms = new List<Transform>();
-
-
-
-        doors = GetComponentInChildren<ChamberDoors>();
-        enemies = transform.Find("Enemies");
-
-        foreach (BaseCharacter enemy in enemies.GetComponentsInChildren<BaseCharacter>())
-        {
-            enemiesTransforms.Add(enemy.transform);
-        }
+        doorsController = GetComponentInChildren<DoorsController>();
+        enemyController = GetComponentInChildren<EnemyController>();
+        level = GetComponentInParent<Level>();
     }
 
     void Start()
     {
-        SetRandomPosition();
-    }
+        doorsController.WallToDoors();
 
-    void SetRandomPosition()
-    {
-        foreach(Transform t in enemiesTransforms)
+        if (enemyController)
         {
-            t.gameObject.SetActive(false);
-
-            Transform spawnArea = t.transform.parent;
-
-            SpawnArea spawnAreaComponent = spawnArea.GetComponent<SpawnArea>();
-
-            if (spawnAreaComponent != null)
-            {
-                t.transform.parent = spawnArea.parent;
-
-                float area = spawnAreaComponent.areaRadius;
-                t.transform.position = t.transform.position + (Vector3)Random.insideUnitCircle * area;
-
-                Destroy(spawnArea.gameObject);
-            }
-
+            enemyController.DisableEnemies();
         }
     }
 
-    void Update()
+    public void FinishChamber()
     {
-        if (enemies != null)
-        {
-            if (enemies.childCount == 0)
-            {
-                doors.OpenDoors();
-                doors.OpenNeighboursDoors();
-
-                Destroy(enemies.gameObject);
-            }
-        }
+        doorsController.OpenDoors();
+        doorsController.OpenNeighboursDoors();
     }
 
-    public void WakeEnemies()
+    public void StartChamber()
     {
-        enemiesTransforms.RemoveAll(element => element == null);
+        doorsController.CloseDoors();
+        doorsController.CloseNeighboursDoors();
 
-        foreach (Transform t in enemiesTransforms)
-        {   
-            if (t != null)
-            {
-                t.gameObject.SetActive(true);
-                //t.GetComponent<Enemy>().Wake();
-            }
-        }
+        StartCoroutine(ChamberStartTimer());
+    }
+
+    IEnumerator ChamberStartTimer()
+    {
+        yield return new WaitForSeconds(level.gameParameters.enablingDelay);
+
+        enemyController.EnableEnemies();
     }
 }
