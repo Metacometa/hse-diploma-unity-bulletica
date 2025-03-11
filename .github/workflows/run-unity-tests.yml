@@ -31,5 +31,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Code Coverage Results
-          path: ${{ steps.TestStep.outputs.coveragePath }}/Report/index.html
+          path: ${{ steps.TestStep.outputs.coveragePath }}
           
