@@ -19,7 +19,9 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          coverageOptions: enable
+          coverageOptions: generateAdditionalMetrics; generateHtmlReport; generateBadgeReport;
+          assemblyFilters:
+            Assembly-CSharp
           
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
@@ -31,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Code Coverage Results
-          path: ${{ steps.TestStep.outputs.coveragePath }}
+          path: ${{ steps.TestStep.outputs.coveragePath }}/Report/index.html
           
