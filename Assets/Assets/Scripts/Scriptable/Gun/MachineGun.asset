@@ -19,5 +19,5 @@ MonoBehaviour:
   aimingSpeed: 0.1
   attackExiting: 0
   cooldown: 0.2
-  maxSpreadAngle: 40
+  maxSpreadAngle: 15
   magazineCapacity: 50

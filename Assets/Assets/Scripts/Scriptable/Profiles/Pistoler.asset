@@ -16,5 +16,5 @@ MonoBehaviour:
   moveSpeed: 1.25
   sight: 15
   shootingRange: 15
-  approachedDistance: 15
+  approachedDistance: 6
   shootingOnMove: 1

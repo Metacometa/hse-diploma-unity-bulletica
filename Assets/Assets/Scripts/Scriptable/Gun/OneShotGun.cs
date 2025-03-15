@@ -5,6 +5,7 @@ using UnityEngine;
 public class OneShotGun : BaseGun
 {
     [Header("Magazine")]
+    [SerializeField] protected int shots;
     public List<BulletProperties> bullets;
 
     [System.Serializable] public class BulletProperties
@@ -29,17 +30,17 @@ public class OneShotGun : BaseGun
             }
         }
 
-        bulletsInMagazine = 0;
+        bulletsInMagazine--;
     }
 
     public override void LoadGun(ref float bulletsInMagazine, ref float magazineCapacity)
     {
-        bulletsInMagazine = bullets.Count;
-        magazineCapacity = bullets.Count;
+        bulletsInMagazine = shots;
+        magazineCapacity = shots;
     }
 
     public override int getMagazineCapacity()
     {
-        return bullets.Count;
+        return shots;
     }
 }

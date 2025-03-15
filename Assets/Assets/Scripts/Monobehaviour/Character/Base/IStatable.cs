@@ -1,4 +1,5 @@
 public interface IStatable
 {
-    public void UpdateState();
+    public void UpdateMovingState();
+    public void UpdateActionState();
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   moveSpeed: 1.25
-  sight: 15
-  shootingRange: 8
-  approachedDistance: 5
+  sight: 40
+  shootingRange: 10
+  approachedDistance: 4
   shootingOnMove: 0

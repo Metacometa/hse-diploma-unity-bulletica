@@ -11,7 +11,11 @@ public class EnemyController : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
+            Transform enemy = transform.GetChild(i);
+
             transform.GetChild(i).gameObject.SetActive(true);
+            enemy.GetComponent<BaseSleep>().Wake();
+
         }
     }
 
@@ -19,7 +23,9 @@ public class EnemyController : MonoBehaviour
     {
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).gameObject.SetActive(false);
+            Transform enemy = transform.GetChild(i);
+            enemy.GetComponent<BaseSleep>().Sleep();
+            enemy.gameObject.SetActive(false);
         }
     }
 }

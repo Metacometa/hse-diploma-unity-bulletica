@@ -16,8 +16,12 @@ public class DoorsController : MonoBehaviour
     private void Awake()
     {
         builder = GetComponent<DoorsBuilder>();
+    }
 
-        int rotationIndex = (int)transform.parent.localRotation.eulerAngles.z / 90;
+    public void RotateWallsAndDoors()
+    {
+        int rotationIndex = (int)transform.rotation.eulerAngles.z / 90;
+
         builder.ShiftList(ref doors, rotationIndex);
         builder.ShiftList(ref walls, rotationIndex);
 
@@ -30,11 +34,6 @@ public class DoorsController : MonoBehaviour
         {
             walls[(int)d].name = "Wall" + Enum.GetName(d.GetType(), d);
         }
-    }
-
-    void Start()
-    {
-        OpenDoors();
     }
 
     public void OpenNeighboursDoors()
@@ -69,7 +68,7 @@ public class DoorsController : MonoBehaviour
         }
     }
 
-    public void WallToDoors()
+    public void WallsToDoors()
     {
         builder.WallsToDoors(ref walls, ref doors);
     }

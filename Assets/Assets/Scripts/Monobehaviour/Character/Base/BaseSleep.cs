@@ -9,8 +9,7 @@ public class BaseSleep : MonoBehaviour
     void Awake()
     {
         level = GetComponentInParent<Level>();
-
-        Sleep();
+        onSleep = false;
     }
 
     public void Sleep()

@@ -89,8 +89,6 @@ public class BaseShooting : MonoBehaviour, IShootable
         yield return StartCoroutine(CooldownTimer());
     }
 
-
-
     public void ReloadManager()
     {
         StartCoroutine(ReloadTimer());
