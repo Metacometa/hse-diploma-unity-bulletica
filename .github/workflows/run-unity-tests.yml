@@ -11,6 +11,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Cache Library Folder
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-WebGL-${{ github.sha }}
+          restore-keys: |
+            Library-WebGL-
+
       - name: Run Unity Tests
         uses: game-ci/unity-test-runner@v4
         id: TestStep
