@@ -5,7 +5,10 @@ using UnityEngine;
 public class GameParameters : ScriptableObject
 {
     [Tooltip("Time before the mob starts to attack after spawning.")]
+
     public float awakeningDelay;
+
     [Tooltip("Delay after which the mob appears.")]
-    public float enablingDelay;
+
+    public float enablingEnemiesDelay;
 }

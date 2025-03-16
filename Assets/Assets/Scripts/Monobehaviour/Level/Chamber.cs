@@ -40,25 +40,4 @@ public class Chamber : MonoBehaviour
         float newZ = -transform.rotation.eulerAngles.z;
         camera.transform.localRotation = Quaternion.Euler(0, 0, newZ);
     }
-
-    public void FinishChamber()
-    {
-        doorsController.OpenDoors();
-        doorsController.OpenNeighboursDoors();
-    }
-
-    public void StartChamber()
-    {
-        doorsController.CloseDoors();
-        doorsController.CloseNeighboursDoors();
-
-        StartCoroutine(ChamberStartTimer());
-    }
-
-    IEnumerator ChamberStartTimer()
-    {
-        yield return new WaitForSeconds(level.gameParameters.enablingDelay);
-
-        enemyController.EnableEnemies();
-    }
 }

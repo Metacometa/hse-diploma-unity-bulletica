@@ -6,31 +6,36 @@ using UnityEngine.Events;
 public class BaseChamberStarter : MonoBehaviour
 {
     private Chamber chamber;
+    private DoorsController doorsController;
+    private EnemyController enemyController;
 
     [SerializeField] private string targetTag;
 
-    public UnityEvent chamberStartEvent;
+    [HideInInspector] public UnityEvent startChamberEvent;
 
     void Awake()
     {
         chamber = GetComponentInParent<Chamber>();
+        doorsController = chamber.GetComponentInChildren<DoorsController>();
+        enemyController = chamber.GetComponentInChildren<EnemyController>();
 
-        chamberStartEvent.AddListener(Kek);
+        startChamberEvent.AddListener(doorsController.CloseDoors);
+        startChamberEvent.AddListener(doorsController.CloseNeighboursDoors);
+
+        startChamberEvent.AddListener(enemyController.EnableEnemiesManager);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(targetTag))
         {
-            Destroy(GetComponent<Collider2D>());
-            chamber.StartChamber();
-
-            chamberStartEvent?.Invoke();
+            startChamberEvent?.Invoke();
+            startChamberEvent?.RemoveAllListeners();
         }
     }
 
-    void Kek()
+    void OnDestroy()
     {
-        Debug.Log("Kek");
+        startChamberEvent?.RemoveAllListeners();
     }
 }

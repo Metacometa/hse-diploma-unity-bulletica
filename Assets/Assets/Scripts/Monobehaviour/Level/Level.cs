@@ -7,16 +7,16 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        foreach (Chamber chanber in GetComponentsInChildren<Chamber>())
+        foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
         {
-            chanber.InitializeRotation();
+            chamber.InitializeRotation();
         }
 
         WallsToDoors();
 
-        foreach (Chamber chanber in GetComponentsInChildren<Chamber>())
+        foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
         {
-            chanber.transform.GetComponentInChildren<DoorsController>().OpenDoors();
+            chamber.transform.GetComponentInChildren<DoorsController>().OpenDoors();
         }
     }
 
