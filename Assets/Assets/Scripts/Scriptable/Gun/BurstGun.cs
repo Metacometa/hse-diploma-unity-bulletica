@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BurstGun", menuName = "Scriptable Objects/Guns/Burst")]
@@ -27,6 +26,7 @@ public class BurstGun : BaseGun
 
     public override void LoadGun(ref float bulletsInMagazine, ref float magazineCapacity)
     {
+        magazineCapacity = this.magazineCapacity;
         bulletsInMagazine = magazineCapacity;
     }
 

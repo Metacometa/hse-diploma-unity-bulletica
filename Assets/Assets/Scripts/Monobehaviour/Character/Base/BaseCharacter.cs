@@ -1,5 +1,10 @@
 using UnityEngine;
 
+[RequireComponent (typeof(BaseHealth))]
+[RequireComponent(typeof(BaseMovement))]
+[RequireComponent(typeof(BaseDeath))]
+[RequireComponent(typeof(BaseShimmer))]
+[RequireComponent(typeof(BaseSpawnArea))]
 public class BaseCharacter : MonoBehaviour
 {
     protected BaseHealth health;

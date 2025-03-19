@@ -3,32 +3,28 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    public bool opening;
-    
-    void Start()
-    {
-        ChamberDoors[] doors = GetComponentsInChildren<ChamberDoors>();
+    public GameParameters gameParameters;
 
-        foreach (ChamberDoors c in doors)
+    private void Start()
+    {
+        foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
         {
-            c.WallToDoors();
+            chamber.InitializeRotation();
         }
 
-        opening = true;
+        WallsToDoors();
+
+        foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
+        {
+            chamber.transform.GetComponentInChildren<DoorsController>().OpenDoors();
+        }
     }
 
-    private void Update()
+    public void WallsToDoors()
     {
-/*        foreach (ChamberBuilder c in chambers)
+        foreach(DoorsController doorsController in GetComponentsInChildren<DoorsController>())
         {
-            if (opening)
-            {
-                c.OpenAllDoors();
-            }
-            else
-            {
-                c.CloseAllDoors();
-            }
-        }*/
+            doorsController.WallsToDoors();
+        }
     }
 }

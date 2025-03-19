@@ -1,82 +1,43 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Chamber : MonoBehaviour
 {
-    private ChamberDoors doors;
+    private Level level;
+    private DoorsController doorsController;
+    private DoorsBuilder doorsBuilder;
     public Transform enemies;
 
     [SerializeField] public float chamberStartTimer;
 
-    public List<Transform> enemiesTransforms;
+    public EnemyController enemyController;
+
 
     void Awake()
     {
-        enemiesTransforms = new List<Transform>();
-
-        doors = GetComponentInChildren<ChamberDoors>();
-        enemies = transform.Find("Enemies");
-
-        foreach (BaseCharacter enemy in enemies.GetComponentsInChildren<BaseCharacter>())
-        {
-            enemiesTransforms.Add(enemy.transform);
-        }
+        doorsController = GetComponentInChildren<DoorsController>();
+        doorsBuilder = GetComponentInChildren<DoorsBuilder>();
+        enemyController = GetComponentInChildren<EnemyController>();
+        level = GetComponentInParent<Level>();
     }
 
     void Start()
     {
-        SetRandomPosition();
-    }
-
-    void SetRandomPosition()
-    {
-        foreach(Transform t in enemiesTransforms)
+        if (enemyController)
         {
-            t.gameObject.SetActive(false);
-
-            Transform spawnArea = t.transform.parent;
-
-            SpawnArea spawnAreaComponent = spawnArea.GetComponent<SpawnArea>();
-
-            if (spawnAreaComponent != null)
-            {
-                t.transform.parent = spawnArea.parent;
-
-                float area = spawnAreaComponent.areaRadius;
-                t.transform.position = t.transform.position + (Vector3)Random.insideUnitCircle * area;
-
-                Destroy(spawnArea.gameObject);
-            }
-
+            enemyController.DisableEnemies();
         }
     }
-
-    void Update()
+    
+    public void InitializeRotation()
     {
-        if (enemies != null)
-        {
-            if (enemies.childCount == 0)
-            {
-                doors.OpenDoors();
-                doors.OpenNeighboursDoors();
+        doorsBuilder.RotatePoints();
+        doorsController.RotateWallsAndDoors();
 
-                Destroy(enemies.gameObject);
-            }
-        }
-    }
+        CinemachineCamera camera = GetComponentInChildren<CinemachineCamera>();
 
-    public void WakeEnemies()
-    {
-        enemiesTransforms.RemoveAll(element => element == null);
-
-        foreach (Transform t in enemiesTransforms)
-        {   
-            if (t != null)
-            {
-                t.gameObject.SetActive(true);
-                //t.GetComponent<Enemy>().Wake();
-            }
-        }
+        float newZ = -transform.rotation.eulerAngles.z;
+        camera.transform.localRotation = Quaternion.Euler(0, 0, newZ);
     }
 }

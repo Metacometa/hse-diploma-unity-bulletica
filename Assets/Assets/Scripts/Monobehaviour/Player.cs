@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Windows;
 using static UnityEngine.GraphicsBuffer;
 
+[RequireComponent(typeof(InputManager))]
 public class Player : Gunman
 {
     private InputManager input;

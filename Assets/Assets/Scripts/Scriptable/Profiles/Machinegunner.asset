@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Machinegunner
   m_EditorClassIdentifier: 
   enemyName: Machinegunner
-  shootingRange: 10
-  approachedDistance: 4
-  sight: 15
-  shootingOnTheMove: 0
   moveSpeed: 1
+  sight: 35
+  shootingRange: 35
+  approachedDistance: 35
+  shootingOnMove: 0

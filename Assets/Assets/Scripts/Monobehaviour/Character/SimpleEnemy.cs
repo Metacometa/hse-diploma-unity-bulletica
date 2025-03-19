@@ -1,6 +1,7 @@
 using UnityEngine;
 using EnemyState;
 
+[RequireComponent(typeof(BaseSleep))]
 public class SimpleEnemy : Gunman, IObservable, IStatable
 {
     public EnemyProfile profile;
@@ -12,12 +13,13 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     [SerializeField] private LayerMask masks;
 
     public BasePursue pursue;
+    public BaseSleep sleep;
 
     protected override void Awake()
     {
         base.Awake();
 
-        onSleep = true;
+        sleep = GetComponent<BaseSleep>();
 
         target = GetComponent<BaseTargeting>();
         target.SetTarget();
@@ -27,38 +29,30 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     void OnEnable()
     {
-        onSleep = false;
         Vector2 startDir = (target.target.position - transform.position).normalized;
         shooting.RotateGunInstantly(startDir);
     }
 
-    public void Wake()
-    {
-        onSleep = false;
-    }
-
     protected override void FixedUpdate()
     {
-        if (onSleep)
-        {
-            return;
-        }
-
+        Vector2 dir = target.target.position - transform.position;
         switch (motionState)
         {
             case MotionState.MoveToTarget:
-                Vector2 dir = target.target.position - transform.position;
                 move.Move(ref rb, dir);
                 break;
             case MotionState.Stay:
                 move.StopMovement(ref rb);
                 break;
             case MotionState.Regroup:
-                move.StopMovement(ref rb);
+                move.Move(ref rb, dir);
                 break;
             case MotionState.Pursue:
                 Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
                 move.Move(ref rb, pursueDir);
+                break;
+            case MotionState.Sleep:
+                move.StopMovement(ref rb);
                 break;
             default:
                 move.StopMovement(ref rb);
@@ -69,11 +63,6 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     protected override void Update()
     {
         Vector2 dir = (target.target.position - transform.position).normalized;
-        if (onSleep)
-        {
-            shooting.RotateGunInstantly(dir);
-            return;
-        }
 
         if (health.healthPoints == 0)
         {
@@ -81,7 +70,8 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         }
 
         Observe();
-        UpdateState();
+        UpdateActionState();
+        UpdateMovingState();
 
         switch (actionState)
         {
@@ -97,13 +87,96 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
                 break;
             case ActionState.Pursue:
                 break;
+            case ActionState.Sleep:
+                break;
             default:
                 break;
         }
     }
-
-    public void UpdateState()
+    public void UpdateActionState()
     {
+        if (sleep.onSleep)
+        {
+            actionState = ActionState.Sleep;
+        }
+        else if (move.onPush)
+        {
+            actionState = ActionState.Stun;
+        }
+        else if (shooting.IsMagazineEmpty())
+        {
+            actionState = ActionState.Reload;
+        }
+        else if (inShootingRange)
+        {
+            actionState = ActionState.Shoot;
+        }
+        else
+        {
+            actionState = ActionState.Idle;
+        }
+    }
+
+    public void UpdateMovingState()
+    {
+        if (sleep.onSleep)
+        {
+            motionState = MotionState.Sleep;
+            return;
+        }
+        else if (move.onPush)
+        {
+            motionState = MotionState.Stay;
+            return;
+        }
+        else if (actionState == ActionState.Reload)
+        {
+            if (target.targetSeen && !targetApproached)
+            {
+                motionState = MotionState.MoveToTarget;
+            }
+            else
+            {
+                motionState = MotionState.Stay;
+            }
+        }
+        else if (actionState == ActionState.Shoot || shooting.onCooldown)
+        {
+            if (targetApproached)
+            {
+                motionState = MotionState.Stay;
+            }
+            else
+            {
+                if (profile.shootingOnMove)
+                {
+                    motionState = MotionState.MoveToTarget;
+                }
+                else
+                {
+                    motionState = MotionState.Stay;
+                }    
+            }
+        }
+        else if (target.targetSeen)
+        {
+            motionState = MotionState.MoveToTarget;
+        }
+        else
+        {
+            motionState = MotionState.Stay;
+        }
+    }
+
+/*    public void UpdateState()
+    {
+        if (sleep.onSleep)
+        {
+            actionState = ActionState.Sleep;
+            motionState = MotionState.Sleep;
+            return;
+        }
+
         if (move.onPush)
         {
             actionState = ActionState.Stun;
@@ -111,22 +184,35 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             return;
         }
 
-/*        if (!target.targetSeen && pursue.canPursue)
+*//*        if (!target.targetSeen && pursue.canPursue)
         {
             actionState = ActionState.Pursue;
             motionState = MotionState.Pursue;
             return;
-        }*/
+        }*//*
 
-        if (!shooting.IsMagazineEmpty())
+        if (shooting.IsMagazineEmpty())
+        {
+            actionState = ActionState.Reload;
+
+            if (target.targetSeen)
+            {
+                motionState = MotionState.MoveToTarget;
+            }
+            else
+            {
+                motionState = MotionState.Stay;
+            }
+        }
+
+        if (!shooting.IsMagazineEmpty() && !shooting.onCooldown)
         {
             actionState = GetShootingBehaviourState();
             motionState = GetShootingMoveState();
         }
         else
         {
-            actionState = ActionState.Reload;
-            motionState = MotionState.Regroup;
+
         }
     }
 
@@ -136,7 +222,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         {
             return MotionState.Stay;
         }
-        else if (inShootingRange)
+        else if (inShootingRange || !shooting.onAttack)
         {
             if (profile.shootingOnMove)
             {
@@ -163,7 +249,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         {
             return ActionState.Idle;
         }
-    }
+    }*/
 
     void ShootingHandler()
     {

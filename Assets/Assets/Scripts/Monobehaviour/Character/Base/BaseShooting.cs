@@ -67,7 +67,6 @@ public class BaseShooting : MonoBehaviour, IShootable
     {
         onCooldown = true;
 
-        gunAnimator.RestorePosition(source.cooldown);
         yield return new WaitForSeconds(source.cooldown);
 
         onCooldown = false;
@@ -79,14 +78,16 @@ public class BaseShooting : MonoBehaviour, IShootable
         gunAnimator.PullPosition(source.aimingSpeed);
         yield return new WaitForSeconds(source.aimingSpeed);
 
-        onAttack = false;
-
         source.Shoot(bullet, bulletSpawn.transform.position, muzzle.transform.position, ref bulletsInMagazine);
+
+
+        gunAnimator.RestorePosition(source.attackExiting);
+        yield return new WaitForSeconds(source.attackExiting);
+
+        onAttack = false;
 
         yield return StartCoroutine(CooldownTimer());
     }
-
-
 
     public void ReloadManager()
     {
