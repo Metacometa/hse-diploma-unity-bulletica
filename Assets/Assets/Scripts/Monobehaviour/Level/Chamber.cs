@@ -11,8 +11,11 @@ public class Chamber : MonoBehaviour
 
     [SerializeField] public float chamberStartTimer;
 
-    public EnemyController enemyController;
+    private EnemyController enemyController;
+    [SerializeField] private GameObject horizontalRoom;
+    [SerializeField] private GameObject verticalRoom;
 
+    public CinemachineCamera cameraS;
 
     void Awake()
     {
@@ -20,6 +23,9 @@ public class Chamber : MonoBehaviour
         doorsBuilder = GetComponentInChildren<DoorsBuilder>();
         enemyController = GetComponentInChildren<EnemyController>();
         level = GetComponentInParent<Level>();
+
+        horizontalRoom = transform.Find("RoomHorizontal")?.gameObject;
+        verticalRoom = transform.Find("RoomVertical")?.gameObject;
     }
 
     void Start()
@@ -34,10 +40,25 @@ public class Chamber : MonoBehaviour
     {
         doorsBuilder.RotatePoints();
         doorsController.RotateWallsAndDoors();
+        DeleteExtraRoom();
 
         CinemachineCamera camera = GetComponentInChildren<CinemachineCamera>();
+        cameraS = camera;
 
         float newZ = -transform.rotation.eulerAngles.z;
         camera.transform.localRotation = Quaternion.Euler(0, 0, newZ);
+    }
+
+    void DeleteExtraRoom()
+    {
+        float angle = transform.rotation.eulerAngles.z;
+        if (angle == 90 || angle == 270)
+        {
+            DestroyImmediate(horizontalRoom);
+        }
+        else
+        {
+            DestroyImmediate(verticalRoom);
+        }
     }
 }

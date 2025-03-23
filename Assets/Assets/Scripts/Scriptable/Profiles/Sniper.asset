@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sniper
   m_EditorClassIdentifier: 
   enemyName: 
-  shootingRange: 15
-  approachedDistance: 4
-  sight: 15
-  shootingOnMove: 0
   moveSpeed: 1.25
+  sight: 40
+  shootingRange: 35
+  approachedDistance: 35
+  shootingOnMove: 0

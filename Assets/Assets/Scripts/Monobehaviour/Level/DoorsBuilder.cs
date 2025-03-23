@@ -84,7 +84,7 @@ public class DoorsBuilder : MonoBehaviour
         hitsLeft = new List<Transform>();
         for (int i = 0; i < roomIntersectionPoints.Count; ++i)
         {
-
+                
             RaycastHit2D[] hits = Physics2D.CircleCastAll(roomIntersectionPoints[i], intersectionRadius, Vector2.zero, 0, mask);
             foreach(RaycastHit2D Hit in hits)
             {
