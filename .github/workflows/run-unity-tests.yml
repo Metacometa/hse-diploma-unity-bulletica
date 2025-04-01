@@ -29,7 +29,6 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           coverageOptions: generateAdditionalMetrics;generateHtmlReport;generateBadgeReport;assemblyFilters:+Assembly-CSharp;
-          testMode: standalone
           
 
       - name: Upload Code Coverage Results
