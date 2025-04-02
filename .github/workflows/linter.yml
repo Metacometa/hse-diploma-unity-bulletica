@@ -33,4 +33,4 @@ jobs:
             else
               echo "::warning::$line"
             fi
-          done
+          done || true
