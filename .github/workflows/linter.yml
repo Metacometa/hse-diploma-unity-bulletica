@@ -24,9 +24,19 @@ jobs:
         if: steps.cache-dotnet-format.outputs.cache-hit == 'true'
         run: dotnet tool install -g dotnet-format
 
-      - name: Create temporary solution file
+      - name: Create temporary project file
         run: |
-          dotnet new sln -n TempSolution
+          cat << 'EOF' > Assembly-CSharp.csproj
+          <Project Sdk="Microsoft.NET.Sdk">
+            <PropertyGroup>
+              <TargetFramework>netstandard2.1</TargetFramework>
+              <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+            </PropertyGroup>
+            <ItemGroup>
+              <Compile Include="**/*.cs" />
+            </ItemGroup>
+          </Project>
+          EOF
 
       - name: Run soft dotnet-format
         run: |
