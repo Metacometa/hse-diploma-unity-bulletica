@@ -1,0 +1,36 @@
+name: C# Linter
+on: [push, pull_request]
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+
+      - name: Cache dotnet-format
+        id: cache-dotnet-format
+        uses: actions/cache@v4
+        with:
+          path: ~/.dotnet/tools
+          key: dotnet-format-${{ github.sha }}  
+          restore-keys: |
+            dotnet-format-
+
+      - name: Install dotnet-format
+        if: steps.cache-dotnet-format.outputs.cache-hit != 'true'
+        run: dotnet tool install -g dotnet-format
+
+      - name: Run soft dotnet-format
+        run: |
+          dotnet format --check --verbosity diagnostic 2>&1 | grep -E "error|warning" | while read line; do
+            if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\): ]]; then
+              file="${BASH_REMATCH[1]}"
+              line_num="${BASH_REMATCH[2]}"
+              echo "::warning file=$file,line=$line_num::$line"
+            else
+              echo "::warning::$line"
+            fi
+          done || true
