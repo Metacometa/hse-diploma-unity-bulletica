@@ -26,10 +26,10 @@ jobs:
       - name: Run soft dotnet-format
         run: |
           echo "::group::Running dotnet-format"
-          output=$(dotnet-format --check --verbosity diagnostic 2>&1 || true)
+          output=$(dotnet-format --include "**/*.cs" --check --verbosity diagnostic 2>&1 || true)
           echo "$output"
           echo "::endgroup::"
-          ls -la
+
           echo "=== Processing output ==="
           echo "$output" | grep -E "error|warning" | while IFS= read -r line; do
             if [[ "$line" =~ ([^\(]+)\(([0-9]+),([0-9]+)\):[[:space:]](.*) ]]; then
