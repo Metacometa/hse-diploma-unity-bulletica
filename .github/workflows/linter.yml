@@ -23,6 +23,20 @@ jobs:
         if: steps.cache-dotnet-format.outputs.cache-hit == 'true'
         run: dotnet tool install -g dotnet-format
 
+      - name: Create temp project file
+        run: |
+          cat << 'EOF' > temp.csproj
+            <Project Sdk="Microsoft.NET.Sdk">
+              <PropertyGroup>
+                <TargetFramework>net8.0</TargetFramework>
+                <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+              </PropertyGroup>
+              <ItemGroup>
+                <Compile Include="**/*.cs" Exclude="**/bin/**;**/obj/**" />
+              </ItemGroup>
+            </Project>
+            EOF
+
       - name: Run soft dotnet-format
         run: |
           echo "::group::Running dotnet-format"
