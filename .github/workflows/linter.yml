@@ -25,13 +25,21 @@ jobs:
 
       - name: Run soft dotnet-format
         run: |
-          dotnet-format --check --verbosity diagnostic 2>&1 | grep -E "error|warning" | while read line; do
-            if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\): ]]; then
+          echo "::group::Running dotnet-format"
+          output=$(dotnet format --check --verbosity diagnostic 2>&1 || true)
+          echo "$output"
+          echo "::endgroup::"
+        
+          echo "=== Processing output ==="
+          echo "$output" | grep -E "error|warning" | while IFS= read -r line; do
+            if [[ "$line" =~ ([^\(]+)\(([0-9]+),([0-9]+)\):[[:space:]](.*) ]]; then
               file="${BASH_REMATCH[1]}"
               line_num="${BASH_REMATCH[2]}"
-              echo "::warning file=$file,line=$line_num::$line"
-            else
+              message="${BASH_REMATCH[4]}"
+              echo "::warning file=$file,line=$line_num::$message"
+            elif [[ "$line" =~ (error|warning)[[:space:]].+ ]]; then
               echo "::warning::$line"
             fi
-            echo "Я футбольный мячик"
-          done || true
+          done
+        
+          echo "=== Lint completed ==="
