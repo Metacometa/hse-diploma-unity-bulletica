@@ -1,3 +1,4 @@
+
 name: C# Linter
 on: [push, pull_request]
 
@@ -10,23 +11,32 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
 
-      - name: Cache csharp-lint
-        id: cache-csharp-lint
+      - name: Cache dotnet-format
+        id: cache-dotnet-format
         uses: actions/cache@v4
         with:
           path: ~/.dotnet/tools
-          key: csharp-lint-${{ github.sha }}  
+          key: dotnet-format-${{ github.sha }}  
           restore-keys: |
-            csharp-lint-
+            dotnet-format-
+            
+      - name: Install dotnet-format
+        if: steps.cache-dotnet-format.outputs.cache-hit == 'true'
+        run: dotnet tool install -g dotnet-format
 
-      - name: Install csharp-lint
-        if: steps.cache-csharp-lint.outputs.cache-hit == 'false'
-        run: dotnet tool install -g csharp-lint
-
-      - name: Run parsing
+      - name: Run soft dotnet-format
         run: |
-          csharp-lint "**/*.cs" | while read -r line; do
-          if [[ $line =~ ^(.*):([0-9]+):([0-9]+):\ (.*)$ ]]; then
-            echo "::warning file=${BASH_REMATCH[1]},line=${BASH_REMATCH[2]},col=${BASH_REMATCH[3]}::${BASH_REMATCH[4]}"
-          fi
-          done
+          echo "::group::Running dotnet-format"
+          output=$(dotnet format --include "**/*.cs" --check --verbosity diagnostic 2>&1 || true)
+          echo "$output"
+          echo "::endgroup::"
+        
+          echo "$output" | grep -E "error|warning" | while read line; do
+            if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\): ]]; then
+              file="${BASH_REMATCH[1]}"
+              line_num="${BASH_REMATCH[2]}"
+              echo "::warning file=$file,line=$line_num::$line"
+            else
+              echo "::warning::$line"
+            fi
+          done || true
