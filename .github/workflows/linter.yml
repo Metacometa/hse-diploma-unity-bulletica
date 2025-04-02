@@ -25,7 +25,12 @@ jobs:
 
       - name: Run soft dotnet-format
         run: |
-          echo dotnet-format --include "**/*.cs" --check --verbosity diagnostic 2>&1 | grep -E "error|warning" | while read line; do
+          echo "::group::Running dotnet-format"
+          output=$(dotnet-format --include "**/*.cs" --check --verbosity diagnostic 2>&1 || true)
+          echo "$output"
+          echo "::endgroup::"
+        
+          echo "$output" | grep -E "error|warning" | while read line; do
             if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\): ]]; then
               file="${BASH_REMATCH[1]}"
               line_num="${BASH_REMATCH[2]}"
