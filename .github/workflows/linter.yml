@@ -26,7 +26,7 @@ jobs:
       - name: Run soft dotnet-format
         run: |
           echo "::group::Running dotnet-format"
-          output=$(dotnet format --check --verbosity diagnostic 2>&1 || true)
+          output=$(dotnet-format --check --verbosity diagnostic 2>&1 || true)
           echo "$output"
           echo "::endgroup::"
         
