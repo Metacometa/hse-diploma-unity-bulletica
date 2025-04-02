@@ -33,4 +33,5 @@ jobs:
             else
               echo "::warning::$line"
             fi
+            echo "Я футбольный мячик"
           done || true
