@@ -24,6 +24,11 @@ jobs:
         if: steps.cache-dotnet-format.outputs.cache-hit == 'true'
         run: dotnet tool install -g dotnet-format
 
+      - name: Create temporary solution file
+        run: |
+          dotnet new sln -n TempSolution
+          dotnet sln TempSolution.sln add **/*.csproj
+
       - name: Run soft dotnet-format
         run: |
           echo "::group::Running dotnet-format"
