@@ -20,7 +20,7 @@ jobs:
             csharp-lint-
 
       - name: Install csharp-lint
-        if: steps.cache-csharp-lint.outputs.cache-hit == 'true'
+        if: steps.cache-csharp-lint.outputs.cache-hit == 'false'
         run: dotnet tool install -g csharp-lint
 
       - name: Run parsing
