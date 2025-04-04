@@ -38,9 +38,11 @@ jobs:
 
       - name: Run soft dotnet-format
         run: |
-          raw_output=$(dotnet-format --no-restore --include "**/*.cs" --check --verbosity diagnostic 2>&1 | tee /dev/tty || true)
+          raw_output=$(dotnet-format --no-restore --include "**/*.cs" --check --verbosity diagnostic 2>&1 || true)
 
           clean_output=$(echo "$raw_output" | perl -pe 's/\e\[[\d;]*[mGK]//g' | tr -cd '\11\12\15\40-\176')
+      
+          clean_output=$(echo "$clean_output" | sed 's/[^[:print:][:space:]]//g')
       
           echo "$clean_output" | grep -E "error|warning" | while read -r line; do
             if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\):[[:space:]]*(error)[[:space:]]+([A-Za-z0-9]+):[[:space:]]*(.*) ]]; then
