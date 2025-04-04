@@ -38,19 +38,19 @@ jobs:
 
       - name: Run soft dotnet-format
         run: |
-          output=$(dotnet-format --no-restore --include "**/*.cs" --check --verbosity diagnostic 2>&1 || true)
-        
-          clean_output=$(echo "$output" | iconv -c -t ASCII)
+          dotnet-format --no-restore --include "**/*.cs" --check --verbosity diagnostic 2>&1 | tee raw_output.txt || true
 
-          echo "$clean_output" | grep -E "error|warning" | while read line; do
-            if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\):\s*(error|warning)\s*([A-Za-z0-9]+):\s*(.*) ]]; then
+          clean_output=$(cat raw_output.txt | perl -pe 's/\e\[[\d;]*[mGK]//g' | tr '\000-\011\013\014\016-\037' ' ' | tr -s ' ' | awk '{$1=$1};1')
+
+          echo "$clean_output" | grep -E "error|warning" | while read -r line; do
+            if [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\):[[:space:]]*(error|warning)[[:space:]]*([A-Za-z0-9]+):[[:space:]]*(.*) ]]; then
               file="${BASH_REMATCH[1]}"
               line_num="${BASH_REMATCH[2]}"
               type="${BASH_REMATCH[4]}"
               code="${BASH_REMATCH[5]}"
               message="${BASH_REMATCH[6]}"
               echo "::$type file=$file,line=$line_num,code=$code::$message"
-            elif [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\):\s*(.*) ]]; then
+            elif [[ $line =~ ([^\(]+)\(([0-9]+),([0-9]+)\):[[:space:]]*(.*) ]]; then
               file="${BASH_REMATCH[1]}"
               line_num="${BASH_REMATCH[2]}"
               message="${BASH_REMATCH[4]}"
