@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Pistoler
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 1.25
+  moveSpeed: 4.2
+  pushingAwayTime: 0.2
+  pushingAwayForce: 2
   sight: 15
+  health: 3
+  invincibilityTime: 0
+  targetTag: Player
   shootingRange: 15
   approachedDistance: 6
   shootingOnMove: 1

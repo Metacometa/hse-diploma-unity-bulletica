@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
-using Unity.Collections;
 using UnityEngine;
 
 public class DoorsController : MonoBehaviour
@@ -22,8 +20,8 @@ public class DoorsController : MonoBehaviour
     {
         int rotationIndex = (int)transform.rotation.eulerAngles.z / 90;
 
-        builder.ShiftList(ref doors, rotationIndex);
-        builder.ShiftList(ref walls, rotationIndex);
+/*        builder.ShiftList(ref doors, rotationIndex);
+        builder.ShiftList(ref walls, rotationIndex);*/
 
         foreach (Directions d in (Directions[])Enum.GetValues(typeof(Directions)))
         {

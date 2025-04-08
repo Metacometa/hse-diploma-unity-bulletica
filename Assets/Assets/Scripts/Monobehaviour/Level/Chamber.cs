@@ -45,7 +45,7 @@ public class Chamber : MonoBehaviour
         CinemachineCamera camera = GetComponentInChildren<CinemachineCamera>();
         cameraS = camera;
 
-        float newZ = -transform.rotation.eulerAngles.z;
+        float newZ = -transform.localRotation.eulerAngles.z;
         camera.transform.localRotation = Quaternion.Euler(0, 0, newZ);
     }
 
@@ -60,5 +60,34 @@ public class Chamber : MonoBehaviour
         {
             DestroyImmediate(verticalRoom);
         }
+    }
+
+    public void SetLeftRotation()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public void SetRightRotation()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, 180);
+    }
+
+    public void SetBottomRotation()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, 90);
+    }
+
+    public void SetTopRotation()
+    {
+        transform.localRotation = Quaternion.Euler(0, 0, 270);
+    }
+
+    public Vector3 GetLeftContactPoint()
+    {
+        return doorsController.doors[0].position;
+    }
+    public Vector3 GetRightContactPoint()
+    {
+        return doorsController.doors[1].position;
     }
 }

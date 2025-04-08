@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BossProfile", menuName = "Scriptable Objects/Profiles/Boss")]
-public class BossProfile : BaseProfile
+[CreateAssetMenu(fileName = "BossDualProfile", menuName = "Scriptable Objects/Profiles/Boss")]
+public class BossProfile : ShootingProfile
 {
 
 }

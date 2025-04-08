@@ -1,9 +1,10 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BaseTargeting))]
 public class Boss : BaseCharacter
 {
-    //SkillSet
-    public BossProfile profile;
+    /*    //SkillSet
+        public BossProfile profile;*/
 
     protected BaseTargeting target;
     protected bool targetApproached;
@@ -12,7 +13,7 @@ public class Boss : BaseCharacter
     {
         base.Awake();
 
-        onSleep = false;
+        sleep.onSleep = false;
 
         target = GetComponent<BaseTargeting>();
         target.SetTarget();
@@ -20,20 +21,23 @@ public class Boss : BaseCharacter
 
     protected virtual void Update()
     {
-        if (health.healthPoints == 0)
+        if (health.health == 0)
         {
             death.Die(gameObject);
         }
     }
 
-    protected virtual void FixedUpdate() {}
+    protected virtual void FixedUpdate() { }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Bullet")
         {
+            if (GetComponent<BaseInvincibility>().invincible) { return; }
+
             health.TakeDamage();
             shimmer.ShimmerManager();
         }
     }
 }
+

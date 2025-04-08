@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum Directions{ Top, Right, Bottom, Left};
@@ -31,10 +30,10 @@ public class DoorsBuilder : MonoBehaviour
         for (int i = 0; i < roomIntersectionPoints.Count; i++)
         {
             roomIntersectionPoints[i] =
-                Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z) * roomIntersectionPoints[i];
+                Quaternion.Euler(0, 0, transform.localRotation.eulerAngles.z) * roomIntersectionPoints[i];
         }
 
-        int rotationIndex = (int)transform.rotation.eulerAngles.z / 90;
+        int rotationIndex = (int)transform.localRotation.eulerAngles.z / 90;
         ShiftList(ref roomIntersectionPoints, rotationIndex);
 
         for (int i = 0; i < roomIntersectionPoints.Count; i++)
@@ -133,11 +132,19 @@ public class DoorsBuilder : MonoBehaviour
 
     public void OnDrawGizmosSelected()
     {
-        if (roomIntersectionPoints != null)
+        /*        if (roomIntersectionPoints != null)
+                {
+                    foreach (Vector2 pos in roomIntersectionPoints)
+                    {
+                        Gizmos.DrawWireSphere(pos, intersectionRadius);
+                    }
+                }*/
+
+        if (doorsController.doors.Count > 0)
         {
-            foreach (Vector2 pos in roomIntersectionPoints)
+            foreach (Transform pos in doorsController.doors)
             {
-                Gizmos.DrawWireSphere(pos, intersectionRadius);
+                Gizmos.DrawWireSphere(pos.position, intersectionRadius);
             }
         }
     }

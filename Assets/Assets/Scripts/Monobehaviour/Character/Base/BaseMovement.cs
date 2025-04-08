@@ -4,24 +4,23 @@ using UnityEngine.Windows;
 
 public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 {
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private float pushingAwayTime;
-    [SerializeField] private float pushingAwayForce;
-
     /*[HideInInspector]*/ public bool onPush;
+    private BaseProfile profile;
 
     protected virtual void Awake()
     {
         onPush = false;
+
+        profile = GetComponent<BaseCharacter>().profile;
     }
     protected virtual void Start()
     {
         onPush = false;
     }
 
-    public void Move(ref Rigidbody2D rb, in Vector2 dir)
+    public void Move(ref Rigidbody2D rb, in Vector2 dir, in float speed)
     {
-        rb.linearVelocity = dir.normalized * moveSpeed;
+        rb.linearVelocity = dir.normalized * speed;
     }
 
     public void StopMovement(ref Rigidbody2D rb)
@@ -32,7 +31,7 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     public void PushAway(ref Rigidbody2D rb, in Vector2 dir)
     {
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(dir.normalized * pushingAwayForce, ForceMode2D.Impulse);
+        rb.AddForce(dir.normalized * profile.pushingAwayForce, ForceMode2D.Impulse);
 
         StartCoroutine(PushAwayManager());
     }
@@ -41,7 +40,7 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     {
         onPush = true;
 
-        yield return new WaitForSeconds(pushingAwayTime);
+        yield return new WaitForSeconds(profile.pushingAwayTime);
 
         onPush = false;
     }

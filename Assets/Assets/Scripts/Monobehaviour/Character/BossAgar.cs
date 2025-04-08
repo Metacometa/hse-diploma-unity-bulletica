@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BossAgar : Boss
 {
+    //public BossProfile profile;
     //SkillSet
     public BossAgarController controller;
     public int bouncesCount;
@@ -25,14 +26,14 @@ public class BossAgar : Boss
 
     void OnEnable()
     {
-        onSleep = false;
+        sleep.onSleep = false;
 
         ChooseStartDir();
     }
 
     protected override void Update() 
     {
-        if (health.healthPoints == 0)
+        if (health.health == 0)
         {
             DeathHandler();
         }
@@ -82,7 +83,7 @@ public class BossAgar : Boss
         {
             health.TakeDamage();
 
-            if (health.healthPoints == 0)
+            if (health.health == 0)
             {
                 rb.linearVelocity = collision.GetComponent<Rigidbody2D>().linearVelocity;
             }

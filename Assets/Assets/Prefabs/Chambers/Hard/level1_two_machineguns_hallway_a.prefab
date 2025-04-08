@@ -7339,10 +7339,10 @@ CompositeCollider2D:
   m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
-    - - {x: -6.000029, y: -0.9999995}
-      - {x: -6.000029, y: 1.0000006}
-      - {x: -7, y: 0.9999714}
-      - {x: -6.9999704, y: -0.9999994}
+    - - {x: -6.000029, y: -1}
+      - {x: -6.000029, y: 1}
+      - {x: -7, y: 0.99997073}
+      - {x: -6.9999704, y: -1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

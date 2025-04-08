@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class BaseHealth : MonoBehaviour, IDamageable
 {
-    public int healthPoints;
-    public int startingHealth;
+    public int health;
+
+    void Awake()
+    {
+        health = GetComponent<BaseCharacter>().profile.health;
+    }
 
     public void TakeDamage(in int damage = 1)
     {
-        healthPoints = Mathf.Max(0, healthPoints - damage);
+        health = Mathf.Max(0, health - damage);
     }
 }

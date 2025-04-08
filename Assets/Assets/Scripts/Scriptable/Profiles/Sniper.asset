@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: 
   moveSpeed: 1.25
-  sight: 40
+  pushingAwayTime: 2
+  pushingAwayForce: 0.2
+  sight: 35
+  health: 2
+  invincibilityTime: 0
+  targetTag: Player
   shootingRange: 35
   approachedDistance: 35
   shootingOnMove: 0

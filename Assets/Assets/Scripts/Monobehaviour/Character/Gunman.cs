@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BaseShooting))]
+[RequireComponent(typeof(BaseTargeting))]
 public class Gunman : BaseCharacter
 {
     protected BaseShooting shooting;
@@ -13,10 +15,16 @@ public class Gunman : BaseCharacter
     {
         base.Awake();
         shooting = GetComponent<BaseShooting>();
+
+        target = GetComponent<BaseTargeting>();
+        if (target)
+        {
+            target.SetTarget();
+        }
     }
     protected virtual void Update()
     {
-        if (health.healthPoints == 0)
+        if (health.health == 0)
         {
             death.Die(gameObject);
         }
@@ -32,6 +40,8 @@ public class Gunman : BaseCharacter
     {
         if (collision.tag == "Bullet")
         {
+            if (GetComponent<BaseInvincibility>().invincible) { return; }
+
             health.TakeDamage();
             shimmer.ShimmerManager();
 

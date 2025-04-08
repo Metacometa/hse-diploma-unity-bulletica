@@ -1,10 +1,9 @@
 using UnityEngine;
 using EnemyState;
 
-[RequireComponent(typeof(BaseSleep))]
 public class SimpleEnemy : Gunman, IObservable, IStatable
 {
-    public EnemyProfile profile;
+    //public EnemyProfile profile;
 
     //EnemyState
     public ActionState actionState;
@@ -13,24 +12,21 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     [SerializeField] private LayerMask masks;
 
     public BasePursue pursue;
-    public BaseSleep sleep;
 
     protected override void Awake()
     {
         base.Awake();
-
-        sleep = GetComponent<BaseSleep>();
-
-        target = GetComponent<BaseTargeting>();
-        target.SetTarget();
 
         pursue = GetComponent<BasePursue>();
     }
 
     void OnEnable()
     {
-        Vector2 startDir = (target.target.position - transform.position).normalized;
-        shooting.RotateGunInstantly(startDir);
+        if (shooting)
+        {
+            Vector2 startDir = (target.target.position - transform.position).normalized;
+            rotator.RotateInstantly(startDir);
+        }
     }
 
     protected override void FixedUpdate()
@@ -39,17 +35,17 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         switch (motionState)
         {
             case MotionState.MoveToTarget:
-                move.Move(ref rb, dir);
+                move.Move(ref rb, dir, profile.moveSpeed);
                 break;
             case MotionState.Stay:
                 move.StopMovement(ref rb);
                 break;
             case MotionState.Regroup:
-                move.Move(ref rb, dir);
+                move.Move(ref rb, dir, profile.moveSpeed);
                 break;
             case MotionState.Pursue:
                 Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
-                move.Move(ref rb, pursueDir);
+                move.Move(ref rb, pursueDir, profile.moveSpeed);
                 break;
             case MotionState.Sleep:
                 move.StopMovement(ref rb);
@@ -64,7 +60,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     {
         Vector2 dir = (target.target.position - transform.position).normalized;
 
-        if (health.healthPoints == 0)
+        if (health.health == 0)
         {
             death.Die(gameObject);
         }
@@ -77,11 +73,11 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         {
             case ActionState.Shoot:
                 ShootingHandler();
-                shooting.RotateGun(dir);
+                rotator.Rotate(dir, shooting.GetRotationSpeed());
                 break;
             case ActionState.Reload:
                 ReloadHandler();
-                shooting.RotateGun(dir);
+                rotator.Rotate(dir, shooting.GetRotationSpeed());
                 break;
             case ActionState.Idle:
                 break;
@@ -140,7 +136,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
                 motionState = MotionState.Stay;
             }
         }
-        else if (actionState == ActionState.Shoot || shooting.onCooldown)
+        else if (actionState == ActionState.Shoot || shooting.OnCooldown())
         {
             if (targetApproached)
             {
@@ -148,7 +144,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             }
             else
             {
-                if (profile.shootingOnMove)
+                if (((ShootingProfile)profile).shootingOnMove)
                 {
                     motionState = MotionState.MoveToTarget;
                 }
@@ -168,92 +164,9 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         }
     }
 
-/*    public void UpdateState()
-    {
-        if (sleep.onSleep)
-        {
-            actionState = ActionState.Sleep;
-            motionState = MotionState.Sleep;
-            return;
-        }
-
-        if (move.onPush)
-        {
-            actionState = ActionState.Stun;
-            motionState = MotionState.Stay;
-            return;
-        }
-
-*//*        if (!target.targetSeen && pursue.canPursue)
-        {
-            actionState = ActionState.Pursue;
-            motionState = MotionState.Pursue;
-            return;
-        }*//*
-
-        if (shooting.IsMagazineEmpty())
-        {
-            actionState = ActionState.Reload;
-
-            if (target.targetSeen)
-            {
-                motionState = MotionState.MoveToTarget;
-            }
-            else
-            {
-                motionState = MotionState.Stay;
-            }
-        }
-
-        if (!shooting.IsMagazineEmpty() && !shooting.onCooldown)
-        {
-            actionState = GetShootingBehaviourState();
-            motionState = GetShootingMoveState();
-        }
-        else
-        {
-
-        }
-    }
-
-    MotionState GetShootingMoveState()
-    {
-        if (!target.targetSeen || targetApproached)
-        {
-            return MotionState.Stay;
-        }
-        else if (inShootingRange || !shooting.onAttack)
-        {
-            if (profile.shootingOnMove)
-            {
-                return MotionState.MoveToTarget;
-            }
-            else
-            {
-                return MotionState.Stay;
-            }
-        }
-        else
-        {
-            return MotionState.MoveToTarget;
-        }
-    }
-
-    ActionState GetShootingBehaviourState()
-    {
-        if (inShootingRange)
-        {
-            return ActionState.Shoot;
-        }
-        else
-        {
-            return ActionState.Idle;
-        }
-    }*/
-
     void ShootingHandler()
     {
-        if (!shooting.onCooldown && !shooting.onReload && !shooting.onAttack)
+        if (!shooting.OnCooldown() && !shooting.OnReload() && !shooting.OnAttack())
         {
             shooting.ShootingManager();
         }
@@ -261,7 +174,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     void ReloadHandler()
     {
-        if (!shooting.onReload)
+        if (!shooting.OnReload())
         {
             shooting.ReloadManager();
         }
@@ -271,9 +184,9 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     {
         Vector2 dir = target.target.position - transform.position;
 
-        LookToPoint(dir, profile.sight, masks, ref target.targetSeen);
-        LookToPoint(dir, profile.shootingRange, masks, ref inShootingRange);
-        LookToPoint(dir, profile.approachedDistance, masks, ref targetApproached);
+        LookToPoint(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
+        LookToPoint(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+        LookToPoint(dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
     }
 
     public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
@@ -304,9 +217,9 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
 
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, shootingDirection * profile.shootingRange);
+        Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
 
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, shootingDirection * profile.approachedDistance);
+        Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).approachedDistance);
     }
 }

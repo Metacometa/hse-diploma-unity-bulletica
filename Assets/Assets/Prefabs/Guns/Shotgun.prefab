@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7970323655853118513}
   - component: {fileID: 6687555186115256324}
+  - component: {fileID: -6282234113410948609}
   m_Layer: 0
   m_Name: Shotgun
   m_TagString: Gun
@@ -290,6 +291,29 @@ MonoBehaviour:
   onPulling: 0
   elapsedTime: 0
   duration: 0
+--- !u!114 &-6282234113410948609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108018042923758592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021403eace4ace84195b5a86b80d8ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzle: {fileID: 0}
+  bulletSpawn: {fileID: 0}
+  attacks:
+  - {fileID: 11400000, guid: 29a04d4fef1dc0d458e96ccbd9f26b57, type: 2}
+  attack: {fileID: 0}
+  gunAnimator: {fileID: 0}
+  bulletsInMagazine: 0
+  bullet: {fileID: 8383260018039565768, guid: 063b8bf206cefba42a4a8f1e9a2aa9a0, type: 3}
+  onReload: 0
+  onCooldown: 0
+  onAttack: 0
 --- !u!1 &9215006306156738143
 GameObject:
   m_ObjectHideFlags: 0

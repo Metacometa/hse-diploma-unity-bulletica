@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyProfile", menuName = "Scriptable Objects/Profiles/Enemy")]
-public class EnemyProfile : BaseProfile
+public class ShootingProfile : BaseProfile
 {
     [Header("Shooting")]
     [SerializeField] public float shootingRange;
