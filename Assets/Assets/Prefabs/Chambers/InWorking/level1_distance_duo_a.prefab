@@ -8726,15 +8726,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walls:
-  - {fileID: 6714984986777608814}
-  - {fileID: 1875251924863245324}
   - {fileID: 3928089940304555293}
+  - {fileID: 1875251924863245324}
   - {fileID: 7426573065001184928}
+  - {fileID: 6714984986777608814}
   doors:
-  - {fileID: 2687308155765674327}
-  - {fileID: 6539966373222328027}
   - {fileID: 4569712534740633972}
+  - {fileID: 6539966373222328027}
   - {fileID: 5288374083782657725}
+  - {fileID: 2687308155765674327}
   enemies: {fileID: 0}
 --- !u!114 &5189377243769577892
 MonoBehaviour:
@@ -8748,11 +8748,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad363f208d3e249947c38afe74d15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomIntersectionPoints:
-  - {x: -11, y: 0}
-  - {x: 11, y: 0}
-  - {x: 0, y: 11}
-  - {x: 0, y: -11}
   intersectionRadius: 1
   mask:
     serializedVersion: 2
@@ -8762,6 +8757,7 @@ MonoBehaviour:
   hitsTop: []
   hitsRight: []
   hitsBottom: []
+  debug: []
 --- !u!1 &9050744020953771415
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Chamber : MonoBehaviour
@@ -38,15 +39,19 @@ public class Chamber : MonoBehaviour
     
     public void InitializeRotation()
     {
-        doorsBuilder.RotatePoints();
         doorsController.RotateWallsAndDoors();
         DeleteExtraRoom();
 
         CinemachineCamera camera = GetComponentInChildren<CinemachineCamera>();
-        cameraS = camera;
 
-        float newZ = -transform.localRotation.eulerAngles.z;
-        camera.transform.localRotation = Quaternion.Euler(0, 0, newZ);
+        if (camera)
+        {
+            cameraS = camera;
+
+            float newZ = -transform.localRotation.eulerAngles.z;
+            camera.transform.localRotation = Quaternion.Euler(0, 0, newZ);
+        }
+
     }
 
     void DeleteExtraRoom()
@@ -65,29 +70,42 @@ public class Chamber : MonoBehaviour
     public void SetLeftRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 0);
+        InitializeRotation();
     }
 
     public void SetRightRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 180);
+        InitializeRotation();
     }
 
     public void SetBottomRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 90);
+        InitializeRotation();
     }
 
     public void SetTopRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 270);
+        InitializeRotation();
     }
 
     public Vector3 GetLeftContactPoint()
     {
-        return doorsController.doors[0].position;
+        return doorsController.doors[3].position;
     }
     public Vector3 GetRightContactPoint()
     {
         return doorsController.doors[1].position;
+    }
+
+    public Vector3 GetTopContactPoint()
+    {
+        return doorsController.doors[0].position;
+    }
+    public Vector3 GetBottomContactPoint()
+    {
+        return doorsController.doors[2].position;
     }
 }

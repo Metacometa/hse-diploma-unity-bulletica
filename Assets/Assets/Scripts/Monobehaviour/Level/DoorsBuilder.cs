@@ -8,7 +8,6 @@ public class DoorsBuilder : MonoBehaviour
 {
     private DoorsController doorsController;
 
-    public List<Vector2> roomIntersectionPoints;
     [SerializeField] public float intersectionRadius;
 
     [SerializeField] public LayerMask mask;
@@ -20,26 +19,13 @@ public class DoorsBuilder : MonoBehaviour
     public List<Transform> hitsRight;
     public List<Transform> hitsBottom;
 
+    public List<Vector3> debug;
+
     void Awake()
     {
         doorsController = GetComponent<DoorsController>();
-    }
 
-    public void RotatePoints()
-    {
-        for (int i = 0; i < roomIntersectionPoints.Count; i++)
-        {
-            roomIntersectionPoints[i] =
-                Quaternion.Euler(0, 0, transform.localRotation.eulerAngles.z) * roomIntersectionPoints[i];
-        }
-
-        int rotationIndex = (int)transform.localRotation.eulerAngles.z / 90;
-        ShiftList(ref roomIntersectionPoints, rotationIndex);
-
-        for (int i = 0; i < roomIntersectionPoints.Count; i++)
-        {
-            roomIntersectionPoints[i] += (Vector2)transform.position;
-        }
+        debug = new List<Vector3> ();
     }
 
     public void ShiftList<T>(ref List<T> transforms, in int repeats)
@@ -59,11 +45,12 @@ public class DoorsBuilder : MonoBehaviour
     {
         HashSet<Transform> doorControllers = new HashSet<Transform>();
 
-        foreach (Vector2 v in roomIntersectionPoints)
+        foreach (Transform v in doorsController.doors)
         {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(v, intersectionRadius, Vector2.zero, 0, mask);
+            //RaycastHit2D[] hits = Physics2D.CircleCastAll(v.position, intersectionRadius, Vector2.zero, 0, mask);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(v.position, intersectionRadius, mask);
 
-            foreach(RaycastHit2D hit in hits)
+            foreach (Collider2D hit in hits)
             {
                 if (hit.transform.tag == "Door")
                 {
@@ -81,33 +68,17 @@ public class DoorsBuilder : MonoBehaviour
         hitsRight = new List<Transform>();
         hitsBottom = new List<Transform>();
         hitsLeft = new List<Transform>();
-        for (int i = 0; i < roomIntersectionPoints.Count; ++i)
+        for (int i = 0; i < doorsController.doors.Count; ++i)
         {
-                
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(roomIntersectionPoints[i], intersectionRadius, Vector2.zero, 0, mask);
-            foreach(RaycastHit2D Hit in hits)
-            {
-                switch (i)
-                {
-                    case 0:
-                        hitsTop.Add(Hit.transform);
-                        break;
-                    case 1:
-                        hitsRight.Add(Hit.transform);
-                        break;
-                    case 2:
-                        hitsBottom.Add(Hit.transform);
-                        break;
-                    case 3:
-                        hitsLeft.Add(Hit.transform);
-                        break;
-                }
-            }
+
+            Collider2D[] hits = Physics2D.OverlapCircleAll(doorsController.doors[i].position, intersectionRadius, mask);
+            //RaycastHit2D[] hits = Physics2D.CircleCastAll(doorsController.doors[i].position, intersectionRadius, Vector2.zero, 0, mask);
+
 
             int wallsCounter = 0;
             int doorCounter = 0;
 
-            foreach (RaycastHit2D hit in hits)
+            foreach (Collider2D hit in hits)
             {
                 if (hit.transform.tag == "WallFaker")
                 {
@@ -118,6 +89,11 @@ public class DoorsBuilder : MonoBehaviour
                     doorCounter++;
                 }
             }
+
+            //debug
+            debug.Add(doorsController.doors[i].position);
+
+            Debug.Log(wallsCounter + " " + doorCounter + " " + hits.Length);
 
             if (i < walls.Count && i < doors.Count)
             {
@@ -132,13 +108,6 @@ public class DoorsBuilder : MonoBehaviour
 
     public void OnDrawGizmosSelected()
     {
-        /*        if (roomIntersectionPoints != null)
-                {
-                    foreach (Vector2 pos in roomIntersectionPoints)
-                    {
-                        Gizmos.DrawWireSphere(pos, intersectionRadius);
-                    }
-                }*/
 
         if (doorsController.doors.Count > 0)
         {
@@ -146,6 +115,11 @@ public class DoorsBuilder : MonoBehaviour
             {
                 Gizmos.DrawWireSphere(pos.position, intersectionRadius);
             }
+        }
+
+        foreach (Vector3 pos in debug)
+        {
+            Gizmos.DrawWireSphere(pos, 0.3f);
         }
     }
 }

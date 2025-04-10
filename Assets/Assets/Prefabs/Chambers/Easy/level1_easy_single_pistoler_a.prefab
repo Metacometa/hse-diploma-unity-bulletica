@@ -5041,11 +5041,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad363f208d3e249947c38afe74d15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomIntersectionPoints:
-  - {x: 0, y: 6}
-  - {x: 8, y: 0}
-  - {x: 0, y: -6}
-  - {x: -8, y: 0}
   intersectionRadius: 1
   mask:
     serializedVersion: 2
@@ -5055,6 +5050,7 @@ MonoBehaviour:
   hitsTop: []
   hitsRight: []
   hitsBottom: []
+  debug: []
 --- !u!1 &8031485493387875803
 GameObject:
   m_ObjectHideFlags: 0

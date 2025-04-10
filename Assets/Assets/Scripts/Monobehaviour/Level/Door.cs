@@ -20,12 +20,15 @@ public class Door : MonoBehaviour
     {
         leftDoor = transform.Find("LeftDoor").GetComponent<Rigidbody2D>();
         rightDoor = transform.Find("RightDoor").GetComponent<Rigidbody2D>();
+    }
 
+    void Start()
+    {
         leftOpenedPos = transform.Find("LeftOpenedPos").position;
         rightOpenedPos = transform.Find("RightOpenedPos").position;
 
-        leftClosedPos = leftDoor.position;
-        rightClosedPos = rightDoor.position;
+        leftClosedPos = leftDoor.transform.position;
+        rightClosedPos = rightDoor.transform.position;
     }
 
     void FixedUpdate()
@@ -61,4 +64,6 @@ public class Door : MonoBehaviour
 
         rb.MovePosition(movePosition);
     }
+
+
 }

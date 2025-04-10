@@ -1,18 +1,15 @@
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Level : MonoBehaviour
 {
     public GameParameters gameParameters;
 
-    private void Start()
+    void Start()
     {
-        foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
-        {
-            chamber.InitializeRotation();
-        }
-
-        WallsToDoors();
+        StartCoroutine(WallsToDoors());
 
         foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
         {
@@ -20,11 +17,14 @@ public class Level : MonoBehaviour
         }
     }
 
-    public void WallsToDoors()
+
+    IEnumerator WallsToDoors()
     {
-        foreach(DoorsController doorsController in GetComponentsInChildren<DoorsController>())
+        yield return new WaitForEndOfFrame(); // ∆дем конца кадра
+        foreach (DoorsController doorsController in GetComponentsInChildren<DoorsController>())
         {
             doorsController.WallsToDoors();
         }
     }
+
 }
