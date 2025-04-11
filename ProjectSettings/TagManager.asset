@@ -11,6 +11,10 @@ TagManager:
   - Room
   - WallFaker
   - Door
+  - BossChamber
+  - EasyChamber
+  - HardChamber
+  - StartChamber
   layers:
   - Default
   - TransparentFX

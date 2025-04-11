@@ -3062,7 +3062,7 @@ GameObject:
   - component: {fileID: 5238322119156636084}
   m_Layer: 0
   m_Name: level1_boss_dual_strafer
-  m_TagString: Untagged
+  m_TagString: BossChamber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10502,35 +10502,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
-      value: 13
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].y
-      value: 13
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].x
-      value: -13
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
-      value: 13
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].x
-      value: -13
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[2].y
-      value: -13
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
-      value: 13
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].y
-      value: -13
+      value: -12.9
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].x

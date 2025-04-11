@@ -2165,7 +2165,7 @@ GameObject:
   - component: {fileID: 4450858883877701552}
   m_Layer: 0
   m_Name: level1_start_chamber_a
-  m_TagString: Untagged
+  m_TagString: StartChamber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
