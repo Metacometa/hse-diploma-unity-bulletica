@@ -54,21 +54,20 @@ public class SpawnChambers : MonoBehaviour
 
     private void InitializeSeed()
     {
-
         if (string.IsNullOrWhiteSpace(seed))
         {
             currentSeed = System.DateTime.Now.GetHashCode();
-            return;
         }
-
-        if (int.TryParse(seed, out int numericSeed))
+        else if (int.TryParse(seed, out int numericSeed))
         {
             currentSeed = numericSeed;
-            return;
         }
-
-        currentSeed = seed.GetHashCode();
-        Debug.Log($"Current seed: {currentSeed}%");
+        else
+        {
+            currentSeed = seed.GetHashCode();
+        }
+        Debug.Log($"Current seed: {currentSeed}");
+        Random.InitState(currentSeed);
     }
 
     private void CalculateGenerationParameters()
@@ -137,8 +136,6 @@ public class SpawnChambers : MonoBehaviour
 
             if (TrySpawnRoomInDirection(baseChamber, direction, out Chamber newChamber))
             {
-                spawnedChambers.Add(newChamber);
-
                 if (newChamber.gameObject.CompareTag("HubChamber"))
                 {
                     hubChambers.Add(newChamber);
@@ -153,9 +150,11 @@ public class SpawnChambers : MonoBehaviour
         GameObject roomPrefab = GetRoomPrefabByType(roomType);
 
         newChamber = SpawnRoomInDirection(baseChamber, direction, roomPrefab);
+        spawnedChambers.Add(newChamber);
 
         if (CheckRoomOverlap(newChamber))
         {
+            spawnedChambers.RemoveAt(spawnedChambers.Count - 1);
             Destroy(newChamber.gameObject);
             return false;
         }
@@ -166,9 +165,11 @@ public class SpawnChambers : MonoBehaviour
     private bool TrySpawnBossRoomInDirection(Chamber baseChamber, Vector2Int direction, out Chamber newChamber)
     {
         newChamber = SpawnRoomInDirection(baseChamber, direction, GetRandomPrefab(bossRoomPrefabs));
+        spawnedChambers.Add(newChamber);
 
         if (CheckRoomOverlap(newChamber))
         {
+            spawnedChambers.RemoveAt(spawnedChambers.Count - 1);
             Destroy(newChamber.gameObject);
             return false;
         }
@@ -218,7 +219,6 @@ public class SpawnChambers : MonoBehaviour
             {
                 if (TrySpawnBossRoomInDirection(chamber, dir, out Chamber newChamber))
                 {
-                    spawnedChambers.Add(newChamber);
                     bossChamber = newChamber;
                     return;
                 }
@@ -239,15 +239,15 @@ public class SpawnChambers : MonoBehaviour
         foreach (var hub in hubChambers.ToList())
         {
             int attempts = 0;
-            while (CountNeighbors(hub) < 3 && attempts<maxAttempts)
+            int neighbors = CountNeighbors(hub);
+            while (neighbors < 3 && attempts<maxAttempts)
             {
                 attempts++;
                 foreach (var dir in directions)
                 {
                     if (TrySpawnRoomInDirection(hub, dir, out Chamber newChamber))
                     {
-                        spawnedChambers.Add(newChamber);
-                        return;
+                        neighbors++;
                     }
                 }
             }
@@ -296,14 +296,16 @@ public class SpawnChambers : MonoBehaviour
 
     private bool CheckRoomOverlap(Chamber newChamber)
     {
-        PolygonCollider2D newCollider = newChamber.GetComponentInChildren<Room>().GetComponentInChildren<PolygonCollider2D>();
+        PolygonCollider2D newCollider = newChamber.GetComponentInChildren<Room>().GetComponent<PolygonCollider2D>();
+        UpdateCollider(newCollider);
         if (newCollider == null) return false;
 
         foreach (var chamber in spawnedChambers)
         {
             if (chamber == newChamber) continue;
 
-            PolygonCollider2D existingCollider = chamber.GetComponentInChildren<Room>().GetComponentInChildren<PolygonCollider2D>();
+            PolygonCollider2D existingCollider = chamber.GetComponentInChildren<Room>().GetComponent<PolygonCollider2D>();
+            UpdateCollider(existingCollider);
             if (existingCollider == null) continue;
 
             if (ColliderOverlap(newCollider, existingCollider))
@@ -318,6 +320,13 @@ public class SpawnChambers : MonoBehaviour
     private bool ColliderOverlap(PolygonCollider2D colliderA, PolygonCollider2D colliderB)
     {
         return colliderA.bounds.Intersects(colliderB.bounds);
+        //return Physics2D.Distance(colliderA, colliderB).distance <= 0;
+    }
+
+    private void UpdateCollider(PolygonCollider2D collider)
+    {
+        collider.enabled = false;
+        collider.enabled = true;
     }
 
     private GameObject GetRoomPrefabByType(RoomType type)
