@@ -15,15 +15,15 @@ MonoBehaviour:
   startRoomsPath: Prefabs/Chambers/Start
   bossRoomsPath: Prefabs/Chambers/Boss
   easyRoomsPath: Prefabs/Chambers/Easy
-  mediumRoomsPath: Prefabs/Chambers/Medium
+  mediumRoomsPath: Prefabs/Chambers/Easy
   hardRoomsPath: Prefabs/Chambers/Hard
   hubRoomsPath: Prefabs/Chambers/Hubs
-  minRooms: 10
-  maxRooms: 15
+  minRooms: 1
+  maxRooms: 2
   easyRoomPercentage: 30
   mediumRoomPercentage: 50
   hardRoomPercentage: 20
-  minHubs: 1
-  maxHubs: 3
-  seed: 
+  minHubs: 2
+  maxHubs: 2
+  seed: 1488
   maxGenerationAttempts: 1000
