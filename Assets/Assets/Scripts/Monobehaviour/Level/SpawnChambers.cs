@@ -6,24 +6,7 @@ using UnityEngine.UIElements;
 
 public class SpawnChambers : MonoBehaviour
 {
-    [Header("Chamber Directories")]
-    [SerializeField] private string startRoomsPath = "";
-    [SerializeField] private string bossRoomsPath = "";
-    [SerializeField] private string easyRoomsPath = "";
-    [SerializeField] private string mediumRoomsPath = "";
-    [SerializeField] private string hardRoomsPath = "";
-    [SerializeField] private string hubRoomsPath = "";
-
-    [Header("Generation Settings")]
-    [SerializeField] private int minRooms = 10;
-    [SerializeField] private int maxRooms = 15;
-    [SerializeField][Range(0, 100)] private int easyRoomPercentage = 30;
-    [SerializeField][Range(0, 100)] private int mediumRoomPercentage = 50;
-    [SerializeField][Range(0, 100)] private int hardRoomPercentage = 20;
-    [SerializeField] private int minHubs = 1;
-    [SerializeField] private int maxHubs = 3;
-    [SerializeField] private string seed = "";
-    [SerializeField] private int maxGenerationAttempts = 1000;
+    public SpawnChambersData data;
 
     private List<GameObject> startRoomPrefabs = new List<GameObject>();
     private List<GameObject> bossRoomPrefabs = new List<GameObject>();
@@ -54,17 +37,17 @@ public class SpawnChambers : MonoBehaviour
 
     private void InitializeSeed()
     {
-        if (string.IsNullOrWhiteSpace(seed))
+        if (string.IsNullOrWhiteSpace(data.seed))
         {
             currentSeed = System.DateTime.Now.GetHashCode();
         }
-        else if (int.TryParse(seed, out int numericSeed))
+        else if (int.TryParse(data.seed, out int numericSeed))
         {
             currentSeed = numericSeed;
         }
         else
         {
-            currentSeed = seed.GetHashCode();
+            currentSeed = data.seed.GetHashCode();
         }
         Debug.Log($"Current seed: {currentSeed}");
         Random.InitState(currentSeed);
@@ -74,39 +57,39 @@ public class SpawnChambers : MonoBehaviour
     {
         ValidateRoomPercentages();
 
-        totalRooms = Random.Range(minRooms, maxRooms + 1);
+        totalRooms = Random.Range(data.minRooms, data.maxRooms + 1);
 
-        hubRoomsCount = Random.Range(minHubs, maxHubs + 1);
+        hubRoomsCount = Random.Range(data.minHubs, data.maxHubs + 1);
 
         int normalRoomsCount = totalRooms - 2 - hubRoomsCount; 
         if (normalRoomsCount < 0) normalRoomsCount = 0;
 
-        easyRoomsCount = Mathf.RoundToInt(normalRoomsCount * easyRoomPercentage / 100f);
-        mediumRoomsCount = Mathf.RoundToInt(normalRoomsCount * mediumRoomPercentage / 100f);
+        easyRoomsCount = Mathf.RoundToInt(normalRoomsCount * data.easyRoomPercentage / 100f);
+        mediumRoomsCount = Mathf.RoundToInt(normalRoomsCount * data.mediumRoomPercentage / 100f);
         hardRoomsCount = normalRoomsCount - easyRoomsCount - mediumRoomsCount;
     }
 
     private void ValidateRoomPercentages()
     {
-        int sum = easyRoomPercentage + mediumRoomPercentage + hardRoomPercentage;
+        int sum = data.easyRoomPercentage + data.mediumRoomPercentage + data.hardRoomPercentage;
         if (sum != 100)
         {
-            float total = easyRoomPercentage + mediumRoomPercentage + hardRoomPercentage;
-            easyRoomPercentage = Mathf.RoundToInt(easyRoomPercentage / total * 100);
-            mediumRoomPercentage = Mathf.RoundToInt(mediumRoomPercentage / total * 100);
-            hardRoomPercentage = 100 - easyRoomPercentage - mediumRoomPercentage;
-            Debug.Log($"Normalized room percentages to: Easy {easyRoomPercentage}%, Medium {mediumRoomPercentage}%, Hard {hardRoomPercentage}%");
+            float total = data.easyRoomPercentage + data.mediumRoomPercentage + data.hardRoomPercentage;
+            data.easyRoomPercentage = Mathf.RoundToInt(data.easyRoomPercentage / total * 100);
+            data.mediumRoomPercentage = Mathf.RoundToInt(data.mediumRoomPercentage / total * 100);
+            data.hardRoomPercentage = 100 - data.easyRoomPercentage - data.mediumRoomPercentage;
+            Debug.Log($"Normalized room percentages to: Easy {data.easyRoomPercentage}%, Medium {data.mediumRoomPercentage}%, Hard {data.hardRoomPercentage}%");
         }
     }
 
     private void LoadRoomPrefabs()
     {
-        startRoomPrefabs = Resources.LoadAll<GameObject>(startRoomsPath).ToList();
-        bossRoomPrefabs = Resources.LoadAll<GameObject>(bossRoomsPath).ToList();
-        easyRoomPrefabs = Resources.LoadAll<GameObject>(easyRoomsPath).ToList();
-        mediumRoomPrefabs = Resources.LoadAll<GameObject>(mediumRoomsPath).ToList();
-        hardRoomPrefabs = Resources.LoadAll<GameObject>(hardRoomsPath).ToList();
-        hubRoomPrefabs = Resources.LoadAll<GameObject>(hubRoomsPath).ToList();
+        startRoomPrefabs = Resources.LoadAll<GameObject>(data.startRoomsPath).ToList();
+        bossRoomPrefabs = Resources.LoadAll<GameObject>(data.bossRoomsPath).ToList();
+        easyRoomPrefabs = Resources.LoadAll<GameObject>(data.easyRoomsPath).ToList();
+        mediumRoomPrefabs = Resources.LoadAll<GameObject>(data.mediumRoomsPath).ToList();
+        hardRoomPrefabs = Resources.LoadAll<GameObject>(data.hardRoomsPath).ToList();
+        hubRoomPrefabs = Resources.LoadAll<GameObject>(data.hubRoomsPath).ToList();
     }
 
     private void GenerateLevel()
@@ -126,7 +109,7 @@ public class SpawnChambers : MonoBehaviour
         int roomsToSpawn = easyRoomsCount + mediumRoomsCount + hardRoomsCount + hubRoomsCount;
         int attempts = 0;
 
-        while ((spawnedChambers.Count < roomsToSpawn + 1) && (attempts < maxGenerationAttempts))
+        while ((spawnedChambers.Count < roomsToSpawn + 1) && (attempts < data.maxGenerationAttempts))
         {
             attempts++;
 

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b307c82222b174db2e36d2f1c8e700, type: 3}
+  m_Name: SpawnChambersData
+  m_EditorClassIdentifier: 
+  startRoomsPath: Prefabs/Chambers/Start
+  bossRoomsPath: Prefabs/Chambers/Boss
+  easyRoomsPath: Prefabs/Chambers/Easy
+  mediumRoomsPath: Prefabs/Chambers/Medium
+  hardRoomsPath: Prefabs/Chambers/Hard
+  hubRoomsPath: Prefabs/Chambers/Hubs
+  minRooms: 10
+  maxRooms: 15
+  easyRoomPercentage: 30
+  mediumRoomPercentage: 50
+  hardRoomPercentage: 20
+  minHubs: 1
+  maxHubs: 3
+  seed: 
+  maxGenerationAttempts: 1000
