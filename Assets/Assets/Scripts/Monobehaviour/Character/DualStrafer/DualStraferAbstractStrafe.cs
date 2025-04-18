@@ -20,7 +20,10 @@ public abstract class DualStraferAbstractStrafe : MonoBehaviour
         shooting = GetComponent<DualStraferShooting>();
 
         profile = (DualStraferProfile)GetComponent<BaseCharacter>().profile;
+    }
 
+    void Start()
+    {
         Transform chamber = GetComponentInParent<Chamber>().transform;
         foreach (StrafePoint point in chamber.GetComponentsInChildren<StrafePoint>())
         {

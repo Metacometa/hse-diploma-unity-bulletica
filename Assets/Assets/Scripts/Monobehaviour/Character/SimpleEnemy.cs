@@ -61,7 +61,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         Vector2 dir = (target.target.position - transform.position).normalized;
 
         if (health.health == 0)
-        {
+        {   
             death.Die(gameObject);
         }
 
@@ -115,12 +115,17 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     public void UpdateMovingState()
     {
+        if (targetApproached)
+        {
+            move.Buffering();
+        }
+
         if (sleep.onSleep)
         {
             motionState = MotionState.Sleep;
             return;
         }
-        else if (move.onPush)
+        else if (move.onPush || !move.CanMove())
         {
             motionState = MotionState.Stay;
             return;
@@ -203,7 +208,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         }
     }
 
-    public void OnDrawGizmosSelected()
+    public virtual void OnDrawGizmosSelected()
     {
         Vector2 shootingDirection = Vector2.zero;
         Vector2 aimingDirection = Vector2.zero;

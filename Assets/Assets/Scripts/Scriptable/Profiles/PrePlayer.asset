@@ -9,23 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a4856d693221a48b4438aa78d3c1e0, type: 3}
-  m_Name: DualStrafer
+  m_Script: {fileID: 11500000, guid: 4d6b1880e51663a4d894ab8d45984b6e, type: 3}
+  m_Name: PrePlayer
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 2
+  moveSpeed: 4
   pushingAwayTime: 0.2
   pushingAwayForce: 2
   stayBufferTime: 1
-  sight: 35
-  health: 4
+  sight: 15
+  health: 3
   invincibilityTime: 0
   targetTag: Player
-  shootingRange: 35
-  approachedDistance: 14
+  shootingRange: 15
+  approachedDistance: 6
   shootingOnMove: 1
-  strafeSpeed: 5
-  strafeCooldown: 3
-  strafeActivationRadius: 9
-  rageStrafeCooldown: 1
-  endlessStrafeHealthTrigger: 2

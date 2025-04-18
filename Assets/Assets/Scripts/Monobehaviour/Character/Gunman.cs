@@ -8,7 +8,7 @@ public class Gunman : BaseCharacter
 
     protected BaseTargeting target;
 
-    protected bool targetApproached;
+    public bool targetApproached;
     protected bool inShootingRange;
 
     protected override void Awake()
