@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_name: Shotgun
   gun_object: {fileID: 8108018042923758592, guid: 4c7efd9562e5512499db11f822fc77c8, type: 3}
-  reloadSpeed: 3
+  reloadSpeed: 4
   rotationSpeed: 1000
   aimingSpeed: 0.15
   attackExiting: 0.15
-  cooldown: 0.4
+  cooldown: 0
   maxSpreadAngle: 0
-  shots: 3
+  shots: 1
   bullets:
   - angle: 15
   - angle: 7

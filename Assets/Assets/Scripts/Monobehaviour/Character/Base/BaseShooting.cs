@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseShooting : MonoBehaviour, IShootable
 {
-    private BaseGunController gunController;
+    public BaseGunController gunController;
 
     void Awake()
     {

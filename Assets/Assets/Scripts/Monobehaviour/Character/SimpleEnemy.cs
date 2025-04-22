@@ -65,6 +65,11 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             death.Die(gameObject);
         }
 
+        if (targetApproached)
+        {
+            move.Buffering();
+        }
+
         Observe();
         UpdateActionState();
         UpdateMovingState();
@@ -74,6 +79,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             case ActionState.Shoot:
                 ShootingHandler();
                 rotator.Rotate(dir, shooting.GetRotationSpeed());
+                move.Buffering();
                 break;
             case ActionState.Reload:
                 ReloadHandler();
@@ -115,10 +121,6 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     public void UpdateMovingState()
     {
-        if (targetApproached)
-        {
-            move.Buffering();
-        }
 
         if (sleep.onSleep)
         {
@@ -149,7 +151,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
             }
             else
             {
-                if (((ShootingProfile)profile).shootingOnMove)
+                if (((ShootingProfile)profile).shootingOnMove && move.CanMove())
                 {
                     motionState = MotionState.MoveToTarget;
                 }

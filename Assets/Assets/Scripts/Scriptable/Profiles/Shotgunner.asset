@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Shotgunner
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 2
+  moveSpeed: 1.25
   pushingAwayTime: 0.2
   pushingAwayForce: 2
+  stayBufferTime: 1
   sight: 40
   health: 4
   invincibilityTime: 0
   targetTag: Player
-  shootingRange: 10
-  approachedDistance: 4
+  shootingRange: 12
+  approachedDistance: 7
   shootingOnMove: 0
