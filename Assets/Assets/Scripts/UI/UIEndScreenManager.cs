@@ -13,12 +13,14 @@ public class UIEndScreenManager : MonoBehaviour
 
     public void ShowUI()
     {
+		Time.timeScale = 0;
         gameObject.SetActive(true);
         animator.SetTrigger("Show");
     }
 
     public void HideUI()
     {
+		Time.timeScale = 1;
         animator.SetTrigger("Hide"); 
     }
 
