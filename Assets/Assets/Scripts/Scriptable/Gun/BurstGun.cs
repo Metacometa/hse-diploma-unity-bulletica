@@ -16,8 +16,8 @@ public class BurstGun : BaseGun
             BaseBullet bulletSettings = newBullet.GetComponent<BaseBullet>() as BaseBullet;
             if (bulletSettings != null)
             {
-                //float spreadAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle);
-                float spreadAngle = 0;
+                float spreadAngle = Random.Range(-maxSpreadAngle, maxSpreadAngle);
+                //float spreadAngle = 0;
                 bulletSettings.ShapeBullet(targetDirection, spreadAngle);
             }
         }

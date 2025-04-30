@@ -10,6 +10,10 @@ public class BaseProfile : ScriptableObject
     [SerializeField] public float pushingAwayForce;
 
     [Space]
+    [SerializeField] public float stayBufferTime;
+
+    [Space]
+    [Space]
     [SerializeField] public float sight;
 
     [Space]

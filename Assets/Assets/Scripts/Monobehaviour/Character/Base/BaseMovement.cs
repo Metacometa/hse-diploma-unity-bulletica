@@ -7,6 +7,8 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     /*[HideInInspector]*/ public bool onPush;
     private BaseProfile profile;
 
+    public float timeCounter;
+
     protected virtual void Awake()
     {
         onPush = false;
@@ -16,6 +18,12 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     protected virtual void Start()
     {
         onPush = false;
+    }
+
+    void Update()
+    {
+        timeCounter -= Time.deltaTime;
+        timeCounter = Mathf.Clamp(timeCounter, 0f, profile.stayBufferTime);
     }
 
     public void Move(ref Rigidbody2D rb, in Vector2 dir, in float speed)
@@ -43,5 +51,15 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
         yield return new WaitForSeconds(profile.pushingAwayTime);
 
         onPush = false;
+    }
+
+    public void Buffering()
+    {
+        timeCounter = profile.stayBufferTime;
+    }
+
+    public bool CanMove()
+    {
+        return timeCounter <= 0f;
     }
 }

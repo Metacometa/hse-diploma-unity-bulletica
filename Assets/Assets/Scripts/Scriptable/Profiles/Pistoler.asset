@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Pistoler
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 4.2
+  moveSpeed: 2
   pushingAwayTime: 0.2
   pushingAwayForce: 2
+  stayBufferTime: 1
   sight: 15
   health: 3
   invincibilityTime: 0

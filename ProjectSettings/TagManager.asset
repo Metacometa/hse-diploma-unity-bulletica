@@ -15,6 +15,7 @@ TagManager:
   - EasyChamber
   - HardChamber
   - StartChamber
+  - HubChamber
   layers:
   - Default
   - TransparentFX

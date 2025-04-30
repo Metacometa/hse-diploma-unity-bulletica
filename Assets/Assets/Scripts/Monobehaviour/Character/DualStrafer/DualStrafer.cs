@@ -19,8 +19,10 @@ public class DualStrafer : Boss
     public DualStraferAbstractStrafe rageStrafe;
 
     protected bool inShootingRange;
+    protected bool inStrafeRange;
 
     public DualStraferAbstractStrafe currentStrafe;
+    private bool onRageStrafe;
 
     protected override void Awake()
     {
@@ -31,6 +33,7 @@ public class DualStrafer : Boss
         rageStrafe = GetComponent<DualStraferRageStrafe>();
 
         currentStrafe = strafe;
+        onRageStrafe = false;
     }
 
     void OnEnable()
@@ -56,14 +59,16 @@ public class DualStrafer : Boss
         UpdateActionState();
         UpdateMovingState();
 
-        if (profile.health > ((DualStraferProfile)profile).endlessStrafeHealthTrigger)
+        if (health.health > ((DualStraferProfile)profile).endlessStrafeHealthTrigger)
         {
             currentStrafe = strafe;
         }
         else
         {
             currentStrafe = rageStrafe;
+            onRageStrafe = true;
         }
+
 
         switch (actionState)
         {
@@ -131,7 +136,11 @@ public class DualStrafer : Boss
         {
             actionState = ActionState.Sleep;
         }
-        else if (!currentStrafe.OnCooldown)
+        else if (onRageStrafe && !currentStrafe.OnCooldown)
+        {
+            actionState = ActionState.Strafe;
+        }
+        else if ((inStrafeRange && !currentStrafe.OnCooldown) || currentStrafe.OnStrafe)
         {
             actionState = ActionState.Strafe;
         }
@@ -150,13 +159,22 @@ public class DualStrafer : Boss
     }
     public void UpdateMovingState()
     {
+        if (targetApproached)
+        {
+            move.Buffering();
+        }
+
         if (sleep.onSleep)
         {
             motionState = MotionState.Sleep;
         }
-        else if (!currentStrafe.OnCooldown)
+        else if (actionState == ActionState.Strafe)
         {
             motionState = MotionState.Strafe;
+        }
+        else if (!move.CanMove())
+        {
+            motionState = MotionState.Stay;
         }
         else if (actionState == ActionState.Reload)
         {
@@ -198,6 +216,8 @@ public class DualStrafer : Boss
         LookToPoint(dir, profile.sight, masks, ref target.targetSeen);
         LookToPoint(dir, ((DualStraferProfile)profile).shootingRange, masks, ref inShootingRange);
         LookToPoint(dir, ((DualStraferProfile)profile).approachedDistance, masks, ref targetApproached);
+
+        LookToPoint(dir, ((DualStraferProfile)profile).strafeActivationRadius, masks, ref inStrafeRange);
     }
 
     public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
@@ -244,6 +264,29 @@ public class DualStrafer : Boss
     {
         Debug.Log("collision");
         currentStrafe.EndStrafeHandler();
+    }
+
+    public void OnDrawGizmosSelected()
+    {
+        Vector2 shootingDirection = Vector2.zero;
+        Vector2 aimingDirection = Vector2.zero;
+        if (target != null)
+        {
+            shootingDirection = (target.target.position - transform.position).normalized;
+            aimingDirection = (target.target.position - transform.position).normalized;
+        }
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).approachedDistance);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawRay(transform.position, shootingDirection * ((DualStraferProfile)profile).strafeActivationRadius);
     }
 }
 

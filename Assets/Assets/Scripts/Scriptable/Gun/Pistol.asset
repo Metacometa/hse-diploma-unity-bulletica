@@ -18,6 +18,6 @@ MonoBehaviour:
   rotationSpeed: 1000
   aimingSpeed: 0.1
   attackExiting: 0.1
-  cooldown: 0.6
+  cooldown: 0.7
   maxSpreadAngle: 0
   magazineCapacity: 4

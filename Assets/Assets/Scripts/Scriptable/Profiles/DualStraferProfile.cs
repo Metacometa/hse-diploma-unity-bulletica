@@ -6,6 +6,7 @@ public class DualStraferProfile : BossProfile
     [Header("Strafe")]
     [SerializeField] public float strafeSpeed;
     [SerializeField] public float strafeCooldown;
+    [SerializeField] public float strafeActivationRadius;
 
     [Header("RageStrafe")]
     [SerializeField] public float rageStrafeCooldown;
