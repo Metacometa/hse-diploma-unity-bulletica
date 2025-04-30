@@ -1,11 +1,17 @@
+using NavMeshPlus.Components;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Level : MonoBehaviour
 {
     public GameParameters gameParameters;
+    public NavMeshSurface surface;
+    //public NavigationCollect
+
+    void Awake()
+    {
+        surface = GetComponentInChildren<NavMeshSurface>();
+    }
 
     void Start()
     {
@@ -25,6 +31,8 @@ public class Level : MonoBehaviour
         {
             doorsController.WallsToDoors();
         }
+
+        surface?.BuildNavMesh();
     }
 
 }

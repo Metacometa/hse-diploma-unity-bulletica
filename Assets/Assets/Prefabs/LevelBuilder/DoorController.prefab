@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 5102664819871056168}
   - component: {fileID: 1115581319941458611}
   - component: {fileID: 93458721316080758}
+  - component: {fileID: 5358130420552831699}
   m_Layer: 10
   m_Name: LeftDoor
   m_TagString: Door
@@ -213,6 +214,22 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.86}
   m_EdgeRadius: 0
+--- !u!114 &5358130420552831699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608235633206602157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5198149212237576934
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +304,7 @@ GameObject:
   - component: {fileID: 6843684467286861673}
   - component: {fileID: 6552750613070767535}
   - component: {fileID: 7102751570881736575}
+  - component: {fileID: 9020810128259657444}
   m_Layer: 10
   m_Name: RightDoor
   m_TagString: Door
@@ -437,3 +455,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 0.86}
   m_EdgeRadius: 0
+--- !u!114 &9020810128259657444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7539586165523684254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

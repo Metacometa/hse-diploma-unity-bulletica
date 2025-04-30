@@ -314,7 +314,7 @@ Camera:
   far clip plane: 1000
   field of view: 0.86795497
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 8.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -0.0005701396, y: -0.016719999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1310,6 +1310,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4475115589700985516, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_DefaultArea
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475115589700985516, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 17d458399f338ea49aa0d5c36256a150, type: 2}
+    - target: {fileID: 4475115589700985516, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_UseGeometry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475115589700985516, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_CollectObjects
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4519372617675926412, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1665,6 +1681,18 @@ PrefabInstance:
     - target: {fileID: 7506593209871478737, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613797038816624207, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613797038816624207, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_CompressBounds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7613797038816624207, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
+      propertyPath: m_OverrideByGrid
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7789282067506696606, guid: e7c792d85f4396146b9d86f39c24161d, type: 3}
       propertyPath: m_AnchorMax.y
