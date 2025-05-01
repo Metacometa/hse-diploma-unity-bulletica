@@ -19,13 +19,9 @@ public class DoorsBuilder : MonoBehaviour
     public List<Transform> hitsRight;
     public List<Transform> hitsBottom;
 
-    public List<Vector3> debug;
-
     void Awake()
     {
         doorsController = GetComponent<DoorsController>();
-
-        debug = new List<Vector3> ();
     }
 
     public void ShiftList<T>(ref List<T> transforms, in int repeats)
@@ -90,11 +86,6 @@ public class DoorsBuilder : MonoBehaviour
                 }
             }
 
-            //debug
-            debug.Add(doorsController.doors[i].position);
-
-            Debug.Log(wallsCounter + " " + doorCounter + " " + hits.Length);
-
             if (i < walls.Count && i < doors.Count)
             {
                 if (doorCounter != 4)
@@ -117,9 +108,5 @@ public class DoorsBuilder : MonoBehaviour
             }
         }
 
-        foreach (Vector3 pos in debug)
-        {
-            Gizmos.DrawWireSphere(pos, 0.3f);
-        }
     }
 }

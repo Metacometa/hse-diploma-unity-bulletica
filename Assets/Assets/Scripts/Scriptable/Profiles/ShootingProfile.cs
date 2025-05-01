@@ -9,4 +9,7 @@ public class ShootingProfile : BaseProfile
 
     [Space]
     [SerializeField] public bool shootingOnMove;
+
+    [Space]
+    public float bulletRadius = 0.5f;
 }

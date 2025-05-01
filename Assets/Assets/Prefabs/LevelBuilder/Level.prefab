@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5647935856688888011}
   - component: {fileID: 4475115589700985516}
-  - component: {fileID: 7613797038816624207}
   m_Layer: 0
   m_Name: NavMesh Surface
   m_TagString: Untagged
@@ -64,22 +63,6 @@ MonoBehaviour:
   m_MinRegionArea: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 86902d397228d12409b616736e9b73a4, type: 2}
---- !u!114 &7613797038816624207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6280180458655064196}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bd44a44cd62c64fbfc1eea95b24880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideByGrid: 0
-  m_UseMeshPrefab: {fileID: 0}
-  m_CompressBounds: 0
-  m_OverrideVector: {x: 1, y: 1, z: 1}
 --- !u!1 &6408072446539686984
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameParameters: {fileID: 11400000, guid: c76fd1db04d770e40900d2fd37899e29, type: 2}
+  surface: {fileID: 0}
 --- !u!114 &3172586918622753830
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f4b44a36c5ace1e4baba72b9087742a2
+guid: a89086452daff54428d2f778b64562ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8153490592909578853
-    second: Tilemap_floor_0
+      213: 2356794697773938212
+    second: Tilemap_floor(backup)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
-    textureFormat: 4
-    textureCompression: 0
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tilemap_floor_0
+      name: Tilemap_floor(backup)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 980
-        width: 100
-        height: 100
+        y: 879
+        width: 201
+        height: 201
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,96 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9da22a318bf8de80800000000000000
-      internalID: -8153490592909578853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilemap_floor_1
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 880
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9243667ab7ca5e24abc57af9240406a0
-      internalID: -1732324610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilemap_floor_2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 880
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b23e3cd33aed1b46bbccf556a285610
-      internalID: 162894687
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilemap_floor_3
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 780
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 606302d289f74904796fab74b04073bb
-      internalID: -801356226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Tilemap_floor_4
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 780
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f02f75e0a1c5684297122520c79542b
-      internalID: -925442299
+      spriteID: 426f6517a4405b020800000000000000
+      internalID: 2356794697773938212
       vertices: []
       indices: 
       edges: []
@@ -239,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b36a8951562eebb4bac99f85de0c25a8
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -248,12 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Tilemap_floor_0: -8153490592909578853
-      Tilemap_floor_1: -1732324610
-      Tilemap_floor_2: 162894687
-      Tilemap_floor_3: -801356226
-      Tilemap_floor_4: -925442299
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

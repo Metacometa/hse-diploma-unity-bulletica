@@ -1,0 +1,312 @@
+using UnityEngine;
+using EnemyState;
+using static UnityEngine.UI.Image;
+using Unity.VisualScripting;
+
+
+[RequireComponent(typeof(SmartMovement))]
+public class SmartEnemy : Gunman, IObservable, IStatable
+{
+    //public EnemyProfile profile;
+
+    //EnemyState
+    public ActionState actionState;
+    public MotionState motionState;
+    public SmartMovement smartMove;
+
+    [SerializeField] private LayerMask masks;
+
+    public BasePursue pursue;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        pursue = GetComponent<BasePursue>();
+        smartMove = GetComponent<SmartMovement>();
+    }
+
+    void OnEnable()
+    {
+        if (shooting)
+        {
+            Vector2 startDir = (target.target.position - transform.position).normalized;
+            rotator.RotateInstantly(startDir);
+        }
+    }
+
+    protected override void FixedUpdate()
+    {
+        Vector2 dir = target.target.position - transform.position;
+        switch (motionState)
+        {
+            case MotionState.MoveToTarget:
+                smartMove.SmartMove(target.target.position);
+                break;
+            case MotionState.Stay:
+                move.StopMovement(ref rb);
+                break;
+            case MotionState.Regroup:
+                move.Move(ref rb, dir, profile.moveSpeed);
+                break;
+            case MotionState.Pursue:
+                Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
+                move.Move(ref rb, pursueDir, profile.moveSpeed);
+                break;
+            case MotionState.Sleep:
+                move.StopMovement(ref rb);
+                break;
+            default:
+                move.StopMovement(ref rb);
+                break;
+        }
+    }
+
+    protected override void Update()
+    {
+        Vector2 dir = (target.target.position - transform.position).normalized;
+
+        if (health.health == 0)
+        {   
+            death.Die(gameObject);
+        }
+
+        if (targetApproached)
+        {
+            move.Buffering();
+        }
+
+        Observe();
+        UpdateActionState();
+        UpdateMovingState();
+
+        switch (actionState)
+        {
+            case ActionState.Shoot:
+                ShootingHandler();
+                rotator.Rotate(dir, shooting.GetRotationSpeed());
+                move.Buffering();
+                break;
+            case ActionState.Reload:
+                ReloadHandler();
+                rotator.Rotate(dir, shooting.GetRotationSpeed());
+                break;
+            case ActionState.Idle:
+                break;
+            case ActionState.Pursue:
+                break;
+            case ActionState.Sleep:
+                break;
+            default:
+                break;
+        }
+    }
+    public void UpdateActionState()
+    {
+        if (sleep.onSleep)
+        {
+            actionState = ActionState.Sleep;
+        }
+        else if (move.onPush)
+        {
+            actionState = ActionState.Stun;
+        }
+        else if (shooting.IsMagazineEmpty())
+        {
+            actionState = ActionState.Reload;
+        }
+        else if (target.targetSeen)
+        {
+            actionState = ActionState.Shoot;
+        }
+        else
+        {
+            actionState = ActionState.Idle;
+        }
+    }
+
+    public void UpdateMovingState()
+    {
+        if (sleep.onSleep)
+        {
+            motionState = MotionState.Sleep;
+            return;
+        }
+        else if (move.onPush || !move.CanMove())
+        {
+            motionState = MotionState.Stay;
+            return;
+        }
+        else if (actionState == ActionState.Reload)
+        {
+            if (target.targetSeen && !targetApproached)
+            {
+                motionState = MotionState.MoveToTarget;
+            }
+            else
+            {
+                motionState = MotionState.Stay;
+            }
+        }
+        else if (actionState == ActionState.Shoot || shooting.OnCooldown())
+        {
+            if (targetApproached)
+            {
+                motionState = MotionState.Stay;
+            }
+            else
+            {
+                if (((ShootingProfile)profile).shootingOnMove && move.CanMove())
+                {
+                    motionState = MotionState.MoveToTarget;
+                }
+                else
+                {
+                    motionState = MotionState.Stay;
+                }    
+            }
+        }
+        else if (target.targetSeen)
+        {
+            motionState = MotionState.MoveToTarget;
+        }
+        else
+        {
+            motionState = MotionState.Stay;
+        }
+    }
+
+    void ShootingHandler()
+    {
+        if (!shooting.OnCooldown() && !shooting.OnReload() && !shooting.OnAttack())
+        {
+            shooting.ShootingManager();
+        }
+    }
+
+    void ReloadHandler()
+    {
+        if (!shooting.OnReload())
+        {
+            shooting.ReloadManager();
+        }
+    }
+
+    public void Observe()
+    {
+        Vector2 dir = target.target.position - transform.position;
+
+        //LookToPoint(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
+        WideProjectileCheck(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
+        LookToPoint(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+        //WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+        LookToPoint(dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
+    }
+
+    public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, length, masks);
+
+        if (hit)
+        {
+            boolFlag = hit.transform.CompareTag(target.target.tag);
+        }
+        else
+        {
+            boolFlag = false;
+        }
+    }
+    
+    public void WideProjectileCheck(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
+    {
+        Vector3 origin = shooting.gunController.muzzle.position;
+        RaycastHit2D hit = Physics2D.CircleCast(origin, ((ShootingProfile)profile).bulletRadius, dir.normalized, length, masks);
+
+        if (hit)
+        {
+            boolFlag = hit.transform.CompareTag(target.target.tag);
+        }
+        else
+        {
+            boolFlag = false;
+        }
+    }
+
+    public virtual void OnDrawGizmosSelected()
+    {
+        return;
+        Vector2 shootingDirection = Vector2.zero;
+        Vector2 aimingDirection = Vector2.zero;
+        if (target != null)
+        {
+            shootingDirection = (target.target.position - transform.position).normalized;
+            aimingDirection = (target.target.position - transform.position).normalized;
+        }
+
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
+
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
+
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).approachedDistance);
+
+        if (target.targetSeen)
+        {
+            Gizmos.color = Color.green;    // Заблокировано союзником
+        }
+        else 
+        {
+            Gizmos.color = Color.red; // В редакторе до запуска - синий
+        }
+
+
+        // --- Рисуем сам CircleCast ---
+
+
+        Vector3 origin = shooting.gunController.muzzle.position;
+        Vector3 direction = (Vector3)shootingDirection;
+        Vector3 endPoint = origin + direction * ((ShootingProfile)profile).shootingRange;
+
+        // 1. Рисуем начальный круг
+        // Gizmos.DrawWireSphere(origin, circleRadius); // Sphere выглядит как круг в 2D
+        DrawWireDisk(origin, ((ShootingProfile)profile).bulletRadius, Gizmos.color); // Более "плоский" вид
+
+        // 2. Рисуем конечный круг (в точке столкновения или на макс. дистанции)
+        // Gizmos.DrawWireSphere(endPoint, circleRadius);
+        DrawWireDisk(endPoint, ((ShootingProfile)profile).bulletRadius, Gizmos.color);
+
+        // 3. Рисуем линии, соединяющие края кругов
+        // Вычисляем вектор, перпендикулярный направлению (в 2D)
+        Vector3 perpendicular = (Vector3)(new Vector2(-direction.y, direction.x).normalized) * ((ShootingProfile)profile).bulletRadius;
+
+        // Рисуем две линии по краям
+        Gizmos.DrawLine(origin + perpendicular, endPoint + perpendicular);
+        Gizmos.DrawLine(origin - perpendicular, endPoint - perpendicular);
+
+        // 4. (Опционально) Рисуем центральную линию каста
+        Gizmos.color = Color.gray; // Сделаем ее серой для отличия
+        Gizmos.DrawLine(origin, endPoint);
+    }
+
+
+    void DrawWireDisk(Vector3 position, float radius, Color color, int segments = 20)
+    {
+        Color previousColor = Gizmos.color;
+        Gizmos.color = color;
+        Vector3 startPoint = position + Vector3.right * radius; // Начинаем справа
+        Vector3 lastPoint = startPoint;
+
+        float angleStep = 360f / segments;
+        for (int i = 1; i <= segments; i++)
+        {
+            float angle = i * angleStep * Mathf.Deg2Rad;
+            Vector3 nextPoint = position + new Vector3(Mathf.Cos(angle), Mathf.Sin(angle), 0) * radius;
+            Gizmos.DrawLine(lastPoint, nextPoint);
+            lastPoint = nextPoint;
+        }
+        Gizmos.color = previousColor; // Возвращаем исходный цвет Gizmos
+    }
+
+}

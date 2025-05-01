@@ -1,11 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 {
     /*[HideInInspector]*/ public bool onPush;
-    private BaseProfile profile;
+    protected BaseProfile profile;
 
     public float timeCounter;
 
@@ -26,12 +25,12 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
         timeCounter = Mathf.Clamp(timeCounter, 0f, profile.stayBufferTime);
     }
 
-    public void Move(ref Rigidbody2D rb, in Vector2 dir, in float speed)
+    public virtual void Move(ref Rigidbody2D rb, in Vector2 dir, in float speed)
     {
         rb.linearVelocity = dir.normalized * speed;
     }
 
-    public void StopMovement(ref Rigidbody2D rb)
+    public virtual void StopMovement(ref Rigidbody2D rb)
     {
         rb.linearVelocity = Vector2.zero;
     }

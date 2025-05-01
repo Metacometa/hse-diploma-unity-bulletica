@@ -15,16 +15,11 @@ MonoBehaviour:
   startRoomsPath: Prefabs/Chambers/Start
   bossRoomsPath: Prefabs/Chambers/Boss
   easyRoomsPath: Prefabs/Chambers/Easy
-  mediumRoomsPath: Prefabs/Chambers/Easy
+  mediumRoomsPath: Prefabs/Chambers/Medium
   hardRoomsPath: Prefabs/Chambers/Hard
   hubRoomsPath: Prefabs/Chambers/Hubs
-<<<<<<< HEAD
   minRooms: 15
   maxRooms: 16
-=======
-  minRooms: 40
-  maxRooms: 50
->>>>>>> new_sprites
   easyRoomPercentage: 30
   mediumRoomPercentage: 50
   hardRoomPercentage: 20

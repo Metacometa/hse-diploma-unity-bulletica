@@ -24,3 +24,4 @@ MonoBehaviour:
   shootingRange: 15
   approachedDistance: 6
   shootingOnMove: 1
+  bulletRadius: 0.4
