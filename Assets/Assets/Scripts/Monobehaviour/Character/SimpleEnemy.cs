@@ -35,23 +35,23 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         switch (motionState)
         {
             case MotionState.MoveToTarget:
-                move.Move(ref rb, dir, profile.moveSpeed);
+                move.Move(dir);
                 break;
             case MotionState.Stay:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             case MotionState.Regroup:
-                move.Move(ref rb, dir, profile.moveSpeed);
+                move.Move(dir);
                 break;
             case MotionState.Pursue:
-                Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
-                move.Move(ref rb, pursueDir, profile.moveSpeed);
+                //Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
+                //move.Move(ref rb, pursueDir, profile.moveSpeed);
                 break;
             case MotionState.Sleep:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             default:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
         }
     }
@@ -191,12 +191,12 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     {
         Vector2 dir = target.target.position - transform.position;
 
-        LookToPoint(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
-        LookToPoint(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
-        LookToPoint(dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
+        LookToPoint(transform.position, dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
+        LookToPoint(transform.position, dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+        LookToPoint(transform.position, dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
     }
 
-    public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
+    public void LookToPoint(in Vector3 origin, in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, length, masks);
 

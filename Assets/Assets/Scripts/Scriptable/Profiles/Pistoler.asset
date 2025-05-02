@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: Pistoler
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 2
+  moveSpeed: 4
   pushingAwayTime: 0.2
   pushingAwayForce: 2
   stayBufferTime: 1
-  sight: 15
+  sight: 30
   health: 3
   invincibilityTime: 0
   targetTag: Player
   shootingRange: 15
-  approachedDistance: 6
+  approachedDistance: 8
+  minPositionRadius: 8
+  maxPositionRadius: 12
+  changePositionRadius: 0
+  shiftPositionCloser: 0
   shootingOnMove: 1
   bulletRadius: 0.4

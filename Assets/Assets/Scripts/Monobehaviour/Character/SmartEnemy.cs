@@ -15,6 +15,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     public SmartMovement smartMove;
 
     [SerializeField] private LayerMask masks;
+    [SerializeField] private LayerMask sightMask;
 
     public BasePursue pursue;
 
@@ -41,23 +42,22 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         switch (motionState)
         {
             case MotionState.MoveToTarget:
-                smartMove.SmartMove(target.target.position);
+
                 break;
             case MotionState.Stay:
-                move.StopMovement(ref rb);
+                smartMove.Stop();
                 break;
             case MotionState.Regroup:
-                move.Move(ref rb, dir, profile.moveSpeed);
+                //move.Move(ref rb, dir, profile.moveSpeed);
                 break;
             case MotionState.Pursue:
-                Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
-                move.Move(ref rb, pursueDir, profile.moveSpeed);
+                smartMove.Outflank(target.target.position);
                 break;
             case MotionState.Sleep:
-                move.StopMovement(ref rb);
+                smartMove.Stop();
                 break;
             default:
-                move.StopMovement(ref rb);
+                smartMove.Stop();
                 break;
         }
     }
@@ -80,6 +80,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         UpdateActionState();
         UpdateMovingState();
 
+        return;
         switch (actionState)
         {
             case ActionState.Shoot:
@@ -94,6 +95,8 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             case ActionState.Idle:
                 break;
             case ActionState.Pursue:
+                //Vector2 moveDir = (smartMove.GetMoveDir();
+                //rotator.Rotate(smartMove.GetMoveDir(), shooting.GetRotationSpeed());
                 break;
             case ActionState.Sleep:
                 break;
@@ -115,9 +118,13 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             actionState = ActionState.Reload;
         }
-        else if (target.targetSeen)
+        else if (inShootingRange)
         {
             actionState = ActionState.Shoot;
+        }
+        else if (target.targetSeen)
+        {
+            actionState = ActionState.Pursue;
         }
         else
         {
@@ -127,51 +134,37 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     public void UpdateMovingState()
     {
+        motionState = MotionState.Pursue;
+        return;
+
         if (sleep.onSleep)
         {
             motionState = MotionState.Sleep;
             return;
         }
-        else if (move.onPush || !move.CanMove())
+        else if (move.onPush || !move.CanMove() || (targetApproached && !inShootingRange))
         {
             motionState = MotionState.Stay;
             return;
         }
-        else if (actionState == ActionState.Reload)
-        {
-            if (target.targetSeen && !targetApproached)
-            {
-                motionState = MotionState.MoveToTarget;
-            }
-            else
-            {
-                motionState = MotionState.Stay;
-            }
-        }
         else if (actionState == ActionState.Shoot || shooting.OnCooldown())
         {
-            if (targetApproached)
+            if (((ShootingProfile)profile).shootingOnMove && move.CanMove() && target.targetSeen)
             {
-                motionState = MotionState.Stay;
+                motionState = MotionState.Pursue;
             }
             else
             {
-                if (((ShootingProfile)profile).shootingOnMove && move.CanMove())
-                {
-                    motionState = MotionState.MoveToTarget;
-                }
-                else
-                {
-                    motionState = MotionState.Stay;
-                }    
+                motionState = MotionState.Stay;
             }
         }
         else if (target.targetSeen)
         {
-            motionState = MotionState.MoveToTarget;
+            motionState = MotionState.Pursue;
         }
         else
         {
+            //описать функции roaming
             motionState = MotionState.Stay;
         }
     }
@@ -194,18 +187,25 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     public void Observe()
     {
-        Vector2 dir = target.target.position - transform.position;
+        Vector3 origin = shooting.gunController.muzzle.position;
+        Vector2 dir = origin - shooting.gunController.bulletSpawn.position;
+
+        Vector2 sigtDir = target.target.position - transform.position;
 
         //LookToPoint(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
-        WideProjectileCheck(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
-        LookToPoint(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+        LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).sight, sightMask, ref target.targetSeen);
+
+        WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+
+        //LookToPoint(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
         //WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
-        LookToPoint(dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
+
+        LookToPoint(origin, dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
     }
 
-    public void LookToPoint(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
+    public void LookToPoint(in Vector3 origin, in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir.normalized, length, masks);
+        RaycastHit2D hit = Physics2D.Raycast(origin, dir.normalized, length, masks);
 
         if (hit)
         {
@@ -234,14 +234,17 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     public virtual void OnDrawGizmosSelected()
     {
-        return;
+        Vector3 origin = shooting.gunController.muzzle.position;
+
         Vector2 shootingDirection = Vector2.zero;
         Vector2 aimingDirection = Vector2.zero;
         if (target != null)
         {
-            shootingDirection = (target.target.position - transform.position).normalized;
-            aimingDirection = (target.target.position - transform.position).normalized;
+            shootingDirection = (origin - shooting.gunController.bulletSpawn.position).normalized;
+            aimingDirection = (target.target.position - origin).normalized;
         }
+
+        Vector2 sigtDir = (target.target.position - transform.position).normalized;
 
         //Gizmos.color = Color.yellow;
         //Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
@@ -249,10 +252,29 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         //Gizmos.color = Color.green;
         //Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
 
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).approachedDistance);
+        if (targetApproached)
+        {
+            Gizmos.color = Color.red;
+        }
+        else
+        {
+            Gizmos.color = Color.green;
+        }
+
+        Gizmos.DrawRay(origin, shootingDirection * ((ShootingProfile)profile).approachedDistance);
 
         if (target.targetSeen)
+        {
+            Gizmos.color = Color.blue;
+        }
+        else
+        {
+            Gizmos.color = Color.magenta;
+        }
+
+        //Gizmos.DrawRay(transform.position, sigtDir * ((ShootingProfile)profile).sight);
+
+        if (inShootingRange)
         {
             Gizmos.color = Color.green;    // Заблокировано союзником
         }
@@ -260,12 +282,11 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             Gizmos.color = Color.red; // В редакторе до запуска - синий
         }
-
+        return;
 
         // --- Рисуем сам CircleCast ---
 
 
-        Vector3 origin = shooting.gunController.muzzle.position;
         Vector3 direction = (Vector3)shootingDirection;
         Vector3 endPoint = origin + direction * ((ShootingProfile)profile).shootingRange;
 
@@ -286,8 +307,8 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         Gizmos.DrawLine(origin - perpendicular, endPoint - perpendicular);
 
         // 4. (Опционально) Рисуем центральную линию каста
-        Gizmos.color = Color.gray; // Сделаем ее серой для отличия
-        Gizmos.DrawLine(origin, endPoint);
+        //Gizmos.color = Color.gray; // Сделаем ее серой для отличия
+        //Gizmos.DrawLine(origin, endPoint);
     }
 
 

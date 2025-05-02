@@ -106,26 +106,26 @@ public class DualStrafer : Boss
         switch (motionState)
         {
             case MotionState.Strafe:
-                move.Move(ref rb, currentStrafe.strafeDir, ((DualStraferProfile)profile).strafeSpeed);
+                move.Move(currentStrafe.strafeDir, ((DualStraferProfile)profile).strafeSpeed);
                 break;
             case MotionState.MoveToTarget:
-                move.Move(ref rb, dir, profile.moveSpeed);
+                move.Move(dir);
                 break;
             case MotionState.Stay:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             case MotionState.Regroup:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             case MotionState.Pursue:
 /*                Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
                 move.Move(ref rb, pursueDir);*/
                 break;
             case MotionState.Sleep:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             default:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
         }
     }

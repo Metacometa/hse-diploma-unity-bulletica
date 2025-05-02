@@ -7,6 +7,12 @@ public class ShootingProfile : BaseProfile
     [SerializeField] public float shootingRange;
     [SerializeField] public float approachedDistance;
 
+    [SerializeField] public float minPositionRadius;
+    [SerializeField] public float maxPositionRadius;
+
+    [SerializeField] public float changePositionRadius;
+    [SerializeField] public float shiftPositionCloser;
+
     [Space]
     [SerializeField] public bool shootingOnMove;
 
