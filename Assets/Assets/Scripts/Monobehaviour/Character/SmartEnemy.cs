@@ -45,19 +45,19 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
                 break;
             case MotionState.Stay:
-                smartMove.Stop();
+                smartMove.StopAgent();
                 break;
             case MotionState.Regroup:
                 //move.Move(ref rb, dir, profile.moveSpeed);
                 break;
             case MotionState.Pursue:
-                smartMove.Outflank(target.target.position);
+                smartMove.Pursue(target.target.position);
                 break;
             case MotionState.Sleep:
-                smartMove.Stop();
+                smartMove.StopAgent();
                 break;
             default:
-                smartMove.Stop();
+                smartMove.StopAgent();
                 break;
         }
     }
@@ -80,16 +80,21 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         UpdateActionState();
         UpdateMovingState();
 
+
+        if (target.inSight)
+        {
+            rotator.Rotate(dir, shooting.GetRotationSpeed());
+        }
+
         switch (actionState)
         {
             case ActionState.Shoot:
                 ShootingHandler();
-                rotator.Rotate(dir, shooting.GetRotationSpeed());
+
                 move.Buffering();
                 break;
             case ActionState.Reload:
                 ReloadHandler();
-                rotator.Rotate(dir, shooting.GetRotationSpeed());
                 break;
             case ActionState.Idle:
                 break;
@@ -101,6 +106,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             default:
                 break;
         }
+
     }
     public void UpdateActionState()
     {
@@ -116,11 +122,11 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             actionState = ActionState.Reload;
         }
-        else if (inShootingRange)
+        else if (target.inShootingRange)
         {
             actionState = ActionState.Shoot;
         }
-        else if (target.targetSeen)
+        else if (target.inPursueRange && !smartMove.OnPosition())
         {
             actionState = ActionState.Pursue;
         }
@@ -139,14 +145,14 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             motionState = MotionState.Sleep;
             return;
         }
-        else if (move.onPush || !move.CanMove())
+        else if (move.onPush || !move.CanMove() && smartMove.OnPosition())
         {
             motionState = MotionState.Stay;
             return;
         }
         else if (actionState == ActionState.Shoot || shooting.OnCooldown())
         {
-            if (((ShootingProfile)profile).shootingOnMove && target.targetSeen)
+            if (((ShootingProfile)profile).shootingOnMove && target.inPursueRange)
             {
                 motionState = MotionState.Pursue;
             }
@@ -155,7 +161,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
                 motionState = MotionState.Stay;
             }
         }
-        else if (target.targetSeen && !smartMove.OnPosition())
+        else if (target.inPursueRange && !smartMove.OnPosition())
         {
             motionState = MotionState.Pursue;
         }
@@ -188,9 +194,10 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         Vector2 dir = origin - shooting.gunController.bulletSpawn.position;
         Vector2 sigtDir = target.target.position - transform.position;
 
-        LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).sight, sightMask, ref target.targetSeen);
+        LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).sightRange, profile.sightMask, ref target.inSight);
+        LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).pursueRange, profile.pursueMask, ref target.inPursueRange);
 
-        WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
+        WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, profile.shootingMask, ref target.inShootingRange);
     }
 
     public void LookToPoint(in Vector3 origin, in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
@@ -223,9 +230,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     }
 
     public virtual void OnDrawGizmosSelected()
-    {
-        return;
-
+    { 
         Vector3 origin = shooting.gunController.muzzle.position;
 
         Vector2 shootingDirection = Vector2.zero;
@@ -238,6 +243,8 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         Vector2 sigtDir = (target.target.position - transform.position).normalized;
 
+        DrawProjectileCheck(shootingDirection, origin);
+        return;
         //Gizmos.color = Color.yellow;
         //Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
 
@@ -255,7 +262,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         Gizmos.DrawRay(origin, shootingDirection * ((ShootingProfile)profile).approachedDistance);
 
-        if (target.targetSeen)
+        if (target.inSight)
         {
             Gizmos.color = Color.blue;
         }
@@ -266,18 +273,28 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         //Gizmos.DrawRay(transform.position, sigtDir * ((ShootingProfile)profile).sight);
 
-        if (inShootingRange)
-        {
-            Gizmos.color = Color.green;    // Заблокировано союзником
-        }
-        else 
-        {
-            Gizmos.color = Color.red; // В редакторе до запуска - синий
-        }
         return;
 
         // --- Рисуем сам CircleCast ---
 
+        DrawProjectileCheck(shootingDirection, origin);
+
+
+        // 4. (Опционально) Рисуем центральную линию каста
+        //Gizmos.color = Color.gray; // Сделаем ее серой для отличия
+        //Gizmos.DrawLine(origin, endPoint);
+    }
+
+    void DrawProjectileCheck(in Vector3 shootingDirection, in Vector3 origin)
+    {
+        if (inShootingRange)
+        {
+            Gizmos.color = Color.green;    // Заблокировано союзником
+        }
+        else
+        {
+            Gizmos.color = Color.red; // В редакторе до запуска - синий
+        }
 
         Vector3 direction = (Vector3)shootingDirection;
         Vector3 endPoint = origin + direction * ((ShootingProfile)profile).shootingRange;
@@ -297,12 +314,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         // Рисуем две линии по краям
         Gizmos.DrawLine(origin + perpendicular, endPoint + perpendicular);
         Gizmos.DrawLine(origin - perpendicular, endPoint - perpendicular);
-
-        // 4. (Опционально) Рисуем центральную линию каста
-        //Gizmos.color = Color.gray; // Сделаем ее серой для отличия
-        //Gizmos.DrawLine(origin, endPoint);
     }
-
 
     void DrawWireDisk(Vector3 position, float radius, Color color, int segments = 20)
     {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseProfile : ScriptableObject
 {
@@ -13,8 +14,8 @@ public class BaseProfile : ScriptableObject
     [SerializeField] public float stayBufferTime;
 
     [Space]
-    [Space]
-    [SerializeField] public float sight;
+    [SerializeField] public float sightRange;
+    [SerializeField] public float pursueRange;
 
     [Space]
     [SerializeField] public int health;
@@ -24,4 +25,10 @@ public class BaseProfile : ScriptableObject
 
     [Space]
     [SerializeField] public string targetTag;
+
+    [Header("Masks")] 
+    [SerializeField] public LayerMask sightMask;
+    [SerializeField] public LayerMask pursueMask;
+    [SerializeField] public LayerMask changePositionMask;
+    [SerializeField] public LayerMask shootingMask;
 }

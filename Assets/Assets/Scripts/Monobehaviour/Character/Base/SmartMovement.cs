@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 
 public class SmartMovement : BaseMovement
 {
+    private BaseShooting shooting;
+
     private NavMeshAgent agent;
     private NavMeshObstacle obstacle;
     public float moveUpdateTimer = 0f;
@@ -26,6 +28,7 @@ public class SmartMovement : BaseMovement
         agent.updateUpAxis = false;
 
         target = GetComponent<BaseTargeting>();
+        shooting = GetComponent<BaseShooting>();
 
         NavMesh.avoidancePredictionTime = 0.5f;
         NavMesh.pathfindingIterationsPerFrame = 1000;
@@ -82,57 +85,8 @@ public class SmartMovement : BaseMovement
 
     public void Pursue(in Vector2 point)
     {
-        Vector2 dir = target.target.position - transform.position;
-        float length = ((ShootingProfile)profile).changePositionRadius;
-
-        bool changePosition = true;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, length, changePositionMask);
-
-        if (hit) 
-        { 
-            if (hit.transform.CompareTag(target.target.tag))
-            {
-                Debug.DrawRay(transform.position, dir, Color.green);
-                changePosition = false;
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, dir, Color.yellow);
-            }
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, dir, Color.red);
-        }
-        //Debug.Log(hit.transform.tag + " " + changePosition);
-
-        if (changePosition)
-        {
-            Debug.Log("changePosition");
-            SetDestination(point);
-        }
-        else
-        {
-            Debug.Log("stop");
-            StopAgent();
-        }
-
+        SetDestination(point);
         return;
-
-        if (agent.isOnNavMesh
-            && moveUpdateTimer <= 0f 
-            && changePosition)
-        {
-            agent.SetDestination(RandomPoint(target.target.position));
-            moveUpdateTimer = moveUpdateCooldown;
-        }
-
-        if (agent.isOnNavMesh
-            && moveUpdateTimer <= 0f
-            && !changePosition)
-        {
-            //SmartStop();
-        }
     }
 
     public Vector3 RandomPoint(in Vector2 point)
@@ -177,17 +131,26 @@ public class SmartMovement : BaseMovement
 
     public bool OnPosition()
     {
-        Vector2 dir = target.target.position - transform.position;
+        Vector2 dir = target.target.position - shooting.gunController.muzzle.position;
         float length = ((ShootingProfile)profile).changePositionRadius;
 
         bool onPosition = false;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, length, changePositionMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, length, profile.changePositionMask);
         if (hit)
         {
             if (hit.transform.CompareTag(target.target.tag))
             {
                 onPosition = true;
+                Debug.DrawRay(transform.position, dir, Color.green);
             }
+            else
+            {
+                Debug.DrawRay(transform.position, dir, Color.red);
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, dir, Color.red);
         }
 
         return onPosition;
@@ -202,13 +165,6 @@ public class SmartMovement : BaseMovement
         }
 
         return;
-        if (agent.isOnNavMesh
-            && moveUpdateTimer <= 0f)
-        {
-
-
-            moveUpdateTimer = moveUpdateCooldown;
-        }
     }
 
     public Vector3 GetMoveDir()

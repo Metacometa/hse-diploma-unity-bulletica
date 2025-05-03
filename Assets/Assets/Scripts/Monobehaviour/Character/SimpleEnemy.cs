@@ -134,7 +134,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         }
         else if (actionState == ActionState.Reload)
         {
-            if (target.targetSeen && !targetApproached)
+            if (target.inSight && !targetApproached)
             {
                 motionState = MotionState.MoveToTarget;
             }
@@ -161,7 +161,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
                 }    
             }
         }
-        else if (target.targetSeen)
+        else if (target.inSight)
         {
             motionState = MotionState.MoveToTarget;
         }
@@ -191,7 +191,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     {
         Vector2 dir = target.target.position - transform.position;
 
-        LookToPoint(transform.position, dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
+        LookToPoint(transform.position, dir, ((ShootingProfile)profile).sightRange, masks, ref target.inSight);
         LookToPoint(transform.position, dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
         LookToPoint(transform.position, dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
     }
@@ -221,7 +221,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         }
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
+        Gizmos.DrawRay(transform.position, aimingDirection * profile.sightRange);
 
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
