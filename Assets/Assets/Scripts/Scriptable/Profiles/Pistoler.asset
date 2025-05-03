@@ -22,10 +22,10 @@ MonoBehaviour:
   invincibilityTime: 0
   targetTag: Player
   shootingRange: 15
-  approachedDistance: 8
-  minPositionRadius: 8
-  maxPositionRadius: 12
-  changePositionRadius: 0
+  approachedDistance: 4
+  minPositionRadius: 2
+  maxPositionRadius: 2
+  changePositionRadius: 8
   shiftPositionCloser: 0
   shootingOnMove: 1
   bulletRadius: 0.4

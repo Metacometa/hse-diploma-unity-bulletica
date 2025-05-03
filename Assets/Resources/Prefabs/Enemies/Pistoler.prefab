@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 3131240057419170983}
   - component: {fileID: 171007674602023710}
   - component: {fileID: 4942291465249929527}
+  - component: {fileID: 5607378417175265633}
   m_Layer: 8
   m_Name: Pistoler
   m_TagString: Enemy
@@ -332,7 +333,7 @@ NavMeshAgent:
   m_Height: 1.3
   m_BaseOffset: 0.65
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &171007674602023710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,6 +378,22 @@ MonoBehaviour:
   changePositionMask:
     serializedVersion: 2
     m_Bits: 1088
+--- !u!208 &5607378417175265633
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.7, y: 0.615, z: 0.7}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &7283919237128319971
 PrefabInstance:
   m_ObjectHideFlags: 0

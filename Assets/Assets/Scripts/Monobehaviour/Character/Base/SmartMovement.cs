@@ -1,4 +1,5 @@
 
+using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
@@ -6,6 +7,7 @@ using UnityEngine.UIElements;
 public class SmartMovement : BaseMovement
 {
     private NavMeshAgent agent;
+    private NavMeshObstacle obstacle;
     public float moveUpdateTimer = 0f;
     public float moveUpdateCooldown = 1f;
 
@@ -83,6 +85,13 @@ public class SmartMovement : BaseMovement
             agent.SetDestination(RandomPoint(target.target.position));
             moveUpdateTimer = moveUpdateCooldown;
         }
+
+        if (agent.isOnNavMesh
+            && moveUpdateTimer <= 0f
+            && !changePosition)
+        {
+            SmartStop();
+        }
     }
 
     public Vector3 RandomPoint(in Vector2 point)
@@ -131,9 +140,7 @@ public class SmartMovement : BaseMovement
         if (agent.isOnNavMesh
             && moveUpdateTimer <= 0f)
         {
-            agent.SetDestination(target.target.position);
-            moveUpdateTimer = moveUpdateCooldown;
-            Debug.Log("SetDestination");
+            agent.SetDestination(transform.position);
         }
     }
 
