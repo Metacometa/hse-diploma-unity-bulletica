@@ -378,6 +378,8 @@ MonoBehaviour:
   changePositionMask:
     serializedVersion: 2
     m_Bits: 1088
+  obstacleDisablerTimer: 1
+  obstacleDisablerCooldown: 1
 --- !u!208 &5607378417175265633
 NavMeshObstacle:
   m_ObjectHideFlags: 0

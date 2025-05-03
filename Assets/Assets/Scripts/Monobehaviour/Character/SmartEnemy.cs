@@ -80,7 +80,6 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         UpdateActionState();
         UpdateMovingState();
 
-        return;
         switch (actionState)
         {
             case ActionState.Shoot:
@@ -95,8 +94,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             case ActionState.Idle:
                 break;
             case ActionState.Pursue:
-                //Vector2 moveDir = (smartMove.GetMoveDir();
-                //rotator.Rotate(smartMove.GetMoveDir(), shooting.GetRotationSpeed());
+                rotator.Rotate(smartMove.GetMoveDir(), shooting.GetRotationSpeed());
                 break;
             case ActionState.Sleep:
                 break;
@@ -135,21 +133,20 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     public void UpdateMovingState()
     {
         motionState = MotionState.Pursue;
-        return;
 
         if (sleep.onSleep)
         {
             motionState = MotionState.Sleep;
             return;
         }
-        else if (move.onPush || !move.CanMove() || (targetApproached && !inShootingRange))
+        else if (move.onPush || !move.CanMove())
         {
             motionState = MotionState.Stay;
             return;
         }
         else if (actionState == ActionState.Shoot || shooting.OnCooldown())
         {
-            if (((ShootingProfile)profile).shootingOnMove && move.CanMove() && target.targetSeen)
+            if (((ShootingProfile)profile).shootingOnMove && target.targetSeen)
             {
                 motionState = MotionState.Pursue;
             }
@@ -158,7 +155,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
                 motionState = MotionState.Stay;
             }
         }
-        else if (target.targetSeen)
+        else if (target.targetSeen && !smartMove.OnPosition())
         {
             motionState = MotionState.Pursue;
         }
@@ -189,18 +186,11 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     {
         Vector3 origin = shooting.gunController.muzzle.position;
         Vector2 dir = origin - shooting.gunController.bulletSpawn.position;
-
         Vector2 sigtDir = target.target.position - transform.position;
 
-        //LookToPoint(dir, ((ShootingProfile)profile).sight, masks, ref target.targetSeen);
         LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).sight, sightMask, ref target.targetSeen);
 
         WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
-
-        //LookToPoint(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
-        //WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
-
-        LookToPoint(origin, dir, ((ShootingProfile)profile).approachedDistance, masks, ref targetApproached);
     }
 
     public void LookToPoint(in Vector3 origin, in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
@@ -234,6 +224,8 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     public virtual void OnDrawGizmosSelected()
     {
+        return;
+
         Vector3 origin = shooting.gunController.muzzle.position;
 
         Vector2 shootingDirection = Vector2.zero;

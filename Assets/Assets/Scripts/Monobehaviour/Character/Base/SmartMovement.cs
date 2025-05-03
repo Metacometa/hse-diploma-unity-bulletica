@@ -1,4 +1,5 @@
 
+using System.Collections;
 using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,6 +15,9 @@ public class SmartMovement : BaseMovement
     public LayerMask changePositionMask;
     private BaseTargeting target;
 
+    //public float obstacleDisablerTimer = 0f;
+    //public float obstacleDisablerCooldown = 1f;
+
     protected override void Awake()
     {
         base.Awake();
@@ -25,6 +29,9 @@ public class SmartMovement : BaseMovement
 
         NavMesh.avoidancePredictionTime = 0.5f;
         NavMesh.pathfindingIterationsPerFrame = 1000;
+
+        obstacle = GetComponent<NavMeshObstacle>();
+        obstacle.enabled = false;
     }
 /*    protected virtual void Start()
     {
@@ -38,20 +45,42 @@ public class SmartMovement : BaseMovement
 
 
         moveUpdateTimer -= Time.deltaTime;
+        //obstacleDisablerTimer -= Time.deltaTime;
     }
 
-    public void SmartMove(in Vector2 point)
+    private void SetDestination(in Vector2 point)
     {
-        if (agent.isOnNavMesh
-            && moveUpdateTimer <= 0f)
+        obstacle.enabled = false;
+        /*        if (obstacleDisablerTimer <= 0f)
+                {
+                    obstacle.enabled = false;
+                    //agent.enabled = true;
+                    agent.isStopped = false;
+
+                    obstacleDisablerTimer = obstacleDisablerCooldown;
+                }*/
+        if (moveUpdateTimer <= 0f)
         {
-            agent.SetDestination(target.target.position);
+            //agent.SetDestination(newPoint);
+            StartCoroutine(MoveAgent(point));
             moveUpdateTimer = moveUpdateCooldown;
-            Debug.Log("SetDestination");
         }
     }
 
-    public void Outflank(in Vector2 point)
+    private IEnumerator MoveAgent(Vector3 point)
+    {
+        yield return null;
+        agent.enabled = true;
+
+        if (agent.isOnNavMesh)
+        {
+            Vector3 newPoint = RandomPoint(point);
+            agent.SetDestination(point);
+        }
+
+    }
+
+    public void Pursue(in Vector2 point)
     {
         Vector2 dir = target.target.position - transform.position;
         float length = ((ShootingProfile)profile).changePositionRadius;
@@ -70,13 +99,25 @@ public class SmartMovement : BaseMovement
             {
                 Debug.DrawRay(transform.position, dir, Color.yellow);
             }
-
         }
         else
         {
             Debug.DrawRay(transform.position, dir, Color.red);
         }
         //Debug.Log(hit.transform.tag + " " + changePosition);
+
+        if (changePosition)
+        {
+            Debug.Log("changePosition");
+            SetDestination(point);
+        }
+        else
+        {
+            Debug.Log("stop");
+            StopAgent();
+        }
+
+        return;
 
         if (agent.isOnNavMesh
             && moveUpdateTimer <= 0f 
@@ -90,7 +131,7 @@ public class SmartMovement : BaseMovement
             && moveUpdateTimer <= 0f
             && !changePosition)
         {
-            SmartStop();
+            //SmartStop();
         }
     }
 
@@ -129,18 +170,44 @@ public class SmartMovement : BaseMovement
             }
             iterations++;
         }
-        Debug.Log("Distance: " + Vector2.Distance(point, destination) + "\n Iteration: " + iterations);
+        //Debug.Log("Distance: " + Vector2.Distance(point, destination) + "\n Iteration: " + iterations);
 
         return destination;
     }
 
-
-    public void SmartStop()
+    public bool OnPosition()
     {
+        Vector2 dir = target.target.position - transform.position;
+        float length = ((ShootingProfile)profile).changePositionRadius;
+
+        bool onPosition = false;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, length, changePositionMask);
+        if (hit)
+        {
+            if (hit.transform.CompareTag(target.target.tag))
+            {
+                onPosition = true;
+            }
+        }
+
+        return onPosition;
+    }
+
+    public void StopAgent()
+    {
+        if (moveUpdateTimer <= 0f)
+        {
+            agent.enabled = false;
+            obstacle.enabled = true;
+        }
+
+        return;
         if (agent.isOnNavMesh
             && moveUpdateTimer <= 0f)
         {
-            agent.SetDestination(transform.position);
+
+
+            moveUpdateTimer = moveUpdateCooldown;
         }
     }
 
