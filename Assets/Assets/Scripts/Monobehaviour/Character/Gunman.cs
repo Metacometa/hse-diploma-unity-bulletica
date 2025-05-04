@@ -31,7 +31,7 @@ public class Gunman : BaseCharacter
 
         if (move.onPush)
         {
-            move.StopMovement(ref rb);
+            move.Stop();
         }
     }
     protected virtual void FixedUpdate() {}

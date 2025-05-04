@@ -16,6 +16,8 @@ TagManager:
   - HardChamber
   - StartChamber
   - HubChamber
+  - Pit
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -30,7 +32,7 @@ TagManager:
   - Obstacle
   - Bullet
   - Gun
-  - 
+  - Pit
   - 
   - 
   - 

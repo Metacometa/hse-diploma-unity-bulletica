@@ -1,19 +1,22 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 {
     /*[HideInInspector]*/ public bool onPush;
-    private BaseProfile profile;
+    protected BaseProfile profile;
 
     public float timeCounter;
+
+    protected Rigidbody2D rb;
 
     protected virtual void Awake()
     {
         onPush = false;
 
         profile = GetComponent<BaseCharacter>().profile;
+
+        rb = GetComponent<Rigidbody2D>();
     }
     protected virtual void Start()
     {
@@ -26,12 +29,17 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
         timeCounter = Mathf.Clamp(timeCounter, 0f, profile.stayBufferTime);
     }
 
-    public void Move(ref Rigidbody2D rb, in Vector2 dir, in float speed)
+    public virtual void Move(in Vector2 dir)
+    {
+        Move(dir, profile.moveSpeed);
+    }
+
+    public virtual void Move(in Vector2 dir, float speed)
     {
         rb.linearVelocity = dir.normalized * speed;
     }
 
-    public void StopMovement(ref Rigidbody2D rb)
+    public virtual void Stop()
     {
         rb.linearVelocity = Vector2.zero;
     }

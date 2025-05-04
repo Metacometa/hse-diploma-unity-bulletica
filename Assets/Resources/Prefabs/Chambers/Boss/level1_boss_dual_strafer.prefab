@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 9031086518365516619}
   - component: {fileID: 6608659965094412666}
   - component: {fileID: 552141584583116493}
+  - component: {fileID: 2780908618107163833}
   m_Layer: 10
   m_Name: Walls
   m_TagString: Obstacle
@@ -1491,6 +1492,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 477697322206451588}
+--- !u!114 &2780908618107163833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477697322206451588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &716689523215425854
 GameObject:
   m_ObjectHideFlags: 0
@@ -1997,6 +2014,7 @@ GameObject:
   - component: {fileID: 743258184515081481}
   - component: {fileID: 8090362491253977219}
   - component: {fileID: 3828922891547041445}
+  - component: {fileID: 4802577515300812456}
   m_Layer: 10
   m_Name: WallLeftBody
   m_TagString: WallFaker
@@ -2301,6 +2319,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 4445345378498569511}
+--- !u!114 &4802577515300812456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445345378498569511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5203438158366971016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2349,7 @@ GameObject:
   - component: {fileID: 845499180570939012}
   - component: {fileID: 7219577249126455671}
   - component: {fileID: 525322216984894214}
+  - component: {fileID: 2543695237287363914}
   m_Layer: 10
   m_Name: WallUpBody
   m_TagString: WallFaker
@@ -2619,6 +2654,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 5203438158366971016}
+--- !u!114 &2543695237287363914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5203438158366971016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &5312185409353562927
 GameObject:
   m_ObjectHideFlags: 0
@@ -9607,6 +9658,7 @@ GameObject:
   - component: {fileID: 5926683999064897150}
   - component: {fileID: 7684217696386129139}
   - component: {fileID: 1563740989644124203}
+  - component: {fileID: 6790880778694651163}
   m_Layer: 10
   m_Name: WallRightBody
   m_TagString: WallFaker
@@ -9911,6 +9963,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 8467501279016721640}
+--- !u!114 &6790880778694651163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467501279016721640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &8588045627368393863
 GameObject:
   m_ObjectHideFlags: 0
@@ -9925,6 +9993,7 @@ GameObject:
   - component: {fileID: 7252955507971095196}
   - component: {fileID: 4597316748920514194}
   - component: {fileID: 7117594059194351688}
+  - component: {fileID: 7588588028081203399}
   m_Layer: 10
   m_Name: WallDownBody
   m_TagString: WallFaker
@@ -10229,6 +10298,22 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 8588045627368393863}
+--- !u!114 &7588588028081203399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8588045627368393863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &8951361590008081841
 GameObject:
   m_ObjectHideFlags: 0

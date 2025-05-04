@@ -106,26 +106,26 @@ public class DualStrafer : Boss
         switch (motionState)
         {
             case MotionState.Strafe:
-                move.Move(ref rb, currentStrafe.strafeDir, ((DualStraferProfile)profile).strafeSpeed);
+                move.Move(currentStrafe.strafeDir, ((DualStraferProfile)profile).strafeSpeed);
                 break;
             case MotionState.MoveToTarget:
-                move.Move(ref rb, dir, profile.moveSpeed);
+                move.Move(dir);
                 break;
             case MotionState.Stay:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             case MotionState.Regroup:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             case MotionState.Pursue:
 /*                Vector2 pursueDir = pursue.lastSeenPos - (Vector2)transform.position;
                 move.Move(ref rb, pursueDir);*/
                 break;
             case MotionState.Sleep:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
             default:
-                move.StopMovement(ref rb);
+                move.Stop();
                 break;
         }
     }
@@ -178,7 +178,7 @@ public class DualStrafer : Boss
         }
         else if (actionState == ActionState.Reload)
         {
-            if (target.targetSeen && !targetApproached)
+            if (target.inSight && !targetApproached)
             {
                 motionState = MotionState.Regroup;
             }
@@ -198,7 +198,7 @@ public class DualStrafer : Boss
                 motionState = MotionState.MoveToTarget;
             }
         }
-        else if (target.targetSeen)
+        else if (target.inSight)
         {
             motionState = MotionState.MoveToTarget;
         }
@@ -213,7 +213,7 @@ public class DualStrafer : Boss
     {
         Vector2 dir = target.target.position - transform.position;
 
-        LookToPoint(dir, profile.sight, masks, ref target.targetSeen);
+        LookToPoint(dir, profile.sightRange, masks, ref target.inSight);
         LookToPoint(dir, ((DualStraferProfile)profile).shootingRange, masks, ref inShootingRange);
         LookToPoint(dir, ((DualStraferProfile)profile).approachedDistance, masks, ref targetApproached);
 
@@ -277,7 +277,7 @@ public class DualStrafer : Boss
         }
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
+        Gizmos.DrawRay(transform.position, aimingDirection * profile.sightRange);
 
         Gizmos.color = Color.green;
         Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
