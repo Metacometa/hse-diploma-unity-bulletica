@@ -1,32 +1,39 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIEndScreenManager : MonoBehaviour
 {
     private Animator animator;
 
+    private Button[] buttons;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        gameObject.SetActive(false);
+        buttons = GetComponentsInChildren<Button>();
+        DisableInteractibility();
     }
 
     public void ShowUI()
     {
 		Time.timeScale = 0;
-        gameObject.SetActive(true);
         animator.SetTrigger("Show");
     }
 
     public void HideUI()
     {
 		Time.timeScale = 1;
-        animator.SetTrigger("Hide"); 
+        animator.SetTrigger("Hide");
     }
 
     public void OnHideComplete()
     {
-        gameObject.SetActive(false);
+        DisableInteractibility();
+    }
+    public void OnShowComplete()
+    {
+        EnableInteractibility();
     }
     public void RestartGame()
     {
@@ -38,5 +45,21 @@ public class UIEndScreenManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(0); 
+    }
+
+    public void EnableInteractibility()
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = true;
+        }
+    }
+
+    public void DisableInteractibility()
+    {
+        foreach (Button button in buttons)
+        {
+            button.interactable = false;
+        }
     }
 }
