@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
 using UnityEngine.UIElements;
+using NUnit.Framework;
+using System;
 
 public class SpawnChambers : MonoBehaviour
 {
@@ -129,7 +131,7 @@ public class SpawnChambers : MonoBehaviour
 
     private bool TrySpawnRoomInDirection(Chamber baseChamber, Vector2Int direction, out Chamber newChamber)
     {
-        RoomType roomType = GetNextRoomType();
+        RoomType roomType = GetNextRoomType(baseChamber);
         GameObject roomPrefab = GetRoomPrefabByType(roomType);
 
         newChamber = SpawnRoomInDirection(baseChamber, direction, roomPrefab);
@@ -160,9 +162,9 @@ public class SpawnChambers : MonoBehaviour
         return true;
     }
 
-    private RoomType GetNextRoomType()
+    private RoomType GetNextRoomType(Chamber curChamber)
     {
-        if (hubChambers.Count < hubRoomsCount && spawnedChambers.Count > 1 && Random.value < Mathf.Min(0.3f + (0.05f * (spawnedChambers.Count - 1)), 1.0f))
+        if (!curChamber.gameObject.CompareTag("HubChamber") && hubChambers.Count < hubRoomsCount && spawnedChambers.Count > 1 && Random.value < Mathf.Min(0.1f + (0.05f * (spawnedChambers.Count - 1)), 1.0f))
         {
             return RoomType.Hub;
         }
