@@ -16,7 +16,6 @@ using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(PlayerDeath))]
 
-
 public class Player : Gunman
 {
     private InputManager input;

@@ -17,6 +17,7 @@ TagManager:
   - StartChamber
   - HubChamber
   - Pit
+  - UI
   layers:
   - Default
   - TransparentFX
