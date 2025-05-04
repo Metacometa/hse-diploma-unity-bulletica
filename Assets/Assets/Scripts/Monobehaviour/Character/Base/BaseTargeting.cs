@@ -15,7 +15,7 @@ public class BaseTargeting : MonoBehaviour
 
     public Vector3 position()
     {
-        if (target)
+        if (target && target.gameObject.activeInHierarchy)
         {
             return target.position;
         }

@@ -5214,8 +5214,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.0023269653, y: 0.0024261475, z: 0}
-      m_Extent: {x: 16.00135, y: 16.00145, z: 0}
+      m_Center: {x: 0.0023269653, y: 0.002418518, z: 0}
+      m_Extent: {x: 16.00135, y: 16.001442, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -16839,6 +16839,10 @@ PrefabInstance:
       value: 2.2508152
       objectReference: {fileID: 0}
     - target: {fileID: 3452589212712100253, guid: f218d66f814650047afa792144d6351f, type: 3}
+      propertyPath: CameraDistance
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452589212712100253, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: Composition.DeadZone.Size.x
       value: 1
       objectReference: {fileID: 0}
@@ -16860,7 +16864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4741174409632736973, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: Lens.OrthographicSize
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5734945550148470816, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_Name

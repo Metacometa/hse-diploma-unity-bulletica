@@ -14,14 +14,20 @@ using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(InputManager))]
 
+[RequireComponent(typeof(PlayerDeath))]
+
+
 public class Player : Gunman
 {
     private InputManager input;
+    private PlayerDeath playerDeath;
 
     protected override void Awake()
     {
         base.Awake();
         input = GetComponent<InputManager>();
+
+        playerDeath = GetComponent<PlayerDeath>();
     }
 
     protected override void FixedUpdate()
@@ -84,6 +90,11 @@ public class Player : Gunman
 
     protected override void Update() 
     {
+        if (health.health == 0)
+        {
+            playerDeath.Die(gameObject);
+        }
+
         input.UpdateInput();
 
         if (input.onAttackButton && !shooting.OnCooldown() && !shooting.OnAttack())
@@ -91,4 +102,5 @@ public class Player : Gunman
             shooting.ShootingManager();
         }
     }
+
 }
