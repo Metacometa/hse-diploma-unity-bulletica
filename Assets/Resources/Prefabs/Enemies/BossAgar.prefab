@@ -19,7 +19,10 @@ GameObject:
   - component: {fileID: 1467533519333992501}
   - component: {fileID: 7019869043262113180}
   - component: {fileID: 3717015719551741704}
-  m_Layer: 8
+  - component: {fileID: 5592734721158052685}
+  - component: {fileID: 1225511767280641721}
+  - component: {fileID: 8984454600408257163}
+  m_Layer: 9
   m_Name: BossAgar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -83,7 +86,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1712788617
-  m_SortingLayer: 7
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1682817912445407586, guid: 60d4185a14b62344b9fb85f52c60604e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,8 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c202512494a254a8bb440d3b34e9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 5
-  startingHealth: 5
+  health: 0
 --- !u!114 &1974397545071643076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,10 +211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ebb4f439b69044c80f6a1b3a8ead8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  pushingAwayTime: 0.2
-  pushingAwayForce: 2
   onPush: 0
+  timeCounter: 0
 --- !u!114 &1467533519333992501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,8 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetTag: Player
-  targetSeen: 0
+  inSight: 0
+  inPursueRange: 0
+  inShootingRange: 0
 --- !u!114 &7019869043262113180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a8ac10da723f4449f3ecfaa075b544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSleep: 0
+  sleep: {fileID: 0}
   profile: {fileID: 11400000, guid: 40a37ed2a907e174a9c678e092a84642, type: 2}
   controller: {fileID: 0}
   bouncesCount: 0
@@ -258,3 +259,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaRadius: 0
+--- !u!114 &5592734721158052685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a56f37c20dc8049a282acb1808bfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  tankRotateCooldown: 1
+  tankRotateTimer: 0
+  gunRotateCooldown: 1
+  gunRotateTimer: 0
+  gunDir: {x: 0, y: 0, z: 0}
+  tankDir: {x: 0, y: 0, z: 0}
+  gunRotateSpeed: 0
+  tankRotateSpeed: 0
+--- !u!114 &1225511767280641721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e51c3570182ff4c974db64bb3ea421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincible: 0
+--- !u!114 &8984454600408257163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01fb6e262e990bf45b920d74a0ef2475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onSleep: 0

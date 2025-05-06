@@ -78,12 +78,12 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         {
             case ActionState.Shoot:
                 ShootingHandler();
-                rotator.Rotate(dir, shooting.GetRotationSpeed());
+                rotator.Rotate(dir);
                 move.Buffering();
                 break;
             case ActionState.Reload:
                 ReloadHandler();
-                rotator.Rotate(dir, shooting.GetRotationSpeed());
+                rotator.Rotate(dir);
                 break;
             case ActionState.Idle:
                 break;

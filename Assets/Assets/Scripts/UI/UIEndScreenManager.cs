@@ -14,9 +14,9 @@ public class UIEndScreenManager : MonoBehaviour
         animator = GetComponent<Animator>();
 
         buttons = GetComponentsInChildren<Button>();
-        DisableButtons();
+        //DisableButtons();
 
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
         //animator.SetTrigger("Hide");
     }
 

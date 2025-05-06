@@ -1,0 +1,959 @@
+fileFormatVersion: 2
+guid: 4149d726eae602e4596337d6b88a244a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1495674536705556663
+    second: pistolgun_0
+  - first:
+      213: 8190501521150785730
+    second: pistolgun_1
+  - first:
+      213: 4155441354595500536
+    second: pistolgun_2
+  - first:
+      213: -493266351983814210
+    second: pistolgun_3
+  - first:
+      213: -1867460892087681447
+    second: pistolgun_4
+  - first:
+      213: -3594919474166153934
+    second: pistolgun_5
+  - first:
+      213: 2361473352608208377
+    second: pistolgun_6
+  - first:
+      213: 7208817585411153492
+    second: pistolgun_7
+  - first:
+      213: 8880164942429413716
+    second: pistolgun_8
+  - first:
+      213: 7162527061550523786
+    second: pistolgun_9
+  - first:
+      213: 6306692434009804603
+    second: pistolgun_10
+  - first:
+      213: 7951426495630758738
+    second: pistolgun_11
+  - first:
+      213: -7827951050312605232
+    second: pistolgun_12
+  - first:
+      213: 483810772518112557
+    second: pistolgun_13
+  - first:
+      213: 5629497424177124162
+    second: pistolgun_14
+  - first:
+      213: 3449146142023686986
+    second: pistolgun_15
+  - first:
+      213: 138223298117605568
+    second: pistolgun_16
+  - first:
+      213: 4826052618988264158
+    second: pistolgun_17
+  - first:
+      213: -1384661938939554514
+    second: pistolgun_18
+  - first:
+      213: -3572203590530791111
+    second: pistolgun_19
+  - first:
+      213: -4944412783450574283
+    second: pistolgun_20
+  - first:
+      213: 869711091184550418
+    second: pistolgun_21
+  - first:
+      213: 1147907020417623260
+    second: pistolgun_22
+  - first:
+      213: -3502744492048655575
+    second: pistolgun_23
+  - first:
+      213: -8819029426522143517
+    second: pistolgun_24
+  - first:
+      213: -6360516232430517770
+    second: pistolgun_25
+  - first:
+      213: 1809231863056745802
+    second: pistolgun_26
+  - first:
+      213: -2034234783988208096
+    second: pistolgun_27
+  - first:
+      213: -7851038259500184317
+    second: pistolgun_28
+  - first:
+      213: 5675436531038403014
+    second: pistolgun_29
+  - first:
+      213: 5290345083759362737
+    second: pistolgun_30
+  - first:
+      213: 2928123147109295457
+    second: pistolgun_31
+  - first:
+      213: -4395583999165270545
+    second: pistolgun_32
+  - first:
+      213: -8506735536040742070
+    second: pistolgun_33
+  - first:
+      213: 8343285017405433310
+    second: pistolgun_34
+  - first:
+      213: 1584139868751636219
+    second: pistolgun_35
+  - first:
+      213: -6784700497793343182
+    second: pistolgun_36
+  - first:
+      213: 8280718985345810617
+    second: pistolgun_37
+  - first:
+      213: -34264278005588630
+    second: pistolgun_38
+  - first:
+      213: 4957939753767899930
+    second: pistolgun_39
+  - first:
+      213: 8629957978400230024
+    second: pistolgun_40
+  - first:
+      213: 3819389936937938741
+    second: pistolgun_41
+  - first:
+      213: -6073153172331242686
+    second: pistolgun_42
+  - first:
+      213: -7297154386909613970
+    second: pistolgun_43
+  - first:
+      213: 7842323703851647920
+    second: pistolgun_44
+  - first:
+      213: 652639243370499734
+    second: pistolgun_45
+  - first:
+      213: 903263727973345593
+    second: pistolgun_46
+  - first:
+      213: -5728640929910319392
+    second: pistolgun_47
+  - first:
+      213: 935984635437063350
+    second: pistolgun_48
+  - first:
+      213: -4307570685481757623
+    second: pistolgun_49
+  - first:
+      213: -5678594647006658932
+    second: pistolgun_50
+  - first:
+      213: 8893292614086240907
+    second: pistolgun_51
+  - first:
+      213: 9123444963158913463
+    second: pistolgun_52
+  - first:
+      213: 2732716541117844176
+    second: pistolgun_53
+  - first:
+      213: 8304018643377938364
+    second: pistolgun_54
+  - first:
+      213: -8236219446077620089
+    second: pistolgun_55
+  - first:
+      213: 1536753849225274893
+    second: pistolgun_56
+  - first:
+      213: 775658335768847124
+    second: pistolgun_57
+  - first:
+      213: 1094198395807366453
+    second: pistolgun_58
+  - first:
+      213: -4862802195586505374
+    second: pistolgun_59
+  - first:
+      213: 767700507572483272
+    second: pistolgun_60
+  - first:
+      213: -1706732651283730639
+    second: pistolgun_61
+  - first:
+      213: 8130547030359816290
+    second: pistolgun_62
+  - first:
+      213: 7951667158040996036
+    second: pistolgun_63
+  - first:
+      213: 320974221400893563
+    second: pistolgun_64
+  - first:
+      213: -2786216812808094621
+    second: pistolgun_65
+  - first:
+      213: -8041973393974652961
+    second: pistolgun_66
+  - first:
+      213: -428888867379858291
+    second: pistolgun_67
+  - first:
+      213: -1240485439477995094
+    second: pistolgun_68
+  - first:
+      213: 1427609189127124188
+    second: pistolgun_69
+  - first:
+      213: 177149343942454214
+    second: pistolgun_70
+  - first:
+      213: -1417852317063739658
+    second: pistolgun_71
+  - first:
+      213: -4601621191304137794
+    second: pistolgun_72
+  - first:
+      213: 4671616464966402517
+    second: pistolgun_73
+  - first:
+      213: -657976010202365486
+    second: pistolgun_74
+  - first:
+      213: -7966598562190165765
+    second: pistolgun_75
+  - first:
+      213: 5425227935583896047
+    second: pistolgun_76
+  - first:
+      213: -2690382434290683779
+    second: pistolgun_77
+  - first:
+      213: 3439272323007585863
+    second: pistolgun_78
+  - first:
+      213: 1404737269782220843
+    second: pistolgun_79
+  - first:
+      213: 1987842425803476979
+    second: pistolgun_80
+  - first:
+      213: -4511173109815957053
+    second: pistolgun_81
+  - first:
+      213: -1375774663427663750
+    second: pistolgun_82
+  - first:
+      213: -3558897719047122680
+    second: pistolgun_83
+  - first:
+      213: 4055647428043432298
+    second: pistolgun_84
+  - first:
+      213: -5196885944976011587
+    second: pistolgun_85
+  - first:
+      213: 2755348387078758910
+    second: pistolgun_86
+  - first:
+      213: 8757730195217465979
+    second: pistolgun_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 120
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Win64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pistolgun_0
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 80
+        width: 109
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a70880e714620c43b2d206ac887a2ba
+      internalID: 666075663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 73
+        width: 146
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff1a336459d83f4798c13e29e2b614d
+      internalID: -724741708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_2
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 69
+        width: 174
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c2fae8be1af41945abfe819331bd5fa
+      internalID: -2037719890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_3
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 66
+        width: 198
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837e95c4fbc58d94bb99d0ca977b84e2
+      internalID: 559606393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_4
+      rect:
+        serializedVersion: 2
+        x: 1274
+        y: 69
+        width: 210
+        height: 182
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f602345cf43aecf4da5805b54c7c879e
+      internalID: -251625255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_5
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 76
+        width: 209
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69d6ff6792129e4582803f3b7dbe1e7
+      internalID: -366510590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_6
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 92
+        width: 203
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c8d3b88fd9b8b47a8bf92b1a8313c5
+      internalID: 1036363069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_7
+      rect:
+        serializedVersion: 2
+        x: 2178
+        y: 74
+        width: 209
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99e1bf87d71937b48a24c08dff22d364
+      internalID: 339686735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_8
+      rect:
+        serializedVersion: 2
+        x: 2473
+        y: 49
+        width: 206
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d82ee06626ee7b4f9e91126b40d2bbd
+      internalID: -2090620593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_9
+      rect:
+        serializedVersion: 2
+        x: 2772
+        y: 32
+        width: 195
+        height: 196
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538241526bffc5e4383fb20eb46d2043
+      internalID: 967691699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_10
+      rect:
+        serializedVersion: 2
+        x: 3074
+        y: 18
+        width: 174
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8868f689c72044e46bc95f918e82025e
+      internalID: 745888866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_11
+      rect:
+        serializedVersion: 2
+        x: 3380
+        y: 14
+        width: 143
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a754daedc25ee6046bf9ae525c9166cc
+      internalID: -1211044427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_12
+      rect:
+        serializedVersion: 2
+        x: 3695
+        y: 11
+        width: 109
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3352664be7ab18d4d8dc93c8ffebdf49
+      internalID: -1791401081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_13
+      rect:
+        serializedVersion: 2
+        x: 3973
+        y: 14
+        width: 142
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7374dabfddf77f248be22b64a1da1ab5
+      internalID: -1421322508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_14
+      rect:
+        serializedVersion: 2
+        x: 4250
+        y: 18
+        width: 174
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d9bc1575c1bae428f1cb6f8eb36b61
+      internalID: 183385639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_15
+      rect:
+        serializedVersion: 2
+        x: 4532
+        y: 25
+        width: 195
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19add210e713201418549135230780d5
+      internalID: 63711932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_16
+      rect:
+        serializedVersion: 2
+        x: 4820
+        y: 53
+        width: 206
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e37489fd8039f54ca01448420ad45bc
+      internalID: 285012695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_17
+      rect:
+        serializedVersion: 2
+        x: 5112
+        y: 78
+        width: 209
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50ff9f5b48b25ac408d25f30b26b49bc
+      internalID: -1099391194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_18
+      rect:
+        serializedVersion: 2
+        x: 5411
+        y: 92
+        width: 205
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194f94bbdd49028428fcdf78633b5ab2
+      internalID: -1391284308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_19
+      rect:
+        serializedVersion: 2
+        x: 5713
+        y: 80
+        width: 209
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e043cce7ef927964da48f4f989857e28
+      internalID: -1084236199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_20
+      rect:
+        serializedVersion: 2
+        x: 6019
+        y: 72
+        width: 209
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbd92c8fa46f72943b7dbd1f8ec3184d
+      internalID: 990602230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_21
+      rect:
+        serializedVersion: 2
+        x: 6332
+        y: 69
+        width: 198
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af8fc2fc73ab3244bbadf8dca56f5f67
+      internalID: -1238186264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_22
+      rect:
+        serializedVersion: 2
+        x: 6652
+        y: 69
+        width: 174
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d93ea385f6892bb4284aa64830db8f6d
+      internalID: -663685905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pistolgun_23
+      rect:
+        serializedVersion: 2
+        x: 6979
+        y: 76
+        width: 142
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c206a6d967afc546ab6872457df9cb5
+      internalID: 601108450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: dec9d6a11f2a4dd49b26dfb699d8ad06
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      pistolgun_0: 666075663
+      pistolgun_1: -724741708
+      pistolgun_10: 745888866
+      pistolgun_11: -1211044427
+      pistolgun_12: -1791401081
+      pistolgun_13: -1421322508
+      pistolgun_14: 183385639
+      pistolgun_15: 63711932
+      pistolgun_16: 285012695
+      pistolgun_17: -1099391194
+      pistolgun_18: -1391284308
+      pistolgun_19: -1084236199
+      pistolgun_2: -2037719890
+      pistolgun_20: 990602230
+      pistolgun_21: -1238186264
+      pistolgun_22: -663685905
+      pistolgun_23: 601108450
+      pistolgun_3: 559606393
+      pistolgun_4: -251625255
+      pistolgun_5: -366510590
+      pistolgun_6: 1036363069
+      pistolgun_7: 339686735
+      pistolgun_8: -2090620593
+      pistolgun_9: 967691699
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -19,21 +19,25 @@ MonoBehaviour:
   stayBufferTime: 1
   sightRange: 25
   pursueRange: 20
+  rotationSpeed: 80
+  gunRotationSpeed: 200
+  gunRotateCooldown: 0.001
+  tankRotateCooldown: 0.01
   health: 20
   invincibilityTime: 0
   targetTag: Player
   sightMask:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 2112
   pursueMask:
     serializedVersion: 2
     m_Bits: 64
   changePositionMask:
     serializedVersion: 2
-    m_Bits: 1344
+    m_Bits: 2624
   shootingMask:
     serializedVersion: 2
-    m_Bits: 1344
+    m_Bits: 2624
   shootingRange: 15
   approachedDistance: 4
   minPositionRadius: 2

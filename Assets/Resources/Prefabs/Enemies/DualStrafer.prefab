@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 2957002418742718735}
   - component: {fileID: 5562786688917027800}
   - component: {fileID: 8355908810935911178}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: DualStrafer
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1712788617
-  m_SortingLayer: 7
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4810238299370959522, guid: 82ec6daa1aeef714d9b027e08037c267, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onPush: 0
+  timeCounter: 0
 --- !u!114 &3750902299126303587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +232,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetSeen: 0
+  inSight: 0
+  inPursueRange: 0
+  inShootingRange: 0
 --- !u!114 &30147181018825567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +288,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a56f37c20dc8049a282acb1808bfc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  tankRotateCooldown: 1
+  tankRotateTimer: 0
+  gunRotateCooldown: 1
+  gunRotateTimer: 0
+  gunDir: {x: 0, y: 0, z: 0}
+  tankDir: {x: 0, y: 0, z: 0}
+  gunRotateSpeed: 0
+  tankRotateSpeed: 0
 --- !u!114 &8810311220910977232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9255508b8d03cbc4ba4f40f80fa7b476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunController: []
+  currentGun: {fileID: 0}
 --- !u!114 &5916716188511064978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +389,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3671282367033557327}
     m_Modifications:
+    - target: {fileID: 664904955286403016, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730115075305505895, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000474368607880766, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539736956745381941, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7970323655853118513, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -419,6 +449,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DualGun1
       objectReference: {fileID: 0}
+    - target: {fileID: 8108018042923758592, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647358111870574643, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -437,6 +475,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3671282367033557327}
     m_Modifications:
+    - target: {fileID: 664904955286403016, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730115075305505895, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000474368607880766, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539736956745381941, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7970323655853118513, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -480,6 +534,14 @@ PrefabInstance:
     - target: {fileID: 8108018042923758592, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
       propertyPath: m_Name
       value: DualGun0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108018042923758592, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647358111870574643, guid: f492e832f09de4146b7fe438db87c78c, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

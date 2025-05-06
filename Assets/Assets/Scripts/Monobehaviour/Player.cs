@@ -64,7 +64,7 @@ public class Player : Gunman
         //Vector2 dir = targetPosition - (Vector2)transform.position;
 
         move.Move(input.moveDir);
-        rotator.Rotate(input.aimDir - (Vector2)transform.position, shooting.GetRotationSpeed());
+        rotator.Rotate(input.aimDir - (Vector2)transform.position);
 
         /*        if (!shooting.onAttack)
                 {

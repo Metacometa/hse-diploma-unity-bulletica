@@ -17,6 +17,13 @@ public class BaseProfile : ScriptableObject
     [SerializeField] public float sightRange;
     [SerializeField] public float pursueRange;
 
+    [Header("Gun")]
+    [SerializeField] public float rotationSpeed;
+    [SerializeField] public float gunRotationSpeed;
+
+    [SerializeField] public float gunRotateCooldown;
+    [SerializeField] public float tankRotateCooldown;
+
     [Space]
     [SerializeField] public int health;
 

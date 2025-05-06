@@ -27,11 +27,11 @@ TagManager:
   - UI
   - Player
   - 
+  - Gun
   - Enemy
   - EnemyHitbox
   - Obstacle
   - Bullet
-  - Gun
   - Pit
   - 
   - 
@@ -67,14 +67,17 @@ TagManager:
   - name: WallsFaker
     uniqueID: 1693755449
     locked: 0
+  - name: Body
+    uniqueID: 1712788617
+    locked: 0
   - name: Gun
     uniqueID: 1316544445
     locked: 0
   - name: Bullet
     uniqueID: 1036492923
     locked: 0
-  - name: Body
-    uniqueID: 1712788617
+  - name: Pit
+    uniqueID: 339695161
     locked: 0
   m_RenderingLayers:
   - Default

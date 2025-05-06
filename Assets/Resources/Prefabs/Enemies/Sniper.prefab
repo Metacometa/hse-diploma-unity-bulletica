@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 2787647325669046644}
   - component: {fileID: 8984454600408257163}
   - component: {fileID: 3717015719551741704}
-  m_Layer: 8
+  - component: {fileID: 5592734721158052685}
+  - component: {fileID: 1225511767280641721}
+  m_Layer: 9
   m_Name: Sniper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -87,7 +89,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1712788617
-  m_SortingLayer: 7
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4810238299370959522, guid: 82ec6daa1aeef714d9b027e08037c267, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,8 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9c202512494a254a8bb440d3b34e9c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 5
-  startingHealth: 5
+  health: 0
 --- !u!114 &1974397545071643076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,10 +214,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ebb4f439b69044c80f6a1b3a8ead8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  pushingAwayTime: 0.2
-  pushingAwayForce: 2
   onPush: 0
+  timeCounter: 0
 --- !u!114 &2432461742558073540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,14 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9676e961b6761f42bd35f89ce4d5f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muzzle: {fileID: 0}
-  bulletSpawn: {fileID: 0}
-  source: {fileID: 11400000, guid: c7308ad1e38eb274ca5f708f9d46acb3, type: 2}
-  bulletsInMagazine: 5
-  bullet: {fileID: 8383260018039565768, guid: 063b8bf206cefba42a4a8f1e9a2aa9a0, type: 3}
-  onReload: 0
-  onCooldown: 0
-  onAttack: 0
+  gunController: {fileID: 0}
 --- !u!114 &1467533519333992501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,8 +242,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  targetTag: Player
-  targetSeen: 0
+  inSight: 0
+  inPursueRange: 0
+  inShootingRange: 0
 --- !u!114 &5528047629954386343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,15 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0028914f115bcc64b9a86ba525206170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSleep: 0
+  sleep: {fileID: 0}
   profile: {fileID: 11400000, guid: 967a417f5182c1049ab5d0e3a4ddc214, type: 2}
+  targetApproached: 0
   actionState: 0
   motionState: 0
   masks:
     serializedVersion: 2
     m_Bits: 1088
   pursue: {fileID: 0}
-  sleep: {fileID: 0}
 --- !u!114 &2787647325669046644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +307,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   areaRadius: 0
+--- !u!114 &5592734721158052685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a56f37c20dc8049a282acb1808bfc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
+  tankRotateCooldown: 1
+  tankRotateTimer: 0
+  gunRotateCooldown: 1
+  gunRotateTimer: 0
+  gunDir: {x: 0, y: 0, z: 0}
+  tankDir: {x: 0, y: 0, z: 0}
+  gunRotateSpeed: 0
+  tankRotateSpeed: 0
+--- !u!114 &1225511767280641721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4175426749805988311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e51c3570182ff4c974db64bb3ea421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincible: 0
 --- !u!1001 &2069514721732974442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -322,6 +349,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1343018191517901337}
     m_Modifications:
+    - target: {fileID: 664904955286403016, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730115075305505895, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000474368607880766, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7539736956745381941, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 7970323655853118513, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -365,6 +408,14 @@ PrefabInstance:
     - target: {fileID: 8108018042923758592, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
       propertyPath: m_Name
       value: SniperRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108018042923758592, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8647358111870574643, guid: 2f8bc45fd652bac498f8ceabd1beb495, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

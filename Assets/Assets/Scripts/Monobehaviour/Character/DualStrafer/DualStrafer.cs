@@ -76,18 +76,18 @@ public class DualStrafer : Boss
                 if (!currentStrafe.OnStrafe)
                 {
                     currentStrafe.StartStrafeHandler();
-                    rotator.Rotate(dir, shooting.GetRotationSpeed());
+                    rotator.Rotate(dir);
                 }
                 AltertaneAttackHandler();
 
                 break;
             case ActionState.Shoot:
                 DoubleAttackHandler();
-                rotator.Rotate(dir, shooting.GetRotationSpeed());
+                rotator.Rotate(dir);
                 break;
             case ActionState.Reload:
                 ReloadHandler();
-                rotator.Rotate(dir, 300);
+                rotator.Rotate(dir);
                 break;
             case ActionState.Idle:
                 break;

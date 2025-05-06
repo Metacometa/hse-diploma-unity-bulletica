@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7399197570894572175}
   - component: {fileID: 4658678057974603167}
   - component: {fileID: 9120023527961636290}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: BaseBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1036492923
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -880027187, guid: 5a15c9c3f6ca7544593e11a52fcc3039, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207228682913563053}
   - component: {fileID: 4040287538989972093}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

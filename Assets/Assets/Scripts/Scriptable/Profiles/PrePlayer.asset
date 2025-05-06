@@ -17,10 +17,30 @@ MonoBehaviour:
   pushingAwayTime: 0.2
   pushingAwayForce: 2
   stayBufferTime: 1
-  sight: 15
-  health: 3
+  sightRange: 0
+  pursueRange: 0
+  rotationSpeed: 0
+  gunRotationSpeed: 0
+  health: 1000
   invincibilityTime: 0
   targetTag: Player
+  sightMask:
+    serializedVersion: 2
+    m_Bits: 0
+  pursueMask:
+    serializedVersion: 2
+    m_Bits: 0
+  changePositionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  shootingMask:
+    serializedVersion: 2
+    m_Bits: 0
   shootingRange: 15
   approachedDistance: 6
+  minPositionRadius: 0
+  maxPositionRadius: 0
+  changePositionRadius: 0
+  shiftPositionCloser: 0
   shootingOnMove: 1
+  bulletRadius: 0.5

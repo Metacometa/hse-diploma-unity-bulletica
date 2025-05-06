@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1343018191517901337}
   - component: {fileID: 716923316493139177}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: BossAgarController
   m_TagString: Enemy
   m_Icon: {fileID: 0}

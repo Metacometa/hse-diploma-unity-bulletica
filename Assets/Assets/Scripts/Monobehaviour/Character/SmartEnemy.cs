@@ -29,10 +29,12 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     void OnEnable()
     {
-        if (shooting)
+        Debug.Log("kek");
+        if (rotator)
         {
             Vector2 startDir = (target.target.position - transform.position).normalized;
             rotator.RotateInstantly(startDir);
+            rotator.RotateGunInstantly(startDir);
         }
     }
 
@@ -83,8 +85,14 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         if (target.inSight)
         {
-            rotator.Rotate(dir, shooting.GetRotationSpeed());
+            rotator.RotateGun(target.position() - transform.position);
         }
+        else
+        {
+            rotator.RotateGun(smartMove.GetMoveDir());
+        }
+        rotator.Rotate(smartMove.GetMoveDir());
+
 
         switch (actionState)
         {
@@ -99,7 +107,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             case ActionState.Idle:
                 break;
             case ActionState.Pursue:
-                rotator.Rotate(smartMove.GetMoveDir(), shooting.GetRotationSpeed());
+
                 break;
             case ActionState.Sleep:
                 break;
@@ -126,7 +134,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             actionState = ActionState.Shoot;
         }
-        else if (target.inPursueRange && !smartMove.OnPosition())
+        else if (target.inPursueRange && !smartMove.onPosition)
         {
             actionState = ActionState.Pursue;
         }
@@ -145,7 +153,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             motionState = MotionState.Sleep;
             return;
         }
-        else if (move.onPush || !move.CanMove() && smartMove.OnPosition())
+        else if (move.onPush || !move.CanMove() && smartMove.onPosition)
         {
             motionState = MotionState.Stay;
             return;
@@ -161,7 +169,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
                 motionState = MotionState.Stay;
             }
         }
-        else if (target.inPursueRange && !smartMove.OnPosition())
+        else if (target.inPursueRange && !smartMove.onPosition)
         {
             motionState = MotionState.Pursue;
         }
@@ -191,13 +199,14 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     public void Observe()
     {
         Vector3 origin = shooting.gunController.muzzle.position;
-        Vector2 dir = origin - shooting.gunController.bulletSpawn.position;
+        Vector3 destination = shooting.gunController.bulletSpawn.position;
+        //Vector2 dir = origin - destination;
         Vector2 sigtDir = target.target.position - transform.position;
 
         LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).sightRange, profile.sightMask, ref target.inSight);
         LookToPoint(transform.position, sigtDir, ((ShootingProfile)profile).pursueRange, profile.pursueMask, ref target.inPursueRange);
 
-        WideProjectileCheck(dir, ((ShootingProfile)profile).shootingRange, profile.shootingMask, ref target.inShootingRange);
+        WideProjectileCheck(origin, destination, ((ShootingProfile)profile).shootingRange, profile.shootingMask, ref target.inShootingRange);
     }
 
     public void LookToPoint(in Vector3 origin, in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
@@ -207,6 +216,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         if (hit)
         {
             boolFlag = hit.transform.CompareTag(target.target.tag);
+
         }
         else
         {
@@ -214,9 +224,9 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         }
     }
     
-    public void WideProjectileCheck(in Vector2 dir, in float length, in LayerMask masks, ref bool boolFlag)
+    public void WideProjectileCheck(in Vector3 origin, in Vector3 destination, in float length, in LayerMask masks, ref bool boolFlag)
     {
-        Vector3 origin = shooting.gunController.muzzle.position;
+        Vector3 dir = origin - destination;
         RaycastHit2D hit = Physics2D.CircleCast(origin, ((ShootingProfile)profile).bulletRadius, dir.normalized, length, masks);
 
         if (hit)
@@ -287,7 +297,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     void DrawProjectileCheck(in Vector3 shootingDirection, in Vector3 origin)
     {
-        if (inShootingRange)
+        if (target.inShootingRange)
         {
             Gizmos.color = Color.green;    // Заблокировано союзником
         }

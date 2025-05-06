@@ -2222,13 +2222,8 @@ Tilemap:
   - first: {x: -1, y: -6, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -2237,13 +2232,8 @@ Tilemap:
   - first: {x: 0, y: -6, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -2822,13 +2812,8 @@ Tilemap:
   - first: {x: -8, y: -1, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -2977,13 +2962,8 @@ Tilemap:
   - first: {x: 7, y: -1, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -2992,13 +2972,8 @@ Tilemap:
   - first: {x: -8, y: 0, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -3147,13 +3122,8 @@ Tilemap:
   - first: {x: 7, y: 0, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -3722,13 +3692,8 @@ Tilemap:
   - first: {x: -1, y: 5, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -3737,13 +3702,8 @@ Tilemap:
   - first: {x: 0, y: 5, z: 0}
     second:
       serializedVersion: 2
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-=======
       m_TileIndex: 2
       m_TileSpriteIndex: 2
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -3751,39 +3711,23 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-  - m_RefCount: 140
-    m_Data: {fileID: 11400000, guid: b46bb3558e433e84699870dbcba3ea6d, type: 2}
-=======
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-=======
   - m_RefCount: 148
     m_Data: {fileID: 11400000, guid: b2117d9ae02e025439c61d240327601b, type: 2}
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: 12cab1a067a9f404ca60efb2bd8da2bf, type: 2}
   m_TileSpriteArray:
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-  - m_RefCount: 140
-    m_Data: {fileID: -801356226, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
-=======
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-<<<<<<< HEAD:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler_a.prefab
-=======
   - m_RefCount: 148
     m_Data: {fileID: -1732324610, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
->>>>>>> new_sprites:Assets/Resources/Prefabs/Chambers/Easy/level1_easy_single_pistoler.prefab
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 9
