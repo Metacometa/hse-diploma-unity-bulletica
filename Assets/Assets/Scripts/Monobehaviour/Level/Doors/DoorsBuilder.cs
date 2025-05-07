@@ -8,7 +8,8 @@ public class DoorsBuilder : MonoBehaviour
 {
     private DoorsController doorsController;
 
-    [SerializeField] public float intersectionRadius;
+    [SerializeField] public float intersectionRadius = 0.5f;
+    [SerializeField] public float neighboursIntersectionRadius = 1f;
 
     [SerializeField] public LayerMask mask;
 
@@ -44,7 +45,7 @@ public class DoorsBuilder : MonoBehaviour
         foreach (Transform v in doorsController.doors)
         {
             //RaycastHit2D[] hits = Physics2D.CircleCastAll(v.position, intersectionRadius, Vector2.zero, 0, mask);
-            Collider2D[] hits = Physics2D.OverlapCircleAll(v.position, intersectionRadius, mask);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(v.position, neighboursIntersectionRadius, mask);
 
             foreach (Collider2D hit in hits)
             {

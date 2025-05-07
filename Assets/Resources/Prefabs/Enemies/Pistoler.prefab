@@ -93,7 +93,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1712788617
-  m_SortingLayer: 5
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3834719253641818563, guid: e20a6c9886e3ff3479810386c4cac8fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -150,7 +150,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.5057513, y: 1.3045875}
+  m_Size: {x: 1.55, y: 1.34}
   m_EdgeRadius: 0
 --- !u!50 &6166141328733511774
 Rigidbody2D:
@@ -411,7 +411,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.1}
+  m_Extents: {x: 0.75, y: 0.65, z: 0.1}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
