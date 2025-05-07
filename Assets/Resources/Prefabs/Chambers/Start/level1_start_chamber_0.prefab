@@ -5729,7 +5729,7 @@ GameObject:
   - component: {fileID: 7751098408420409282}
   - component: {fileID: 4450858883877701552}
   m_Layer: 0
-  m_Name: level1_start_chamber_a
+  m_Name: level1_start_chamber_0
   m_TagString: StartChamber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10247,7 +10247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad363f208d3e249947c38afe74d15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intersectionRadius: 1
+  intersectionRadius: 0.5
   mask:
     serializedVersion: 2
     m_Bits: 16384
@@ -10331,7 +10331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_Intensity
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LightType
@@ -10839,10 +10839,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6505076714123548233}
     m_Modifications:
-    - target: {fileID: 543934697204256398, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: opening
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1513998569758256945, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12
@@ -10883,73 +10879,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_PointLightInnerRadius
-      value: 2.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_PointLightOuterRadius
-      value: 3.54
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[1]'
-      value: 1503313917
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[2]'
-      value: 1693755449
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
-      value: 1712788617
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[4]'
-      value: 1316544445
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'
-      value: 1036492923
-      objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[6]'
-      value: 727936085
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272989086088854198, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2272989086088854198, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.23
-      objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
       value: DoorControllerLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712580586500212531, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712580586500212531, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 3712580586500212531, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5900493298734771159, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_Name
-      value: DoorPosition
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11183,55 +11115,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapeLightFalloffSize
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0.07959986
+      value: -0.00024986267
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: 0.06714964
+      value: -0.0001001358
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 12.2083
+      value: 12.00045
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 14.2331505
+      value: 14.0009
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[0].x
-      value: -11.828903
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[0].y
-      value: -13.865088
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[1].x
-      value: 11.915466
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[1].y
-      value: -13.77733
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[2].x
-      value: 11.988983
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[2].y
-      value: 13.999533
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[3].x
-      value: -11.800726
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[3].y
-      value: 13.990092
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShadowSoftnessFalloffIntensity

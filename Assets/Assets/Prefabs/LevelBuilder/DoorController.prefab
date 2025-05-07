@@ -524,38 +524,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Light 2D
       objectReference: {fileID: 0}
-    - target: {fileID: 2378395555541763820, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378395555541763820, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: m_PointLightOuterAngle
-      value: 252.53732
-      objectReference: {fileID: 0}
-    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
-      value: 1712788617
-      objectReference: {fileID: 0}
-    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[4]'
-      value: 1316544445
-      objectReference: {fileID: 0}
-    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'
-      value: 339695161
-      objectReference: {fileID: 0}
-    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[7]'
-      value: -1772506069
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

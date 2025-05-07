@@ -5026,8 +5026,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.002319336, y: 0.0009613037, z: 0}
-      m_Extent: {x: 16.001343, y: 15.999985, z: 0}
+      m_Center: {x: 0.0018310547, y: 0.0009613037, z: 0}
+      m_Extent: {x: 16.001831, y: 15.999985, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -6242,8 +6242,8 @@ GameObject:
   - component: {fileID: 7751098408420409282}
   - component: {fileID: 6556286275610262496}
   m_Layer: 0
-  m_Name: level1_machinegun_trap_a 2
-  m_TagString: EasyChamber
+  m_Name: chamber_medium_0
+  m_TagString: MediumChamber
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16547,7 +16547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ad363f208d3e249947c38afe74d15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intersectionRadius: 1
+  intersectionRadius: 0.5
   mask:
     serializedVersion: 2
     m_Bits: 16384
@@ -16733,8 +16733,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightComponents: []
   colorsA: []
-  colorB: {r: 1, g: 0.4481132, b: 0.4481132, a: 0}
-  cycleDuration: 1
+  colorB: {r: 1, g: 0.06132078, b: 0.06132078, a: 0}
+  cycleDuration: 0.8
 --- !u!1 &9050744020953771415
 GameObject:
   m_ObjectHideFlags: 0
@@ -16781,7 +16781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 768270540016487658, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: OversizeWindow.MaxWindowSize
-      value: 9
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 1339235130670200244, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: m_IsTrigger
@@ -16849,7 +16849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3452589212712100253, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: Composition.DeadZone.Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3452589212712100253, guid: f218d66f814650047afa792144d6351f, type: 3}
       propertyPath: Composition.HardLimits.Size.x
@@ -17025,55 +17025,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapeLightFalloffSize
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.079050064
+      value: -0.00024986267
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.05189991
+      value: -0.0001001358
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 16.25515
+      value: 16.00045
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 16.335999
+      value: 16.0009
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[0].x
-      value: -16.034496
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[0].y
-      value: -16.086912
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[1].x
-      value: 15.803656
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[1].y
-      value: -15.6024
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[2].x
-      value: 15.877174
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[2].y
-      value: 15.983303
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[3].x
-      value: -15.926967
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[3].y
-      value: 15.894512
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShadowSoftnessFalloffIntensity
@@ -17344,17 +17344,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 1650162715588068129, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_ShadowSoftness
-      value: 0.76
-      objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
       value: DoorControllerLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17680,18 +17672,6 @@ PrefabInstance:
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
       value: DoorControllerDown
-      objectReference: {fileID: 0}
-    - target: {fileID: 6843684467286861673, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6843684467286861673, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6843684467286861673, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1503313917
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
