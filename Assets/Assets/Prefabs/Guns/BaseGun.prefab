@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113099566978783167}
   - component: {fileID: 4468620363504765684}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: PointSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1544884995268380065}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6507348754792073694}
   - component: {fileID: 8282805235112641388}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557936406411432802}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 7970323655853118513}
   - component: {fileID: 3932968250353056870}
   - component: {fileID: 6291740641823159542}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: BaseGun
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544295485959205011}
   - component: {fileID: 523633745684203581}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

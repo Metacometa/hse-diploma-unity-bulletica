@@ -4340,7 +4340,7 @@ CompositeCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
-  m_GenerationType: 0
+  m_GenerationType: 1
   m_EdgeRadius: 0
   m_ColliderPaths:
   - m_Collider: {fileID: 5793422023916229085}
@@ -10248,6 +10248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intersectionRadius: 0.5
+  neighboursIntersectionRadius: 1
   mask:
     serializedVersion: 2
     m_Bits: 16384
@@ -10551,15 +10552,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
-      propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[2]'
       value: 1503313917
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
+      propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
+      value: 1712788617
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[4]'
-      value: 1693755449
+      value: 1316544445
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'
@@ -11179,11 +11184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[3]'
-      value: 1316544445
+      value: 1503313917
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[4]'
-      value: 1503313917
+      value: 1316544445
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'

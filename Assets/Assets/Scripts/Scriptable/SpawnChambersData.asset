@@ -25,5 +25,5 @@ MonoBehaviour:
   hardRoomPercentage: 0
   minHubs: 2
   maxHubs: 2
-  seed: -1309080446
+  seed: 
   maxGenerationAttempts: 1000

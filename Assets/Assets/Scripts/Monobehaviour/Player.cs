@@ -1,7 +1,4 @@
-using TMPro;
 using UnityEngine;
-using UnityEngine.Windows;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(BaseHealth))]
 [RequireComponent(typeof(BaseMovement))]

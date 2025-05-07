@@ -20,7 +20,7 @@ MonoBehaviour:
   sightRange: 0
   pursueRange: 0
   rotationSpeed: 80
-  gunRotationSpeed: 300
+  gunRotationSpeed: 500
   gunRotateCooldown: 0.01
   tankRotateCooldown: 0.1
   health: 1000
