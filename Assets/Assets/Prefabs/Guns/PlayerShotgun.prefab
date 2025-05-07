@@ -229,7 +229,7 @@ SpriteRenderer:
   m_SortingLayerID: 1316544445
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5807d7fd710a52a45a3d0e7e6c463e0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edd4cc8bcb759694481339afa0bebf5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 6687555186115256324}
   - component: {fileID: -6282234113410948609}
   m_Layer: 0
-  m_Name: Shotgun
+  m_Name: PlayerShotgun
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

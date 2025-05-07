@@ -19,8 +19,10 @@ MonoBehaviour:
   stayBufferTime: 1
   sightRange: 0
   pursueRange: 0
-  rotationSpeed: 0
-  gunRotationSpeed: 0
+  rotationSpeed: 80
+  gunRotationSpeed: 300
+  gunRotateCooldown: 0.01
+  tankRotateCooldown: 0.1
   health: 1000
   invincibilityTime: 0
   targetTag: Player
