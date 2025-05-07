@@ -71,18 +71,9 @@ public class SmartMovement : BaseMovement
 
     private void SetDestination(in Vector2 point)
     {
-        Debug.Log("SetDestination");
-        obstacle.enabled = false;
-        /*        if (obstacleDisablerTimer <= 0f)
-                {
-                    obstacle.enabled = false;
-                    //agent.enabled = true;
-                    agent.isStopped = false;
-
-                    obstacleDisablerTimer = obstacleDisablerCooldown;
-                }*/
         if (moveUpdateTimer <= 0f && !onPosition)
         {
+            obstacle.enabled = false;
             //agent.SetDestination(newPoint);
             StartCoroutine(MoveAgent(point));
             moveUpdateTimer = moveUpdateCooldown;
@@ -161,6 +152,7 @@ public class SmartMovement : BaseMovement
         if (onPosition)
         {
             Debug.DrawRay(origin, dir * length, Color.green);
+            Buffering();
         }
         else
         {
@@ -168,7 +160,7 @@ public class SmartMovement : BaseMovement
         }
         //Debug.Log("kek");
 
-        return onPosition;
+        return !CanMove();
         if (hit)
         {
             if (hit.transform.CompareTag(target.target.tag))

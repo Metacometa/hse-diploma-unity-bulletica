@@ -73,11 +73,6 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             death.Die(gameObject);
         }
 
-        if (targetApproached)
-        {
-            move.Buffering();
-        }
-
         Observe();
         UpdateActionState();
         UpdateMovingState();
@@ -87,7 +82,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             rotator.RotateGun(target.position() - transform.position);
         }
-        else
+        else if (smartMove.CanMove())
         {
             rotator.RotateGun(smartMove.GetMoveDir());
         }
@@ -122,7 +117,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             actionState = ActionState.Sleep;
         }
-        else if (move.onPush)
+        else if (smartMove.onPush)
         {
             actionState = ActionState.Stun;
         }
@@ -153,7 +148,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
             motionState = MotionState.Sleep;
             return;
         }
-        else if (move.onPush || !move.CanMove() && smartMove.onPosition)
+        else if (smartMove.onPush || smartMove.onPosition)
         {
             motionState = MotionState.Stay;
             return;

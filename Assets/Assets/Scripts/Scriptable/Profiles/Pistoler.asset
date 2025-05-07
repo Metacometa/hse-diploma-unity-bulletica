@@ -16,9 +16,9 @@ MonoBehaviour:
   moveSpeed: 4
   pushingAwayTime: 0.2
   pushingAwayForce: 2
-  stayBufferTime: 1
-  sightRange: 25
-  pursueRange: 20
+  stayBufferTime: 0.8
+  sightRange: 30
+  pursueRange: 30
   rotationSpeed: 80
   gunRotationSpeed: 200
   gunRotateCooldown: 0.001
@@ -38,11 +38,11 @@ MonoBehaviour:
   shootingMask:
     serializedVersion: 2
     m_Bits: 2624
-  shootingRange: 15
+  shootingRange: 25
   approachedDistance: 4
   minPositionRadius: 2
   maxPositionRadius: 2.1
-  changePositionRadius: 8
+  changePositionRadius: 15
   shiftPositionCloser: 0
   shootingOnMove: 1
   bulletRadius: 0.4
