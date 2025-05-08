@@ -50,7 +50,6 @@ GameObject:
   - component: {fileID: 5793422023916229085}
   - component: {fileID: 6296342486779474700}
   - component: {fileID: 1066875473826309236}
-  - component: {fileID: 8342532585444605017}
   - component: {fileID: 7092548925582600973}
   m_Layer: 11
   m_Name: Walls
@@ -3406,19 +3405,6 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!114 &8342532585444605017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942072720541037693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcd83c8e6791a2e4099910ba8d7d24bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selfShadows: 1
 --- !u!114 &7092548925582600973
 MonoBehaviour:
   m_ObjectHideFlags: 0
