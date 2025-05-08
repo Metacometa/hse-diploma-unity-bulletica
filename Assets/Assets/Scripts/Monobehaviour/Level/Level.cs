@@ -32,7 +32,18 @@ public class Level : MonoBehaviour
             doorsController.WallsToDoors();
         }
 
+        RegenerateCompositeCollider2Ds();
+
         surface?.BuildNavMesh();
+    }
+
+    void RegenerateCompositeCollider2Ds()
+    {
+        CompositeCollider2D[] compositeCollider2Ds = GetComponentsInChildren<CompositeCollider2D>();
+        foreach (CompositeCollider2D compositeCollider2D in compositeCollider2Ds)
+        {
+            compositeCollider2D.GenerateGeometry();
+        }
     }
 
 }
