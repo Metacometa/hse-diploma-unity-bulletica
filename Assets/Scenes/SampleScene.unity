@@ -3490,8 +3490,12 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3557678740846442648, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
+      propertyPath: m_CropFrame
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557678740846442648, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
       propertyPath: m_GridSnapping
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143522762307273900, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
       propertyPath: m_LocalPosition.x

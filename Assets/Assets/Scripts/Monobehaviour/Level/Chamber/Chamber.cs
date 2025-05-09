@@ -71,24 +71,44 @@ public class Chamber : MonoBehaviour
     {
         transform.localRotation = Quaternion.Euler(0, 0, 0);
         InitializeRotation();
+
+        if (verticalRoom)
+        {
+            Destroy(verticalRoom);
+        }
     }
 
     public void SetRightRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 180);
         InitializeRotation();
+
+        if (verticalRoom)
+        {
+            Destroy(verticalRoom);
+        }
     }
 
     public void SetBottomRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 90);
         InitializeRotation();
+
+        if (horizontalRoom)
+        {
+            Destroy(horizontalRoom);
+        }
     }
 
     public void SetTopRotation()
     {
         transform.localRotation = Quaternion.Euler(0, 0, 270);
         InitializeRotation();
+
+        if (horizontalRoom)
+        {
+            Destroy(horizontalRoom);
+        }
     }
 
     public Vector3 GetLeftContactPoint()
