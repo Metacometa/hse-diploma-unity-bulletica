@@ -11,4 +11,6 @@ public class GameParameters : ScriptableObject
     [Tooltip("Delay after which the mob appears.")]
 
     public float enablingEnemiesDelay;
+
+    public float turnedOffIntensity;
 }

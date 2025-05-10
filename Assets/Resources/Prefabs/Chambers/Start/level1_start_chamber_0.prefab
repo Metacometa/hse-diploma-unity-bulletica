@@ -113,10 +113,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 10, y: 10}
-      - {x: -10, y: 10}
-      - {x: -10, y: -10}
-      - {x: 10, y: -10}
+    - - {x: 12, y: 12}
+      - {x: -12, y: 12}
+      - {x: -12, y: -12}
+      - {x: 12, y: -12}
   m_UseDelaunayMesh: 0
 --- !u!1 &1942072720541037693
 GameObject:
@@ -10492,6 +10492,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2167044689592516999, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
       value: DoorControllerUp
@@ -10696,6 +10700,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 2167044689592516999, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
       value: DoorControllerLeft
@@ -10761,6 +10769,10 @@ PrefabInstance:
     - target: {fileID: 1513998569758256945, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 2167044689592516999, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
@@ -10848,6 +10860,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 2167044689592516999, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2304872217258247515, guid: 7c48dae35fd9b0847b030620a671ebe0, type: 3}
       propertyPath: m_Name
       value: DoorControllerDown
@@ -10911,6 +10927,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
+      propertyPath: m_LightType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShadowSoftness
       value: 0.509
       objectReference: {fileID: 0}
@@ -10936,19 +10956,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: 0
+      value: -0.00024986267
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.00000011920929
+      value: -0.0001001358
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.9985302
+      value: 12.00045
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.99853027
+      value: 14.0009
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ShapePath.Array.data[0].x
@@ -10988,7 +11008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[2]'
@@ -11004,7 +11024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[5]'
-      value: 339695161
+      value: 303029785
       objectReference: {fileID: 0}
     - target: {fileID: 1982624768991626500, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: 'm_ApplyToSortingLayers.Array.data[6]'
@@ -11025,6 +11045,10 @@ PrefabInstance:
     - target: {fileID: 3342477984800550976, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342477984800550976, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
+      propertyPath: m_TagString
+      value: Global Light
       objectReference: {fileID: 0}
     - target: {fileID: 7048042388877805892, guid: d74b01af544fd7b4c9e09e3ad0f6a577, type: 3}
       propertyPath: m_LocalPosition.x

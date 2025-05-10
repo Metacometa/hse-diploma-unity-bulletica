@@ -9,16 +9,18 @@ public class LightController : MonoBehaviour
     public List<Light2D> doorLights;
     public List<Light2D> globalLights;
 
-    [SerializeField] private float turnedOffIntensity = 1;
+    private Level level;
     private Dictionary<Light2D, float> intensities;
 
     void Awake()
     {
+        level = GetComponentInParent<Level>();
+
         intensities = new Dictionary<Light2D, float>();
         //Debug.Log("Parent: " + transform.p);
         foreach (Light2D light in transform.parent.GetComponentsInChildren<Light2D>())
         {
-            Debug.Log("Tag: " + light.tag + $"Name: { light.name }");
+            //Debug.Log("Tag: " + light.tag + $"Name: { light.name }");
             if (light.tag == "Global Light")
             {
                 globalLights.Add(light);
@@ -39,14 +41,17 @@ public class LightController : MonoBehaviour
             intensities[light] = light.intensity;
         }
 
-        //TurnOffLight();
+        TurnOffLight();
+
     }
 
     public void TurnOffLight()
     {
         TurnOffLights(characterLights);
         TurnOffLights(otherLights);
-        TurnOffLights(doorLights);
+
+        TurnOnDoorLight();
+
         TurnOffIntensities(globalLights);
     }
 
@@ -54,7 +59,20 @@ public class LightController : MonoBehaviour
     {
         TurnOnLights(characterLights);
         TurnOnLights(otherLights);
+
+        TurnOffDoorLight();
+
         TurnOnIntensities(globalLights);
+    }
+
+    public void TurnOnDoorLight()
+    {
+        TurnOnLights(doorLights);
+    }
+
+    public void TurnOffDoorLight()
+    {
+        TurnOffLights(doorLights);
     }
 
     private void TurnOnLights(List<Light2D> lights)
@@ -77,7 +95,7 @@ public class LightController : MonoBehaviour
     {
         foreach (Light2D light in lights)
         {
-            light.intensity = turnedOffIntensity;
+            light.intensity = level.gameParameters.turnedOffIntensity;
         }
     }
 
@@ -87,10 +105,5 @@ public class LightController : MonoBehaviour
         {
             light.intensity = intensities[light];
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

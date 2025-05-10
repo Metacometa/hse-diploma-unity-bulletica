@@ -39,7 +39,7 @@ public class BaseChamberStarter : MonoBehaviour
 
         if (lightController)
         {
-            //startChamberEvent.AddListener(lightController.TurnOnLight);
+            startChamberEvent.AddListener(lightController.TurnOnLight);
         }
 
         AddLightListeners();

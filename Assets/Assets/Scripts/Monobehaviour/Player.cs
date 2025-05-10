@@ -62,7 +62,12 @@ public class Player : Gunman
 
         move.Move(input.moveDir);
         rotator.RotateGun(input.aimDir - (Vector2)transform.position);
-        rotator.Rotate(input.moveDir);
+
+        if (input.moveDir != Vector2.zero)
+        {
+            rotator.Rotate(input.moveDir);
+        }
+
         /*        if (!shooting.onAttack)
                 {
                     if (shooting.IsMagazineEmpty())
