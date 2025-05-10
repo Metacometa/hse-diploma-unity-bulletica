@@ -19,6 +19,10 @@ TagManager:
   - HubChamber
   - Pit
   - UI
+  - Global Light
+  - Character Light
+  - Other Light
+  - Door Light
   layers:
   - Default
   - TransparentFX

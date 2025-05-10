@@ -29,7 +29,6 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     void OnEnable()
     {
-        Debug.Log("kek");
         if (rotator)
         {
             Vector2 startDir = (target.target.position - transform.position).normalized;

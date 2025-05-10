@@ -524,6 +524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Light 2D
       objectReference: {fileID: 0}
+    - target: {fileID: 2378395555541763820, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
+      propertyPath: m_TagString
+      value: Door Light
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

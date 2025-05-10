@@ -63,8 +63,6 @@ public class Player : Gunman
         move.Move(input.moveDir);
         rotator.RotateGun(input.aimDir - (Vector2)transform.position);
         rotator.Rotate(input.moveDir);
-
-        Debug.Log(input.moveDir + " " + input.aimDir);
         /*        if (!shooting.onAttack)
                 {
                     if (shooting.IsMagazineEmpty())

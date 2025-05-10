@@ -10,6 +10,7 @@ public class BaseChamberStarter : MonoBehaviour
     private Chamber chamber;
     private DoorsController doorsController;
     private EnemyController enemyController;
+    private LightController lightController;
 
     [SerializeField] private string targetTag;
 
@@ -23,11 +24,23 @@ public class BaseChamberStarter : MonoBehaviour
         chamber = GetComponentInParent<Chamber>();
         doorsController = chamber.GetComponentInChildren<DoorsController>();
         enemyController = chamber.GetComponentInChildren<EnemyController>();
+        lightController = chamber.GetComponentInChildren<LightController>();
 
-        startChamberEvent.AddListener(doorsController.CloseDoors);
-        startChamberEvent.AddListener(doorsController.CloseNeighboursDoors);
+        if (doorsController)
+        {
+            startChamberEvent.AddListener(doorsController.CloseDoors);
+            startChamberEvent.AddListener(doorsController.CloseNeighboursDoors);
+        }
 
-        startChamberEvent.AddListener(enemyController.EnableEnemiesManager);
+        if (enemyController)
+        {
+            startChamberEvent.AddListener(enemyController.EnableEnemiesManager);
+        }
+
+        if (lightController)
+        {
+            //startChamberEvent.AddListener(lightController.TurnOnLight);
+        }
 
         AddLightListeners();
     }

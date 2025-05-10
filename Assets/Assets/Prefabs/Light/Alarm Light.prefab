@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1982624768991626500}
   m_Layer: 0
   m_Name: Alarm Light
-  m_TagString: Untagged
+  m_TagString: Other Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,14 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 2
-  m_LightType: 1
+  m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.192
+  m_FalloffIntensity: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.6
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000556c632b2bb45996fdbf9a5939a8f464bddf784e7ba0c73d89141766
+  m_ApplyToSortingLayers: 00000000556c632bfdbf9a5989141766
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -62,25 +62,25 @@ MonoBehaviour:
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
   m_ShadowsEnabled: 1
-  m_ShadowIntensity: 0.457
-  m_ShadowSoftness: 0.335
-  m_ShadowSoftnessFalloffIntensity: 0.221
+  m_ShadowIntensity: 1
+  m_ShadowSoftness: 0.213
+  m_ShadowSoftnessFalloffIntensity: 0.527
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.0788002, y: 0.029450417, z: 0}
-    m_Extent: {x: 19.053, y: 18.02525, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightInnerRadius: 5.26
+  m_PointLightOuterRadius: 6.76
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 15
+  m_ShapeLightFalloffSize: 91.4
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -4.1325235, y: -2.9536998, z: 0}
-  - {x: 3.9603117, y: -2.996862, z: 0}
-  - {x: 3.9752035, y: 3.0259848, z: 0}
-  - {x: -4.083625, y: 3.054452, z: 0}
+  - {x: -4.211052, y: -2.95825, z: 0}
+  - {x: 4.0522842, y: -2.8773403, z: 0}
+  - {x: 4.039856, y: 2.8545914, z: 0}
+  - {x: -4.0214806, y: 3.024479, z: 0}

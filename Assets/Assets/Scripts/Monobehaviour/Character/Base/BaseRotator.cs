@@ -56,7 +56,6 @@ public class BaseRotator : MonoBehaviour
 
     public void RotateInstantly(in Vector2 dir)
     {
-        Debug.Log("Rotate");
         tankDir = dir;
         tankRotateSpeed = 100000;
 
@@ -65,7 +64,6 @@ public class BaseRotator : MonoBehaviour
 
     public void RotateGunInstantly(in Vector2 dir)
     {
-        Debug.Log("Rotate");
         gunDir = dir;
         gunRotateSpeed = 100000;
 
