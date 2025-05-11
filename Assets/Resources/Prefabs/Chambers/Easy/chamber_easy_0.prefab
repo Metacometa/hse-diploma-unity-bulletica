@@ -83,7 +83,6 @@ MonoBehaviour:
   characterLights: []
   doorLights: []
   globalLights: []
-  turnedOffIntensity: 0.1
 --- !u!1 &1942072720541037693
 GameObject:
   m_ObjectHideFlags: 0

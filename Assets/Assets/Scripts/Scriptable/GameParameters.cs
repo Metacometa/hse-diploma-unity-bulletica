@@ -13,4 +13,6 @@ public class GameParameters : ScriptableObject
     public float enablingEnemiesDelay;
 
     public float turnedOffIntensity;
+
+    public Color clearedColor;
 }
