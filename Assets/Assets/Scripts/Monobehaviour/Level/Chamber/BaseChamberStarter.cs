@@ -45,7 +45,24 @@ public class BaseChamberStarter : MonoBehaviour
         AddLightListeners();
     }
 
-    void AddLightListeners()
+    private void Start()
+    {
+        AddLightControllerListener();
+    }
+
+    private void AddLightControllerListener()
+    {
+        Level level = GetComponentInParent<Level>();
+
+        LightController[] lightControllers = level.transform.GetComponentsInChildren<LightController>();
+
+        foreach (LightController doorLightController in lightControllers)
+        {
+            startChamberEvent.AddListener(doorLightController.TurnOffDoorLight);
+        }
+    }
+
+    private void AddLightListeners()
     {
         AlarmLight alarm = transform.parent.GetComponentInChildren<AlarmLight>();
 

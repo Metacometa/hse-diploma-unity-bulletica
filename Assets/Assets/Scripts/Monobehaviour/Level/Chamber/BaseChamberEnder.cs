@@ -21,6 +21,31 @@ public class BaseChamberEnder : MonoBehaviour
 
         endChamberEvent.AddListener(doorsController.OpenDoors);
         endChamberEvent.AddListener(doorsController.OpenNeighboursDoors);
+
+        AddAlarmListeners();
+    }
+
+    private void Start()
+    {
+        AddLightControllerListener();
+    }
+
+    private void AddAlarmListeners()
+    {
+        AlarmLight alarm = transform.parent.GetComponentInChildren<AlarmLight>();
+
+        endChamberEvent.AddListener(alarm.StopAlarm);
+    }
+
+    private void AddLightControllerListener()
+    {
+        Level level = GetComponentInParent<Level>();
+
+        LightController[] lightControllers = level.transform.GetComponentsInChildren<LightController>();
+        foreach (LightController lightController in lightControllers)
+        {
+            endChamberEvent.AddListener(lightController.TurnOnDoorLight);
+        }
     }
 
     void Update()

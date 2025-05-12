@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 using UnityEngine.Rendering.Universal;
 
 public class AlarmLight : MonoBehaviour
@@ -52,10 +53,22 @@ public class AlarmLight : MonoBehaviour
                 Color temp = lightComponents[i].color;
                 lightComponents[i].color = new Color(temp.r, temp.g, temp.b, 1);
             }
-
+        }
+        else
+        {
+            for (int i = 0; i < lightComponents.Length; ++i)
+            {
+                lightComponents[i].color = Color.Lerp(lightComponents[i].color, colorsA[i], Time.deltaTime);
+                Color temp = lightComponents[i].color;
+                lightComponents[i].color = new Color(temp.r, temp.g, temp.b, 1);
+            }
         }
     }
 
+    public void StopAlarm()
+    {
+        onAlarm = false;
+    }
 
     public void StartAlarm()
     {

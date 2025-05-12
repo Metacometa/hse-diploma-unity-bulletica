@@ -13,13 +13,36 @@ MonoBehaviour:
   m_Name: Machinegunner
   m_EditorClassIdentifier: 
   enemyName: Machinegunner
-  moveSpeed: 2
+  moveSpeed: 2.5
   pushingAwayTime: 0.2
   pushingAwayForce: 2
-  sight: 35
-  health: 5
+  stayBufferTime: 0
+  sightRange: 30
+  pursueRange: 30
+  rotationSpeed: 60
+  gunRotationSpeed: 150
+  gunRotateCooldown: 0.001
+  tankRotateCooldown: 0.01
+  health: 12
   invincibilityTime: 0
   targetTag: Player
-  shootingRange: 35
-  approachedDistance: 35
+  sightMask:
+    serializedVersion: 2
+    m_Bits: 2112
+  pursueMask:
+    serializedVersion: 2
+    m_Bits: 64
+  changePositionMask:
+    serializedVersion: 2
+    m_Bits: 2624
+  shootingMask:
+    serializedVersion: 2
+    m_Bits: 2624
+  shootingRange: 17
+  approachedDistance: 4
+  minPositionRadius: 0.1
+  maxPositionRadius: 2.1
+  changePositionRadius: 14
+  shiftPositionCloser: 0
   shootingOnMove: 0
+  bulletRadius: 0.8

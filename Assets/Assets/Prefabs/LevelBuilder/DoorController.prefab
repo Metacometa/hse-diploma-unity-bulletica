@@ -486,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2348739381735079389, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2348739381735079389, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -527,6 +527,14 @@ PrefabInstance:
     - target: {fileID: 2378395555541763820, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
       propertyPath: m_TagString
       value: Door Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 360.00003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
+      propertyPath: m_PointLightOuterAngle
+      value: 360.00003
       objectReference: {fileID: 0}
     - target: {fileID: 3023515959132996682, guid: be01ab54bbf7d9d45b3a7a6d713ad52d, type: 3}
       propertyPath: m_PointLightOuterRadius

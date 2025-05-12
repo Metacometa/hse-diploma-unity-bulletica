@@ -56,7 +56,7 @@ public class LightController : MonoBehaviour
         
         if (sourceCollider && targetCollider)
         {
-            targetCollider.size = sourceCollider.size + new Vector2(8,8);
+            targetCollider.size = sourceCollider.size + new Vector2(1.5f,1.5f);
             targetCollider.offset = sourceCollider.offset;
             targetCollider.isTrigger = sourceCollider.isTrigger;
             targetCollider.sharedMaterial = sourceCollider.sharedMaterial;
@@ -90,10 +90,10 @@ public class LightController : MonoBehaviour
 
     public void TurnOffDoorLight()
     {
-        foreach (Light2D light in doorLights)
+/*        foreach (Light2D light in doorLights)
         {
             light.color = level.gameParameters.clearedColor;
-        }
+        }*/
         TurnOffLights(doorLights);
 
     }
@@ -146,7 +146,6 @@ public class LightController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("TurnOnLight");
             TurnOnLight();
         }
 
@@ -155,7 +154,6 @@ public class LightController : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("TurnOffLight");
             TurnOffLight();
         }
     }

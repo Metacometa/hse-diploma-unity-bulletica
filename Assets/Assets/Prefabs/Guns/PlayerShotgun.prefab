@@ -306,7 +306,7 @@ MonoBehaviour:
   muzzle: {fileID: 0}
   bulletSpawn: {fileID: 0}
   attacks:
-  - {fileID: 11400000, guid: 29a04d4fef1dc0d458e96ccbd9f26b57, type: 2}
+  - {fileID: 11400000, guid: 99b9a196b15531d4cba388608051a3e8, type: 2}
   attack: {fileID: 0}
   gunAnimator: {fileID: 0}
   bulletsInMagazine: 0

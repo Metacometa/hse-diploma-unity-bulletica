@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6113099566978783167}
   - component: {fileID: 4468620363504765684}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PointSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1544884995268380065}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1730115075305505895}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.595, y: 0, z: 0}
+  m_LocalPosition: {x: 1.359, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -128,7 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6507348754792073694}
   - component: {fileID: 8282805235112641388}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 557936406411432802}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ Transform:
   m_GameObject: {fileID: 7539736956745381941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.723, y: 0, z: 0}
+  m_LocalPosition: {x: 1.486, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -249,10 +249,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7970323655853118513}
-  - component: {fileID: 3932968250353056870}
-  - component: {fileID: 6291740641823159542}
-  m_Layer: 8
-  m_Name: BaseGun
+  - component: {fileID: 5312624048000394465}
+  - component: {fileID: 7889174514709529632}
+  m_Layer: 0
+  m_Name: MachineGunOld
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +274,7 @@ Transform:
   - {fileID: 6507348754792073694}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3932968250353056870
+--- !u!114 &5312624048000394465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -291,7 +291,7 @@ MonoBehaviour:
   onPulling: 0
   elapsedTime: 0
   duration: 0
---- !u!114 &6291740641823159542
+--- !u!114 &7889174514709529632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -306,7 +306,7 @@ MonoBehaviour:
   muzzle: {fileID: 0}
   bulletSpawn: {fileID: 0}
   attacks:
-  - {fileID: 11400000, guid: 2d0f4f9373bb98645b6d4ccbbff6e18e, type: 2}
+  - {fileID: 11400000, guid: 5a3bad3c470152140b2547c7550bd794, type: 2}
   attack: {fileID: 0}
   gunAnimator: {fileID: 0}
   bulletsInMagazine: 0
@@ -324,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4544295485959205011}
   - component: {fileID: 523633745684203581}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 8647358111870574643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.504, y: -0.02, z: 0}
+  m_LocalPosition: {x: 0.62, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -387,10 +387,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1712788617
-  m_SortingLayer: 3
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 688787452, guid: 0042bbc1ee362ba4c8f771299cc879b8, type: 3}
+  m_SortingLayerID: 1316544445
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 7328056045838175250, guid: 1593faf0a16f0e64d8873298e340af47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

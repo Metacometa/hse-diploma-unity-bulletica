@@ -23,7 +23,7 @@ MonoBehaviour:
   gunRotationSpeed: 200
   gunRotateCooldown: 0.001
   tankRotateCooldown: 0.01
-  health: 20
+  health: 4
   invincibilityTime: 0
   targetTag: Player
   sightMask:
@@ -38,11 +38,11 @@ MonoBehaviour:
   shootingMask:
     serializedVersion: 2
     m_Bits: 2624
-  shootingRange: 25
+  shootingRange: 20
   approachedDistance: 4
   minPositionRadius: 2
   maxPositionRadius: 2.1
-  changePositionRadius: 15
+  changePositionRadius: 9
   shiftPositionCloser: 0
   shootingOnMove: 1
   bulletRadius: 0.4

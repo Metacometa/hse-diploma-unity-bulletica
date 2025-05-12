@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 5807d7fd710a52a45a3d0e7e6c463e0a
+guid: 421815776b0f2704d8b1c4403bdd4926
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1160097373771891391
-    second: tank_shotgun_0
+      213: -7098815912451578347
+    second: tank_machinegun_0
   - first:
-      213: 8230407332339397660
-    second: tank_shotgun_1
+      213: -8863455124320640532
+    second: tank_machinegun_1
+  - first:
+      213: 9186726870626362011
+    second: tank_machinegun_2
+  - first:
+      213: -8088995044997338844
+    second: tank_machinegun_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +61,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 120
-  spriteBorder: {x: 45, y: 124, z: 43, w: 125}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -129,45 +135,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tank_shotgun_0
+      name: tank_machinegun_0
       rect:
         serializedVersion: 2
-        x: 41
+        x: 73
         y: 118
-        width: 268
+        width: 204
         height: 114
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fb2898c3a6e791010800000000000000
-      internalID: 1160097373771891391
+      spriteID: 516ee6ce980fb7d90800000000000000
+      internalID: -7098815912451578347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tank_shotgun_1
+      name: tank_machinegun_1
       rect:
         serializedVersion: 2
-        x: 132
+        x: 164
         y: 226
         width: 8
         height: 6
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c143cd8bcd7483270800000000000000
-      internalID: 8230407332339397660
+      spriteID: ce1a048668eaef480800000000000000
+      internalID: -8863455124320640532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_machinegun_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 225
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b92683c5a6fcd7f70800000000000000
+      internalID: 9186726870626362011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tank_machinegun_3
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 118
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 429e9092ddd1ebf80800000000000000
+      internalID: -8088995044997338844
       vertices: []
       indices: 
       edges: []
@@ -177,7 +227,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -186,8 +236,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tank_shotgun_0: 1160097373771891391
-      tank_shotgun_1: 8230407332339397660
+      tank_machinegun_0: -7098815912451578347
+      tank_machinegun_1: -8863455124320640532
+      tank_machinegun_2: 9186726870626362011
+      tank_machinegun_3: -8088995044997338844
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,14 +13,36 @@ MonoBehaviour:
   m_Name: Shotgunner
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 1.25
+  moveSpeed: 3
   pushingAwayTime: 0.2
   pushingAwayForce: 2
   stayBufferTime: 1
-  sight: 40
-  health: 4
+  sightRange: 30
+  pursueRange: 30
+  rotationSpeed: 70
+  gunRotationSpeed: 200
+  gunRotateCooldown: 0.001
+  tankRotateCooldown: 0.01
+  health: 5
   invincibilityTime: 0
   targetTag: Player
-  shootingRange: 12
-  approachedDistance: 7
+  sightMask:
+    serializedVersion: 2
+    m_Bits: 2112
+  pursueMask:
+    serializedVersion: 2
+    m_Bits: 64
+  changePositionMask:
+    serializedVersion: 2
+    m_Bits: 2624
+  shootingMask:
+    serializedVersion: 2
+    m_Bits: 2624
+  shootingRange: 18
+  approachedDistance: 4
+  minPositionRadius: 3
+  maxPositionRadius: 3.1
+  changePositionRadius: 4
+  shiftPositionCloser: 0
   shootingOnMove: 0
+  bulletRadius: 0.4
