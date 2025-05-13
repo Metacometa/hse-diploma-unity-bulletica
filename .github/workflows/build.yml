@@ -55,9 +55,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: Library
-          key: Library-Windows-${{ matrix.platform }}-${{ github.sha }}
+          key: Library-Windows-${{ github.sha }}
           restore-keys: |
-            Library-Windows-${{ matrix.platform }}-
             Library-Windows-
 
       - name: Build Windows
