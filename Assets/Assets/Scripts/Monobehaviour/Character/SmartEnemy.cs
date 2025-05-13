@@ -234,7 +234,8 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     }
 
     public virtual void OnDrawGizmosSelected()
-    { 
+    {
+        if (!shooting) { return; }
         Vector3 origin = shooting.gunController.muzzle.position;
 
         Vector2 shootingDirection = Vector2.zero;

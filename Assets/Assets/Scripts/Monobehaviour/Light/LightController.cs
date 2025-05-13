@@ -56,7 +56,7 @@ public class LightController : MonoBehaviour
         
         if (sourceCollider && targetCollider)
         {
-            targetCollider.size = sourceCollider.size + new Vector2(1.5f,1.5f);
+            targetCollider.size = sourceCollider.size + new Vector2(1.75f, 1.75f);
             targetCollider.offset = sourceCollider.offset;
             targetCollider.isTrigger = sourceCollider.isTrigger;
             targetCollider.sharedMaterial = sourceCollider.sharedMaterial;
@@ -137,6 +137,7 @@ public class LightController : MonoBehaviour
         {
             if (light)
             {
+                //if (intensities[light].)
                 light.intensity = intensities[light];
             }
         }

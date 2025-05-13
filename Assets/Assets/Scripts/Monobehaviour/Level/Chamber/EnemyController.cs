@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
         {
             Transform enemy = transform.GetChild(i);
             enemy.GetComponent<BaseSleep>().Sleep();
-            enemy.gameObject.SetActive(false);
+            //enemy.gameObject.SetActive(false);
         }
     }
 
@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
         {
             Transform enemy = transform.GetChild(i);
 
-            transform.GetChild(i).gameObject.SetActive(true);
+            //transform.GetChild(i).gameObject.SetActive(true);
             enemy.GetComponent<BaseSleep>().Wake();
         }
     }

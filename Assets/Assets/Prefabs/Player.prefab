@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sleep: {fileID: 0}
-  profile: {fileID: 11400000, guid: a8e1973de07b46f469401f1265aa0793, type: 2}
+  profile: {fileID: 11400000, guid: b571d047bef908542b9dd969753d79d7, type: 2}
   targetApproached: 0
 --- !u!114 &6334951984418163680
 MonoBehaviour:

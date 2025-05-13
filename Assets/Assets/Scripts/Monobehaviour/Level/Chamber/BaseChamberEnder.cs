@@ -34,7 +34,10 @@ public class BaseChamberEnder : MonoBehaviour
     {
         AlarmLight alarm = transform.parent.GetComponentInChildren<AlarmLight>();
 
-        endChamberEvent.AddListener(alarm.StopAlarm);
+        if (alarm)
+        {
+            endChamberEvent.AddListener(alarm.StopAlarm);
+        }
     }
 
     private void AddLightControllerListener()

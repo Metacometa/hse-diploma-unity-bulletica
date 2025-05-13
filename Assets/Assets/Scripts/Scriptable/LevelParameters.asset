@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelParameters
   m_EditorClassIdentifier: 
   awakeningDelay: 0.8
-  enablingEnemiesDelay: 0.6
+  enablingEnemiesDelay: 0
   turnedOffIntensity: 0.075
   clearedColor: {r: 1, g: 1, b: 1, a: 1}

@@ -79,6 +79,8 @@ public class BaseChamberStarter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (targetTag == "") { return; };
+
         if (collision.CompareTag(targetTag))
         {
             startChamberEvent?.Invoke();

@@ -100,14 +100,13 @@ public class DoorsBuilder : MonoBehaviour
 
     public void OnDrawGizmosSelected()
     {
-
-        if (doorsController.doors.Count > 0)
+/*        if (doorsController.doors.Count > 0)
         {
             foreach (Transform pos in doorsController.doors)
             {
                 Gizmos.DrawWireSphere(pos.position, intersectionRadius);
             }
-        }
+        }*/
 
     }
 }
