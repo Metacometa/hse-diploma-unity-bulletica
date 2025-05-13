@@ -45,8 +45,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - platform: Win32
-          - platform: Win64
+          - platform: StandaloneWindows
+          - platform: StandaloneWindows64
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
