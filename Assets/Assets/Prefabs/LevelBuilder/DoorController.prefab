@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1513998569758256945}
   - component: {fileID: 6389526892315061730}
+  - component: {fileID: 1972658342558435906}
   m_Layer: 14
   m_Name: DoorController
   m_TagString: Untagged
@@ -52,6 +53,58 @@ MonoBehaviour:
   openingSpeed: 0.6
   closingSpeed: 3
   opening: 0
+--- !u!114 &1972658342558435906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2304872217258247515}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 00000000556c632b19de0f1289141766bddf784efdbf9a5939563f14
+  m_ShapePath:
+  - {x: -1, y: -0.8, z: 0}
+  - {x: -1, y: 0, z: 0}
+  - {x: 1, y: 0, z: 0}
+  - {x: 1.0000618, y: -0.8170665, z: 0}
+  m_ShapePathHash: -1770260341
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 0}
+  m_ShadowShape2DProvider:
+    rid: -2
+  m_ShadowCastingSource: 1
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0.000030875206, y: -0.40853325, z: 0}
+      m_Extent: {x: 1.0000309, y: 0.40853325, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: 1
+  m_PreviousShadowCastingSource: 1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &2608235633206602157
 GameObject:
   m_ObjectHideFlags: 0

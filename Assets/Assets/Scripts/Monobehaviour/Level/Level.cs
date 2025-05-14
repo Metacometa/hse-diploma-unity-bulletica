@@ -8,9 +8,12 @@ public class Level : MonoBehaviour
     public NavMeshSurface surface;
     //public NavigationCollect
 
+    public bool onAlarm;
     void Awake()
     {
         surface = GetComponentInChildren<NavMeshSurface>();
+
+        onAlarm = false;
     }
 
     void Start()

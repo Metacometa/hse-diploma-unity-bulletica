@@ -15,4 +15,6 @@ public class GameParameters : ScriptableObject
     public float turnedOffIntensity;
 
     public Color clearedColor;
+
+    [SerializeField] public Color alarmLightColor;
 }

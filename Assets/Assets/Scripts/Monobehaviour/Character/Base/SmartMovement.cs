@@ -158,10 +158,9 @@ public class SmartMovement : BaseMovement
         {
             Debug.DrawRay(origin, dir * length, Color.red);
         }
-        //Debug.Log("kek");
 
         return !CanMove();
-        if (hit)
+/*        if (hit)
         {
             if (hit.transform.CompareTag(target.target.tag))
             {
@@ -178,7 +177,7 @@ public class SmartMovement : BaseMovement
             Debug.DrawRay(origin, dir * length, Color.red);
         }
 
-        return onPosition;
+        return onPosition;*/
     }
 
     public void StopAgent()

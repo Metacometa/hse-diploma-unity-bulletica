@@ -15,4 +15,5 @@ MonoBehaviour:
   awakeningDelay: 0.8
   enablingEnemiesDelay: 0
   turnedOffIntensity: 0.075
-  clearedColor: {r: 1, g: 1, b: 1, a: 1}
+  clearedColor: {r: 1, g: 0.0627451, b: 0.0627451, a: 1}
+  alarmLightColor: {r: 1, g: 0.0627451, b: 0.0627451, a: 0}

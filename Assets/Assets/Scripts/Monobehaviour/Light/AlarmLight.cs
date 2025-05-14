@@ -23,13 +23,16 @@ public class AlarmLight : MonoBehaviour
     {
         colorsA = new List<Color>();
 
+
         lightComponents = GetComponentsInChildren<Light2D>();
 
         alarm = Alarm();
 
         level = GetComponentInParent<Level>();
+
         if (level) 
         {
+            colorB = level.gameParameters.alarmLightColor;
             latency = level.gameParameters.enablingEnemiesDelay;
         }
 
@@ -68,6 +71,7 @@ public class AlarmLight : MonoBehaviour
     public void StopAlarm()
     {
         onAlarm = false;
+        level.onAlarm = false;
     }
 
     public void StartAlarm()
@@ -80,5 +84,6 @@ public class AlarmLight : MonoBehaviour
         yield return new WaitForSeconds(latency);
 
         onAlarm = true;
+        level.onAlarm = true;
     }
 }

@@ -12,7 +12,6 @@ public class LightController : MonoBehaviour
     private Level level;
     private Dictionary<Light2D, float> intensities;
 
-
     void Awake()
     {
         CopyBoxCollider2D();
@@ -23,7 +22,11 @@ public class LightController : MonoBehaviour
         foreach (Light2D light in transform.parent.GetComponentsInChildren<Light2D>())
         {
             //Debug.Log("Tag: " + light.tag + $"Name: { light.name }");
-            if (light.tag == "Global Light")
+            if (light.tag == "Bullet Light")
+            {
+
+            }
+            else if (light.tag == "Global Light")
             {
                 globalLights.Add(light);
             }
@@ -56,7 +59,7 @@ public class LightController : MonoBehaviour
         
         if (sourceCollider && targetCollider)
         {
-            targetCollider.size = sourceCollider.size + new Vector2(1.75f, 1.75f);
+            targetCollider.size = sourceCollider.size + new Vector2(6, 6);
             targetCollider.offset = sourceCollider.offset;
             targetCollider.isTrigger = sourceCollider.isTrigger;
             targetCollider.sharedMaterial = sourceCollider.sharedMaterial;
@@ -130,7 +133,6 @@ public class LightController : MonoBehaviour
             }
         }
     }
-
     private void TurnOnIntensities(List<Light2D> lights)
     {
         foreach (Light2D light in lights)

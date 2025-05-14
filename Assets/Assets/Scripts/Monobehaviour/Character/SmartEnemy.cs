@@ -25,20 +25,29 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         pursue = GetComponent<BasePursue>();
         smartMove = GetComponent<SmartMovement>();
+
+       
     }
 
     void OnEnable()
     {
         if (rotator)
         {
-            Vector2 startDir = (target.target.position - transform.position).normalized;
-            rotator.RotateInstantly(startDir);
-            rotator.RotateGunInstantly(startDir);
+            //Vector2 startDir = (target.target.position - transform.position).normalized;
+            //rotator.RotateInstantly(startDir);
+            //rotator.RotateGunInstantly(startDir);
+
+
         }
     }
 
     protected override void FixedUpdate()
     {
+        if (sleep.onSleep)
+        {
+            return;
+        }
+
         Vector2 dir = target.target.position - transform.position;
         switch (motionState)
         {
@@ -65,6 +74,11 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     protected override void Update()
     {
+        if (sleep.onSleep)
+        {
+            return;
+        }
+
         Vector2 dir = (target.target.position - transform.position).normalized;
 
         if (health.health == 0)
@@ -221,7 +235,8 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     public void WideProjectileCheck(in Vector3 origin, in Vector3 destination, in float length, in LayerMask masks, ref bool boolFlag)
     {
         Vector3 dir = origin - destination;
-        RaycastHit2D hit = Physics2D.CircleCast(origin, ((ShootingProfile)profile).bulletRadius, dir.normalized, length, masks);
+        float radius = ((ShootingProfile)profile).bulletRadius + 0.1f;
+        RaycastHit2D hit = Physics2D.CircleCast(origin + dir.normalized * radius, radius, dir.normalized, length, masks);
 
         if (hit)
         {
@@ -236,7 +251,9 @@ public class SmartEnemy : Gunman, IObservable, IStatable
     public virtual void OnDrawGizmosSelected()
     {
         if (!shooting) { return; }
+
         Vector3 origin = shooting.gunController.muzzle.position;
+
 
         Vector2 shootingDirection = Vector2.zero;
         Vector2 aimingDirection = Vector2.zero;
@@ -250,7 +267,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         DrawProjectileCheck(shootingDirection, origin);
         return;
-        //Gizmos.color = Color.yellow;
+/*        //Gizmos.color = Color.yellow;
         //Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
 
         //Gizmos.color = Color.green;
@@ -282,7 +299,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         // --- Рисуем сам CircleCast ---
 
-        DrawProjectileCheck(shootingDirection, origin);
+        DrawProjectileCheck(shootingDirection, origin);*/
 
 
         // 4. (Опционально) Рисуем центральную линию каста

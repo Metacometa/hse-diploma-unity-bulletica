@@ -58,14 +58,14 @@ public class BossShooting : MonoBehaviour, IShootable
     public bool OnCooldown()
     {
         return currentGun.onCooldown;
-
+/*
         bool summaryOnCooldown = true;
         foreach(var gun in gunController)
         {
             summaryOnCooldown = summaryOnCooldown && gun.onCooldown;
         }
 
-        return summaryOnCooldown;
+        return summaryOnCooldown;*/
     }
 
     public bool OnAttack()

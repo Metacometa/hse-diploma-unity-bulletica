@@ -1,6 +1,4 @@
-using System.Collections;
 using Unity.Cinemachine;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Chamber : MonoBehaviour
@@ -127,5 +125,10 @@ public class Chamber : MonoBehaviour
     public Vector3 GetBottomContactPoint()
     {
         return doorsController.doors[2].position;
+    }
+
+    public Vector3 GetMainDoorDirection()
+    {
+        return GetRightContactPoint();
     }
 }
