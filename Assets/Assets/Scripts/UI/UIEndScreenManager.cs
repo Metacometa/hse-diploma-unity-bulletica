@@ -16,13 +16,13 @@ public class UIEndScreenManager : MonoBehaviour
 
     public void ShowUI()
     {
-		Time.timeScale = 0;
+		//Time.timeScale = 0;
         animator.SetTrigger("Show");
     }
 
     public void HideUI()
     {
-		Time.timeScale = 1;
+		//Time.timeScale = 1;
         animator.SetTrigger("Hide");
     }
 
