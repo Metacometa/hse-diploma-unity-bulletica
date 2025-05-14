@@ -1,0 +1,135 @@
+name: Unity Build
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  build-webgl:
+    name: Build WebGL
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Library Folder
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Unix-${{ github.sha }}
+          restore-keys: |
+            Library-Unix-
+
+      - name: Build WebGL
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: WebGL
+
+      - name: Upload WebGL Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: WebGL-Build
+          path: build/WebGL
+
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+          - platform: StandaloneWindows
+          - platform: StandaloneWindows64
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Library Folder
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Windows-${{ github.sha }}
+          restore-keys: |
+            Library-Windows-
+
+      - name: Build Windows
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: ${{ matrix.platform }}
+
+      - name: Upload Windows Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows-${{ matrix.platform }}-Build
+          path: build/${{ matrix.platform }}
+          
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Library Folder
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Unix-${{ github.sha }}
+          restore-keys: |
+            Library-Unix-
+
+      - name: Build Linux
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneLinux64
+
+      - name: Upload Linux Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Linux-Build
+          path: build/StandaloneLinux64
+
+  build-macos:
+    name: Build MacOS
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Cache Library Folder
+        uses: actions/cache@v4
+        with:
+          path: Library
+          key: Library-Unix-${{ github.sha }}
+          restore-keys: |
+            Library-Unix-
+
+      - name: Build MacOS
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneOSX
+
+      - name: Upload MacOS Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: MacOS-Build
+          path: build/StandaloneOSX
