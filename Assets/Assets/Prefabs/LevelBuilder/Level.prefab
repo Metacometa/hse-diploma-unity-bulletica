@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameParameters: {fileID: 11400000, guid: c76fd1db04d770e40900d2fd37899e29, type: 2}
   surface: {fileID: 0}
+  onAlarm: 0
 --- !u!114 &3172586918622753830
 MonoBehaviour:
   m_ObjectHideFlags: 0
