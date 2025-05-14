@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d4fe26d923ea1941a8add441a1e26ce, type: 3}
-  m_Name: Pistol
+  m_Name: DebugPlayer
   m_EditorClassIdentifier: 
-  weapon_name: Pistol
+  weapon_name: PlayerPistol
   gun_object: {fileID: 8108018042923758592, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
   reloadSpeed: 0
   rotationSpeed: 50
-  aimingSpeed: 0.1
-  attackExiting: 0.1
-  cooldown: 1.5
+  aimingSpeed: 0
+  attackExiting: 0
+  cooldown: 0.01
   maxSpreadAngle: 0
   magazineCapacity: 4

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d6b1880e51663a4d894ab8d45984b6e, type: 3}
-  m_Name: PrePlayer
+  m_Name: DebugPlayer
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 4
+  moveSpeed: 20
   pushingAwayTime: 0.2
   pushingAwayForce: 2
   stayBufferTime: 1
@@ -23,7 +23,7 @@ MonoBehaviour:
   gunRotationSpeed: 500
   gunRotateCooldown: 0.01
   tankRotateCooldown: 0.1
-  health: 6
+  health: 1000
   invincibilityTime: 0
   targetTag: Player
   sightMask:

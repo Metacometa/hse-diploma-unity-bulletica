@@ -28,7 +28,8 @@ public class BaseSleep : MonoBehaviour
 
     private IEnumerator AwakeningTimer()
     {
-        yield return new WaitForSeconds(level.gameParameters.awakeningDelay);
+        float awakeningDelay = Random.Range(level.gameParameters.awakeningDelay, level.gameParameters.maxAwakeningDelay);
+        yield return new WaitForSeconds(awakeningDelay);
 
         if (invincibility)
         {

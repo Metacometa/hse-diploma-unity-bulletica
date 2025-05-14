@@ -8,6 +8,8 @@ public class GameParameters : ScriptableObject
 
     public float awakeningDelay;
 
+    public float maxAwakeningDelay;
+
     [Tooltip("Delay after which the mob appears.")]
 
     public float enablingEnemiesDelay;

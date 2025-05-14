@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ef0520bc3bc0e45968f262e7e3a09b, type: 3}
   m_Name: LevelParameters
   m_EditorClassIdentifier: 
-  awakeningDelay: 0.8
+  awakeningDelay: 0.7
+  maxAwakeningDelay: 1.2
   enablingEnemiesDelay: 0
   turnedOffIntensity: 0.075
   clearedColor: {r: 1, g: 0.0627451, b: 0.0627451, a: 1}
