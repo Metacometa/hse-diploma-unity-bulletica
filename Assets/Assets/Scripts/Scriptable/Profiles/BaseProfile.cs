@@ -38,4 +38,8 @@ public class BaseProfile : ScriptableObject
     [SerializeField] public LayerMask pursueMask;
     [SerializeField] public LayerMask changePositionMask;
     [SerializeField] public LayerMask shootingMask;
+
+    [Header("Shimmer")]
+    [SerializeField] public int shimmerTime;
+    [SerializeField] public Color shimmerColor;
 }

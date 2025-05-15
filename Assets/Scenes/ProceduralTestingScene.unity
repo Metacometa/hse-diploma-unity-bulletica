@@ -234,15 +234,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3557678740846442648, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
       propertyPath: m_GridSnapping
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5143522762307273900, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.0834846
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143522762307273900, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.536005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143522762307273900, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -308,7 +308,8 @@ PrefabInstance:
       propertyPath: DefaultBlend.Time
       value: 1.25
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8803614657204920864, guid: 2cac89f51eee697478a77eba3a61dbf3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

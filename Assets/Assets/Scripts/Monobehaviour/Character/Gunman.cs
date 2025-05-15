@@ -38,15 +38,39 @@ public class Gunman : BaseCharacter
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (invincibility.invincible) { return; }
+
         if (collision.tag == "Bullet")
         {
-            if (GetComponent<BaseInvincibility>().invincible) { return; }
+            CollisionDamage(collision);
+            invincibility.Invincible();
+        }
+    }
+    protected virtual void OnCollisionStay2D(Collision2D collision)
+    {
+        if (invincibility.invincible) { return; }
 
-            health.TakeDamage();
-            shimmer.ShimmerManager();
+        if (collision.transform.CompareTag("Player"))
+        {
+            CollisionDamage(collision.collider);
+            invincibility.Invincible();
+        }
+    }
 
-            Vector2 dir = collision.GetComponent<Rigidbody2D>().linearVelocity;
-            float force = collision.GetComponent<BaseBullet>().force;
+    protected void CollisionDamage(Collider2D collision)
+    {
+        if (GetComponent<BaseInvincibility>().invincible) { return; }
+
+        health.TakeDamage();
+        shimmer.ShimmerManager();
+
+        Rigidbody2D tempRb = collision.GetComponent<Rigidbody2D>();
+        BaseBullet tempBullet = collision.GetComponent<BaseBullet>();
+
+        if (tempRb && tempBullet)
+        {
+            Vector2 dir = tempRb.linearVelocity;
+            float force = tempBullet.force;
 
             move.PushAway(ref rb, dir * force);
         }

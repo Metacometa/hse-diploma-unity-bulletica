@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class BaseShimmer : MonoBehaviour, IShimmerable
 {
-    private Color[] startColors;
+    public Color[] startColors;
 
     public SpriteRenderer[] sprites;
     
-
     private bool onShimmer;
+
+    private BaseProfile profile;
 
     void Awake()
     {
+        profile = GetComponent<BaseCharacter>().profile;
+
         sprites = GetComponentsInChildren<SpriteRenderer>();
         startColors = new Color[sprites.Length];
 
@@ -23,6 +26,8 @@ public class BaseShimmer : MonoBehaviour, IShimmerable
 
     public void ShimmerManager()
     {
+        if (!profile) { return; }
+
         if (!onShimmer)
         {
             StartCoroutine(Shimmer());
@@ -31,18 +36,25 @@ public class BaseShimmer : MonoBehaviour, IShimmerable
 
     public IEnumerator Shimmer()
     {
-        onShimmer = true;
+        float timeChunk = profile.invincibilityTime / profile.shimmerTime;
 
         for (int i = 0; i < sprites.Length; ++i)
         {
             startColors[i] = sprites[i].color;
         }
 
-        ChangeColor();
+        onShimmer = true;
 
-        yield return new WaitForSeconds(0.2f);
+        for (int time = 0; time < profile.shimmerTime; ++time)
+        {
+            ChangeColor();
 
-        RestoreColor();
+            yield return new WaitForSeconds(timeChunk / 2);
+
+            RestoreColor();
+
+            yield return new WaitForSeconds(timeChunk / 2);
+        }
 
         onShimmer = false;
     }
@@ -51,7 +63,8 @@ public class BaseShimmer : MonoBehaviour, IShimmerable
     {
         foreach (var sprite in sprites)
         {
-            sprite.color = new Color(1, 0, 0, 1); ;
+            Color temp = profile.shimmerColor;
+            sprite.color = new Color(temp.r, temp.g, temp.b, 1);
         }
     }
 

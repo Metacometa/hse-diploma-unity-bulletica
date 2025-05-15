@@ -15,7 +15,10 @@ public class BaseInvincibility : MonoBehaviour
 
     public void Invincible()
     {
-        StartCoroutine(InvincibleTimer());
+        if (!invincible)
+        {
+            StartCoroutine(InvincibleTimer());
+        }
     }
 
     private IEnumerator InvincibleTimer()

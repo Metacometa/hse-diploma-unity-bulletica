@@ -34,6 +34,7 @@ public class BaseCharacter : MonoBehaviour
         shimmer = GetComponent<BaseShimmer>();
         rotator = GetComponent<BaseRotator>();
         sleep = GetComponent<BaseSleep>();
+        invincibility = GetComponent<BaseInvincibility>();
 
         rb = GetComponent<Rigidbody2D>();
     }
