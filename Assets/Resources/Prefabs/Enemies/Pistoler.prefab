@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8930670aab47d4749b1cc49b5808d5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startColors: []
   sprites: []
 --- !u!114 &5908018482658660483
 MonoBehaviour:
@@ -430,8 +431,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.15
-  m_Speed: 2
-  m_Acceleration: 10
+  m_Speed: 3
+  m_Acceleration: 8
   avoidancePriority: 35
   m_AngularSpeed: 300
   m_StoppingDistance: 2
@@ -482,7 +483,7 @@ MonoBehaviour:
   onPush: 0
   timeCounter: 0
   moveUpdateTimer: 0
-  moveUpdateCooldown: 0.5
+  moveUpdateCooldown: 1
   changePositionMask:
     serializedVersion: 2
     m_Bits: 1088

@@ -19,9 +19,9 @@ MonoBehaviour:
   stayBufferTime: 0.8
   sightRange: 30
   pursueRange: 30
-  rotationSpeed: 80
-  gunRotationSpeed: 100
-  gunRotateCooldown: 2
+  rotationSpeed: 200
+  gunRotationSpeed: 200
+  gunRotateCooldown: 0.001
   tankRotateCooldown: 0.01
   health: 4
   invincibilityTime: 0.2
