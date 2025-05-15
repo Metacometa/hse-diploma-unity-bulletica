@@ -54,11 +54,13 @@ public class BaseChamberStarter : MonoBehaviour
     {
         Level level = GetComponentInParent<Level>();
 
-        LightController[] lightControllers = level.transform.GetComponentsInChildren<LightController>();
-
-        foreach (LightController doorLightController in lightControllers)
+        if (level)
         {
-            startChamberEvent.AddListener(doorLightController.TurnOffDoorLight);
+            LightController[] lightControllers = level.transform.GetComponentsInChildren<LightController>();
+            foreach (LightController doorLightController in lightControllers)
+            {
+                startChamberEvent.AddListener(doorLightController.TurnOffDoorLight);
+            }
         }
     }
 

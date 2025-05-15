@@ -32,7 +32,15 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator EnableEnemies()
     {
-        yield return new WaitForSeconds(level.gameParameters.enablingEnemiesDelay);
+        if (level)
+        {
+            yield return new WaitForSeconds(level.gameParameters.enablingEnemiesDelay);
+        }
+        else
+        {
+            yield return null;
+        }
+
 
         for (int i = 0; i < transform.childCount; i++)
         {
