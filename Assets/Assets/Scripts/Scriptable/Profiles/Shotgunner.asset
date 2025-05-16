@@ -44,7 +44,7 @@ MonoBehaviour:
   approachedDistance: 4
   minPositionRadius: 3
   maxPositionRadius: 3.1
-  changePositionRadius: 5
+  changePositionRadius: 8
   shiftPositionCloser: 0
   shootingOnMove: 0
   bulletRadius: 0.4

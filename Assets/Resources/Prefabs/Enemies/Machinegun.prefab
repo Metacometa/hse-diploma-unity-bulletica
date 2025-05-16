@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8930670aab47d4749b1cc49b5808d5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startColors: []
   sprites: []
 --- !u!114 &5908018482658660483
 MonoBehaviour:
@@ -497,7 +498,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.75, y: 0.65, z: 0.1}
+  m_Extents: {x: 0.25, y: 0.25, z: 0.1}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1

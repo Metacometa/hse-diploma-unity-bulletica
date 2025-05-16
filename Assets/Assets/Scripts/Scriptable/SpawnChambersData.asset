@@ -21,8 +21,8 @@ MonoBehaviour:
   minRooms: 15
   maxRooms: 16
   easyRoomPercentage: 0
-  mediumRoomPercentage: 0
-  hardRoomPercentage: 100
+  mediumRoomPercentage: 100
+  hardRoomPercentage: 0
   minHubs: 2
   maxHubs: 2
   seed: 
