@@ -23,6 +23,7 @@ TagManager:
   - Character Light
   - Other Light
   - Door Light
+  - Bullet Light
   layers:
   - Default
   - TransparentFX

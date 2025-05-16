@@ -1,14 +1,9 @@
-
 using System.Collections;
-using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
-public class SmartMovement : BaseMovement
+public class DozerBullMovement : BaseMovement
 {
-    private BaseShooting shooting;
-
     private NavMeshAgent agent;
     private NavMeshObstacle obstacle;
     public float moveUpdateTimer = 0f;
@@ -21,7 +16,7 @@ public class SmartMovement : BaseMovement
     //public float obstacleDisablerCooldown = 1f;
     private Vector3 moveDir;
 
-    private SmartEnemy enemy;
+    private DozerBull boss;
     public bool onPosition;
 
     protected override void Awake()
@@ -34,7 +29,6 @@ public class SmartMovement : BaseMovement
         onPosition = false;
 
         target = GetComponent<BaseTargeting>();
-        shooting = GetComponent<BaseShooting>();
 
         NavMesh.avoidancePredictionTime = 0.5f;
         NavMesh.pathfindingIterationsPerFrame = 1000;
@@ -42,18 +36,17 @@ public class SmartMovement : BaseMovement
         obstacle = GetComponent<NavMeshObstacle>();
         obstacle.enabled = false;
 
-        enemy = GetComponent<SmartEnemy>();
+        boss = GetComponent<DozerBull>();
     }
-/*    protected virtual void Start()
-    {
-        onPush = false;
-    }*/
+    /*    protected virtual void Start()
+        {
+            onPush = false;
+        }*/
 
     void Update()
     {
         timeCounter -= Time.deltaTime;
         timeCounter = Mathf.Clamp(timeCounter, 0f, profile.stayBufferTime);
-
 
         moveUpdateTimer -= Time.deltaTime;
         //obstacleDisablerTimer -= Time.deltaTime;
@@ -79,7 +72,6 @@ public class SmartMovement : BaseMovement
             moveUpdateTimer = moveUpdateCooldown;
         }
     }
-
     private IEnumerator MoveAgent(Vector3 point)
     {
         yield return null;
@@ -100,7 +92,7 @@ public class SmartMovement : BaseMovement
     public Vector3 RandomPoint(in Vector2 point)
     {
         NavMeshPath path = new NavMeshPath();
-        Vector3 destination = new Vector3(1000,1000,1000);
+        Vector3 destination = new Vector3(1000, 1000, 1000);
         bool correctPath = false;
 
         int iterations = 0;
@@ -139,17 +131,16 @@ public class SmartMovement : BaseMovement
 
     public bool UpdateOnPosition()
     {
-        if (shooting.gunController || shooting.gunController) { return false; }
 
-        Vector3 origin = shooting.gunController.muzzle.position;
-        Vector3 destination = shooting.gunController.bulletSpawn.position;
+        Vector3 origin = transform.position;
+        Vector3 destination = target.target.position;
         Vector2 dir = (origin - destination).normalized;
 
         float length = ((ShootingProfile)profile).changePositionRadius;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, dir, length, profile.changePositionMask);
 
-        enemy.WideProjectileCheck(origin, destination, length, profile.changePositionMask, ref onPosition);
+        boss.WideProjectileCheck(origin, destination, length, profile.changePositionMask, ref onPosition);
 
         if (onPosition)
         {
@@ -162,24 +153,24 @@ public class SmartMovement : BaseMovement
         }
 
         return !CanMove();
-/*        if (hit)
-        {
-            if (hit.transform.CompareTag(target.target.tag))
-            {
-                onPosition = true;
-                Debug.DrawRay(origin, dir * length, Color.green);
-            }
-            else
-            {
-                Debug.DrawRay(origin, dir * length, Color.red);
-            }
-        }
-        else
-        {
-            Debug.DrawRay(origin, dir * length, Color.red);
-        }
+        /*        if (hit)
+                {
+                    if (hit.transform.CompareTag(target.target.tag))
+                    {
+                        onPosition = true;
+                        Debug.DrawRay(origin, dir * length, Color.green);
+                    }
+                    else
+                    {
+                        Debug.DrawRay(origin, dir * length, Color.red);
+                    }
+                }
+                else
+                {
+                    Debug.DrawRay(origin, dir * length, Color.red);
+                }
 
-        return onPosition;*/
+                return onPosition;*/
     }
 
     public void StopAgent()
@@ -203,10 +194,10 @@ public class SmartMovement : BaseMovement
         //Gizmos.DrawWireSphere(transform.position, 3f);
 
         //Gizmos.DrawLine(transform.position, transform.position + agent.desiredVelocity); // Куда хочет агент
-        
+
         Gizmos.color = Color.green;
         //Gizmos.DrawLine(transform.position + Vector3.up * 0.1f, transform.position + (Vector3)rb.linearVelocity); // Куда реально движется RB
-                                                                                    // 
+        // 
         //Gizmos.DrawWireSphere(agent.desiredVelocity, 3f);
     }
 }

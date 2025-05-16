@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseRotator : MonoBehaviour
 {
-    public BaseGunController controller;
+    public GunSet gunSet;
     private BaseProfile profile;
 
     [SerializeField] private float tankRotateCooldown = 1f;
@@ -19,7 +19,7 @@ public class BaseRotator : MonoBehaviour
 
     void Awake()
     {
-        controller = GetComponentInChildren<BaseGunController>();
+        gunSet = GetComponentInChildren<GunSet>();
         profile = GetComponent<BaseCharacter>().profile;
     }
 
@@ -78,7 +78,7 @@ public class BaseRotator : MonoBehaviour
         float angle = Mathf.Atan2(dir.normalized.y, dir.normalized.x) * Mathf.Rad2Deg;
 
         Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);
-        controller.transform.rotation = Quaternion.RotateTowards(controller.transform.rotation, to, speed * Time.deltaTime);
+        gunSet.transform.rotation = Quaternion.RotateTowards(gunSet.transform.rotation, to, speed * Time.deltaTime);
     }
 
     private void Rotate()
@@ -90,10 +90,10 @@ public class BaseRotator : MonoBehaviour
 
         Quaternion to = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        Quaternion tempControllerRotation = controller.transform.rotation;
+        Quaternion tempControllerRotation = gunSet.transform.rotation;
         transform.rotation = Quaternion.RotateTowards(transform.rotation, to, speed * Time.deltaTime);
 
-        controller.transform.rotation = tempControllerRotation;
+        gunSet.transform.rotation = tempControllerRotation;
     }
 
     /*

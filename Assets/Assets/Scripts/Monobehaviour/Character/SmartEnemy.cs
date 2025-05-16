@@ -1,7 +1,5 @@
 using UnityEngine;
 using EnemyState;
-using static UnityEngine.UI.Image;
-using Unity.VisualScripting;
 
 
 [RequireComponent(typeof(SmartMovement))]
