@@ -8,9 +8,28 @@ public class UIHealthPanelManager : MonoBehaviour
 
     private List<UIHeart> hearts = new List<UIHeart>();
 
+    private BaseHealth playerHealth;
+
+    void Awake()
+    {
+        Player player = transform.parent.GetComponentInChildren<Player>();
+
+        if (player)
+        {
+            playerHealth = player.GetComponent<BaseHealth>();
+        }
+    }
+
+    void Start()
+    {
+        if (playerHealth)
+        {
+            Initialize(playerHealth.health);
+        }   
+    }
+
     public void Initialize(int heartsCount)
     {
-
         for (int i = 0; i < heartsCount; i++)
         {
             UIHeart heart = Instantiate(heartPrefab, transform).GetComponent<UIHeart>();
