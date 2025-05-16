@@ -8,11 +8,11 @@ public class UIHealthPanelManager : MonoBehaviour
 
     private List<UIHeart> hearts = new List<UIHeart>();
 
-    private BaseHealth playerHealth;
+    public BaseHealth playerHealth;
 
     void Awake()
     {
-        Player player = transform.parent.GetComponentInChildren<Player>();
+        Player player = FindFirstObjectByType<Player>();
 
         if (player)
         {

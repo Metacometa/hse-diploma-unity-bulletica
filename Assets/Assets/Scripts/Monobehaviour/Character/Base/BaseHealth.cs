@@ -6,7 +6,8 @@ public class BaseHealth : MonoBehaviour, IDamageable
     public int health;
     public int maxHealth;
 
-    private UIHealthPanelManager healthUI;
+    public UIHealthPanelManager healthUI;
+    public Level level;
 
     void Awake()
     {
@@ -18,16 +19,25 @@ public class BaseHealth : MonoBehaviour, IDamageable
 
     void GetHealthUI()
     {
-        Level level = GetComponentInParent<Level>();
+        Canvas canvas = FindFirstObjectByType<Canvas>();
 
-        healthUI = level.transform.parent.GetComponentInChildren<UIHealthPanelManager>();
+        if (canvas)
+        {
+            //Debug.Log($"Level: {level.transform.parent}");
+            healthUI = canvas.GetComponentInChildren<UIHealthPanelManager>();
+        }
+
     }
 
     public void TakeDamage(in int damage = 1)
     {
         health = Mathf.Max(0, health - damage);
 
-        healthUI.Damage(damage);
+        if (healthUI)
+        {
+            healthUI.Damage(damage);
+        }
+
     }
 
     public void Heal(in int damage = 1)
