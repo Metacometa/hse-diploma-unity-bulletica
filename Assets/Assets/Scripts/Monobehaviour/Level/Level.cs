@@ -12,6 +12,7 @@ public class Level : MonoBehaviour
     void Awake()
     {
         surface = GetComponentInChildren<NavMeshSurface>();
+        //Debug.Log("Level.Awake() called in " + gameObject.scene.name);
 
         onAlarm = false;
     }
@@ -20,7 +21,9 @@ public class Level : MonoBehaviour
     {
         StartCoroutine(WallsToDoors());
 
+        //Debug.Log("Level.Start() called in " + gameObject.scene.name);
         foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
+
         {
             chamber.transform.GetComponentInChildren<DoorsController>().OpenDoors();
         }

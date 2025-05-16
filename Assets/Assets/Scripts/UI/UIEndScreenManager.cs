@@ -37,13 +37,13 @@ public class UIEndScreenManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Time.timeScale = 1; 
+        //Time.timeScale = 1; 
         SceneManager.LoadScene(1); 
     }
 
     public void ReturnToMenu()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         SceneManager.LoadScene(0); 
     }
 

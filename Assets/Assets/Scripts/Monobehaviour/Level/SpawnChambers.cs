@@ -2,9 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
-using UnityEngine.UIElements;
-using NUnit.Framework;
-using System;
 
 public class SpawnChambers : MonoBehaviour
 {
@@ -69,6 +66,8 @@ public class SpawnChambers : MonoBehaviour
         easyRoomsCount = Mathf.RoundToInt(normalRoomsCount * data.easyRoomPercentage / 100f);
         mediumRoomsCount = Mathf.RoundToInt(normalRoomsCount * data.mediumRoomPercentage / 100f);
         hardRoomsCount = normalRoomsCount - easyRoomsCount - mediumRoomsCount;
+
+
     }
 
     private void ValidateRoomPercentages()
@@ -144,6 +143,13 @@ public class SpawnChambers : MonoBehaviour
             return false;
         }
 
+        switch (roomType)
+        {
+            case RoomType.Easy: easyRoomsCount--; break;
+            case RoomType.Medium: mediumRoomsCount--; break;
+            case RoomType.Hard: hardRoomsCount--; break;
+        }
+
         return true;
     }
 
@@ -178,12 +184,7 @@ public class SpawnChambers : MonoBehaviour
 
         RoomType selectedType = availableTypes[Random.Range(0, availableTypes.Count)];
 
-        switch (selectedType)
-        {
-            case RoomType.Easy: easyRoomsCount--; break;
-            case RoomType.Medium: mediumRoomsCount--; break;
-            case RoomType.Hard: hardRoomsCount--; break;
-        }
+        Debug.Log($"Easy: {easyRoomsCount}, Medium: {mediumRoomsCount}, Hard: {hardRoomsCount}, Selected type: {selectedType}");
 
         return selectedType;
     }
