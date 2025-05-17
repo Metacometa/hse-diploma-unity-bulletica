@@ -24,14 +24,14 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
     {
         if (shooting)
         {
-            Vector2 startDir = (target.target.position - transform.position).normalized;
+            Vector2 startDir = (target.position() - transform.position).normalized;
             rotator.RotateInstantly(startDir);
         }
     }
 
     protected override void FixedUpdate()
     {
-        Vector2 dir = target.target.position - transform.position;
+        Vector2 dir = target.position() - transform.position;
         switch (motionState)
         {
             case MotionState.MoveToTarget:
@@ -58,7 +58,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     protected override void Update()
     {
-        Vector2 dir = (target.target.position - transform.position).normalized;
+        Vector2 dir = (target.position() - transform.position).normalized;
 
         if (health.health == 0)
         {   
@@ -189,7 +189,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     public void Observe()
     {
-        Vector2 dir = target.target.position - transform.position;
+        Vector2 dir = target.position() - transform.position;
 
         LookToPoint(transform.position, dir, ((ShootingProfile)profile).sightRange, masks, ref target.inSight);
         LookToPoint(transform.position, dir, ((ShootingProfile)profile).shootingRange, masks, ref inShootingRange);
@@ -202,7 +202,7 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
         if (hit)
         {
-            boolFlag = hit.transform.CompareTag(target.target.tag);
+            boolFlag = hit.transform.CompareTag(target.Tag());
         }
         else
         {
@@ -216,8 +216,8 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
         Vector2 aimingDirection = Vector2.zero;
         if (target != null)
         {
-            shootingDirection = (target.target.position - transform.position).normalized;
-            aimingDirection = (target.target.position - transform.position).normalized;
+            shootingDirection = (target.position() - transform.position).normalized;
+            aimingDirection = (target.position() - transform.position).normalized;
         }
 
         Gizmos.color = Color.yellow;

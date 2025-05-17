@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseTargeting : MonoBehaviour
 {
-    public Transform target;
+    private Transform target;
 
     public bool inSight;
     public bool inPursueRange;
@@ -21,5 +21,15 @@ public class BaseTargeting : MonoBehaviour
         }
 
         return Vector3.zero;
+    }
+
+    public string Tag()
+    {
+        if (target)
+        {
+            return target.tag;
+        }
+
+        return "";
     }
 }

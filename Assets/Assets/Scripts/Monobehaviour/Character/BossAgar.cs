@@ -65,7 +65,7 @@ public class BossAgar : Boss
         {
             if (bouncesCount >= controller.bouncesToChase)
             {
-                Vector2 toTarget = (target.target.position - transform.position).normalized;
+                Vector2 toTarget = (target.position() - transform.position).normalized;
                 rb.linearVelocity = toTarget.normalized * profile.moveSpeed;
 
                 bouncesCount = 0;   

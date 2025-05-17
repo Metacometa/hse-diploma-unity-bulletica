@@ -9,12 +9,11 @@ public class DozerBullMovement : BaseMovement
     public float moveUpdateTimer = 0f;
     public float moveUpdateCooldown = 1f;
 
-    public LayerMask changePositionMask;
     private BaseTargeting target;
 
     //public float obstacleDisablerTimer = 0f;
     //public float obstacleDisablerCooldown = 1f;
-    private Vector3 moveDir;
+    public Vector3 moveDir;
 
     private DozerBull boss;
     public bool onPosition;
@@ -79,8 +78,8 @@ public class DozerBullMovement : BaseMovement
 
         if (agent.isOnNavMesh)
         {
-            Vector3 newPoint = RandomPoint(point);
-            agent.SetDestination(newPoint);
+            //Vector3 newPoint = RandomPoint(point);
+            agent.SetDestination(point);
         }
     }
 
@@ -119,7 +118,7 @@ public class DozerBullMovement : BaseMovement
                     agent.CalculatePath(destination, path);
 
                     correctPath = path.status == NavMeshPathStatus.PathComplete
-                        && !NavMesh.Raycast(target.target.position, destination, out hit, NavMesh.AllAreas);
+                        && !NavMesh.Raycast(target.position(), destination, out hit, NavMesh.AllAreas);
                 }
             }
             iterations++;
@@ -131,46 +130,31 @@ public class DozerBullMovement : BaseMovement
 
     public bool UpdateOnPosition()
     {
-
         Vector3 origin = transform.position;
-        Vector3 destination = target.target.position;
-        Vector2 dir = (origin - destination).normalized;
+        Vector3 destination = target.position();
+        Vector2 dir = (destination - origin).normalized;
+
+        Vector3 shift = dir * profile.shootingRangeShift;
 
         float length = ((ShootingProfile)profile).changePositionRadius;
 
-        RaycastHit2D hit = Physics2D.Raycast(origin, dir, length, profile.changePositionMask);
-
-        boss.WideProjectileCheck(origin, destination, length, profile.changePositionMask, ref onPosition);
+        //RaycastHit2D hit = Physics2D.Raycast(origin + shift, dir, length, profile.changePositionMask);
+        boss.LookToPoint(origin + shift, dir, length, profile.changePositionMask, ref onPosition);
+        //boss.WideProjectileCheck(origin, destination, length, profile.changePositionMask, ref onPosition);
 
         if (onPosition)
         {
-            Debug.DrawRay(origin, dir * length, Color.green);
+            Debug.DrawRay(origin + shift, dir * length, Color.green);
+            //Debug.DrawLine(origin + shift, destination, Color.green);
             Buffering();
         }
         else
         {
-            Debug.DrawRay(origin, dir * length, Color.red);
+            Debug.DrawRay(origin + shift, dir * length, Color.red);
+            //Debug.DrawLine(origin + shift, destination, Color.red);
         }
 
         return !CanMove();
-        /*        if (hit)
-                {
-                    if (hit.transform.CompareTag(target.target.tag))
-                    {
-                        onPosition = true;
-                        Debug.DrawRay(origin, dir * length, Color.green);
-                    }
-                    else
-                    {
-                        Debug.DrawRay(origin, dir * length, Color.red);
-                    }
-                }
-                else
-                {
-                    Debug.DrawRay(origin, dir * length, Color.red);
-                }
-
-                return onPosition;*/
     }
 
     public void StopAgent()

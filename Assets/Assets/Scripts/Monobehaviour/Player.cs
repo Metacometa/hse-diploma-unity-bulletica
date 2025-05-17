@@ -111,7 +111,6 @@ public class Player : Gunman
         if (collision.transform.CompareTag("Enemy"))
         {
             CollisionDamage(collision.collider);
-            invincibility.Invincible();
         }
     }
 
@@ -122,7 +121,6 @@ public class Player : Gunman
         if (collision.CompareTag("Bullet"))
         {
             CollisionDamage(collision);
-            invincibility.Invincible();
         }
     }
 }

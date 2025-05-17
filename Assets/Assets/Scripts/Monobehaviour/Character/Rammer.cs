@@ -1,9 +1,8 @@
 using UnityEngine;
 using EnemyState;
 
-
 [RequireComponent(typeof(SmartMovement))]
-public class SmartEnemy : Gunman, IObservable, IStatable
+public class Rammer : Gunman, IObservable, IStatable
 {
     //public EnemyProfile profile;
 
@@ -23,19 +22,12 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
         pursue = GetComponent<BasePursue>();
         smartMove = GetComponent<SmartMovement>();
-
-       
     }
 
     void OnEnable()
     {
         if (rotator)
         {
-            //Vector2 startDir = (target.target.position - transform.position).normalized;
-            //rotator.RotateInstantly(startDir);
-            //rotator.RotateGunInstantly(startDir);
-
-
         }
     }
 
@@ -89,14 +81,7 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         UpdateMovingState();
 
 
-        if (target.inSight)
-        {
-            rotator.RotateGun(target.position() - transform.position);
-        }
-        else if (smartMove.CanMove())
-        {
-            rotator.RotateGun(smartMove.GetMoveDir());
-        }
+        rotator.RotateGun(smartMove.GetMoveDir());
         rotator.Rotate(smartMove.GetMoveDir());
 
 
@@ -132,18 +117,6 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             actionState = ActionState.Stun;
         }
-        else if (shooting.IsMagazineEmpty())
-        {
-            actionState = ActionState.Reload;
-        }
-        else if (target.inShootingRange)
-        {
-            actionState = ActionState.Shoot;
-        }
-        else if (target.inPursueRange && !smartMove.onPosition)
-        {
-            actionState = ActionState.Pursue;
-        }
         else
         {
             actionState = ActionState.Idle;
@@ -163,17 +136,6 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         {
             motionState = MotionState.Stay;
             return;
-        }
-        else if (actionState == ActionState.Shoot || shooting.OnCooldown())
-        {
-            if (((ShootingProfile)profile).shootingOnMove && target.inPursueRange)
-            {
-                motionState = MotionState.Pursue;
-            }
-            else
-            {
-                motionState = MotionState.Stay;
-            }
         }
         else if (target.inPursueRange && !smartMove.onPosition)
         {
@@ -204,8 +166,9 @@ public class SmartEnemy : Gunman, IObservable, IStatable
 
     public void Observe()
     {
-        Vector3 origin = shooting.gunController.muzzle.position;
-        Vector3 destination = shooting.gunController.bulletSpawn.position;
+        Vector3 origin = transform.position;
+        Vector3 destination = target.position();
+
         //Vector2 dir = origin - destination;
         Vector2 sigtDir = target.position() - transform.position;
 
@@ -246,63 +209,14 @@ public class SmartEnemy : Gunman, IObservable, IStatable
         }
     }
 
-    public virtual void OnDrawGizmosSelected()
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!shooting) { return; }
+        if (invincibility.invincible) { return; }
 
-        Vector3 origin = shooting.gunController.muzzle.position;
-
-
-        Vector2 shootingDirection = Vector2.zero;
-        Vector2 aimingDirection = Vector2.zero;
-        if (target != null)
+        if (collision.transform.CompareTag("Player"))
         {
-            shootingDirection = (origin - shooting.gunController.bulletSpawn.position).normalized;
-            aimingDirection = (target.position() - origin).normalized;
+            death.Die(gameObject);
         }
-
-        Vector2 sigtDir = (target.position() - transform.position).normalized;
-
-        DrawProjectileCheck(shootingDirection, origin);
-        return;
-/*        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawRay(transform.position, aimingDirection * profile.sight);
-
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawRay(transform.position, shootingDirection * ((ShootingProfile)profile).shootingRange);
-
-        if (targetApproached)
-        {
-            Gizmos.color = Color.red;
-        }
-        else
-        {
-            Gizmos.color = Color.green;
-        }
-
-        Gizmos.DrawRay(origin, shootingDirection * ((ShootingProfile)profile).approachedDistance);
-
-        if (target.inSight)
-        {
-            Gizmos.color = Color.blue;
-        }
-        else
-        {
-            Gizmos.color = Color.magenta;
-        }
-
-        //Gizmos.DrawRay(transform.position, sigtDir * ((ShootingProfile)profile).sight);
-
-        return;
-
-        // --- Рисуем сам CircleCast ---
-
-        DrawProjectileCheck(shootingDirection, origin);*/
-
-
-        // 4. (Опционально) Рисуем центральную линию каста
-        //Gizmos.color = Color.gray; // Сделаем ее серой для отличия
-        //Gizmos.DrawLine(origin, endPoint);
     }
 
     void DrawProjectileCheck(in Vector3 shootingDirection, in Vector3 origin)

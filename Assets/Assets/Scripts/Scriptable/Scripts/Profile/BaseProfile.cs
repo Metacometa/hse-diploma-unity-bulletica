@@ -42,4 +42,7 @@ public class BaseProfile : ScriptableObject
     [Header("Shimmer")]
     [SerializeField] public int shimmerTime;
     [SerializeField] public Color shimmerColor;
+
+    [Header("Helper")]
+    [SerializeField] public float shootingRangeShift;
 }

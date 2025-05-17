@@ -59,10 +59,11 @@ public class Gunman : BaseCharacter
 
     protected void CollisionDamage(Collider2D collision)
     {
-        if (GetComponent<BaseInvincibility>().invincible) { return; }
+        if (invincibility.invincible) { return; }
 
         health.TakeDamage();
         shimmer.ShimmerManager();
+        invincibility.Invincible();
 
         Rigidbody2D tempRb = collision.GetComponent<Rigidbody2D>();
         BaseBullet tempBullet = collision.GetComponent<BaseBullet>();

@@ -20,9 +20,9 @@ MonoBehaviour:
   hubRoomsPath: Prefabs/Chambers/Hubs
   minRooms: 15
   maxRooms: 16
-  easyRoomPercentage: 28
-  mediumRoomPercentage: 43
-  hardRoomPercentage: 29
+  easyRoomPercentage: 0
+  mediumRoomPercentage: 100
+  hardRoomPercentage: 0
   minHubs: 2
   maxHubs: 2
   seed: 0

@@ -127,7 +127,7 @@ public class SmartMovement : BaseMovement
                     agent.CalculatePath(destination, path);
 
                     correctPath = path.status == NavMeshPathStatus.PathComplete
-                        && !NavMesh.Raycast(target.target.position, destination, out hit, NavMesh.AllAreas);
+                        && !NavMesh.Raycast(target.position(), destination, out hit, NavMesh.AllAreas);
                 }
             }
             iterations++;
@@ -139,7 +139,7 @@ public class SmartMovement : BaseMovement
 
     public bool UpdateOnPosition()
     {
-        if (shooting.gunController || shooting.gunController) { return false; }
+        if (!shooting.gunController || !shooting.gunController) { return false; }
 
         Vector3 origin = shooting.gunController.muzzle.position;
         Vector3 destination = shooting.gunController.bulletSpawn.position;

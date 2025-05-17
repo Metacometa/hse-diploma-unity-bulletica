@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d6b1880e51663a4d894ab8d45984b6e, type: 3}
-  m_Name: DozerBull
+  m_Name: Rammer
   m_EditorClassIdentifier: 
   enemyName: 
   moveSpeed: 4
   pushingAwayTime: 0.2
   pushingAwayForce: 2
-  stayBufferTime: 0.1
+  stayBufferTime: 0.8
   sightRange: 50
   pursueRange: 60
-  rotationSpeed: 40
-  gunRotationSpeed: 40
+  rotationSpeed: 200
+  gunRotationSpeed: 200
   gunRotateCooldown: 0.001
   tankRotateCooldown: 0.01
   health: 4
@@ -37,15 +37,14 @@ MonoBehaviour:
     m_Bits: 2624
   shootingMask:
     serializedVersion: 2
-    m_Bits: 2112
+    m_Bits: 2624
   shimmerTime: 1
   shimmerColor: {r: 1, g: 0.46666667, b: 0.46666667, a: 0}
-  shootingRangeShift: 0
   shootingRange: 35
   approachedDistance: 4
   minPositionRadius: 2
   maxPositionRadius: 2.1
-  changePositionRadius: 0
+  changePositionRadius: 15
   shiftPositionCloser: 0
   shootingOnMove: 1
-  bulletRadius: 3.5
+  bulletRadius: 0.4
