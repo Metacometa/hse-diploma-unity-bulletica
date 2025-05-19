@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: DozerBull
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 4
+  moveSpeed: 1
   pushingAwayTime: 0.2
-  pushingAwayForce: 2
-  stayBufferTime: 0.1
+  pushingAwayForce: 3
+  stayBufferTime: 4
   sightRange: 50
   pursueRange: 60
   rotationSpeed: 40

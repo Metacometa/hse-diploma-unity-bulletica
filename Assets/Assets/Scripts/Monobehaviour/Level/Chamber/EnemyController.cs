@@ -4,6 +4,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Level level;
+    [SerializeField] private float additionEnablingDelay;
+
+    BaseCharacter[] enemies;
 
     void Awake()
     {
@@ -17,10 +20,11 @@ public class EnemyController : MonoBehaviour
 
     public void DisableEnemies()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        enemies = GetComponentsInChildren<BaseCharacter>();
+
+        foreach(BaseCharacter enemy in enemies)
         {
-            Transform enemy = transform.GetChild(i);
-            enemy.GetComponent<BaseSleep>().Sleep();
+           enemy.GetComponent<BaseSleep>().Sleep();
             //enemy.gameObject.SetActive(false);
         }
     }
@@ -34,20 +38,17 @@ public class EnemyController : MonoBehaviour
     {
         if (level)
         {
-            yield return new WaitForSeconds(level.gameParameters.enablingEnemiesDelay);
+            yield return new WaitForSeconds(level.gameParameters.enablingEnemiesDelay + additionEnablingDelay);
         }
         else
         {
             yield return null;
         }
 
-
-        for (int i = 0; i < transform.childCount; i++)
+        foreach (BaseCharacter enemy in enemies)
         {
-            Transform enemy = transform.GetChild(i);
-
-            //transform.GetChild(i).gameObject.SetActive(true);
             enemy.GetComponent<BaseSleep>().Wake();
+            //enemy.gameObject.SetActive(true);
         }
     }
 }

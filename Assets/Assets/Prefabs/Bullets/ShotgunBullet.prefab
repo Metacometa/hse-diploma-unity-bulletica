@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.5
   force: 2
+  enemy: 1
 --- !u!1 &8804532627995091035
 GameObject:
   m_ObjectHideFlags: 0

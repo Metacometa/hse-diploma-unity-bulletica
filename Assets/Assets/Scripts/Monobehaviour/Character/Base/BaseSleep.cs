@@ -10,7 +10,7 @@ public class BaseSleep : MonoBehaviour
     void Awake()
     {
         level = GetComponentInParent<Level>();
-        onSleep = false;
+        onSleep = true;
         
         invincibility = GetComponentInParent<BaseInvincibility>();
     }

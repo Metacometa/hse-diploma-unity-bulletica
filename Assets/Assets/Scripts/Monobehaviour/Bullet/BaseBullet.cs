@@ -7,6 +7,8 @@ public class BaseBullet : MonoBehaviour
     public float speed;
     public float force;
 
+    public bool enemy = true;
+
     public void ShapeBullet(in Vector2 dir, in float angle)
     {
         rb = GetComponent<Rigidbody2D>();   
@@ -15,10 +17,19 @@ public class BaseBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(gameObject);
-        /*        if (!collision.CompareTag("Player"))
-                {
-                    Destroy(gameObject);
-                }*/
+        if (enemy)
+        {
+            if (col.transform.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (!col.transform.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

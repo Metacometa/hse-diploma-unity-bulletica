@@ -1,9 +1,13 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 {
-    /*[HideInInspector]*/ public bool onPush;
+    private BaseRotator rotator;
+
+    /*[HideInInspector]*/
+    public bool onPush;
     protected BaseProfile profile;
 
     public float timeCounter;
@@ -15,6 +19,7 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
         onPush = false;
 
         profile = GetComponent<BaseCharacter>().profile;
+        rotator = GetComponent<BaseRotator>();
 
         rb = GetComponent<Rigidbody2D>();
     }
@@ -47,9 +52,24 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
     public void PushAway(ref Rigidbody2D rb, in Vector2 dir)
     {
         rb.linearVelocity = Vector2.zero;
-        rb.AddForce(dir.normalized * profile.pushingAwayForce, ForceMode2D.Impulse);
+        //rb.AddForce(dir.normalized * profile.pushingAwayForce, ForceMode2D.Impulse);
 
         StartCoroutine(PushAwayManager());
+    }
+
+    public void PushAway()
+    {
+        StartCoroutine(PushAwayManager());
+    }
+
+    public void Push()
+    {
+        Debug.Log("PushAway");
+        Vector2 dir = -rotator.tankDir;
+
+        rb.linearVelocity = dir * profile.pushingAwayForce;
+        Buffering();
+        //rb.AddForce(dir.normalized * profile.pushingAwayForce, ForceMode2D.Impulse);
     }
 
     IEnumerator PushAwayManager()
