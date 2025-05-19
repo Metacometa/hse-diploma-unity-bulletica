@@ -79,7 +79,7 @@ public class SpawnChambers : MonoBehaviour
             data.easyRoomPercentage = Mathf.RoundToInt(data.easyRoomPercentage / total * 100);
             data.mediumRoomPercentage = Mathf.RoundToInt(data.mediumRoomPercentage / total * 100);
             data.hardRoomPercentage = 100 - data.easyRoomPercentage - data.mediumRoomPercentage;
-            Debug.Log($"Normalized room percentages to: Easy {data.easyRoomPercentage}%, Medium {data.mediumRoomPercentage}%, Hard {data.hardRoomPercentage}%");
+            //Debug.Log($"Normalized room percentages to: Easy {data.easyRoomPercentage}%, Medium {data.mediumRoomPercentage}%, Hard {data.hardRoomPercentage}%");
         }
     }
 
@@ -184,7 +184,7 @@ public class SpawnChambers : MonoBehaviour
 
         RoomType selectedType = availableTypes[Random.Range(0, availableTypes.Count)];
 
-        Debug.Log($"Easy: {easyRoomsCount}, Medium: {mediumRoomsCount}, Hard: {hardRoomsCount}, Selected type: {selectedType}");
+        //Debug.Log($"Easy: {easyRoomsCount}, Medium: {mediumRoomsCount}, Hard: {hardRoomsCount}, Selected type: {selectedType}");
 
         return selectedType;
     }

@@ -146,14 +146,13 @@ GameObject:
   - component: {fileID: 8247517476268950332}
   - component: {fileID: 8003243810217401467}
   - component: {fileID: 8970738709448623171}
-  - component: {fileID: 6531776833611507047}
-  - component: {fileID: 8541052849101078700}
-  - component: {fileID: 6334951984418163680}
   - component: {fileID: 5421123600742012044}
   - component: {fileID: 5052643262174681018}
   - component: {fileID: 1423720483528965796}
   - component: {fileID: 915237856123639114}
   - component: {fileID: 6598654394834544549}
+  - component: {fileID: 5150803702661440063}
+  - component: {fileID: 3809680463778295523}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -366,49 +365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunController: {fileID: 0}
---- !u!114 &6531776833611507047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8223104271266819991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92072cdff03de4649860f3b287e05998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveDir: {x: 0, y: 0}
-  aimDir: {x: 0, y: 0}
-  onAttackButton: 0
---- !u!114 &8541052849101078700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8223104271266819991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ea55b0eaae4c8488a52983046ed31f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sleep: {fileID: 0}
-  profile: {fileID: 11400000, guid: b571d047bef908542b9dd969753d79d7, type: 2}
-  targetApproached: 0
---- !u!114 &6334951984418163680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8223104271266819991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85d0c7310b3acf43a6a48e90f8af745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  areaRadius: 1
 --- !u!114 &5421123600742012044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +443,36 @@ MonoBehaviour:
   playerDeathEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5150803702661440063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223104271266819991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc005187486817d46bdee24d2b18954c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDir: {x: 0, y: 0}
+  aimDir: {x: 0, y: 0}
+  onAttackButton: 0
+--- !u!114 &3809680463778295523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8223104271266819991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728fbd2213f0d134697a8753f66e142c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sleep: {fileID: 0}
+  profile: {fileID: 11400000, guid: b571d047bef908542b9dd969753d79d7, type: 2}
+  targetApproached: 0
 --- !u!1001 &6854617031297014171
 PrefabInstance:
   m_ObjectHideFlags: 0

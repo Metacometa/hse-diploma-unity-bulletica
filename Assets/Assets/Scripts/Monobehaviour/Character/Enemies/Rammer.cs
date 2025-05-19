@@ -11,13 +11,9 @@ public class Rammer : Gunman
     public MotionState motionState;
     public SmartMovement smartMove;
 
-    public BasePursue pursue;
-
     protected override void Awake()
     {
         base.Awake();
-
-        pursue = GetComponent<BasePursue>();
         smartMove = GetComponent<SmartMovement>();
     }
 

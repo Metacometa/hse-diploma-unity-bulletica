@@ -11,13 +11,9 @@ public class SimpleEnemy : Gunman, IObservable, IStatable
 
     [SerializeField] private LayerMask masks;
 
-    public BasePursue pursue;
-
     protected override void Awake()
     {
         base.Awake();
-
-        pursue = GetComponent<BasePursue>();
     }
 
     void OnEnable()

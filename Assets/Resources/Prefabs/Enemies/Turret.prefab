@@ -147,12 +147,10 @@ GameObject:
   - component: {fileID: 5908018482658660483}
   - component: {fileID: 2432461742558073540}
   - component: {fileID: 1467533519333992501}
-  - component: {fileID: 2322523163162075145}
   - component: {fileID: 8984454600408257163}
-  - component: {fileID: 3717015719551741704}
   - component: {fileID: 5592734721158052685}
   - component: {fileID: 1225511767280641721}
-  - component: {fileID: -6917252916477690844}
+  - component: {fileID: 2477011696992149550}
   m_Layer: 9
   m_Name: Turret
   m_TagString: Enemy
@@ -389,21 +387,6 @@ MonoBehaviour:
   inSight: 0
   inPursueRange: 0
   inShootingRange: 0
---- !u!114 &2322523163162075145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175426749805988311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbdd1124a04c82249afb94e53b09abe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastSeenPos: {x: 0, y: 0}
-  distanceToReach: 1
-  canPursue: 0
 --- !u!114 &8984454600408257163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,19 +400,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onSleep: 0
---- !u!114 &3717015719551741704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4175426749805988311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85d0c7310b3acf43a6a48e90f8af745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  areaRadius: 0
 --- !u!114 &5592734721158052685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 0
---- !u!114 &-6917252916477690844
+--- !u!114 &2477011696992149550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -473,7 +443,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4175426749805988311}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b41470303c97f749bc14e5dcbada95c, type: 3}
+  m_Script: {fileID: 11500000, guid: cc0081298dec7cf4d828ae3b63fb79eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sleep: {fileID: 0}

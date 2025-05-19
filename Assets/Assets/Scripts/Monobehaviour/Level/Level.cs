@@ -6,11 +6,15 @@ public class Level : MonoBehaviour
 {
     public GameParameters gameParameters;
     public NavMeshSurface surface;
+
+    private Camera camera;
     //public NavigationCollect
 
     public bool onAlarm;
     void Awake()
     {
+        camera = GetComponentInChildren<Camera>();
+
         surface = GetComponentInChildren<NavMeshSurface>();
         //Debug.Log("Level.Awake() called in " + gameObject.scene.name);
 
@@ -19,6 +23,12 @@ public class Level : MonoBehaviour
 
     void Start()
     {
+        if (camera)
+        {
+            camera.transform.localPosition = Vector2.zero;
+            camera.transform.position = Vector2.zero;
+        }
+
         StartCoroutine(WallsToDoors());
 
         //Debug.Log("Level.Start() called in " + gameObject.scene.name);
