@@ -37,7 +37,6 @@ public class BaseGunController : MonoBehaviour
             attack = null;
         }
 
-
         gun = transform;
         gunAnimator = GetComponent<GunAnimator>();
 

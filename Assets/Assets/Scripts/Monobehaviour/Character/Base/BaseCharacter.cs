@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(BaseHealth))]
 [RequireComponent(typeof(BaseMovement))]
@@ -26,6 +27,8 @@ public class BaseCharacter : MonoBehaviour
 
     public BaseProfile profile;
 
+    public UnityEvent awakeEvents;
+
     protected virtual void Awake()
     {
         health = GetComponent<BaseHealth>();
@@ -37,5 +40,11 @@ public class BaseCharacter : MonoBehaviour
         invincibility = GetComponent<BaseInvincibility>();
 
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public virtual void OnAwake()
+    {
+        awakeEvents?.Invoke();
+        awakeEvents.RemoveAllListeners();
     }
 }

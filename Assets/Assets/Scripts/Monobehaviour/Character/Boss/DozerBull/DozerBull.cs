@@ -18,6 +18,7 @@ public class DozerBull : Boss
         dozerMove = GetComponent<DozerBullMovement>();
         breakthrough = GetComponent<DozerBullBreakthrough>();
 
+        awakeEvents.AddListener(breakthrough.Cooldown);
     }
 
     protected override void FixedUpdate()

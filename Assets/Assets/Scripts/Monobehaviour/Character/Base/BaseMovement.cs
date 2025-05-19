@@ -64,7 +64,6 @@ public class BaseMovement : MonoBehaviour, IMoveable, IPushable
 
     public void Push()
     {
-        Debug.Log("PushAway");
         Vector2 dir = -rotator.tankDir;
 
         rb.linearVelocity = dir * profile.pushingAwayForce;

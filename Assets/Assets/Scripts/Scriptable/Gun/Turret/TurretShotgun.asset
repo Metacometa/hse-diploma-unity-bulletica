@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 327d7538f6b221246b1243d659b667ca, type: 3}
-  m_Name: PlayerShotgun
+  m_Name: TurretShotgun
   m_EditorClassIdentifier: 
-  weapon_name: Shotgun
-  gun_object: {fileID: 8108018042923758592, guid: 01de435c948878c4687d6da38fd34085, type: 3}
-  bulletObject: {fileID: 8383260018039565768, guid: eec32574a5746b8459a714f7e70f4e9c, type: 3}
-  reloadSpeed: 4
+  weapon_name: TurretShotgun
+  gun_object: {fileID: 8108018042923758592, guid: 4c7efd9562e5512499db11f822fc77c8, type: 3}
+  bulletObject: {fileID: 8383260018039565768, guid: 1b148e9a92283134e9d269a7d84f0f04, type: 3}
+  reloadSpeed: 3
   rotationSpeed: 1000
-  aimingSpeed: 0.1
+  aimingSpeed: 0.2
   attackExiting: 0.15
   cooldown: 1
   maxSpreadAngle: 0
-  shots: 1
+  shots: 50
   bullets:
-  - angle: 15
-  - angle: 7
+  - angle: 45
+  - angle: 20
   - angle: 0
-  - angle: -7
-  - angle: -15
+  - angle: -20
+  - angle: -45

@@ -8,7 +8,7 @@ public abstract class DualStraferAbstractStrafe : MonoBehaviour
     public bool OnStrafe;
     public bool OnCooldown;
 
-    public DualStraferShooting shooting;
+    public TurretShooting shooting;
 
     public List<Vector2> strafePoints;
 
@@ -17,7 +17,7 @@ public abstract class DualStraferAbstractStrafe : MonoBehaviour
     void Awake()
     {
         OnStrafe = false;
-        shooting = GetComponent<DualStraferShooting>();
+        shooting = GetComponent<TurretShooting>();
 
         profile = (DualStraferProfile)GetComponent<BaseCharacter>().profile;
     }

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class DozerBullBreakthrough : MonoBehaviour
 {
+    private TurretShooting[] guns;
     private BaseTargeting target;
 
     private DozerBull main;
@@ -34,20 +35,23 @@ public class DozerBullBreakthrough : MonoBehaviour
 
         onCooldown = false;
         onBreakthrough = false;
+
+        guns = GetComponentsInChildren<TurretShooting>();
     }
 
-    void FixedUpdate()
-    {
-    }
+    void FixedUpdate() {}
 
     public void Breakthrough()
     {
         if (!onCooldown && !onBreakthrough)
         {
             onBreakthrough = true;
-            dir = (target.position() - transform.position).normalized;
+
+            //dir = (target.position() - transform.position).normalized;
+            dir = (target.PredictedPosition() - transform.position).normalized;
 
             rb.linearVelocity = dir.normalized * dozerProfile.breakthroughSpeed;
+            DrainGuns();
         }
     }
 
@@ -59,10 +63,20 @@ public class DozerBullBreakthrough : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             move.PushAway();
 
-            StartCoroutine(BreakthroughCooldown());
+            if (!onCooldown)
+            {
+                Cooldown();
+            }
         }
     }
 
+    void DrainGuns()
+    {
+        foreach(TurretShooting gun in guns)
+        {
+            gun.Drain();
+        }
+    }
     public bool IsAttackPossible()
     {
         return !IsPlayerOutOfRange() && !onCooldown;
@@ -81,9 +95,19 @@ public class DozerBullBreakthrough : MonoBehaviour
         return outOfRange;
     }
 
+    public void Cooldown()
+    {
+        Debug.Log("Cooldown");
+        if (!onCooldown)
+        {
+            StartCoroutine(BreakthroughCooldown());
+        }
+    }
+
     private IEnumerator BreakthroughCooldown()
     {
         onCooldown = true;
+        onBreakthrough = false;
         yield return new WaitForSeconds(dozerProfile.breakthroughCooldown);
         onCooldown = false;
     }

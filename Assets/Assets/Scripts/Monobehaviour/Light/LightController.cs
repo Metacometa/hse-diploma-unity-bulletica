@@ -139,8 +139,11 @@ public class LightController : MonoBehaviour
         {
             if (light)
             {
+                if (intensities.ContainsKey(light))
+                {
+                    light.intensity = intensities[light];
+                }
                 //if (intensities[light].)
-                light.intensity = intensities[light];
             }
         }
     }

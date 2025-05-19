@@ -45,4 +45,5 @@ public class BaseProfile : ScriptableObject
 
     [Header("Helper")]
     [SerializeField] public float shootingRangeShift;
+    [SerializeField] public float predictionDepth;
 }

@@ -7,18 +7,27 @@ public class DozerBullMovement : BaseMovement
     public override void Move(in Vector2 dir)
     {
         //base.Move(ManhattanDistance(dir));
-        base.Move(dir);
+        Debug.Log("ManhattanDistance: " + ManhattanDistance(dir));
+        base.Move(ManhattanDistance(dir));
     }
 
     private Vector2 ManhattanDistance(in Vector2 dir)
     {
+        float x = Mathf.Abs(dir.x);
+        float y = Mathf.Abs(dir.y);
+
         Vector2 manhattanDistance = Vector2.zero;
 
-        if (dir.x > dir.y)
+        if (Mathf.Abs(x - y) <= 1)
+        {
+            return dir;
+        }
+
+        if (x > y)
         {
             manhattanDistance.x = dir.x;
         }
-        else if (dir.x < dir.y)
+        else if (x < y)
         {
             manhattanDistance.y = dir.y;
         }
@@ -27,6 +36,6 @@ public class DozerBullMovement : BaseMovement
             manhattanDistance = dir;
         }
 
-        return manhattanDistance;
+        return manhattanDistance.normalized;
     }
 }

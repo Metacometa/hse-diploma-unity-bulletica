@@ -19,7 +19,7 @@ public class OneShotGun : BaseGun
 
         foreach (BulletProperties bulletProps in bullets)
         {
-            GameObject newBullet = Instantiate(bullet, from, Quaternion.identity) as GameObject;
+            GameObject newBullet = Instantiate(bulletObject, from, Quaternion.identity) as GameObject;
             if (newBullet != null)
             {
                 BaseBullet bulletSettings = newBullet.GetComponent<BaseBullet>() as BaseBullet;

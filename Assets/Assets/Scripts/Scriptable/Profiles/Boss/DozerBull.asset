@@ -16,7 +16,7 @@ MonoBehaviour:
   moveSpeed: 1
   pushingAwayTime: 0.2
   pushingAwayForce: 3
-  stayBufferTime: 4
+  stayBufferTime: 0.5
   sightRange: 50
   pursueRange: 60
   rotationSpeed: 40
@@ -41,6 +41,7 @@ MonoBehaviour:
   shimmerTime: 1
   shimmerColor: {r: 1, g: 0.46666667, b: 0.46666667, a: 0}
   shootingRangeShift: 0
+  predictionDepth: 1
   shootingRange: 35
   approachedDistance: 4
   minPositionRadius: 2

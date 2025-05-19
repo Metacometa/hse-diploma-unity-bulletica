@@ -1,9 +1,7 @@
 
 using System.Collections;
-using Unity.Jobs;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
 
 public class SmartMovement : BaseMovement
 {

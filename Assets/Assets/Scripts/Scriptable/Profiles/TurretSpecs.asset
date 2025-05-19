@@ -9,12 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9b9f0879c006a49813f9ea9bda5e87, type: 3}
-  m_Name: DozerBullSpecs
+  m_Script: {fileID: 11500000, guid: bd8db0b982153c347be821aa065f4a27, type: 3}
+  m_Name: TurretSpecs
   m_EditorClassIdentifier: 
-  breakthroughCooldown: 10
-  breakthroughMask:
+  attackChangeDistance: 12
+  mask:
     serializedVersion: 2
     m_Bits: 64
-  attackRange: 10
-  breakthroughSpeed: 5

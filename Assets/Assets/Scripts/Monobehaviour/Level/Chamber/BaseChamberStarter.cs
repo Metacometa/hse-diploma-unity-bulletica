@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Data;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Rendering;
 
 public class BaseChamberStarter : MonoBehaviour
 {
@@ -14,7 +10,7 @@ public class BaseChamberStarter : MonoBehaviour
 
     [SerializeField] private string targetTag;
 
-    [HideInInspector] public UnityEvent startChamberEvent;
+    public UnityEvent startChamberEvent;
 
     [Range(0f, 1f)]
     [SerializeField] public float alarmProbability = 1f;

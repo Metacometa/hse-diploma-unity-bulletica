@@ -6,6 +6,7 @@ public abstract class BaseGun : ScriptableObject
     [Header("Basis")]
     public string weapon_name;
     public GameObject gun_object;
+    public GameObject bulletObject;
 
     [Header("Reload")]
     public float reloadSpeed;

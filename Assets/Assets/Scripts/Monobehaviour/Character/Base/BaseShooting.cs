@@ -4,42 +4,42 @@ public class BaseShooting : MonoBehaviour, IShootable
 {
     public BaseGunController gunController;
 
-    void Awake()
+    public virtual void Awake()
     {
         gunController = GetComponentInChildren<BaseGunController>();
     }
 
-    public void ShootingManager()
+    public virtual void ShootingManager()
     {
         gunController.Shooting();
     }
 
-    public void ReloadManager()
+    public virtual void ReloadManager()
     {
         gunController.Reload();
     }
 
-    public bool IsMagazineEmpty()
+    public virtual bool IsMagazineEmpty()
     {
         return gunController.IsMagazineEmpty();
     }
 
-    public bool OnReload()
+    public virtual bool OnReload()
     {
         return gunController.onReload;
     }
 
-    public bool OnCooldown()
+    public virtual bool OnCooldown()
     {
         return gunController.onCooldown;
     }
 
-    public bool OnAttack()
+    public virtual bool OnAttack()
     {
         return gunController.onAttack;
     }
 
-    public float GetRotationSpeed()
+    public virtual float GetRotationSpeed()
     {
         return gunController.attack.rotationSpeed;
     }

@@ -10,7 +10,7 @@ public class BurstGun : BaseGun
     {
         Vector2 targetDirection = (to - from).normalized;
 
-        GameObject newBullet = Instantiate(bullet, from, Quaternion.identity) as GameObject;
+        GameObject newBullet = Instantiate(bulletObject, from, Quaternion.identity) as GameObject;
         if (newBullet != null)
         {
             BaseBullet bulletSettings = newBullet.GetComponent<BaseBullet>() as BaseBullet;

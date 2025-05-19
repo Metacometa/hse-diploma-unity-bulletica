@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_name: MachineGun
   gun_object: {fileID: 4175426749805988311, guid: fe6b37bef7827c442bcc0c3884e07e81, type: 3}
+  bulletObject: {fileID: 8383260018039565768, guid: 2ef3d4893d457684bbaced0eb129ed05, type: 3}
   reloadSpeed: 8
   rotationSpeed: 35
   aimingSpeed: 0

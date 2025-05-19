@@ -17,6 +17,11 @@ public class BaseBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.transform.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
+
         if (enemy)
         {
             if (col.transform.CompareTag("Player"))

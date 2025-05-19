@@ -1,10 +1,22 @@
 using UnityEngine;
 using EnemyState;
 
+[RequireComponent(typeof(TurretShooting))]
 public class Turret : Gunman
 {
     public ActionState actionState;
     public MotionState motionState;
+
+    public TurretShooting turretShooting;
+
+    [SerializeField] public TurretProfile turretProfile;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        turretShooting = GetComponent<TurretShooting>();
+
+    }
 
     protected override void Update()
     {
@@ -20,6 +32,7 @@ public class Turret : Gunman
             death.Die(gameObject);
         }
 
+        UpdateAttack();
         Observe();
         UpdateActionState();
 
@@ -46,7 +59,26 @@ public class Turret : Gunman
             default:
                 break;
         }
+    }
 
+    private void UpdateAttack()
+    {
+        Vector3 origin = shooting.gunController.muzzle.position;
+        Vector3 destination = shooting.gunController.bulletSpawn.position;
+        //Vector2 dir = origin - destination;
+        Vector2 dir = target.position() - transform.position;
+
+        bool baseAttack = false;
+        LookToPoint(origin, dir, turretProfile.attackChangeDistance, turretProfile.mask, ref baseAttack);
+
+        if (baseAttack)
+        {
+            turretShooting.SetBaseAttack();
+        }
+        else
+        {
+            turretShooting.SetShotgunAttack();
+        }
     }
 
     protected override void FixedUpdate()
@@ -58,7 +90,7 @@ public class Turret : Gunman
         {
             actionState = ActionState.Sleep;
         }
-        else if (shooting.IsMagazineEmpty())
+        else if (turretShooting.IsMagazineEmpty())
         {
             actionState = ActionState.Reload;
         }
@@ -75,5 +107,21 @@ public class Turret : Gunman
     public override void UpdateMovingState()
     {
 
+    }
+
+    protected override void ShootingHandler()
+    {
+        if (!turretShooting.OnCooldown() && !turretShooting.OnReload() && !turretShooting.OnAttack())
+        {
+            turretShooting.ShootingManager();
+        }
+    }
+
+    protected override void ReloadHandler()
+    {
+        if (!turretShooting.OnReload())
+        {
+            turretShooting.ReloadManager();
+        }
     }
 }

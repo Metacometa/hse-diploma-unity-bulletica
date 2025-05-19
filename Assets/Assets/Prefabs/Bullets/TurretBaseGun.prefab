@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4658678057974603167}
   - component: {fileID: 9120023527961636290}
   m_Layer: 12
-  m_Name: BaseBullet
+  m_Name: TurretBaseGun
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c87faacf361124a816606930921b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
+  speed: 10
   force: 2
   enemy: 1
 --- !u!1 &8804532627995091035

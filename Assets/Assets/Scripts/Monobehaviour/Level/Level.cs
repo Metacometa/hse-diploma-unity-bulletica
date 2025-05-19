@@ -1,5 +1,6 @@
 using NavMeshPlus.Components;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Level : MonoBehaviour
@@ -7,13 +8,13 @@ public class Level : MonoBehaviour
     public GameParameters gameParameters;
     public NavMeshSurface surface;
 
-    private Camera camera;
+    public Camera camera;
     //public NavigationCollect
 
     public bool onAlarm;
     void Awake()
     {
-        camera = GetComponentInChildren<Camera>();
+        camera = FindFirstObjectByType<Camera>();
 
         surface = GetComponentInChildren<NavMeshSurface>();
         //Debug.Log("Level.Awake() called in " + gameObject.scene.name);
@@ -27,6 +28,7 @@ public class Level : MonoBehaviour
         {
             camera.transform.localPosition = Vector2.zero;
             camera.transform.position = Vector2.zero;
+            camera.GetComponent<CinemachineBrain>().enabled = true;
         }
 
         StartCoroutine(WallsToDoors());
