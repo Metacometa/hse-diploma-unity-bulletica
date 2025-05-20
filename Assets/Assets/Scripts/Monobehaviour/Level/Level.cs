@@ -8,12 +8,16 @@ public class Level : MonoBehaviour
     public GameParameters gameParameters;
     public NavMeshSurface surface;
 
+    private MusicManager music;
+
     public Camera camera;
     //public NavigationCollect
 
     public bool onAlarm;
     void Awake()
     {
+        music = GetComponent<MusicManager>();
+
         camera = FindFirstObjectByType<Camera>();
 
         surface = GetComponentInChildren<NavMeshSurface>();
@@ -31,7 +35,7 @@ public class Level : MonoBehaviour
             camera.GetComponent<CinemachineBrain>().enabled = true;
         }
 
-        StartCoroutine(WallsToDoors());
+        StartCoroutine(BuildLevel());
 
         //Debug.Log("Level.Start() called in " + gameObject.scene.name);
         foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
@@ -42,7 +46,7 @@ public class Level : MonoBehaviour
     }
 
 
-    IEnumerator WallsToDoors()
+    IEnumerator BuildLevel()
     {
         yield return new WaitForEndOfFrame(); // ∆дем конца кадра
         foreach (DoorsController doorsController in GetComponentsInChildren<DoorsController>())
@@ -53,6 +57,8 @@ public class Level : MonoBehaviour
         RegenerateCompositeCollider2Ds();
 
         surface?.BuildNavMesh();
+
+        music.StartToPlayMusic();
     }
 
     void RegenerateCompositeCollider2Ds()

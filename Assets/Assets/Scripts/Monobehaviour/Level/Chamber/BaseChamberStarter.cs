@@ -8,6 +8,8 @@ public class BaseChamberStarter : MonoBehaviour
     private EnemyController enemyController;
     private LightController lightController;
 
+    private MusicManager musicManager;
+
     [SerializeField] private string targetTag;
 
     public UnityEvent startChamberEvent;
@@ -21,6 +23,7 @@ public class BaseChamberStarter : MonoBehaviour
         doorsController = chamber.GetComponentInChildren<DoorsController>();
         enemyController = chamber.GetComponentInChildren<EnemyController>();
         lightController = chamber.GetComponentInChildren<LightController>();
+        musicManager = GetComponentInParent<MusicManager>();
 
         if (doorsController)
         {
@@ -36,6 +39,11 @@ public class BaseChamberStarter : MonoBehaviour
         if (lightController)
         {
             //startChamberEvent.AddListener(lightController.TurnOnLight);
+        }
+
+        if (musicManager)
+        {
+            startChamberEvent.AddListener(musicManager.PlayFightingPlaylist);
         }
 
         AddLightListeners();

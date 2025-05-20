@@ -77,7 +77,7 @@ public class Gunman : BaseCharacter, IObservable, IStatable
     }
 
 
-    protected void CollisionDamage(Collider2D collision)
+    protected virtual void CollisionDamage(Collider2D collision)
     {
         if (invincibility.invincible) { return; }
 

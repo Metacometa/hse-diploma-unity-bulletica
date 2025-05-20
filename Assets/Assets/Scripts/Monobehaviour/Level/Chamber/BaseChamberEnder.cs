@@ -11,6 +11,8 @@ public class BaseChamberEnder : MonoBehaviour
     private EnemyController enemyController;
     private DoorsController doorsController;
 
+    private MusicManager musicManager;
+
     [HideInInspector] public UnityEvent endChamberEvent;
 
     void Awake()
@@ -19,8 +21,18 @@ public class BaseChamberEnder : MonoBehaviour
         enemyController = chamber.GetComponentInChildren<EnemyController>();
         doorsController = chamber.GetComponentInChildren<DoorsController>();
 
-        endChamberEvent.AddListener(doorsController.OpenDoors);
-        endChamberEvent.AddListener(doorsController.OpenNeighboursDoors);
+        musicManager = GetComponentInParent<MusicManager>();
+
+        if (doorsController)
+        {
+            endChamberEvent.AddListener(doorsController.OpenDoors);
+            endChamberEvent.AddListener(doorsController.OpenNeighboursDoors);
+        }
+
+        if (musicManager)
+        {
+            endChamberEvent.AddListener(musicManager.PlayAmbientPlaylist);
+        }
 
         AddAlarmListeners();
     }

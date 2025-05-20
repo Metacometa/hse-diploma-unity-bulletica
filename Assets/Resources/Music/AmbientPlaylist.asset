@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c07506c2aae76346b658a064e86aea0, type: 3}
+  m_Name: AmbientPlaylist
+  m_EditorClassIdentifier: 
+  tracks:
+  - clip: {fileID: 8300000, guid: dd248b617995e8a45bf2288ad4deab26, type: 3}
+    sixteenth: 2.42
+  - clip: {fileID: 8300000, guid: 6d96ddd0a1637e1478bc57fb8f04f1c1, type: 3}
+    sixteenth: 2.42
+  currentTrack: {fileID: 0}
+  currentTrackIndex: 0

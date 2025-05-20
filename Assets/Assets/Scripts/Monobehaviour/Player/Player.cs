@@ -11,11 +11,13 @@ using UnityEngine;
 [RequireComponent(typeof(InputManager))]
 
 [RequireComponent(typeof(PlayerDeath))]
+[RequireComponent(typeof(PlayerHealth))]
 
 public class Player : Gunman
 {
     private InputManager input;
     private PlayerDeath playerDeath;
+    private PlayerHealth playerHealth;
 
     protected override void Awake()
     {
@@ -23,6 +25,7 @@ public class Player : Gunman
         input = GetComponent<InputManager>();
 
         playerDeath = GetComponent<PlayerDeath>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     protected override void FixedUpdate()
@@ -90,7 +93,7 @@ public class Player : Gunman
 
     protected override void Update() 
     {
-        if (health.health == 0)
+        if (playerHealth.health == 0)
         {
             playerDeath.Die(gameObject);
         }
@@ -120,6 +123,26 @@ public class Player : Gunman
         if (collision.CompareTag("Bullet"))
         {
             CollisionDamage(collision);
+        }
+    }
+
+    protected override void CollisionDamage(Collider2D collision)
+    {
+        if (invincibility.invincible) { return; }
+
+        playerHealth.TakeDamage();
+        shimmer.ShimmerManager();
+        invincibility.Invincible();
+
+        Rigidbody2D tempRb = collision.GetComponent<Rigidbody2D>();
+        BaseBullet tempBullet = collision.GetComponent<BaseBullet>();
+
+        if (tempRb && tempBullet)
+        {
+            Vector2 dir = tempRb.linearVelocity;
+            float force = tempBullet.force;
+
+            move.PushAway(ref rb, dir * force);
         }
     }
 }
