@@ -16,5 +16,5 @@ MonoBehaviour:
   breakthroughMask:
     serializedVersion: 2
     m_Bits: 64
-  attackRange: 20
+  attackRange: 17
   breakthroughSpeed: 15
