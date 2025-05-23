@@ -3,12 +3,12 @@ using UnityEngine.Events;
 
 public class PlayerDeath : BaseDeath
 {
-    public UIEndScreenManager uiManager;
+    public UIScreenManager uiManager;
     public UnityEvent playerDeathEvent;
 
     void Awake()
     {
-        uiManager = GameObject.FindGameObjectWithTag("UI")?.GetComponentInChildren<UIEndScreenManager>();
+        uiManager = GameObject.FindGameObjectWithTag("UI")?.GetComponentInChildren<UIScreenManager>();
 
         if (uiManager)
         {

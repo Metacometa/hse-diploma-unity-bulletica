@@ -89,6 +89,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95747b8a426a73f45abc175a16e524b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthySprite: {fileID: 5642012044021194823, guid: a2cb952a94bdd8c44ba3d1635f87bb85, type: 3}
+  damagedSprite: {fileID: 8124259339964715380, guid: a2cb952a94bdd8c44ba3d1635f87bb85, type: 3}
 --- !u!95 &37520260316799892
 Animator:
   serializedVersion: 7
@@ -97,7 +99,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3048915296679405853}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 89db40da15b6a024eb4b916f0835a64a, type: 2}
   m_CullingMode: 0
