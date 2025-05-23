@@ -1,66 +1,52 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
-using TMPro;
 
 public class LoadingScreen : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI loadingText;
-    [SerializeField] private float dotSpeed = 0.5f;
-    [SerializeField] private int maxDots = 3;
-    [SerializeField] private float minLoadTime = 2f;
+    [SerializeField] private TMPro.TextMeshProUGUI text; 
+    [SerializeField] private float speed = 0.5f;
 
-    private string baseText = "Загрузка";
-    private float timer;
-    private int currentDots;
-    private float loadStartTime;
-    private AsyncOperation asyncLoad;
-    private bool isLoading;
-
-    private void Update()
-    {
-        if (!isLoading) return;
-
-        timer += Time.deltaTime;
-        if (timer >= dotSpeed)
-        {
-            timer = 0;
-            currentDots = (currentDots + 1) % (maxDots + 1);
-            loadingText.text = baseText + new string('.', currentDots);
-        }
-
-        if (asyncLoad != null && asyncLoad.progress >= 0.9f &&
-            Time.time - loadStartTime >= minLoadTime)
-        {
-            CompleteLoading();
-        }
-    }
-
+    private Coroutine animCoroutine;
     public void LoadScene(int sceneIndex)
     {
         gameObject.SetActive(true);
-        isLoading = true;
-        loadStartTime = Time.time;
-        timer = 0;
-        currentDots = 0;
-        loadingText.text = baseText;
-
-        asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
-        asyncLoad.allowSceneActivation = false;
+        StartCoroutine(LoadSceneAsync(sceneIndex));
     }
 
-    private void CompleteLoading()
+    private void OnEnable()
     {
-        isLoading = false;
-        asyncLoad.allowSceneActivation = true;
+        animCoroutine = StartCoroutine(Animate());
     }
-
-    private void OnDisable()
+    private IEnumerator Animate()
     {
-        if (asyncLoad != null && !asyncLoad.isDone)
+        while (true)
         {
-            asyncLoad.allowSceneActivation = true;
+            for (int i = 0; i <= 3; i++)
+            {
+                text.text = "Загрузка" + new string('.', i);
+                yield return new WaitForSeconds(speed);
+            }
+        }
+    }
+
+    private IEnumerator LoadSceneAsync(int sceneIndex)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneIndex);
+        asyncLoad.allowSceneActivation = false; 
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                yield return new WaitForSeconds(2f);
+                if (animCoroutine != null)
+                {
+                    StopCoroutine(animCoroutine);
+                }
+                asyncLoad.allowSceneActivation = true;
+            }
+            yield return null;
         }
     }
 }

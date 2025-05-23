@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class UIScreenManager : MonoBehaviour
 {
+    [SerializeField] private LoadingScreen loadingScreen;
     private Animator animator;
     private Button[] buttons;
     
@@ -38,13 +39,13 @@ public class UIScreenManager : MonoBehaviour
     public void RestartGame()
     {
         //Time.timeScale = 1; 
-        SceneManager.LoadScene(1); 
+        loadingScreen.LoadScene(1); 
     }
 
     public void ReturnToMenu()
     {
         //Time.timeScale = 1;
-        SceneManager.LoadScene(0); 
+        loadingScreen.LoadScene(0); 
     }
 
     public void EnableInteractibility()
