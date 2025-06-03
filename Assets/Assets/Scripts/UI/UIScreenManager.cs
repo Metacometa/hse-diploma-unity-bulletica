@@ -6,24 +6,23 @@ public class UIScreenManager : MonoBehaviour
 {
     [SerializeField] private LoadingScreen loadingScreen;
     private Animator animator;
-    private Button[] buttons;
+    private CanvasGroup interactableGroup;
     
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        buttons = GetComponentsInChildren<Button>();
+        interactableGroup = GetComponentInChildren<CanvasGroup>();
         DisableInteractibility();
     }
 
     public void ShowUI()
     {
-		//Time.timeScale = 0;
         animator.SetTrigger("Show");
     }
 
     public void HideUI()
     {
-		//Time.timeScale = 1;
+        Time.timeScale = 1;
         animator.SetTrigger("Hide");
     }
 
@@ -34,33 +33,28 @@ public class UIScreenManager : MonoBehaviour
     public void OnShowComplete()
     {
         EnableInteractibility();
+        Time.timeScale = 0;
     }
 
     public void RestartGame()
     {
-        //Time.timeScale = 1; 
+        Time.timeScale = 1; 
         loadingScreen.LoadScene(1); 
     }
 
     public void ReturnToMenu()
     {
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         loadingScreen.LoadScene(0); 
     }
 
     public void EnableInteractibility()
     {
-        foreach (Button button in buttons)
-        {
-            button.interactable = true;
-        }
+        interactableGroup.interactable = true;
     }
 
     public void DisableInteractibility()
     {
-        foreach (Button button in buttons)
-        {
-            button.interactable = false;
-        }
+        interactableGroup.interactable = false;
     }
 }

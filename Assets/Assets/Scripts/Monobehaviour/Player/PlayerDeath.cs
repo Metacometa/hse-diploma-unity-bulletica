@@ -8,7 +8,7 @@ public class PlayerDeath : BaseDeath
 
     void Awake()
     {
-        uiManager = GameObject.FindGameObjectWithTag("UI")?.GetComponentInChildren<UIScreenManager>();
+        uiManager = GameObject.FindGameObjectWithTag("Failure Screen")?.GetComponentInChildren<UIScreenManager>();
 
         if (uiManager)
         {

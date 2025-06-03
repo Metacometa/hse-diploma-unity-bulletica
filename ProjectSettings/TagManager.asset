@@ -26,6 +26,7 @@ TagManager:
   - Bullet Light
   - Victory Screen
   - Failure Screen
+  - Menu Screen
   layers:
   - Default
   - TransparentFX
