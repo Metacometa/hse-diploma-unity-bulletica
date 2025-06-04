@@ -17,23 +17,23 @@ public class UIScreenManager : MonoBehaviour
 
     public void ShowUI()
     {
+        Time.timeScale = 0;
         animator.SetTrigger("Show");
     }
 
     public void HideUI()
     {
-        Time.timeScale = 1;
         animator.SetTrigger("Hide");
     }
 
     public void OnHideComplete()
     {
         DisableInteractibility();
+        Time.timeScale = 1;
     }
     public void OnShowComplete()
     {
         EnableInteractibility();
-        Time.timeScale = 0;
     }
 
     public void RestartGame()
@@ -51,10 +51,12 @@ public class UIScreenManager : MonoBehaviour
     public void EnableInteractibility()
     {
         interactableGroup.interactable = true;
+        interactableGroup.blocksRaycasts = true;
     }
 
     public void DisableInteractibility()
     {
         interactableGroup.interactable = false;
+        interactableGroup.blocksRaycasts = false;
     }
 }
