@@ -11,11 +11,21 @@ public class MusicPlaylist : ScriptableObject
         public float sixteenth; 
     }
 
+    [Header("Fade")]
+    public float fadingTime;
+    public float fadingValue;
+    public float delayBeforeFade;
+
+    [Header("Track options")]
     public List<Track> tracks;
 
     public AudioSource currentTrack;
 
     public int currentTrackIndex = 0;
+
+    [Header("Skip beginning")]
+    public bool skipBeginning = true;
+    public int cooldown = 0; 
 
     public void SwitchToStartTrack()
     {
@@ -51,6 +61,15 @@ public class MusicPlaylist : ScriptableObject
         else
         {
             return 0f;
+        }
+    }
+
+    public void SkipBeginning()
+    {
+        if (skipBeginning == true)
+        {
+            currentTrackIndex++;
+            skipBeginning = false;
         }
     }
 }

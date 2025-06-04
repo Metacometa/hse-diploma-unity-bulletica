@@ -5,6 +5,7 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField] private MusicPlaylist fightingPlaylist;
     [SerializeField] private MusicPlaylist ambientPlaylist;
+    [SerializeField] private MusicPlaylist bossPlaylist;
 
     [SerializeField] private float tolerance;
 
@@ -14,11 +15,31 @@ public class MusicManager : MonoBehaviour
     private bool playing;
 
     private Coroutine timingCoroutine;
+    private Coroutine fadingCoroutine;
+
+    private float startVolume;
+
+    //public int fightingPlaylistTimeToSwitch = 0;
+    public int trackSwitcherCooldown = 5;
+    public int trackSwitcherCounter = 0;
 
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
         playlist = ambientPlaylist;
+
+        startVolume = audioSource.volume;
+
+        //fightingPlaylistTimeToSwitch = fightingPlaylist.cooldown;
+
+        trackSwitcherCounter = trackSwitcherCooldown;
+    }
+
+    private void Start()
+    {
+        fightingPlaylist.SwitchToStartTrack();
+        ambientPlaylist.SwitchToStartTrack();
+        ambientPlaylist.skipBeginning = true;
     }
 
     public void StartToPlayMusic()
@@ -34,6 +55,7 @@ public class MusicManager : MonoBehaviour
     {
         if (!Application.isFocused || !playing) { return; }
 
+        //Debug.Log("Kek: " + audioSource.en)
         //Debug.Log($"Time: { TrackUtils.CurrentTrackTime(audioSource) }");
         if (!audioSource.isPlaying)
         {
@@ -44,15 +66,46 @@ public class MusicManager : MonoBehaviour
 
     public void PlayFightingPlaylist()
     {
-        StopTimingCoroutine();
+        trackSwitcherCounter++;
+
+        if (playlist == fightingPlaylist) { return; }
+
+        if (trackSwitcherCounter < trackSwitcherCooldown) { return; }
+
+        StopLocalCoroutines();
 
         timingCoroutine = StartCoroutine(TimingCoroutine(fightingPlaylist));
+
+        trackSwitcherCounter = 0;
     }
 
     public void PlayAmbientPlaylist()
     {
-        StopTimingCoroutine();
-        timingCoroutine = StartCoroutine(TimingCoroutine(ambientPlaylist));
+        if (playlist == ambientPlaylist) { return; }
+        //trackSwitcherCounter++;
+        if (trackSwitcherCounter < trackSwitcherCooldown) { return; }
+
+
+        if (ambientPlaylist.skipBeginning)
+        {
+            ambientPlaylist.SkipBeginning();
+        }
+
+        StopLocalCoroutines();
+        fadingCoroutine = StartCoroutine(FadingCoroutine(ambientPlaylist));
+
+        trackSwitcherCounter = 0;
+    }
+
+    public void PlayBossPlaylist()
+    {
+        if (playlist == bossPlaylist) { return; }
+
+        StopLocalCoroutines();
+
+        timingCoroutine = StartCoroutine(TimingCoroutine(bossPlaylist));
+
+        trackSwitcherCounter = 0;
     }
 
     IEnumerator TimingCoroutine(MusicPlaylist newPlaylist)
@@ -70,35 +123,52 @@ public class MusicManager : MonoBehaviour
 
             if (diff <= tolerance)
             {
-                Debug.Log("Times=1000");
                 break;
             }
 
             yield return null;
         }
 
-        float sixteenth_ = playlist.GetSixteenth();
-        float time_ = TrackUtils.CurrentTrackTime(audioSource);
+        playlist = newPlaylist;
+        playlist.Play(audioSource);
+        audioSource.volume = startVolume;
+    }
 
-        float currTact_ = time_ / sixteenth_;
-        float desiredTact_ = Mathf.Round(time_ / sixteenth_);
+    IEnumerator FadingCoroutine(MusicPlaylist newPlaylist)
+    {
+        yield return new WaitForSeconds(playlist.delayBeforeFade);
 
-        float diff_ = Mathf.Abs(currTact_ - desiredTact_);
+        float time = 0;
 
-        Debug.Log($"Sx: {sixteenth_}, t: {time_}, currT: {currTact_}, desT: {desiredTact_}");
+        while (time < newPlaylist.fadingTime)
+        {
+            time += Time.deltaTime;
 
-        audioSource.Stop();
+            float a = startVolume;
+            float b = newPlaylist.fadingValue;
+            float t = time / newPlaylist.fadingTime;
+            audioSource.volume = Mathf.Lerp(a, b, t);
+
+            yield return null;
+        }
 
         playlist = newPlaylist;
         playlist.Play(audioSource);
+        audioSource.volume = startVolume;
     }
 
-    private void StopTimingCoroutine()
+    private void StopLocalCoroutines()
     {
         if (timingCoroutine != null)
         {
             StopCoroutine(timingCoroutine);
             timingCoroutine = null;
+        }
+
+        if (fadingCoroutine != null)
+        {
+            StopCoroutine(fadingCoroutine);
+            fadingCoroutine = null;
         }
     }
 

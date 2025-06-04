@@ -10,7 +10,7 @@ public class LightController : MonoBehaviour
     public List<Light2D> globalLights;
 
     private Level level;
-    private Dictionary<Light2D, float> intensities;
+    public Dictionary<Light2D, float> intensities;
 
     void Awake()
     {
@@ -137,7 +137,7 @@ public class LightController : MonoBehaviour
     {
         foreach (Light2D light in lights)
         {
-            if (light)
+            if (light != null && intensities != null)
             {
                 if (intensities.ContainsKey(light)) 
                 {

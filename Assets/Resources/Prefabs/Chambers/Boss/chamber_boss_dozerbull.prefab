@@ -6693,8 +6693,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.0018310547, y: 11.501915, z: 0}
-      m_Extent: {x: 25.001831, y: 10.501915, z: 0}
+      m_Center: {x: 0.0018310547, y: 0.001914978, z: 0}
+      m_Extent: {x: 25.001831, y: 22.001915, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -31129,7 +31129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 532391975807895088}
   - component: {fileID: 6243100103586099508}
-  - component: {fileID: 2267035658701670643}
+  - component: {fileID: 5210272635116418373}
   m_Layer: 0
   m_Name: ChamberStarter
   m_TagString: Untagged
@@ -31198,7 +31198,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 46, y: 40}
   m_EdgeRadius: 0
---- !u!114 &2267035658701670643
+--- !u!114 &5210272635116418373
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -31207,7 +31207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8135795367621438300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e49a7172a83e746bbb7bb715f97a85, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c3f1b279308917468a94581fdaf3152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player

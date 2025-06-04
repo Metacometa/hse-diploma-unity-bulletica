@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c07506c2aae76346b658a064e86aea0, type: 3}
   m_Name: FightingPlaylist
   m_EditorClassIdentifier: 
+  fadingTime: 1
+  fadingValue: 0.1
+  delayBeforeFade: 1
   tracks:
   - clip: {fileID: 8300000, guid: 6254e1a9603a60e4ca7c7605e5414463, type: 3}
     sixteenth: 2.42
   currentTrack: {fileID: 0}
   currentTrackIndex: 0
+  skipBeginning: 1
+  cooldown: 5

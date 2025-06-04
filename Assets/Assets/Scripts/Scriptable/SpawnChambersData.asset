@@ -19,11 +19,11 @@ MonoBehaviour:
   hardRoomsPath: Prefabs/Chambers/Hard
   hubRoomsPath: Prefabs/Chambers/Hubs
   minRooms: 15
-  maxRooms: 16
+  maxRooms: 17
   easyRoomPercentage: 25
   mediumRoomPercentage: 55
   hardRoomPercentage: 20
   minHubs: 2
   maxHubs: 2
-  seed: 
+  seed: 503752254
   maxGenerationAttempts: 1000
