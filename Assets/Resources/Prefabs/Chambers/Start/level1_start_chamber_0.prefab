@@ -9093,7 +9093,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5090193641893643468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31e49a7172a83e746bbb7bb715f97a85, type: 3}
   m_Name: 
@@ -9103,6 +9103,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   alarmProbability: 1
+  audioSource: {fileID: 0}
 --- !u!1 &5292067984839398427
 GameObject:
   m_ObjectHideFlags: 0
