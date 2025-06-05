@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private MusicPlaylist fightingPlaylist;
     [SerializeField] private MusicPlaylist ambientPlaylist;
     [SerializeField] private MusicPlaylist bossPlaylist;
+    [SerializeField] private MusicPlaylist menuPlaylist;
 
     [Space]
     [SerializeField] public SoundParameters soundParameters;
@@ -49,6 +50,7 @@ public class MusicManager : MonoBehaviour
         fightingPlaylist.SwitchToStartTrack();
         ambientPlaylist.SwitchToStartTrack();
         bossPlaylist.SwitchToStartTrack();
+        menuPlaylist.SwitchToStartTrack();
 
         ambientPlaylist.skipBeginning = true;
     }
@@ -56,6 +58,15 @@ public class MusicManager : MonoBehaviour
     public void StartToPlayMusic()
     {
         playlist = ambientPlaylist;
+        playlist.SwitchToStartTrack();
+        playlist.Play(audioSource);
+
+        playing = true;
+    }
+
+    public void StartToPlayMenuMusic()
+    {
+        playlist = menuPlaylist;
         playlist.SwitchToStartTrack();
         playlist.Play(audioSource);
 

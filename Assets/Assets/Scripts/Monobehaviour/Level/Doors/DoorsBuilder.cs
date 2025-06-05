@@ -87,6 +87,8 @@ public class DoorsBuilder : MonoBehaviour
                 }
             }
 
+            Debug.Log($"Doors: {wallsCounter}, {doorCounter}");
+
             if (i < walls.Count && i < doors.Count)
             {
                 if (doorCounter != 4)

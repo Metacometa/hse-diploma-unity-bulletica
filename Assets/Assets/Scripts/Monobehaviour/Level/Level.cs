@@ -2,6 +2,7 @@ using NavMeshPlus.Components;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
@@ -28,16 +29,26 @@ public class Level : MonoBehaviour
         //Pitch
         float startPitch = music.soundParameters.onStartSoundStartPitch;
         music.soundParameters.onStartSoundPitch = startPitch;
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void Start()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (camera)
+        Debug.Log($"Scene name: {scene.name}");
+
+/*        if (camera)
         {
             camera.transform.localPosition = Vector2.zero;
             camera.transform.position = Vector2.zero;
             camera.GetComponent<CinemachineBrain>().enabled = true;
-        }
+        }*/
+    }
+
+    void Start()
+    {
+        camera.transform.localPosition = new Vector3(0, 0, -10);
+        camera.transform.position = new Vector3(0, 0, -10);
 
         StartCoroutine(BuildLevel());
 
@@ -52,6 +63,7 @@ public class Level : MonoBehaviour
     IEnumerator BuildLevel()
     {
         yield return new WaitForEndOfFrame(); // ∆дем конца кадра
+        yield return new WaitForFixedUpdate();
         foreach (DoorsController doorsController in GetComponentsInChildren<DoorsController>())
         {
             doorsController.WallsToDoors();
@@ -62,6 +74,13 @@ public class Level : MonoBehaviour
         surface?.BuildNavMesh();
 
         music.StartToPlayMusic();
+
+        yield return new WaitForSeconds(0.2f);
+
+        if (camera)
+        {
+            camera.GetComponent<CinemachineBrain>().enabled = true;
+        }
     }
 
     void RegenerateCompositeCollider2Ds()
