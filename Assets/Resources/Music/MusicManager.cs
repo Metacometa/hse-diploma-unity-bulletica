@@ -29,6 +29,9 @@ public class MusicManager : MonoBehaviour
     public int trackSwitcherCooldown = 5;
     public int trackSwitcherCounter = 0;
 
+    //
+    bool volumeOnChanging = false;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -71,7 +74,7 @@ public class MusicManager : MonoBehaviour
             playlist.Play(audioSource);
         }
 
-        if (audioSource)
+        if (audioSource && !volumeOnChanging)
         {
             audioSource.volume = soundParameters.musicVolume;
         }
@@ -123,15 +126,16 @@ public class MusicManager : MonoBehaviour
 
     IEnumerator BossCoroutine(MusicPlaylist newPlaylist)
     {
+        volumeOnChanging = true;
+
         float time = 0;
-        float theme_fading_time = 3f;
-        while (time < theme_fading_time)
+        while (time < newPlaylist.fadingTime)
         {
             time += Time.deltaTime;
 
             float a = startVolume;
             float b = newPlaylist.fadingValue;
-            float t = time / theme_fading_time;
+            float t = time / newPlaylist.fadingTime;
             audioSource.volume = Mathf.Lerp(a, b, t);
 
             yield return null;
@@ -143,6 +147,8 @@ public class MusicManager : MonoBehaviour
         playlist = newPlaylist;
         playlist.Play(audioSource);
         //audioSource.volume = startVolume;
+
+        volumeOnChanging = false;
     }
 
     IEnumerator TimingCoroutine(MusicPlaylist newPlaylist)
@@ -173,6 +179,8 @@ public class MusicManager : MonoBehaviour
 
     IEnumerator FadingCoroutine(MusicPlaylist newPlaylist)
     {
+        volumeOnChanging = true;
+
         yield return new WaitForSeconds(playlist.delayBeforeFade);
 
         float time = 0;
@@ -192,6 +200,8 @@ public class MusicManager : MonoBehaviour
         playlist = newPlaylist;
         playlist.Play(audioSource);
         audioSource.volume = startVolume;
+
+        volumeOnChanging = false;
     }
 
     private void StopLocalCoroutines()
