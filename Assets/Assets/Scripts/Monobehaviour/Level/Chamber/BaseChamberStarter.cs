@@ -3,21 +3,24 @@ using UnityEngine.Events;
 
 public class BaseChamberStarter : MonoBehaviour
 {
-    private Chamber chamber;
-    private DoorsController doorsController;
-    private EnemyController enemyController;
-    private LightController lightController;
+    protected Chamber chamber;
+    protected DoorsController doorsController;
+    protected EnemyController enemyController;
+    protected LightController lightController;
 
-    private MusicManager musicManager;
+    protected MusicManager musicManager;
 
-    [SerializeField] private string targetTag;
+    [SerializeField] protected string targetTag;
 
     public UnityEvent startChamberEvent;
 
     [Range(0f, 1f)]
     [SerializeField] public float alarmProbability = 1f;
 
-    void Awake()
+    //[Space]
+    public AudioSource audioSource;
+
+    protected virtual void Awake()
     {
         chamber = GetComponentInParent<Chamber>();
         doorsController = chamber.GetComponentInChildren<DoorsController>();
@@ -46,15 +49,21 @@ public class BaseChamberStarter : MonoBehaviour
             startChamberEvent.AddListener(musicManager.PlayFightingPlaylist);
         }
 
+        startChamberEvent.AddListener(onStartSound);
+
         AddLightListeners();
+
+        //Create audio source
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = musicManager.soundParameters.chamberStartClip;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         AddLightControllerListener();
     }
 
-    private void AddLightControllerListener()
+    protected virtual void AddLightControllerListener()
     {
         Level level = GetComponentInParent<Level>();
 
@@ -68,7 +77,7 @@ public class BaseChamberStarter : MonoBehaviour
         }
     }
 
-    private void AddLightListeners()
+    protected virtual void AddLightListeners()
     {
         AlarmLight alarm = transform.parent.GetComponentInChildren<AlarmLight>();
 
@@ -83,7 +92,7 @@ public class BaseChamberStarter : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (targetTag == "") { return; };
 
@@ -94,7 +103,22 @@ public class BaseChamberStarter : MonoBehaviour
         }
     }
 
-    void OnDestroy()
+    protected virtual void onStartSound()
+    {
+        if (audioSource && musicManager)
+        {
+            audioSource.volume = musicManager.soundParameters.volume;
+
+            audioSource.pitch = musicManager.soundParameters.onStartSoundPitch;
+
+            float pitchDiff = musicManager.soundParameters.onStartSoundPitchDiff;
+            musicManager.soundParameters.onStartSoundPitch += pitchDiff;
+
+            audioSource.Play();
+        }
+    }
+
+    protected virtual void OnDestroy()
     {
         startChamberEvent?.RemoveAllListeners();
     }

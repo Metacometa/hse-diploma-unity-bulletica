@@ -19,7 +19,7 @@ MonoBehaviour:
   stayBufferTime: 1
   sightRange: 0
   pursueRange: 0
-  rotationSpeed: 150
+  rotationSpeed: 250
   gunRotationSpeed: 500
   gunRotateCooldown: 0.01
   tankRotateCooldown: 0.1
@@ -40,6 +40,8 @@ MonoBehaviour:
     m_Bits: 0
   shimmerTime: 3
   shimmerColor: {r: 1, g: 0.4669811, b: 0.4669811, a: 0}
+  shootingRangeShift: 0
+  predictionDepth: 0
   shootingRange: 15
   approachedDistance: 6
   minPositionRadius: 0

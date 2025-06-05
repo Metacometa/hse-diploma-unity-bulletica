@@ -16,7 +16,7 @@ MonoBehaviour:
   fadingValue: 0
   delayBeforeFade: 0
   tracks:
-  - clip: {fileID: 8300000, guid: 27f36d8a13c24f4448a23340490d2e4c, type: 3}
+  - clip: {fileID: 8300000, guid: dd248b617995e8a45bf2288ad4deab26, type: 3}
     sixteenth: 1.21
   - clip: {fileID: 8300000, guid: 6d96ddd0a1637e1478bc57fb8f04f1c1, type: 3}
     sixteenth: 1.21
@@ -31,5 +31,6 @@ MonoBehaviour:
   - clip: {fileID: 8300000, guid: 6d96ddd0a1637e1478bc57fb8f04f1c1, type: 3}
     sixteenth: 1.21
   currentTrack: {fileID: 0}
-  currentTrackIndex: 1
-  skipBeginning: 0
+  currentTrackIndex: 0
+  skipBeginning: 1
+  cooldown: 0

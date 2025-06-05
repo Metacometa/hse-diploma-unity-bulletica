@@ -1,11 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
     [SerializeField] private MusicPlaylist fightingPlaylist;
     [SerializeField] private MusicPlaylist ambientPlaylist;
     [SerializeField] private MusicPlaylist bossPlaylist;
+
+    [Space]
+    [SerializeField] public SoundParameters soundParameters;
+    [Space]
 
     [SerializeField] private float tolerance;
 
@@ -16,6 +21,7 @@ public class MusicManager : MonoBehaviour
 
     private Coroutine timingCoroutine;
     private Coroutine fadingCoroutine;
+    private Coroutine bossCoroutine;
 
     private float startVolume;
 
@@ -39,6 +45,8 @@ public class MusicManager : MonoBehaviour
     {
         fightingPlaylist.SwitchToStartTrack();
         ambientPlaylist.SwitchToStartTrack();
+        bossPlaylist.SwitchToStartTrack();
+
         ambientPlaylist.skipBeginning = true;
     }
 
@@ -61,6 +69,11 @@ public class MusicManager : MonoBehaviour
         {
             playlist.SwitchToNextTrack();
             playlist.Play(audioSource);
+        }
+
+        if (audioSource)
+        {
+            audioSource.volume = soundParameters.musicVolume;
         }
     }
 
@@ -103,9 +116,33 @@ public class MusicManager : MonoBehaviour
 
         StopLocalCoroutines();
 
-        timingCoroutine = StartCoroutine(TimingCoroutine(bossPlaylist));
+        bossCoroutine = StartCoroutine(BossCoroutine(bossPlaylist));
 
         trackSwitcherCounter = 0;
+    }
+
+    IEnumerator BossCoroutine(MusicPlaylist newPlaylist)
+    {
+        float time = 0;
+        float theme_fading_time = 3f;
+        while (time < theme_fading_time)
+        {
+            time += Time.deltaTime;
+
+            float a = startVolume;
+            float b = newPlaylist.fadingValue;
+            float t = time / theme_fading_time;
+            audioSource.volume = Mathf.Lerp(a, b, t);
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        yield return new WaitForSeconds(0.5f);
+
+        playlist = newPlaylist;
+        playlist.Play(audioSource);
+        //audioSource.volume = startVolume;
     }
 
     IEnumerator TimingCoroutine(MusicPlaylist newPlaylist)
@@ -170,6 +207,11 @@ public class MusicManager : MonoBehaviour
             StopCoroutine(fadingCoroutine);
             fadingCoroutine = null;
         }
-    }
 
+        if (bossCoroutine != null)
+        {
+            StopCoroutine(bossCoroutine);
+            bossCoroutine = null;
+        }
+    }
 }

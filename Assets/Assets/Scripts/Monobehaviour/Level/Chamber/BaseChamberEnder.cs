@@ -15,6 +15,8 @@ public class BaseChamberEnder : MonoBehaviour
 
     [HideInInspector] public UnityEvent endChamberEvent;
 
+    public AudioSource audioSource;
+
     void Awake()
     {
         chamber = GetComponentInParent<Chamber>();
@@ -34,7 +36,13 @@ public class BaseChamberEnder : MonoBehaviour
             endChamberEvent.AddListener(musicManager.PlayAmbientPlaylist);
         }
 
+        endChamberEvent.AddListener(onEndSound);
+
         AddAlarmListeners();
+
+        //Create audio source
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = musicManager.soundParameters.chamberEndClip;
     }
 
     private void Start()
@@ -66,6 +74,21 @@ public class BaseChamberEnder : MonoBehaviour
         }
     }
 
+    protected virtual void onEndSound()
+    {
+        if (audioSource && musicManager)
+        {
+            audioSource.volume = musicManager.soundParameters.volume;
+
+            //audioSource.pitch = musicManager.soundParameters.onStartSoundPitch;
+
+            //float pitchDiff = musicManager.soundParameters.onStartSoundPitchDiff;
+            //musicManager.soundParameters.onStartSoundPitch += pitchDiff;
+
+            audioSource.Play();
+        }
+    }
+
     void Update()
     {
         if (!enemyController.EnemyRemained())
@@ -73,7 +96,7 @@ public class BaseChamberEnder : MonoBehaviour
             endChamberEvent?.Invoke();
             endChamberEvent?.RemoveAllListeners();
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
     }
 }

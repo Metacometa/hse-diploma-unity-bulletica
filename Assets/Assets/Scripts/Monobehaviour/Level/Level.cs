@@ -24,6 +24,10 @@ public class Level : MonoBehaviour
         //Debug.Log("Level.Awake() called in " + gameObject.scene.name);
 
         onAlarm = false;
+
+        //Pitch
+        float startPitch = music.soundParameters.onStartSoundStartPitch;
+        music.soundParameters.onStartSoundPitch = startPitch;
     }
 
     void Start()
@@ -44,7 +48,6 @@ public class Level : MonoBehaviour
             chamber.transform.GetComponentInChildren<DoorsController>().OpenDoors();
         }
     }
-
 
     IEnumerator BuildLevel()
     {

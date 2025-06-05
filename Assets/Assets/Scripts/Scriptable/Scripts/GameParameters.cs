@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameParameters", menuName = "Scriptable Objects/GameParameters")]

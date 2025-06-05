@@ -20,10 +20,10 @@ MonoBehaviour:
   sightRange: 50
   pursueRange: 60
   rotationSpeed: 200
-  gunRotationSpeed: 200
+  gunRotationSpeed: 100
   gunRotateCooldown: 0.001
   tankRotateCooldown: 0.01
-  health: 4
+  health: 3
   invincibilityTime: 0.2
   targetTag: Player
   sightMask:
@@ -37,9 +37,11 @@ MonoBehaviour:
     m_Bits: 2624
   shootingMask:
     serializedVersion: 2
-    m_Bits: 2624
+    m_Bits: 2112
   shimmerTime: 1
   shimmerColor: {r: 1, g: 0.46666667, b: 0.46666667, a: 0}
+  shootingRangeShift: 0
+  predictionDepth: 0.7
   shootingRange: 35
   approachedDistance: 4
   minPositionRadius: 2
@@ -47,4 +49,4 @@ MonoBehaviour:
   changePositionRadius: 15
   shiftPositionCloser: 0
   shootingOnMove: 1
-  bulletRadius: 0.4
+  bulletRadius: 2

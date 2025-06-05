@@ -72,6 +72,7 @@ public class BaseGunController : MonoBehaviour
             muzzle.transform.position,
             ref bulletsInMagazine);
 
+
         onAttack = false;
 
         Cooldown();

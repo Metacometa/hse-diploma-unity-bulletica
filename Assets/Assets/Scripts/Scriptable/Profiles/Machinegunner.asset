@@ -37,9 +37,11 @@ MonoBehaviour:
     m_Bits: 2624
   shootingMask:
     serializedVersion: 2
-    m_Bits: 2624
+    m_Bits: 2112
   shimmerTime: 1
   shimmerColor: {r: 1, g: 0.46666667, b: 0.46666667, a: 0}
+  shootingRangeShift: 0
+  predictionDepth: 0
   shootingRange: 50
   approachedDistance: 4
   minPositionRadius: 0.1

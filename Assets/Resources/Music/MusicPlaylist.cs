@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [CreateAssetMenu(fileName = "MusicPlaylist", menuName = "Scriptable Objects/MusicPlaylist")]
 public class MusicPlaylist : ScriptableObject

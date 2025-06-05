@@ -20,7 +20,7 @@ public class SmartEnemy : Gunman
 
     protected override void FixedUpdate()
     {
-        if (sleep.onSleep)
+        if (sleep.onSleep || death.died)
         {
             return;
         }
@@ -51,7 +51,7 @@ public class SmartEnemy : Gunman
 
     protected override void Update()
     {
-        if (sleep.onSleep)
+        if (sleep.onSleep || death.died)
         {
             return;
         }
@@ -70,7 +70,7 @@ public class SmartEnemy : Gunman
 
         if (target.inSight)
         {
-            rotator.RotateGun(target.position() - transform.position);
+            rotator.RotateGun(target.PredictedPosition() - transform.position);
         }
         else if (smartMove.CanMove())
         {

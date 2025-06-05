@@ -17,6 +17,8 @@ public class BaseRotator : MonoBehaviour
     public float gunRotateSpeed;
     public float tankRotateSpeed;
 
+    private bool onRotation = true;
+
     void Awake()
     {
         gunSet = GetComponentInChildren<GunSet>();
@@ -25,7 +27,11 @@ public class BaseRotator : MonoBehaviour
 
     void Update()
     {
-        Rotate();
+        if (onRotation)
+        {
+            Rotate();
+        }
+
         RotateGun();
 
         gunRotateTimer -= Time.deltaTime;
@@ -34,6 +40,7 @@ public class BaseRotator : MonoBehaviour
 
     public void Rotate(in Vector2 dir)
     {
+        onRotation = true;
         if (tankRotateTimer <= 0f)
         {
             tankDir = dir;
@@ -94,6 +101,11 @@ public class BaseRotator : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, to, speed * Time.deltaTime);
 
         gunSet.transform.rotation = tempControllerRotation;
+    }
+
+    public void StopRotate()
+    {
+        onRotation = false;
     }
 
     /*

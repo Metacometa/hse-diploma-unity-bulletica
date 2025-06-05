@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class PlayerDeath : BaseDeath
 {
     public UIEndScreenManager uiManager;
     public UnityEvent playerDeathEvent;
+
+    private Component[] componentsToOff;
 
     void Awake()
     {
@@ -14,14 +17,20 @@ public class PlayerDeath : BaseDeath
         {
             playerDeathEvent.AddListener(uiManager.ShowUI);
         }
+
+
+        componentsToOff = GetComponents(typeof(Component));
+
+        musicManager = GetComponentInParent<MusicManager>();
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = musicManager.soundParameters.playerDeath;
     }
 
     public override void Die(GameObject gameObject)
     {
-        //Destroy(gameObject);
         gameObject.SetActive(false);
 
         playerDeathEvent?.Invoke();
-        Debug.Log("Listeners: " + playerDeathEvent.GetPersistentEventCount());
     }
 }
