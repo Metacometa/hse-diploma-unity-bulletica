@@ -4,14 +4,14 @@ using UnityEngine.Events;
 
 public class PlayerDeath : BaseDeath
 {
-    public UIEndScreenManager uiManager;
+    public UIScreenManager uiManager;
     public UnityEvent playerDeathEvent;
 
     private Component[] componentsToOff;
 
     void Awake()
     {
-        uiManager = GameObject.FindGameObjectWithTag("UI")?.GetComponentInChildren<UIEndScreenManager>();
+        uiManager = GameObject.FindGameObjectWithTag("Failure Screen")?.GetComponentInChildren<UIScreenManager>();
 
         if (uiManager)
         {

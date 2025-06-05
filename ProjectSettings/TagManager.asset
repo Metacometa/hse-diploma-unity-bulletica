@@ -24,6 +24,9 @@ TagManager:
   - Other Light
   - Door Light
   - Bullet Light
+  - Victory Screen
+  - Failure Screen
+  - Menu Screen
   layers:
   - Default
   - TransparentFX
