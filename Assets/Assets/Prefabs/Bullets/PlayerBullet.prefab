@@ -421,6 +421,8 @@ MonoBehaviour:
   force: 2
   enemy: 0
   audioSource: {fileID: 0}
+  category: PlayerBullet
+  maxNumber: 15
 --- !u!82 &3608423402874834251
 AudioSource:
   m_ObjectHideFlags: 0

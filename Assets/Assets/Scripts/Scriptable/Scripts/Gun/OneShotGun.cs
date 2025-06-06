@@ -19,7 +19,9 @@ public class OneShotGun : BaseGun
 
         foreach (BulletProperties bulletProps in bullets)
         {
-            GameObject newBullet = Instantiate(bulletObject, from, Quaternion.identity) as GameObject;
+            //GameObject newBullet = Instantiate(bulletObject, from, Quaternion.identity) as GameObject;
+            GameObject newBullet = InstantiateFromPooler(from);
+
             if (newBullet != null)
             {
                 BaseBullet bulletSettings = newBullet.GetComponent<BaseBullet>() as BaseBullet;
@@ -31,6 +33,21 @@ public class OneShotGun : BaseGun
         }
 
         bulletsInMagazine--;
+    }
+
+    private GameObject InstantiateFromPooler(Vector3 position)
+    {
+        BulletPoolingManager poolManager = FindFirstObjectByType<BulletPoolingManager>();
+
+        if (poolManager)
+        {
+            return poolManager.EnableFromPooler(bulletObject, position);
+            //Debug.Log($"InstantiateFromPooler: { poolManage }");
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public override void LoadGun(ref float bulletsInMagazine, ref float magazineCapacity)

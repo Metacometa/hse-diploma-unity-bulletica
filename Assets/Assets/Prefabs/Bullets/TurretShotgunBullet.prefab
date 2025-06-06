@@ -421,6 +421,8 @@ MonoBehaviour:
   force: 2
   enemy: 1
   audioSource: {fileID: 0}
+  category: TurretShotgunBullet
+  maxNumber: 40
 --- !u!82 &8081187507893580992
 AudioSource:
   m_ObjectHideFlags: 0

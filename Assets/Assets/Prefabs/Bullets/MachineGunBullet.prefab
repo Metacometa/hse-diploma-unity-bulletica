@@ -321,6 +321,8 @@ MonoBehaviour:
   force: 2
   enemy: 1
   audioSource: {fileID: 0}
+  category: MachineGunBullet
+  maxNumber: 40
 --- !u!82 &6550799626006935181
 AudioSource:
   m_ObjectHideFlags: 0

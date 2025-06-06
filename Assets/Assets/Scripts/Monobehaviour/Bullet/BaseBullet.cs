@@ -10,7 +10,12 @@ public class BaseBullet : MonoBehaviour
     public bool enemy = true;
 
     [SerializeField] private AudioSource audioSource;
-    private MusicManager musicManager; 
+    private MusicManager musicManager;
+
+    [SerializeField] public string category;
+    [SerializeField] public int maxNumber;
+
+    public BulletPoolingManager poolingManager;
 
     void Awake()
     {
@@ -18,7 +23,8 @@ public class BaseBullet : MonoBehaviour
         Level level = FindFirstObjectByType<Level>();
         if (level)
         {
-            musicManager = level.GetComponent<MusicManager>(); 
+            musicManager = level.GetComponent<MusicManager>();
+            poolingManager = level.GetComponentInChildren<BulletPoolingManager>();
         }
     }
 
@@ -36,23 +42,27 @@ public class BaseBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.transform.CompareTag("Obstacle"))
+        if (col.transform.CompareTag("Obstacle") 
+            || col.transform.CompareTag("Door"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
 
         if (enemy)
         {
             if (col.transform.CompareTag("Player"))
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
             }
         }
         else
         {
             if (!col.transform.CompareTag("Player"))
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
+                //Destroy(gameObject);
             }
         }
     }

@@ -421,6 +421,8 @@ MonoBehaviour:
   force: 2
   enemy: 1
   audioSource: {fileID: 0}
+  category: ShotgunBullet
+  maxNumber: 20
 --- !u!82 &5133248003358282924
 AudioSource:
   m_ObjectHideFlags: 0
