@@ -48,7 +48,7 @@ public class BulletPoolingManager : MonoBehaviour
     {
         string category = GetBulletCategory(bulletGameObject);
 
-        if (order.ContainsKey(category))
+        if (order.Count > 0 && order.ContainsKey(category))
         {
             int poolerOrder = order[category];
             return poolers[poolerOrder].EnableBullet(position);

@@ -423,6 +423,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   category: TurretShotgunBullet
   maxNumber: 40
+  poolingManager: {fileID: 0}
 --- !u!82 &8081187507893580992
 AudioSource:
   m_ObjectHideFlags: 0

@@ -423,6 +423,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   category: TurretBaseGun
   maxNumber: 40
+  poolingManager: {fileID: 0}
 --- !u!82 &4707107620842955713
 AudioSource:
   m_ObjectHideFlags: 0

@@ -423,6 +423,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   category: PlayerBullet
   maxNumber: 15
+  poolingManager: {fileID: 0}
 --- !u!82 &3608423402874834251
 AudioSource:
   m_ObjectHideFlags: 0

@@ -323,6 +323,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   category: MachineGunBullet
   maxNumber: 40
+  poolingManager: {fileID: 0}
 --- !u!82 &6550799626006935181
 AudioSource:
   m_ObjectHideFlags: 0
