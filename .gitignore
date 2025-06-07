@@ -78,3 +78,6 @@ crashlytics-build.properties
 
 # Unity upgrade log
 UpgradeLog.htm
+
+# Visual Studio config
+*.vsconfig
