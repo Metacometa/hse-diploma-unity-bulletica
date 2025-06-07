@@ -27,6 +27,7 @@ TagManager:
   - Victory Screen
   - Failure Screen
   - Menu Screen
+  - Settings Screen
   - HealthPointItem
   layers:
   - Default

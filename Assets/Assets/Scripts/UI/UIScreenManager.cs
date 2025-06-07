@@ -5,11 +5,15 @@ using UnityEngine.UI;
 public class UIScreenManager : MonoBehaviour
 {
     [SerializeField] private LoadingScreen loadingScreen;
-    private Animator animator;
-    private CanvasGroup interactableGroup;
-    
-    private void Awake()
+    protected Animator animator;
+    protected static bool isOpen;
+    protected bool isBlocked;
+    protected CanvasGroup interactableGroup;
+
+    protected virtual void Awake()
     {
+        isOpen = false;
+        isBlocked = false;
         animator = GetComponent<Animator>();
         interactableGroup = GetComponentInChildren<CanvasGroup>();
         DisableInteractibility();
@@ -17,19 +21,24 @@ public class UIScreenManager : MonoBehaviour
 
     public void ShowUI()
     {
-        Time.timeScale = 0;
-        animator.SetTrigger("Show");
+        if (!isOpen)
+        {
+            isOpen = true;
+            Time.timeScale = 0;
+            animator.SetTrigger("Show");
+        }
     }
 
     public void HideUI()
     {
+        DisableInteractibility();
         animator.SetTrigger("Hide");
     }
 
     public void OnHideComplete()
     {
-        DisableInteractibility();
         Time.timeScale = 1;
+        isOpen = false;
     }
     public void OnShowComplete()
     {
@@ -52,6 +61,7 @@ public class UIScreenManager : MonoBehaviour
     {
         interactableGroup.interactable = true;
         interactableGroup.blocksRaycasts = true;
+        isBlocked = false;
     }
 
     public void DisableInteractibility()
