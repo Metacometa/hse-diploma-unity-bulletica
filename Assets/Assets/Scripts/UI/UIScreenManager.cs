@@ -6,12 +6,14 @@ public class UIScreenManager : MonoBehaviour
 {
     [SerializeField] private LoadingScreen loadingScreen;
     protected Animator animator;
-    protected static bool isOpen = false;
-    protected bool isBlocked = false;
+    protected static bool isOpen;
+    protected bool isBlocked;
     protected CanvasGroup interactableGroup;
 
     protected virtual void Awake()
     {
+        isOpen = false;
+        isBlocked = false;
         animator = GetComponent<Animator>();
         interactableGroup = GetComponentInChildren<CanvasGroup>();
         DisableInteractibility();
