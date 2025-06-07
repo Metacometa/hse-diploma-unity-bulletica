@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIMenuScreenManager : UIScreenManager
 {
     private bool isPaused = false;
-    void Update()
+    [SerializeField] private UISettingsPanelScreenManager settingsScreenPanel;
+    public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -21,12 +21,19 @@ public class UIMenuScreenManager : UIScreenManager
 
     public void TogglePause()
     {
-        isPaused = true;
-        ShowUI();
+        if (!isOpen)
+        {
+            isPaused = true;
+            ShowUI();
+        }
     }
     public void ResumeGame()
     {
         isPaused = false;
         HideUI();
+    }
+    public void SettingsPanelScreen()
+    {
+        settingsScreenPanel.ShowUI();
     }
 }

@@ -1,15 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class UIScreenManager : MonoBehaviour
+public class UIPanelScreenManager : MonoBehaviour
 {
     [SerializeField] private LoadingScreen loadingScreen;
     private Animator animator;
-    protected static bool isOpen = false;
     private CanvasGroup interactableGroup;
-    
-    private void Awake()
+
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         interactableGroup = GetComponentInChildren<CanvasGroup>();
@@ -18,12 +15,7 @@ public class UIScreenManager : MonoBehaviour
 
     public void ShowUI()
     {
-        if (!isOpen)
-        {
-            isOpen = true;
-            Time.timeScale = 0;
-            animator.SetTrigger("Show");
-        }
+        animator.SetTrigger("Show");
     }
 
     public void HideUI()
@@ -34,24 +26,10 @@ public class UIScreenManager : MonoBehaviour
     public void OnHideComplete()
     {
         DisableInteractibility();
-        Time.timeScale = 1;
-        isOpen = false;
     }
     public void OnShowComplete()
     {
         EnableInteractibility();
-    }
-
-    public void RestartGame()
-    {
-        Time.timeScale = 1; 
-        loadingScreen.LoadScene(1); 
-    }
-
-    public void ReturnToMenu()
-    {
-        Time.timeScale = 1;
-        loadingScreen.LoadScene(0); 
     }
 
     public void EnableInteractibility()
