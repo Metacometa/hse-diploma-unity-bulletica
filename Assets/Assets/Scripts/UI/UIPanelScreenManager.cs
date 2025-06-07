@@ -1,46 +1,16 @@
 using UnityEngine;
 
-public class UIPanelScreenManager : MonoBehaviour
+public class UIPanelScreenManager : UIScreenManager
 {
-    [SerializeField] private LoadingScreen loadingScreen;
-    private Animator animator;
-    private CanvasGroup interactableGroup;
-
-    protected virtual void Awake()
+    private UIScreenManager parentUIElement;
+    public void ShowUI(UIScreenManager parent)
     {
-        animator = GetComponent<Animator>();
-        interactableGroup = GetComponentInChildren<CanvasGroup>();
-        DisableInteractibility();
-    }
-
-    public void ShowUI()
-    {
+        parentUIElement = parent;
+        parentUIElement.DisableInteractibility();
         animator.SetTrigger("Show");
     }
-
-    public void HideUI()
+    public new void OnHideComplete()
     {
-        animator.SetTrigger("Hide");
-    }
-
-    public void OnHideComplete()
-    {
-        DisableInteractibility();
-    }
-    public void OnShowComplete()
-    {
-        EnableInteractibility();
-    }
-
-    public void EnableInteractibility()
-    {
-        interactableGroup.interactable = true;
-        interactableGroup.blocksRaycasts = true;
-    }
-
-    public void DisableInteractibility()
-    {
-        interactableGroup.interactable = false;
-        interactableGroup.blocksRaycasts = false;
+        parentUIElement.EnableInteractibility();
     }
 }

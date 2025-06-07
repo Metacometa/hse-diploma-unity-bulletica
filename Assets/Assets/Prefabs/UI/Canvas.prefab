@@ -2717,6 +2717,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsPanelScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 5351596061370051320, guid: 2fa573d4bba6f7d4f8d07a1bbca9a357, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351596061370051320, guid: 2fa573d4bba6f7d4f8d07a1bbca9a357, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351596061370051320, guid: 2fa573d4bba6f7d4f8d07a1bbca9a357, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5351596061370051320, guid: 2fa573d4bba6f7d4f8d07a1bbca9a357, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 8072686200468033743, guid: 2fa573d4bba6f7d4f8d07a1bbca9a357, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2773,7 +2789,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 0}
   volumeSlider: {fileID: 2736992211102606851}
-  currentVolume: 0
 --- !u!1001 &7445125813975674819
 PrefabInstance:
   m_ObjectHideFlags: 0

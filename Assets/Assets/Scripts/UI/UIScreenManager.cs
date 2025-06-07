@@ -5,11 +5,12 @@ using UnityEngine.UI;
 public class UIScreenManager : MonoBehaviour
 {
     [SerializeField] private LoadingScreen loadingScreen;
-    private Animator animator;
+    protected Animator animator;
     protected static bool isOpen = false;
-    private CanvasGroup interactableGroup;
-    
-    private void Awake()
+    protected bool isBlocked = false;
+    protected CanvasGroup interactableGroup;
+
+    protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         interactableGroup = GetComponentInChildren<CanvasGroup>();
@@ -28,12 +29,12 @@ public class UIScreenManager : MonoBehaviour
 
     public void HideUI()
     {
+        DisableInteractibility();
         animator.SetTrigger("Hide");
     }
 
     public void OnHideComplete()
     {
-        DisableInteractibility();
         Time.timeScale = 1;
         isOpen = false;
     }
@@ -58,6 +59,7 @@ public class UIScreenManager : MonoBehaviour
     {
         interactableGroup.interactable = true;
         interactableGroup.blocksRaycasts = true;
+        isBlocked = false;
     }
 
     public void DisableInteractibility()

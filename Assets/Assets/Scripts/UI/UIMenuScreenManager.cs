@@ -6,7 +6,7 @@ public class UIMenuScreenManager : UIScreenManager
     [SerializeField] private UISettingsPanelScreenManager settingsScreenPanel;
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isBlocked)
         {
             if (!isPaused)
             {
@@ -34,6 +34,7 @@ public class UIMenuScreenManager : UIScreenManager
     }
     public void SettingsPanelScreen()
     {
-        settingsScreenPanel.ShowUI();
+        settingsScreenPanel.ShowUI(this);
+        isBlocked = true;
     }
 }
