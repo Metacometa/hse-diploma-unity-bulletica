@@ -16,7 +16,7 @@ public class DozerBullBreakthrough : MonoBehaviour
     public bool onCooldown;
     public bool onBreakthrough;
 
-    public bool noShooting = false;
+    public bool noShooting = true;
 
     public bool isOutOfRange;
 
@@ -39,6 +39,7 @@ public class DozerBullBreakthrough : MonoBehaviour
 
         onCooldown = false;
         onBreakthrough = false;
+        noShooting = true;
 
         guns = GetComponentsInChildren<TurretShooting>();
     }
