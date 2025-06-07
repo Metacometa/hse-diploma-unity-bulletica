@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: edd4cc8bcb759694481339afa0bebf5d
+guid: a2cb952a94bdd8c44ba3d1635f87bb85
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8222898569455728630
-    second: player_shotgun_0
+      213: 4432793351920879750
+    second: Hearts_0
   - first:
-      213: -7685601096305730602
-    second: player_shotgun_1
+      213: 5642012044021194823
+    second: Hearts_1
+  - first:
+      213: 8124259339964715380
+    second: Hearts_2
+  - first:
+      213: 7685371531485235544
+    second: Hearts_3
+  - first:
+      213: 4160753575623616581
+    second: Hearts_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -27,7 +36,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 1
+  isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -40,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,13 +58,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 120
-  spriteBorder: {x: 38, y: 119, z: 42, w: 118}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -75,7 +84,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -129,45 +138,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player_shotgun_0
+      name: Hearts_0
       rect:
         serializedVersion: 2
-        x: 41
-        y: 118
-        width: 268
-        height: 114
+        x: 96
+        y: 93
+        width: 107
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a08068f515562ed80800000000000000
-      internalID: -8222898569455728630
+      spriteID: 68805ff4112748d30800000000000000
+      internalID: 4432793351920879750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player_shotgun_1
+      name: Hearts_1
       rect:
         serializedVersion: 2
-        x: 132
-        y: 226
-        width: 8
-        height: 6
+        x: 397
+        y: 93
+        width: 106
+        height: 107
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6db1851e582475590800000000000000
-      internalID: -7685601096305730602
+      spriteID: 740eb56bf047c4e40800000000000000
+      internalID: 5642012044021194823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts_2
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 94
+        width: 108
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4711fb553da2fb070800000000000000
+      internalID: 8124259339964715380
       vertices: []
       indices: 
       edges: []
@@ -176,8 +207,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 9c7ac9bc9b5a771468b151a6b437f605
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -186,8 +217,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player_shotgun_0: -8222898569455728630
-      player_shotgun_1: -7685601096305730602
+      Hearts_0: 4432793351920879750
+      Hearts_1: 5642012044021194823
+      Hearts_2: 8124259339964715380
+      Hearts_3: 7685371531485235544
+      Hearts_4: 4160753575623616581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

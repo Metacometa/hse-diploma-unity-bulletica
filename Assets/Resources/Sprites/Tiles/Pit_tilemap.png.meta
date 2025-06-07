@@ -1,181 +1,10 @@
 fileFormatVersion: 2
-guid: 89fa25b7138a6884cbceb5ceadd40e71
+guid: 79ee16b1740828e40888dc40bf362826
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1275589539659018210
-    second: shotgun_0
-  - first:
-      213: -970306773315871495
-    second: shotgun_1
-  - first:
-      213: 7945012120015683500
-    second: shotgun_2
-  - first:
-      213: -4240957153366649724
-    second: shotgun_3
-  - first:
-      213: 7123849009850284647
-    second: shotgun_4
-  - first:
-      213: -6355444258793210630
-    second: shotgun_5
-  - first:
-      213: -3531065042516929534
-    second: shotgun_6
-  - first:
-      213: 5948722120418027506
-    second: shotgun_7
-  - first:
-      213: -7758598104195683400
-    second: shotgun_8
-  - first:
-      213: -5021864808700068630
-    second: shotgun_9
-  - first:
-      213: -7126893534295748489
-    second: shotgun_10
-  - first:
-      213: 5975362286007753349
-    second: shotgun_11
-  - first:
-      213: -7492344850942562886
-    second: shotgun_12
-  - first:
-      213: -4118054035206123870
-    second: shotgun_13
-  - first:
-      213: 5630252345786138886
-    second: shotgun_14
-  - first:
-      213: 5573206425880992768
-    second: shotgun_15
-  - first:
-      213: -4319644629873995093
-    second: shotgun_16
-  - first:
-      213: -5119669291209828662
-    second: shotgun_17
-  - first:
-      213: -4239757316220761851
-    second: shotgun_18
-  - first:
-      213: 2753282946631924644
-    second: shotgun_19
-  - first:
-      213: 6884938255328657780
-    second: shotgun_20
-  - first:
-      213: 6771974950701238478
-    second: shotgun_21
-  - first:
-      213: 5650695615355740491
-    second: shotgun_22
-  - first:
-      213: -5323845692630626227
-    second: shotgun_23
-  - first:
-      213: -7405813539988592293
-    second: shotgun_24
-  - first:
-      213: -7160183277076245779
-    second: shotgun_25
-  - first:
-      213: -8573599112827814876
-    second: shotgun_26
-  - first:
-      213: -958409763622346208
-    second: shotgun_27
-  - first:
-      213: -5161497927352936665
-    second: shotgun_28
-  - first:
-      213: 3368269122576225551
-    second: shotgun_29
-  - first:
-      213: -5908162319143384610
-    second: shotgun_30
-  - first:
-      213: 1034612209044649543
-    second: shotgun_31
-  - first:
-      213: -659666627494738429
-    second: shotgun_32
-  - first:
-      213: -8894112786589279439
-    second: shotgun_33
-  - first:
-      213: 1440286556421733347
-    second: shotgun_34
-  - first:
-      213: -6921062659954036966
-    second: shotgun_35
-  - first:
-      213: -1877501176902083256
-    second: shotgun_36
-  - first:
-      213: -3426949853217888629
-    second: shotgun_37
-  - first:
-      213: -3880420992233707036
-    second: shotgun_38
-  - first:
-      213: -2623976898151283828
-    second: shotgun_39
-  - first:
-      213: 703383100307433965
-    second: shotgun_40
-  - first:
-      213: 5953911127790222615
-    second: shotgun_41
-  - first:
-      213: 866860387888140096
-    second: shotgun_42
-  - first:
-      213: 4192575329179760405
-    second: shotgun_43
-  - first:
-      213: 1741570798303217115
-    second: shotgun_44
-  - first:
-      213: -5292268971760998728
-    second: shotgun_45
-  - first:
-      213: -5534907985880150927
-    second: shotgun_46
-  - first:
-      213: -2358172260506546775
-    second: shotgun_47
-  - first:
-      213: -5962686245749181343
-    second: shotgun_48
-  - first:
-      213: -2007706545772284465
-    second: shotgun_49
-  - first:
-      213: -1191490850302829492
-    second: shotgun_50
-  - first:
-      213: 4392731369724058215
-    second: shotgun_51
-  - first:
-      213: 7488109255914965499
-    second: shotgun_52
-  - first:
-      213: -8874483753710441364
-    second: shotgun_53
-  - first:
-      213: -272596576965929289
-    second: shotgun_54
-  - first:
-      213: -6021458770525193503
-    second: shotgun_55
-  - first:
-      213: 287417442455516964
-    second: shotgun_56
-  - first:
-      213: 327600058376414373
-    second: shotgun_57
+      213: -6519817144530941622
+    second: Pit_finale_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -195,7 +24,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -208,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -218,11 +47,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 2
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 120
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -297,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shotgun_0
+      name: Pit_finale_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 82
-        width: 112
-        height: 206
+        x: 0
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,1274 +141,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ef649e8dedc3b110800000000000000
-      internalID: 1275589539659018210
+      spriteID: a494bbbb9d4f485a0800000000000000
+      internalID: -6519817144530941622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_1
+      name: Pit_tilemap_0
       rect:
         serializedVersion: 2
-        x: 97
-        y: 281
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9fc1a5d6127c882f0800000000000000
-      internalID: -970306773315871495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_2
-      rect:
-        serializedVersion: 2
-        x: 382
-        y: 74
-        width: 150
-        height: 219
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: caf35bdbd6a524e60800000000000000
-      internalID: 7945012120015683500
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_3
-      rect:
-        serializedVersion: 2
-        x: 671
-        y: 69
-        width: 188
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 484dde540f71525c0800000000000000
-      internalID: -4240957153366649724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_4
-      rect:
-        serializedVersion: 2
-        x: 1095
-        y: 276
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76af4a14eeefcd260800000000000000
-      internalID: 7123849009850284647
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_5
-      rect:
-        serializedVersion: 2
-        x: 6636
-        y: 62
-        width: 188
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: afcb5d48e1decc7a0800000000000000
-      internalID: -6355444258793210630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_6
-      rect:
-        serializedVersion: 2
-        x: 6722
-        y: 279
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2049afd5d032ffec0800000000000000
-      internalID: -3531065042516929534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_7
-      rect:
-        serializedVersion: 2
-        x: 6964
-        y: 69
-        width: 150
-        height: 219
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2f76607304b1e8250800000000000000
-      internalID: 5948722120418027506
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_8
-      rect:
-        serializedVersion: 2
-        x: 7056
-        y: 282
-        width: 13
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bba56c812ce35490800000000000000
-      internalID: -7758598104195683400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_9
-      rect:
-        serializedVersion: 2
-        x: 526
-        y: 261
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aecb56f3090ce4ab0800000000000000
-      internalID: -5021864808700068630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_10
-      rect:
-        serializedVersion: 2
-        x: 965
-        y: 68
-        width: 212
-        height: 211
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77016482710381d90800000000000000
-      internalID: -7126893534295748489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_11
-      rect:
-        serializedVersion: 2
-        x: 6318
-        y: 62
-        width: 210
-        height: 207
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58a12cd1750cce250800000000000000
-      internalID: 5975362286007753349
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_12
-      rect:
-        serializedVersion: 2
-        x: 6385
-        y: 266
-        width: 15
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: abd67d0ed08d50890800000000000000
-      internalID: -7492344850942562886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_13
-      rect:
-        serializedVersion: 2
-        x: 1266
-        y: 72
-        width: 222
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2aecca16cabb9d6c0800000000000000
-      internalID: -4118054035206123870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_14
-      rect:
-        serializedVersion: 2
-        x: 6054
-        y: 250
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 601846a9daca22e40800000000000000
-      internalID: 5630252345786138886
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_15
-      rect:
-        serializedVersion: 2
-        x: 6961
-        y: 256
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 00c9f8a57b1085d40800000000000000
-      internalID: 5573206425880992768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_16
-      rect:
-        serializedVersion: 2
-        x: 6003
-        y: 67
-        width: 224
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba2df68781a8d04c0800000000000000
-      internalID: -4319644629873995093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_17
-      rect:
-        serializedVersion: 2
-        x: 6065
-        y: 246
-        width: 11
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ac656f1a7e743f8b0800000000000000
-      internalID: -5119669291209828662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_18
-      rect:
-        serializedVersion: 2
-        x: 845
-        y: 221
-        width: 4
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5094cc02f2b5925c0800000000000000
-      internalID: -4239757316220761851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_19
-      rect:
-        serializedVersion: 2
-        x: 1571
-        y: 82
-        width: 219
-        height: 150
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4abf220a040a53620800000000000000
-      internalID: 2753282946631924644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_20
-      rect:
-        serializedVersion: 2
-        x: 1737
-        y: 226
-        width: 28
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 471cc518dd63c8f50800000000000000
-      internalID: 6884938255328657780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_21
-      rect:
-        serializedVersion: 2
-        x: 2773
-        y: 30
-        width: 212
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ec804649653eafd50800000000000000
-      internalID: 6771974950701238478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_22
-      rect:
-        serializedVersion: 2
-        x: 3077
-        y: 14
-        width: 189
-        height: 216
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b41e22739bd4b6e40800000000000000
-      internalID: 5650695615355740491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_23
-      rect:
-        serializedVersion: 2
-        x: 5702
-        y: 78
-        width: 220
-        height: 154
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d4012cbac86ed16b0800000000000000
-      internalID: -5323845692630626227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_24
-      rect:
-        serializedVersion: 2
-        x: 5730
-        y: 228
-        width: 13
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b59a334b2d3493990800000000000000
-      internalID: -7405813539988592293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_25
-      rect:
-        serializedVersion: 2
-        x: 6642
-        y: 224
-        width: 4
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de29d2bee3be1ac90800000000000000
-      internalID: -7160183277076245779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_26
-      rect:
-        serializedVersion: 2
-        x: 6969
-        y: 225
-        width: 5
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 42c3b412805740980800000000000000
-      internalID: -8573599112827814876
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_27
-      rect:
-        serializedVersion: 2
-        x: 1166
-        y: 206
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 022260ad56b03b2f0800000000000000
-      internalID: -958409763622346208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_28
-      rect:
-        serializedVersion: 2
-        x: 1886
-        y: 94
-        width: 202
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 727963b5bfcae58b0800000000000000
-      internalID: -5161497927352936665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_29
-      rect:
-        serializedVersion: 2
-        x: 1977
-        y: 202
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f05921fcbee7ebe20800000000000000
-      internalID: 3368269122576225551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_30
-      rect:
-        serializedVersion: 2
-        x: 2010
-        y: 201
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed94c1c6cadf10ea0800000000000000
-      internalID: -5908162319143384610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_31
-      rect:
-        serializedVersion: 2
-        x: 2178
-        y: 67
-        width: 219
-        height: 147
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7467360925eab5e00800000000000000
-      internalID: 1034612209044649543
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_32
-      rect:
-        serializedVersion: 2
-        x: 2473
-        y: 44
-        width: 223
-        height: 181
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3060ff582b468d6f0800000000000000
-      internalID: -659666627494738429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_33
-      rect:
-        serializedVersion: 2
-        x: 3386
-        y: 9
-        width: 150
-        height: 216
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 13b161b2b83c19480800000000000000
-      internalID: -8894112786589279439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_34
-      rect:
-        serializedVersion: 2
-        x: 3694
-        y: 12
-        width: 112
-        height: 198
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3ebb94afdfcecf310800000000000000
-      internalID: 1440286556421733347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_35
-      rect:
-        serializedVersion: 2
-        x: 3965
-        y: 8
-        width: 153
-        height: 210
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1f283d1e2273ff90800000000000000
-      internalID: -6921062659954036966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_36
-      rect:
-        serializedVersion: 2
-        x: 4241
-        y: 8
-        width: 187
-        height: 214
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 84d9f5580a6c1f5e0800000000000000
-      internalID: -1877501176902083256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_37
-      rect:
-        serializedVersion: 2
-        x: 4522
-        y: 14
-        width: 212
-        height: 209
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b86eed7e3470170d0800000000000000
-      internalID: -3426949853217888629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_38
-      rect:
-        serializedVersion: 2
-        x: 4813
-        y: 38
-        width: 221
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e9e0fabaa9f52ac0800000000000000
-      internalID: -3880420992233707036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_39
-      rect:
-        serializedVersion: 2
-        x: 5109
-        y: 62
-        width: 220
-        height: 148
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c838cded9e2c59bd0800000000000000
-      internalID: -2623976898151283828
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_40
-      rect:
-        serializedVersion: 2
-        x: 5412
-        y: 94
-        width: 202
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de966daf33be2c900800000000000000
-      internalID: 703383100307433965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_41
-      rect:
-        serializedVersion: 2
-        x: 5414
-        y: 200
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 71d7e2420aa80a250800000000000000
-      internalID: 5953911127790222615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_42
-      rect:
-        serializedVersion: 2
-        x: 6318
-        y: 195
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04f0ee11ee4b70c00800000000000000
-      internalID: 866860387888140096
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_43
-      rect:
-        serializedVersion: 2
-        x: 6325
-        y: 190
-        width: 7
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 51773d57c050f2a30800000000000000
-      internalID: 4192575329179760405
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_44
-      rect:
-        serializedVersion: 2
-        x: 6007
-        y: 165
-        width: 4
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd58e00f96d4b2810800000000000000
-      internalID: 1741570798303217115
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_45
-      rect:
-        serializedVersion: 2
-        x: 6008
-        y: 159
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8b62d5ae8651e86b0800000000000000
-      internalID: -5292268971760998728
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_46
-      rect:
-        serializedVersion: 2
-        x: 2082
-        y: 94
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 17c0425138e0033b0800000000000000
-      internalID: -5534907985880150927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_47
-      rect:
-        serializedVersion: 2
-        x: 5412
-        y: 95
-        width: 4
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9adc35db2d6164fd0800000000000000
-      internalID: -2358172260506546775
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_48
-      rect:
-        serializedVersion: 2
-        x: 2364
-        y: 65
-        width: 7
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 164330f7378404da0800000000000000
-      internalID: -5962686245749181343
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_49
-      rect:
-        serializedVersion: 2
-        x: 3248
-        y: 69
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc5340ea8813324e0800000000000000
-      internalID: -2007706545772284465
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_50
-      rect:
-        serializedVersion: 2
-        x: 4249
-        y: 73
-        width: 5
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c4c529a6269f67fe0800000000000000
-      internalID: -1191490850302829492
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_51
-      rect:
-        serializedVersion: 2
-        x: 2623
-        y: 50
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 76a1e1638ed16fc30800000000000000
-      internalID: 4392731369724058215
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_52
-      rect:
-        serializedVersion: 2
-        x: 2630
-        y: 44
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf9402ec1bb1be760800000000000000
-      internalID: 7488109255914965499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_53
-      rect:
-        serializedVersion: 2
-        x: 3694
-        y: 47
-        width: 4
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6c2d178b0087d480800000000000000
-      internalID: -8874483753710441364
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_54
-      rect:
-        serializedVersion: 2
-        x: 3531
-        y: 37
-        width: 7
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b655f68bda873cf0800000000000000
-      internalID: -272596576965929289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_55
-      rect:
-        serializedVersion: 2
-        x: 3971
-        y: 42
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1ea7f29b62b7f6ca0800000000000000
-      internalID: -6021458770525193503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_56
-      rect:
-        serializedVersion: 2
-        x: 4867
-        y: 37
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 427ffcf14ac1df300800000000000000
-      internalID: 287417442455516964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_57
-      rect:
-        serializedVersion: 2
-        x: 2901
-        y: 27
-        width: 7
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a46ce3748edb8400800000000000000
-      internalID: 327600058376414373
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shotgun_58
-      rect:
-        serializedVersion: 2
-        x: 3965
-        y: 31
-        width: 8
-        height: 6
+        x: 300
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1588,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d070daf07c189f4bbbe75d76ac8df74
-      internalID: -1799065933
+      spriteID: 7d036621332ecc04aaceab6038599694
+      internalID: -329972439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_59
+      name: Pit_tilemap_1
       rect:
         serializedVersion: 2
-        x: 3972
-        y: 36
-        width: 5
-        height: 4
+        x: 600
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1610,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c6ccc24798f6b24a9266a288a385e0f
-      internalID: -1729058752
+      spriteID: 836cfef4cee40cc45b426cf0fd8fda00
+      internalID: 1281851522
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_60
+      name: Pit_tilemap_2
       rect:
         serializedVersion: 2
-        x: 2903
-        y: 23
-        width: 9
-        height: 7
+        x: 900
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1632,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 903f0591840f55344bedca8b13d467df
-      internalID: 679959160
+      spriteID: 5829111913a8ae64787497b11b4c34cb
+      internalID: 1328824826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_61
+      name: Pit_tilemap_3
       rect:
         serializedVersion: 2
-        x: 4600
-        y: 24
-        width: 13
-        height: 8
+        x: 1200
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1654,20 +229,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cdce6b62b4c6c941bd047cdaf8144de
-      internalID: 1891500413
+      spriteID: 5eba1d6fe7a2db34dbbbef905abdbee2
+      internalID: 1714510515
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_62
+      name: Pit_tilemap_4
       rect:
         serializedVersion: 2
-        x: 3167
-        y: 11
-        width: 7
-        height: 8
+        x: 1500
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1676,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 072620191cbf9d14e88c963e89b1865e
-      internalID: -235399409
+      spriteID: d14e6fed86be69d41950e7a0e2280a7f
+      internalID: -242944526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_63
+      name: Pit_tilemap_5
       rect:
         serializedVersion: 2
-        x: 3694
-        y: 12
-        width: 14
-        height: 10
+        x: 1800
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1698,20 +273,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20c72f44245cab64fb02bd31d3514b80
-      internalID: 1186317222
+      spriteID: 01d5f70fc443fd045a3767599759e2ac
+      internalID: 2118044492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_64
+      name: Pit_tilemap_6
       rect:
         serializedVersion: 2
-        x: 3694
-        y: 12
-        width: 6
-        height: 5
+        x: 2100
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1720,20 +295,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d6a24d6c030dd94a8e9a6c0e81a459a
-      internalID: -1263042189
+      spriteID: 5189e56d33d77d6498f1b7f0d44998ab
+      internalID: 361359578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shotgun_65
+      name: Pit_tilemap_7
       rect:
         serializedVersion: 2
-        x: 3792
-        y: 12
-        width: 9
-        height: 7
+        x: 2400
+        y: 900
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1742,8 +317,1482 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db04a566fb23fd74a95fa5b6e1e1ebfe
-      internalID: 973611386
+      spriteID: 17be64cd7b798f04d8363754577bc322
+      internalID: 951931574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_8
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fea224a6531133145987f533f9698594
+      internalID: -1361168240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_9
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b8a94974a190544a5e0f2e75b35719
+      internalID: -346346440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_10
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89d37d8f387a9f47a0c7df429c646cf
+      internalID: 1344832498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_11
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3930dea57e08cdb4abaeb9b0dbcb70ac
+      internalID: 2012211423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_12
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e05cb8bc214491a4d86ecfd33397503a
+      internalID: 868237238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_13
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3602f65dad39a1b4e804da178386e9c1
+      internalID: 2130808307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_14
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d63d8c4b2bb8a4c9ac09e03560bc50
+      internalID: 1038032089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_15
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d116fb58e33504eb6223f17f11a7e6
+      internalID: -2008026305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_16
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cda7382ddb856a43960f09677c5ede6
+      internalID: 496067226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_17
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 900
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4001c42b22e403246b56ab263778c374
+      internalID: -1946767109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3384a1cc5d67b54e833201808adc9d2
+      internalID: 1848554488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_19
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12cb68e8703e27b40a942466cf174d98
+      internalID: 601779302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_20
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93215394e8fa1ed4eb54ae826c71bceb
+      internalID: -588569637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_21
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2c2543f66c9e6409b4a55cb81932a0
+      internalID: 755740466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_22
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d35d32e0b48d294ba030fcb9c714f2e
+      internalID: 743712236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_23
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32a8a9d86b7c0754fbeb7c9134e92b09
+      internalID: -1461780647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_24
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2f8e6088c292ca47b84825377c8655d
+      internalID: -177064827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_25
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b566656a36ab39f48b1a0fc0e12c8175
+      internalID: -1193757574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_26
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544db18caa1a6984c83d74d3599f008e
+      internalID: 1482817874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_27
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b833ec6ab97854e954ef5b1edcb963
+      internalID: 2053506541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_28
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a0fca5295413c40bb2d37c8a28ec27
+      internalID: -1781083096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_29
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d017191e6d52ea4cb90a0a11d57d510
+      internalID: 87832899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_30
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892d66a154bbba64e9d8972ee279b9a7
+      internalID: 1239448757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_31
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 566a2e64f47ce60458a6da05cc0205b2
+      internalID: -1582337221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_32
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67477b720ac8f04eb9d15bfe0054749
+      internalID: -760330500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_33
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c8f4644d1ad794891961706adc18b3
+      internalID: 593876142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_34
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c89329cd06437d4187f6d6335239611
+      internalID: 1289104179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_35
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99738499807bd17448f6c3c92823ac3e
+      internalID: 1673556491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_36
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 600
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040a4c10e9eac724d99a6b0fc6757b07
+      internalID: 515271923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75805f837690714eb4fb16fe605ced9
+      internalID: -1678476217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_38
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf2a39a71a05d1d489d15a33c48d67c7
+      internalID: 58584650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_39
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdceeabf9342d1a4ea6eb60bf00d57bb
+      internalID: 1709283279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_40
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6de81bf0b2c4e8a4b85e5fba696502b0
+      internalID: 2087099556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_41
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 758e63cd63820ea49b83e05477b93ba3
+      internalID: 576264055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_42
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19e692664c78376439ca3c52624c6b81
+      internalID: 1263062136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_43
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b5bbc80bebe08c4a8fe9a4972e7ebc1
+      internalID: -978498525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_44
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4ee363556d6044ea4474feaf5f548c
+      internalID: -793525314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_45
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1a8c51d74d0ff44b44d5ba8634c41d
+      internalID: 2139756407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_46
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4602283e6ed3ab4489f50fa34bcf29e
+      internalID: -905256805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_47
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8360a6ff05e319f40bc8a1a7acc8b122
+      internalID: -769254222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_48
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf8f2b55a528c294988beff5202e87a4
+      internalID: 1531415306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_49
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa81829f764e8414886adc0f4d7c6e3e
+      internalID: 1943850017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_50
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77efd28334a7ada40b96b667da0b6b20
+      internalID: -1237384683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_51
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c592b0f8a79ab41b9dd2a403f95470
+      internalID: 1719269441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_52
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e1067ad189843d4bb32def0ae325cec
+      internalID: 198859614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_53
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d89650b3990044499c8d31b1420d1ed
+      internalID: 977226087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_54
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497c3306f8020024bacbca1c30cd488f
+      internalID: 1064794967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_55
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 300
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573a0823485a36b43bb74c9e1086998c
+      internalID: -1129165477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3b3625dd85ed641b648e6fcb2dd38f
+      internalID: 427334744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_57
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c3d0f3a266fe448a233496824e4605
+      internalID: -497182380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_58
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f7c579dd99605459552b78e9e5ed07
+      internalID: -729022553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_59
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc13095ad6b3874cb184a7fa731f139
+      internalID: -1982557773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_60
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd531f2b48be174aac4b8228c94dc4f
+      internalID: 57659991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_61
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308053c5f3d983641abfd27ecf964f9c
+      internalID: 1059501113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_62
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234513fb33d45d742a9551340998fc6d
+      internalID: -529961845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_63
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ab543b432087a49b92082dbfce8955
+      internalID: -1254766693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_64
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a6dbcfb46710141a0125e2333c36dd
+      internalID: -558874460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_65
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66143b4b791f2dc4382d79a137618337
+      internalID: 2145865309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_66
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10b1b35226d51148b9f9aab6ba62055
+      internalID: 1746260685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_67
+      rect:
+        serializedVersion: 2
+        x: 3300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21146b222519ef44a9c919e3f55d564e
+      internalID: -1949161595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_68
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c8c2511d1d9c8439520c9053952d37
+      internalID: -267329614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_69
+      rect:
+        serializedVersion: 2
+        x: 3900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e4609920845d74b9d09775f4d3a259
+      internalID: 247356183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_70
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9d704ddb91a2b49973c879914a2c12
+      internalID: 917676719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_71
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cecb920b25a73694093c5e040ff046c9
+      internalID: -1147504514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_72
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7e67feead308b44eae3ee7748c73081
+      internalID: -1701776901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_73
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adb151db33e3a2545b18c4cb8a0bfc95
+      internalID: 845891088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pit_tilemap_74
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87c053aaa1527f84f9fdfb36dd5ff439
+      internalID: 1476590236
       vertices: []
       indices: 
       edges: []
@@ -1752,7 +1801,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1777302b3f96b1d4c9bf2d5f686336a7
+    spriteID: 5b2f84641496ba142b5e4eb3972d054f
     internalID: 0
     vertices: []
     indices: 
@@ -1762,72 +1811,82 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      shotgun_0: 1275589539659018210
-      shotgun_1: -970306773315871495
-      shotgun_10: -7126893534295748489
-      shotgun_11: 5975362286007753349
-      shotgun_12: -7492344850942562886
-      shotgun_13: -4118054035206123870
-      shotgun_14: 5630252345786138886
-      shotgun_15: 5573206425880992768
-      shotgun_16: -4319644629873995093
-      shotgun_17: -5119669291209828662
-      shotgun_18: -4239757316220761851
-      shotgun_19: 2753282946631924644
-      shotgun_2: 7945012120015683500
-      shotgun_20: 6884938255328657780
-      shotgun_21: 6771974950701238478
-      shotgun_22: 5650695615355740491
-      shotgun_23: -5323845692630626227
-      shotgun_24: -7405813539988592293
-      shotgun_25: -7160183277076245779
-      shotgun_26: -8573599112827814876
-      shotgun_27: -958409763622346208
-      shotgun_28: -5161497927352936665
-      shotgun_29: 3368269122576225551
-      shotgun_3: -4240957153366649724
-      shotgun_30: -5908162319143384610
-      shotgun_31: 1034612209044649543
-      shotgun_32: -659666627494738429
-      shotgun_33: -8894112786589279439
-      shotgun_34: 1440286556421733347
-      shotgun_35: -6921062659954036966
-      shotgun_36: -1877501176902083256
-      shotgun_37: -3426949853217888629
-      shotgun_38: -3880420992233707036
-      shotgun_39: -2623976898151283828
-      shotgun_4: 7123849009850284647
-      shotgun_40: 703383100307433965
-      shotgun_41: 5953911127790222615
-      shotgun_42: 866860387888140096
-      shotgun_43: 4192575329179760405
-      shotgun_44: 1741570798303217115
-      shotgun_45: -5292268971760998728
-      shotgun_46: -5534907985880150927
-      shotgun_47: -2358172260506546775
-      shotgun_48: -5962686245749181343
-      shotgun_49: -2007706545772284465
-      shotgun_5: -6355444258793210630
-      shotgun_50: -1191490850302829492
-      shotgun_51: 4392731369724058215
-      shotgun_52: 7488109255914965499
-      shotgun_53: -8874483753710441364
-      shotgun_54: -272596576965929289
-      shotgun_55: -6021458770525193503
-      shotgun_56: 287417442455516964
-      shotgun_57: 327600058376414373
-      shotgun_58: -1799065933
-      shotgun_59: -1729058752
-      shotgun_6: -3531065042516929534
-      shotgun_60: 679959160
-      shotgun_61: 1891500413
-      shotgun_62: -235399409
-      shotgun_63: 1186317222
-      shotgun_64: -1263042189
-      shotgun_65: 973611386
-      shotgun_7: 5948722120418027506
-      shotgun_8: -7758598104195683400
-      shotgun_9: -5021864808700068630
+      Pit_finale_0: -6519817144530941622
+      Pit_tilemap_0: -329972439
+      Pit_tilemap_1: 1281851522
+      Pit_tilemap_10: 1344832498
+      Pit_tilemap_11: 2012211423
+      Pit_tilemap_12: 868237238
+      Pit_tilemap_13: 2130808307
+      Pit_tilemap_14: 1038032089
+      Pit_tilemap_15: -2008026305
+      Pit_tilemap_16: 496067226
+      Pit_tilemap_17: -1946767109
+      Pit_tilemap_18: 1848554488
+      Pit_tilemap_19: 601779302
+      Pit_tilemap_2: 1328824826
+      Pit_tilemap_20: -588569637
+      Pit_tilemap_21: 755740466
+      Pit_tilemap_22: 743712236
+      Pit_tilemap_23: -1461780647
+      Pit_tilemap_24: -177064827
+      Pit_tilemap_25: -1193757574
+      Pit_tilemap_26: 1482817874
+      Pit_tilemap_27: 2053506541
+      Pit_tilemap_28: -1781083096
+      Pit_tilemap_29: 87832899
+      Pit_tilemap_3: 1714510515
+      Pit_tilemap_30: 1239448757
+      Pit_tilemap_31: -1582337221
+      Pit_tilemap_32: -760330500
+      Pit_tilemap_33: 593876142
+      Pit_tilemap_34: 1289104179
+      Pit_tilemap_35: 1673556491
+      Pit_tilemap_36: 515271923
+      Pit_tilemap_37: -1678476217
+      Pit_tilemap_38: 58584650
+      Pit_tilemap_39: 1709283279
+      Pit_tilemap_4: -242944526
+      Pit_tilemap_40: 2087099556
+      Pit_tilemap_41: 576264055
+      Pit_tilemap_42: 1263062136
+      Pit_tilemap_43: -978498525
+      Pit_tilemap_44: -793525314
+      Pit_tilemap_45: 2139756407
+      Pit_tilemap_46: -905256805
+      Pit_tilemap_47: -769254222
+      Pit_tilemap_48: 1531415306
+      Pit_tilemap_49: 1943850017
+      Pit_tilemap_5: 2118044492
+      Pit_tilemap_50: -1237384683
+      Pit_tilemap_51: 1719269441
+      Pit_tilemap_52: 198859614
+      Pit_tilemap_53: 977226087
+      Pit_tilemap_54: 1064794967
+      Pit_tilemap_55: -1129165477
+      Pit_tilemap_56: 427334744
+      Pit_tilemap_57: -497182380
+      Pit_tilemap_58: -729022553
+      Pit_tilemap_59: -1982557773
+      Pit_tilemap_6: 361359578
+      Pit_tilemap_60: 57659991
+      Pit_tilemap_61: 1059501113
+      Pit_tilemap_62: -529961845
+      Pit_tilemap_63: -1254766693
+      Pit_tilemap_64: -558874460
+      Pit_tilemap_65: 2145865309
+      Pit_tilemap_66: 1746260685
+      Pit_tilemap_67: -1949161595
+      Pit_tilemap_68: -267329614
+      Pit_tilemap_69: 247356183
+      Pit_tilemap_7: 951931574
+      Pit_tilemap_70: 917676719
+      Pit_tilemap_71: -1147504514
+      Pit_tilemap_72: -1701776901
+      Pit_tilemap_73: 845891088
+      Pit_tilemap_74: 1476590236
+      Pit_tilemap_8: -1361168240
+      Pit_tilemap_9: -346346440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
