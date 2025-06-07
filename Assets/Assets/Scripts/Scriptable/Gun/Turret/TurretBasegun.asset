@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_name: TurretBase
   gun_object: {fileID: 8108018042923758592, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
-  bulletObject: {fileID: 8383260018039565768, guid: 063b8bf206cefba42a4a8f1e9a2aa9a0, type: 3}
-  reloadSpeed: 3
+  bulletObject: {fileID: 8383260018039565768, guid: beb52892223c6ed498e68be5b86b1054, type: 3}
+  reloadSpeed: 2
   rotationSpeed: 50
-  aimingSpeed: 0.1
+  aimingSpeed: 0.05
   attackExiting: 0.1
-  cooldown: 1.5
+  cooldown: 0.1
   maxSpreadAngle: 0
   magazineCapacity: 50

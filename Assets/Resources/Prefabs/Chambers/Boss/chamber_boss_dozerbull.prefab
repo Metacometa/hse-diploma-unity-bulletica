@@ -30488,6 +30488,7 @@ MonoBehaviour:
   endChamberEvent:
     m_PersistentCalls:
       m_Calls: []
+  audioSource: {fileID: 0}
 --- !u!1 &6383519528967354098
 GameObject:
   m_ObjectHideFlags: 0
@@ -31215,6 +31216,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   alarmProbability: 1
+  audioSource: {fileID: 0}
 --- !u!1 &8165490167464647737
 GameObject:
   m_ObjectHideFlags: 0
@@ -32195,7 +32197,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1343018191517901337, guid: bdfa8b72641e8a64a9d780fb3c3186fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1343018191517901337, guid: bdfa8b72641e8a64a9d780fb3c3186fa, type: 3}
       propertyPath: m_LocalPosition.y

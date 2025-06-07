@@ -11,11 +11,14 @@ public class Turret : Gunman
 
     [SerializeField] public TurretProfile turretProfile;
 
+    private DozerBullBreakthrough breakthrough;
+
     protected override void Awake()
     {
         base.Awake();
         turretShooting = GetComponent<TurretShooting>();
 
+        breakthrough = FindAnyObjectByType<DozerBullBreakthrough>();
     }
 
     protected override void Update()
@@ -25,7 +28,7 @@ public class Turret : Gunman
             return;
         }
 
-        Vector2 dir = (target.position() - transform.position).normalized;
+        Vector2 dir = (target.PredictedPosition() - transform.position).normalized;
 
         if (health.health == 0)
         {   
@@ -71,7 +74,7 @@ public class Turret : Gunman
         bool baseAttack = false;
         LookToPoint(origin, dir, turretProfile.attackChangeDistance, turretProfile.mask, ref baseAttack);
 
-        if (baseAttack)
+        if (!breakthrough.onShotgunAttack)
         {
             turretShooting.SetBaseAttack();
         }
@@ -94,7 +97,7 @@ public class Turret : Gunman
         {
             actionState = ActionState.Reload;
         }
-        else if (target.inShootingRange)
+        else if (target.inShootingRange && !breakthrough.noShooting)
         {
             actionState = ActionState.Shoot;
         }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9b9f0879c006a49813f9ea9bda5e87, type: 3}
   m_Name: DozerBullSpecs
   m_EditorClassIdentifier: 
-  breakthroughCooldown: 5
+  breakthroughCooldown: 8
   breakthroughMask:
     serializedVersion: 2
     m_Bits: 64
   attackRange: 17
-  breakthroughSpeed: 15
+  breakthroughSpeed: 13
