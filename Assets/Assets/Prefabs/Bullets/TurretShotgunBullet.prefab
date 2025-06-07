@@ -417,12 +417,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c87faacf361124a816606930921b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 8
   force: 2
   enemy: 1
   audioSource: {fileID: 0}
   category: TurretShotgunBullet
-  maxNumber: 40
+  maxNumber: 50
   poolingManager: {fileID: 0}
 --- !u!82 &8081187507893580992
 AudioSource:

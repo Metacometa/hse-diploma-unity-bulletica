@@ -41,6 +41,7 @@ MonoBehaviour:
   shimmerTime: 1
   shimmerColor: {r: 1, g: 0.46666667, b: 0.46666667, a: 0}
   shootingRangeShift: 0
+  predictionDepth: 0.3
   shootingRange: 35
   approachedDistance: 4
   minPositionRadius: 2
@@ -48,4 +49,4 @@ MonoBehaviour:
   changePositionRadius: 15
   shiftPositionCloser: 0
   shootingOnMove: 1
-  bulletRadius: 0.4
+  bulletRadius: 1.5

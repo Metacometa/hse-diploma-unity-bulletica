@@ -82,6 +82,7 @@ public class SmartMovement : BaseMovement
     {
         yield return null;
         agent.enabled = true;
+        agent.isStopped = false;
 
         if (agent.isOnNavMesh)
         {
@@ -184,8 +185,9 @@ public class SmartMovement : BaseMovement
     {
         if (moveUpdateTimer <= 0f)
         {
-            agent.enabled = false;
-            obstacle.enabled = true;
+            agent.isStopped = true;
+            //agent.enabled = false;
+            //obstacle.enabled = true;
         }
     }
 

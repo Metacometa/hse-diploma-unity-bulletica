@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 9120023527961636290}
   - component: {fileID: 4707107620842955713}
   m_Layer: 12
-  m_Name: TurretBaseGun
+  m_Name: TurretBaseBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,11 +417,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6c87faacf361124a816606930921b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   force: 2
   enemy: 1
   audioSource: {fileID: 0}
-  category: TurretBaseGun
+  category: TurretBaseBullet
   maxNumber: 40
   poolingManager: {fileID: 0}
 --- !u!82 &4707107620842955713

@@ -16,9 +16,13 @@ public class DozerBullBreakthrough : MonoBehaviour
     public bool onCooldown;
     public bool onBreakthrough;
 
+    public bool noShooting = false;
+
     public bool isOutOfRange;
 
     Vector3 dir = Vector3.zero;
+
+    public bool onShotgunAttack = false;
 
     void Awake()
     {
@@ -45,13 +49,7 @@ public class DozerBullBreakthrough : MonoBehaviour
     {
         if (!onCooldown && !onBreakthrough)
         {
-            onBreakthrough = true;
-
-            //dir = (target.position() - transform.position).normalized;
-            dir = (target.PredictedPosition() - transform.position).normalized;
-
-            rb.linearVelocity = dir.normalized * dozerProfile.breakthroughSpeed;
-            DrainGuns();
+            StartCoroutine(BreakthroughCoroutine());
         }
     }
 
@@ -79,7 +77,9 @@ public class DozerBullBreakthrough : MonoBehaviour
     }
     public bool IsAttackPossible()
     {
-        return !IsPlayerOutOfRange() && !onCooldown;
+        return !onCooldown;
+
+        //return !IsPlayerOutOfRange() && !onCooldown;
     }
 
     private bool IsPlayerOutOfRange()
@@ -97,18 +97,40 @@ public class DozerBullBreakthrough : MonoBehaviour
 
     public void Cooldown()
     {
-        Debug.Log("Cooldown");
         if (!onCooldown)
         {
             StartCoroutine(BreakthroughCooldown());
         }
     }
 
+    private IEnumerator BreakthroughCoroutine()
+    {
+        onBreakthrough = true;
+        noShooting = true;
+
+        //DrainGuns();
+
+        //dir = (target.position() - transform.position).normalized;
+
+
+        yield return new WaitForSeconds(1f);
+        dir = (target.PredictedPosition() - transform.position).normalized;
+
+        rb.linearVelocity = dir.normalized * dozerProfile.breakthroughSpeed;
+
+    }
+
     private IEnumerator BreakthroughCooldown()
     {
         onCooldown = true;
-        onBreakthrough = false;
+        noShooting = false;
+
+        onShotgunAttack = !onShotgunAttack;
+        DrainGuns();
+
         yield return new WaitForSeconds(dozerProfile.breakthroughCooldown);
         onCooldown = false;
+        onBreakthrough = false;
+
     }
 }
