@@ -31132,7 +31132,7 @@ GameObject:
   - component: {fileID: 6243100103586099508}
   - component: {fileID: 5210272635116418373}
   m_Layer: 0
-  m_Name: ChamberStarter
+  m_Name: BossChamberStarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

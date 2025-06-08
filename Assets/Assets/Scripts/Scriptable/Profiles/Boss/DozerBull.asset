@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DozerBull
   m_EditorClassIdentifier: 
   enemyName: 
-  moveSpeed: 1.25
+  moveSpeed: 1
   pushingAwayTime: 0.2
   pushingAwayForce: 3
   stayBufferTime: 0.5
@@ -41,7 +41,7 @@ MonoBehaviour:
   shimmerTime: 1
   shimmerColor: {r: 1, g: 0.46666667, b: 0.46666667, a: 0}
   shootingRangeShift: 0
-  predictionDepth: 0.75
+  predictionDepth: 0.5
   shootingRange: 35
   approachedDistance: 4
   minPositionRadius: 2

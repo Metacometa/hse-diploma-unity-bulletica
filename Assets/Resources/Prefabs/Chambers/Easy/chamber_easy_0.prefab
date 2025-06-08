@@ -8624,6 +8624,7 @@ MonoBehaviour:
   endChamberEvent:
     m_PersistentCalls:
       m_Calls: []
+  audioSource: {fileID: 0}
 --- !u!1 &6383519528967354098
 GameObject:
   m_ObjectHideFlags: 0

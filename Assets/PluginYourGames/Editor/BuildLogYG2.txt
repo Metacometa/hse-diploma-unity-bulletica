@@ -1,3 +1,3 @@
-Build path: C:/Users/Кирилл/Desktop/Bulletica_v0_optimized/Bulletica.exe
-Build number: 15
+Build path: C:/Users/Кирилл/Desktop/Bulletica_v0_optimized_debug/Bulletica.exe
+Build number: 17
 PluginYG version: 2.0032

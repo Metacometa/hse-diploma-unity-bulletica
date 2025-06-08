@@ -24,7 +24,7 @@ MonoBehaviour:
   gunRotateCooldown: 0.01
   tankRotateCooldown: 0.1
   health: 10
-  invincibilityTime: 0.5
+  invincibilityTime: 1
   targetTag: Player
   sightMask:
     serializedVersion: 2

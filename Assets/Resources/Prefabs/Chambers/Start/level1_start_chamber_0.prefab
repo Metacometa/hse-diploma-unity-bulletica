@@ -7060,7 +7060,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 14
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -7090,7 +7090,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -7680,7 +7680,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 10
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -7710,7 +7710,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 9
-      m_TileSpriteIndex: 9
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -8901,6 +8901,10 @@ Tilemap:
     m_Data: {fileID: 1942508757, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 1031201589, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 259753160, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
   - m_RefCount: 1
@@ -8909,10 +8913,6 @@ Tilemap:
     m_Data: {fileID: 396348225, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 1984875531, guid: f4b44a36c5ace1e4baba72b9087742a2, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 292
     m_Data:
@@ -9025,9 +9025,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8516372589731181443}
   - component: {fileID: 5696890487755371838}
-  - component: {fileID: 7057098405946949321}
+  - component: {fileID: 3554738886360969698}
   m_Layer: 0
-  m_Name: ChamberStarter
+  m_Name: StartChamberStarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9094,7 +9094,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 20, y: 24}
   m_EdgeRadius: 0
---- !u!114 &7057098405946949321
+--- !u!114 &3554738886360969698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9103,7 +9103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5090193641893643468}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31e49a7172a83e746bbb7bb715f97a85, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aab1580503c6d940805884fb180d198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: 

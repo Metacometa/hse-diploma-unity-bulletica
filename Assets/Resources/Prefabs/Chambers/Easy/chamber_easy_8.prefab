@@ -4496,6 +4496,7 @@ MonoBehaviour:
   endChamberEvent:
     m_PersistentCalls:
       m_Calls: []
+  audioSource: {fileID: 0}
 --- !u!1 &3320378311117882675
 GameObject:
   m_ObjectHideFlags: 0
@@ -11385,6 +11386,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   alarmProbability: 1
+  audioSource: {fileID: 0}
 --- !u!1 &7461087174884260280
 GameObject:
   m_ObjectHideFlags: 0

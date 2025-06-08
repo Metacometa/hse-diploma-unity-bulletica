@@ -7,7 +7,7 @@ public class DozerBullMovement : BaseMovement
     public override void Move(in Vector2 dir)
     {
         //base.Move(ManhattanDistance(dir));
-        Debug.Log("ManhattanDistance: " + ManhattanDistance(dir));
+        //Debug.Log("ManhattanDistance: " + ManhattanDistance(dir));
         base.Move(ManhattanDistance(dir));
     }
 
