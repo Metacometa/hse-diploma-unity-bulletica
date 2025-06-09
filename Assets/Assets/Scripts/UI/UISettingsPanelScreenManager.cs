@@ -7,19 +7,29 @@ public class UISettingsPanelScreenManager : UIPanelScreenManager
     {
         base.Awake();
 
-        volumeSlider.value = 0.5f;
-        currentVolume = volumeSlider.value;
+        volumeMusicSlider.value = 0.5f;
+        volumeEffectsSlider.value = 0.5f;
+        currentMusicVolume = volumeMusicSlider.value;
+        currentEffectsVolume = volumeEffectsSlider.value;
 
-        volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
+        volumeMusicSlider.onValueChanged.AddListener(OnVolumeMusicChanged);
+        volumeEffectsSlider.onValueChanged.AddListener(OnVolumeEffectsChanged);
     }
 
-    [SerializeField] private Slider volumeSlider;
-    private float currentVolume;
+    [SerializeField] private Slider volumeMusicSlider;
+    [SerializeField] private Slider volumeEffectsSlider;
+    private float currentMusicVolume;
+    private float currentEffectsVolume;
 
 
-    private void OnVolumeChanged(float newValue)
+    private void OnVolumeMusicChanged(float newValue)
     {
-        currentVolume = newValue;
+        currentMusicVolume = newValue;
+    }
+
+    private void OnVolumeEffectsChanged(float newValue)
+    {
+        currentEffectsVolume = newValue;
     }
 
     public void Return()
