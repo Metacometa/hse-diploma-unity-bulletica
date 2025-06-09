@@ -12,5 +12,8 @@ class MenuMusicManager : MonoBehaviour
         {
             musicManager.StartToPlayMenuMusic();
         }
+
+        musicManager.soundParameters.musicVolume = 0.15f;
+        musicManager.soundParameters.volume = 0.15f;
     }
 }

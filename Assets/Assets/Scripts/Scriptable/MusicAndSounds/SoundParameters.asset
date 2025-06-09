@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882c142f6b7d5af478f34a31fc529ae3, type: 3}
   m_Name: SoundParameters
   m_EditorClassIdentifier: 
-  volume: 0.897
-  musicVolume: 0.59
+  volume: 0.15
+  musicVolume: 0.15
   onStartSoundStartPitch: 1.5
   onStartSoundPitch: 1.5
   onStartSoundPitchDiff: 0.1

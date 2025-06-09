@@ -30,8 +30,11 @@ public class MusicManager : MonoBehaviour
     public int trackSwitcherCooldown = 5;
     public int trackSwitcherCounter = 0;
 
+    private UISettingsPanelScreenManager uiSettings;
+
     //
     bool volumeOnChanging = false;
+
 
     void Awake()
     {
@@ -43,6 +46,8 @@ public class MusicManager : MonoBehaviour
         //fightingPlaylistTimeToSwitch = fightingPlaylist.cooldown;
 
         trackSwitcherCounter = trackSwitcherCooldown;
+
+        uiSettings = FindAnyObjectByType<UISettingsPanelScreenManager>();
     }
 
     private void Start()
@@ -87,6 +92,13 @@ public class MusicManager : MonoBehaviour
 
         if (audioSource && !volumeOnChanging)
         {
+            if (uiSettings)
+            {
+                soundParameters.volume = uiSettings.volumeEffectsSlider.value;
+                soundParameters.musicVolume = uiSettings.volumeMusicSlider.value;
+            }
+
+
             audioSource.volume = soundParameters.musicVolume;
         }
     }
