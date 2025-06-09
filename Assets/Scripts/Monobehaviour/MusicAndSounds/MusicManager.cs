@@ -149,14 +149,17 @@ public class MusicManager : MonoBehaviour
 
     IEnumerator BossCoroutine(MusicPlaylist newPlaylist)
     {
+        Debug.Log("BossCoroutine");
         volumeOnChanging = true;
 
+        float tempVolume = audioSource.volume;
         float time = 0;
+
         while (time < newPlaylist.fadingTime)
         {
             time += Time.deltaTime;
 
-            float a = startVolume;
+            float a = tempVolume;
             float b = newPlaylist.fadingValue;
             float t = time / newPlaylist.fadingTime;
             audioSource.volume = Mathf.Lerp(a, b, t);
@@ -164,12 +167,16 @@ public class MusicManager : MonoBehaviour
             yield return null;
         }
 
+        Debug.Log("BossCoroutine.Stop()");
         audioSource.Stop();
-        yield return new WaitForSeconds(0.5f);
+        audioSource.volume = 0f;
+        yield return new WaitForSeconds(2f);
+
+        Debug.Log("BossCoroutine.Next()");
 
         playlist = newPlaylist;
         playlist.Play(audioSource);
-        //audioSource.volume = startVolume;
+        audioSource.volume = tempVolume;
 
         volumeOnChanging = false;
     }
@@ -197,7 +204,7 @@ public class MusicManager : MonoBehaviour
 
         playlist = newPlaylist;
         playlist.Play(audioSource);
-        audioSource.volume = startVolume;
+        //audioSource.volume = startVolume;
     }
 
     IEnumerator FadingCoroutine(MusicPlaylist newPlaylist)
@@ -206,13 +213,14 @@ public class MusicManager : MonoBehaviour
 
         yield return new WaitForSeconds(playlist.delayBeforeFade);
 
+        float tempVolume = audioSource.volume;
         float time = 0;
 
         while (time < newPlaylist.fadingTime)
         {
             time += Time.deltaTime;
 
-            float a = startVolume;
+            float a = tempVolume;
             float b = newPlaylist.fadingValue;
             float t = time / newPlaylist.fadingTime;
             audioSource.volume = Mathf.Lerp(a, b, t);
@@ -222,7 +230,7 @@ public class MusicManager : MonoBehaviour
 
         playlist = newPlaylist;
         playlist.Play(audioSource);
-        audioSource.volume = startVolume;
+        audioSource.volume = tempVolume;
 
         volumeOnChanging = false;
     }

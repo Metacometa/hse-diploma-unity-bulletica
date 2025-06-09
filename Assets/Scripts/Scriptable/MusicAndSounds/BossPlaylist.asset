@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c07506c2aae76346b658a064e86aea0, type: 3}
   m_Name: BossPlaylist
   m_EditorClassIdentifier: 
-  fadingTime: 2
-  fadingValue: 0.1
-  delayBeforeFade: 1
+  fadingTime: 3
+  fadingValue: 0
+  delayBeforeFade: 0
   tracks:
   - clip: {fileID: 8300000, guid: 6b645fd0310d5ba4db03578f303235ee, type: 3}
     sixteenth: 2.42

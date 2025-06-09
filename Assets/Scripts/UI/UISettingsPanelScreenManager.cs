@@ -7,8 +7,8 @@ public class UISettingsPanelScreenManager : UIPanelScreenManager
     {
         base.Awake();
 
-        volumeMusicSlider.value = 0.15f;
-        volumeEffectsSlider.value = 0.15f;
+        volumeMusicSlider.value = 0.05f;
+        volumeEffectsSlider.value = 0.05f;
         currentMusicVolume = volumeMusicSlider.value;
         currentEffectsVolume = volumeEffectsSlider.value;
 

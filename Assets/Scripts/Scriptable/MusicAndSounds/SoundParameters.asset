@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882c142f6b7d5af478f34a31fc529ae3, type: 3}
   m_Name: SoundParameters
   m_EditorClassIdentifier: 
-  volume: 0.15
-  musicVolume: 0.15
+  volume: 0.05
+  musicVolume: 0.05
   onStartSoundStartPitch: 1.5
-  onStartSoundPitch: 1.5
+  onStartSoundPitch: 2
   onStartSoundPitchDiff: 0.1
   chamberStartClip: {fileID: 8300000, guid: 8e4d0ff1dc4b7804cb1f71e1756c07e0, type: 3}
   chamberEndClip: {fileID: 8300000, guid: f8ec3705a21d8bf45a7a60f2cfc823fe, type: 3}
