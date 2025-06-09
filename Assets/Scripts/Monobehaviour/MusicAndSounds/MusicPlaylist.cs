@@ -53,6 +53,11 @@ public class MusicPlaylist : ScriptableObject
         }
     }
 
+    public void Stop(AudioSource audioSource)
+    {
+        audioSource.Stop();
+    }
+
     public float GetSixteenth()
     {
         if (currentTrackIndex < tracks.Count)

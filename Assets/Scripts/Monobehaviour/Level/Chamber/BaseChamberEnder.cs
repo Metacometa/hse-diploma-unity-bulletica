@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Data;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BaseChamberEnder : MonoBehaviour
 {
-    [SerializeField] private string targetTag;
+    [SerializeField] protected string targetTag;
 
-    private Chamber chamber;
-    private EnemyController enemyController;
-    private DoorsController doorsController;
+    protected Chamber chamber;
+    protected EnemyController enemyController;
+    protected DoorsController doorsController;
 
-    private MusicManager musicManager;
+    protected MusicManager musicManager;
 
     [HideInInspector] public UnityEvent endChamberEvent;
 
@@ -46,12 +44,12 @@ public class BaseChamberEnder : MonoBehaviour
         audioSource.playOnAwake = false;
     }
 
-    private void Start()
+    protected void Start()
     {
         AddLightControllerListener();
     }
 
-    private void AddAlarmListeners()
+    protected void AddAlarmListeners()
     {
         AlarmLight alarm = transform.parent.GetComponentInChildren<AlarmLight>();
 
@@ -61,7 +59,7 @@ public class BaseChamberEnder : MonoBehaviour
         }
     }
 
-    private void AddLightControllerListener()
+    protected void AddLightControllerListener()
     {
         Level level = GetComponentInParent<Level>();
 
@@ -90,7 +88,7 @@ public class BaseChamberEnder : MonoBehaviour
         }
     }
 
-    void Update()
+    protected void Update()
     {
         if (!enemyController.EnemyRemained())
         {

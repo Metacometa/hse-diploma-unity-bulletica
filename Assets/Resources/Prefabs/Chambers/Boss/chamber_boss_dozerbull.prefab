@@ -6693,8 +6693,8 @@ MonoBehaviour:
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0.0018310547, y: 0.001914978, z: 0}
-      m_Extent: {x: 25.001831, y: 22.001915, z: 0}
+      m_Center: {x: 0.0018310547, y: 11.501915, z: 0}
+      m_Extent: {x: 25.001831, y: 10.501915, z: 0}
     m_EdgeProcessing: 1
     m_TrimEdge: 0
     m_FlipX: 0
@@ -30449,9 +30449,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6915137461829026559}
-  - component: {fileID: 825273594664950109}
+  - component: {fileID: 8984261435458866294}
   m_Layer: 0
-  m_Name: ChamberEnder
+  m_Name: BossChamberEnder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30472,7 +30472,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7751098408420409282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &825273594664950109
+--- !u!114 &8984261435458866294
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30481,7 +30481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6014523835727517508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204a1284af5211544abb9507644d023e, type: 3}
+  m_Script: {fileID: 11500000, guid: b64378e77c3ceab4db35a37e350e9075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
@@ -30489,6 +30489,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   audioSource: {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!1 &6383519528967354098
 GameObject:
   m_ObjectHideFlags: 0

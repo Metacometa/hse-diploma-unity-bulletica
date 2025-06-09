@@ -9,6 +9,8 @@ public class PlayerDeath : BaseDeath
 
     private Component[] componentsToOff;
 
+    protected MusicManager musicManager;
+
     void Awake()
     {
         uiManager = GameObject.FindGameObjectWithTag("Failure Screen")?.GetComponentInChildren<UIScreenManager>();
@@ -26,6 +28,11 @@ public class PlayerDeath : BaseDeath
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = musicManager.soundParameters.playerDeath;
         audioSource.playOnAwake = false;
+
+
+        ////
+        musicManager = GetComponentInParent<MusicManager>();
+        playerDeathEvent.AddListener(musicManager.PlayLosePlaylist);
     }
 
     public override void Die(GameObject gameObject)

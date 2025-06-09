@@ -72,6 +72,9 @@ public class MusicManager : MonoBehaviour
     public void StartToPlayMenuMusic()
     {
         playlist = menuPlaylist;
+
+        StopLocalCoroutines();
+
         playlist.SwitchToStartTrack();
         playlist.Play(audioSource);
 
@@ -84,7 +87,7 @@ public class MusicManager : MonoBehaviour
 
         //Debug.Log("Kek: " + audioSource.en)
         //Debug.Log($"Time: { TrackUtils.CurrentTrackTime(audioSource) }");
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && playlist)
         {
             playlist.SwitchToNextTrack();
             playlist.Play(audioSource);
@@ -132,6 +135,34 @@ public class MusicManager : MonoBehaviour
 
         StopLocalCoroutines();
         fadingCoroutine = StartCoroutine(FadingCoroutine(ambientPlaylist));
+
+        trackSwitcherCounter = 0;
+    }
+
+    public void PlayWinPlaylist()
+    {
+        if (!playlist) { return; }
+        //trackSwitcherCounter++;
+
+        StopLocalCoroutines();
+        playlist.Stop(audioSource);
+        playlist = null;
+        audioSource.clip = null;
+        //fadingCoroutine = StartCoroutine(FadingCoroutine(ambientPlaylist));
+
+        trackSwitcherCounter = 0;
+    }
+
+    public void PlayLosePlaylist()
+    {
+        if (!playlist) { return; }
+        //trackSwitcherCounter++;
+
+        StopLocalCoroutines();
+        playlist.Stop(audioSource);
+        playlist = null;
+        audioSource.clip = null;
+        //fadingCoroutine = StartCoroutine(FadingCoroutine(ambientPlaylist));
 
         trackSwitcherCounter = 0;
     }
