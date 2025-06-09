@@ -37,7 +37,6 @@ public class HealthPointItem : MonoBehaviour
 
         float distance = Vector3.Distance(target.position, transform.position);
 
-        Debug.Log($"Distance: {distance}");
         if (playerInjured && distance <= distanceToReact)
         {
             rb.linearVelocity = CalculateDir(transform.position, target.position) * speedToPlayer;

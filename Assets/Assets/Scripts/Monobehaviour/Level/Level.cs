@@ -15,6 +15,9 @@ public class Level : MonoBehaviour
     //public NavigationCollect
 
     public bool onAlarm;
+
+    private Player player;
+
     void Awake()
     {
         music = GetComponent<MusicManager>();
@@ -24,6 +27,8 @@ public class Level : MonoBehaviour
         surface = GetComponentInChildren<NavMeshSurface>();
         //Debug.Log("Level.Awake() called in " + gameObject.scene.name);
 
+        player = GetComponentInChildren<Player>();
+
         onAlarm = false;
 
         //Pitch
@@ -31,6 +36,8 @@ public class Level : MonoBehaviour
         music.soundParameters.onStartSoundPitch = startPitch;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -52,9 +59,7 @@ public class Level : MonoBehaviour
 
         StartCoroutine(BuildLevel());
 
-        //Debug.Log("Level.Start() called in " + gameObject.scene.name);
         foreach (Chamber chamber in GetComponentsInChildren<Chamber>())
-
         {
             chamber.transform.GetComponentInChildren<DoorsController>().OpenDoors();
         }
@@ -81,6 +86,8 @@ public class Level : MonoBehaviour
         {
             camera.GetComponent<CinemachineBrain>().enabled = true;
         }
+
+        player.SetStartPosition();
     }
 
     void RegenerateCompositeCollider2Ds()

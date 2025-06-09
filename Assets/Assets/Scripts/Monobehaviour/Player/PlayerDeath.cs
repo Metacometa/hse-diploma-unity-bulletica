@@ -25,6 +25,7 @@ public class PlayerDeath : BaseDeath
 
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = musicManager.soundParameters.playerDeath;
+        audioSource.playOnAwake = false;
     }
 
     public override void Die(GameObject gameObject)

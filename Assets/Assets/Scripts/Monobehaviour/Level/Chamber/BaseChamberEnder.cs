@@ -43,6 +43,7 @@ public class BaseChamberEnder : MonoBehaviour
         //Create audio source
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = musicManager.soundParameters.chamberEndClip;
+        audioSource.playOnAwake = false;
     }
 
     private void Start()

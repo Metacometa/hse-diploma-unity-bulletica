@@ -56,6 +56,7 @@ public class BaseChamberStarter : MonoBehaviour
         //Create audio source
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = musicManager.soundParameters.chamberStartClip;
+        audioSource.playOnAwake = false;
     }
 
     protected virtual void Start()
@@ -107,6 +108,7 @@ public class BaseChamberStarter : MonoBehaviour
     {
         if (audioSource && musicManager)
         {
+            Debug.Log($"OnStartSound: {gameObject.name}");
             audioSource.volume = musicManager.soundParameters.volume;
 
             audioSource.pitch = musicManager.soundParameters.onStartSoundPitch;

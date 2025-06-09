@@ -15,6 +15,7 @@ public class BaseDeath : MonoBehaviour, IDeathable
 
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = musicManager.soundParameters.enemyDeath;
+        audioSource.playOnAwake = false;
     }
 
     public virtual void Die(GameObject gameObject)

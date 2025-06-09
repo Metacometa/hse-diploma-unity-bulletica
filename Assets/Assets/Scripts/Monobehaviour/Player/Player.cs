@@ -28,6 +28,11 @@ public class Player : Gunman
         playerHealth = GetComponent<PlayerHealth>();
     }
 
+    public void SetStartPosition()
+    {
+        transform.position = new Vector3(0, 0, transform.position.z);
+    }
+
     protected override void FixedUpdate()
     {
         /*        if (!health.isLostControl)

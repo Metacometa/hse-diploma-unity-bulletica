@@ -15,7 +15,7 @@ MonoBehaviour:
   volume: 0.897
   musicVolume: 0.59
   onStartSoundStartPitch: 1.5
-  onStartSoundPitch: 2.7999992
+  onStartSoundPitch: 1.5
   onStartSoundPitchDiff: 0.1
   chamberStartClip: {fileID: 8300000, guid: 8e4d0ff1dc4b7804cb1f71e1756c07e0, type: 3}
   chamberEndClip: {fileID: 8300000, guid: f8ec3705a21d8bf45a7a60f2cfc823fe, type: 3}
