@@ -81,24 +81,33 @@ public class Player : Gunman
             rotator.StopRotate();
         }
 
-        /*        if (!shooting.onAttack)
-                {
-                    if (shooting.IsMagazineEmpty())
-                    {
-                        if (!shooting.onReload)
-                        {
-                            shooting.ReloadManager();
-                        }
+/*        if (shooting.IsMagazineEmpty())
+        {
+            shooting.ReloadManager();
+        }
+        else
+        {
+            shooting.ShootingManager();
+        }*/
 
-                    }
-                    else
-                    {
-                        if (!shooting.onCooldown && !shooting.onReload)
-                        {
-                            //StartCoroutine(gun.ShootManager());
-                        }
-                    }
-                }*/
+/*        if (!shooting.OnCooldown())
+        {
+            if (shooting.IsMagazineEmpty())
+            {
+                if (!shooting.onReload)
+                {
+                    shooting.ReloadManager();
+                }
+            }
+            else
+            {
+                if (!shooting.onCooldown && !shooting.onReload)
+                {
+
+                    //StartCoroutine(gun.ShootManager());
+                }
+            }
+        }*/
 
     }
 
@@ -111,10 +120,20 @@ public class Player : Gunman
 
         input.UpdateInput();
 
-        if (input.onAttackButton && !shooting.OnCooldown() && !shooting.OnAttack())
+        if (shooting.IsMagazineEmpty())
+        {
+            if (!shooting.OnReload())
+            {
+                shooting.ReloadManager();
+            }
+        }
+        else if (input.onAttackButton && 
+            !shooting.OnCooldown() && !shooting.OnAttack() && !shooting.OnReload())
         {
             shooting.ShootingManager();
         }
+
+
     }
 
     protected override void OnCollisionStay2D(Collision2D collision)

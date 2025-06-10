@@ -9,8 +9,6 @@ public class PlayerDeath : BaseDeath
 
     private Component[] componentsToOff;
 
-    protected MusicManager musicManager;
-
     void Awake()
     {
         uiManager = GameObject.FindGameObjectWithTag("Failure Screen")?.GetComponentInChildren<UIScreenManager>();
