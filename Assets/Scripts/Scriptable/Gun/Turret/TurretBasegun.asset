@@ -15,7 +15,7 @@ MonoBehaviour:
   weapon_name: TurretBase
   gun_object: {fileID: 8108018042923758592, guid: 3d201bb4cbcf4d0409228e66f570f0f2, type: 3}
   bulletObject: {fileID: 8383260018039565768, guid: beb52892223c6ed498e68be5b86b1054, type: 3}
-  reloadSpeed: 4
+  reloadSpeed: 2.5
   rotationSpeed: 50
   aimingSpeed: 0.05
   attackExiting: 0.1

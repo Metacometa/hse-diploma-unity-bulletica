@@ -23,7 +23,7 @@ MonoBehaviour:
   gunRotationSpeed: 40
   gunRotateCooldown: 0.001
   tankRotateCooldown: 0.01
-  health: 30
+  health: 50
   invincibilityTime: 0.2
   targetTag: Player
   sightMask:
