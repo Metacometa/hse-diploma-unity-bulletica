@@ -39,8 +39,13 @@ public class DozerBull : Boss
                 break;
             case MotionState.Breakthrough:
                 breakthrough.Breakthrough();
-                rotator.Rotate(rb.linearVelocity.normalized);
-                rotator.RotateGun(rb.linearVelocity.normalized);
+
+                if (rb.linearVelocity != Vector2.zero)
+                {
+                    rotator.Rotate(rb.linearVelocity.normalized);
+                    rotator.RotateGun(rb.linearVelocity.normalized);
+                }
+
                 break;
             case MotionState.Push:
                 dozerMove.Push();

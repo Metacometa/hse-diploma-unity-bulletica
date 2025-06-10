@@ -146,6 +146,16 @@ public class Player : Gunman
         }
     }
 
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (invincibility.invincible) { return; }
+
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            CollisionDamage(collision.collider);
+        }
+    }
+
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (invincibility.invincible) { return; }

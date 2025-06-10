@@ -31,6 +31,11 @@ public class GunAnimator : MonoBehaviour
         elapsedTime += Time.deltaTime;
 
         float speed = elapsedTime / duration;
+        if (duration == 0)
+        {
+            speed = 1;
+        }
+
 
         if (onPulling ^ reversedDirections)
         {

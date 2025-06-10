@@ -109,10 +109,7 @@ public class DozerBullBreakthrough : MonoBehaviour
         onBreakthrough = true;
         noShooting = true;
 
-        //DrainGuns();
-
-        //dir = (target.position() - transform.position).normalized;
-
+        rb.linearVelocity = Vector2.zero;
 
         yield return new WaitForSeconds(1f);
         dir = (target.PredictedPosition() - transform.position).normalized;
@@ -123,6 +120,8 @@ public class DozerBullBreakthrough : MonoBehaviour
 
     private IEnumerator BreakthroughCooldown()
     {
+        rb.linearVelocity = Vector2.zero;
+
         onCooldown = true;
         noShooting = false;
 

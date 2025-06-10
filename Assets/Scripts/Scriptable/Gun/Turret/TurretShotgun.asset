@@ -15,13 +15,13 @@ MonoBehaviour:
   weapon_name: TurretShotgun
   gun_object: {fileID: 8108018042923758592, guid: 4c7efd9562e5512499db11f822fc77c8, type: 3}
   bulletObject: {fileID: 8383260018039565768, guid: 1b148e9a92283134e9d269a7d84f0f04, type: 3}
-  reloadSpeed: 1
+  reloadSpeed: 4
   rotationSpeed: 1000
   aimingSpeed: 0.15
   attackExiting: 0.15
   cooldown: 0.75
   maxSpreadAngle: 0
-  shots: 3
+  shots: 8
   bullets:
   - angle: 70
   - angle: 45
